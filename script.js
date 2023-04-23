@@ -12,9 +12,38 @@ let batter = [
     "村上"
 ]
 
+let runner = [
+    "ランナーなし",
+    "ランナー1塁",
+    "ランナー2塁",
+    "ランナー3塁",
+    "ランナー1・2塁",
+    "ランナー1・3塁",
+    "ランナー2・3塁",
+    "ランナー満塁"
+]
+
+let score = [
+    "0点",
+    "1点",
+    "2点",
+    "3点",
+    "4点",
+    "5点",
+    "6点",
+    "7点",
+    "8点",
+    "9点",
+    "10点"
+]
+
+let scoreShowing = document.getElementById("score-showing")
+let runnerShowing = document.getElementById("runner-showing")
 let hitButton = document.getElementById("hit-button");
 let batterShowing = document.getElementById("batter-showing")
+let runnercurrentIndex = 0;
 let battercurrentIndex = 0;
+let scorecurrentIndex = 0;
 hitButton.addEventListener("click", () => {
     battercurrentIndex = (battercurrentIndex + 1) % batter.length;
     batterShowing.innerHTML = batter[battercurrentIndex];
@@ -22,7 +51,196 @@ hitButton.addEventListener("click", () => {
     strikeShowing.innerHTML = strike[strikecurrentIndex];
     ballcurrentIndex = 0
     ballShowing.innerHTML = ball[ballcurrentIndex];
+
+    if (runnercurrentIndex === 0) {
+        runnercurrentIndex = 1;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 1) {
+        runnercurrentIndex = 4;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 2) {
+        runnercurrentIndex = 5;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 3) {
+        runnercurrentIndex = 1;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 4) {
+        runnercurrentIndex = 7;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 5) {
+        runnercurrentIndex = 4;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 6) {
+        runnercurrentIndex = 5;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 7) {
+        runnercurrentIndex = 7;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    }
 });
+
+
+let twobasehitButton = document.getElementById("two-base-hit-button");
+twobasehitButton.addEventListener("click", () => {
+    battercurrentIndex = (battercurrentIndex + 1) % batter.length;
+    batterShowing.innerHTML = batter[battercurrentIndex];
+    strikecurrentIndex = 0
+    strikeShowing.innerHTML = strike[strikecurrentIndex];
+    ballcurrentIndex = 0
+    ballShowing.innerHTML = ball[ballcurrentIndex];
+
+    if (runnercurrentIndex === 0) {
+        runnercurrentIndex = 2;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 1) {
+        runnercurrentIndex = 5;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 2) {
+        runnercurrentIndex = 2;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 3) {
+        runnercurrentIndex = 2;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 4) {
+        runnercurrentIndex = 6;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 5) {
+        runnercurrentIndex = 6;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 6) {
+        runnercurrentIndex = 2;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 2) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 7) {
+        runnercurrentIndex = 6;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 2) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    }
+});
+
+
+let threebasehitButton = document.getElementById("three-base-hit-button");
+threebasehitButton.addEventListener("click", () => {
+    battercurrentIndex = (battercurrentIndex + 1) % batter.length;
+    batterShowing.innerHTML = batter[battercurrentIndex];
+    strikecurrentIndex = 0
+    strikeShowing.innerHTML = strike[strikecurrentIndex];
+    ballcurrentIndex = 0
+    ballShowing.innerHTML = ball[ballcurrentIndex];
+
+    if (runnercurrentIndex === 0) {
+        runnercurrentIndex = 3;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 1) {
+        runnercurrentIndex = 3;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 2) {
+        runnercurrentIndex = 3;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 3) {
+        runnercurrentIndex = 3;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 4) {
+        runnercurrentIndex = 3;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 2) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 5) {
+        runnercurrentIndex = 3;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 2) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 6) {
+        runnercurrentIndex = 3;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 2) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 7) {
+        runnercurrentIndex = 3;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 3) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    }
+});
+
+
+let homerunButton = document.getElementById("homerun-button");
+homerunButton.addEventListener("click", () => {
+    battercurrentIndex = (battercurrentIndex + 1) % batter.length;
+    batterShowing.innerHTML = batter[battercurrentIndex];
+    strikecurrentIndex = 0
+    strikeShowing.innerHTML = strike[strikecurrentIndex];
+    ballcurrentIndex = 0
+    ballShowing.innerHTML = ball[ballcurrentIndex];
+
+    if (runnercurrentIndex === 0) {
+        runnercurrentIndex = 0;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 1) {
+        runnercurrentIndex = 0;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 2) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 2) {
+        runnercurrentIndex = 0;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 2) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 3) {
+        runnercurrentIndex = 0;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 2) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 4) {
+        runnercurrentIndex = 0;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 3) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 5) {
+        runnercurrentIndex = 0;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 3) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 6) {
+        runnercurrentIndex = 0;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 3) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 7) {
+        runnercurrentIndex = 0;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 4) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    }
+});
+
+
 
 let out = [
     "0アウト",
@@ -46,6 +264,8 @@ outButton.addEventListener("click", () => {
     if (outcurrentIndex === 0) {
         inningcurrentIndex = (inningcurrentIndex + 1) % inning.length;
         inningShowing.innerHTML = inning[inningcurrentIndex];
+        runnercurrentIndex = 0
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
     }
 });
 
@@ -100,6 +320,7 @@ ballButton.addEventListener("click", () => {
     }
 });
 
+
 let inning = [
     "1回",
     "2回",
@@ -115,6 +336,12 @@ let inning = [
 let inningShowing = document.getElementById("inning-showing")
 let inningcurrentIndex = 0;
 
+
+let scoreresetButton = document.getElementById("score-reset-button");
+scoreresetButton.addEventListener("click", () => {
+    scorecurrentIndex = 0;
+    scoreShowing.innerHTML = score[scorecurrentIndex];
+});
 
 localStorage.removeItem("batterText")
 if (localStorage.getItem("batterText") == null) {

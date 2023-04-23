@@ -1,5 +1,6 @@
 console.log("aiu")
 
+
 let batter = [
     "近本",
     "中野",
@@ -10,6 +11,37 @@ let batter = [
     "梅野",
     "木浪",
     "村上"
+]
+
+let inning = [
+    "1回",
+    "2回",
+    "3回",
+    "4回",
+    "5回",
+    "6回",
+    "7回",
+    "8回",
+    "9回",
+]
+
+let strike = [
+    "0ストライク",
+    "1ストライク",
+    "2ストライク",
+]
+
+let ball = [
+    "0ボール",
+    "1ボール",
+    "2ボール",
+    "3ボール"
+]
+
+let out = [
+    "0アウト",
+    "1アウト",
+    "2アウト",
 ]
 
 let runner = [
@@ -37,45 +69,22 @@ let score = [
     "10点"
 ]
 
-let out = [
-    "0アウト",
-    "1アウト",
-    "2アウト",
-]
-
-let strike = [
-    "0ストライク",
-    "1ストライク",
-    "2ストライク",
-]
-
-let ball = [
-    "0ボール",
-    "1ボール",
-    "2ボール",
-    "3ボール"
-]
-
-let inning = [
-    "1回",
-    "2回",
-    "3回",
-    "4回",
-    "5回",
-    "6回",
-    "7回",
-    "8回",
-    "9回",
-]
-
-
-let scoreShowing = document.getElementById("score-showing")
-let runnerShowing = document.getElementById("runner-showing")
-let hitButton = document.getElementById("hit-button");
 let batterShowing = document.getElementById("batter-showing")
-let runnercurrentIndex = 0;
 let battercurrentIndex = 0;
+let inningShowing = document.getElementById("inning-showing")
+let inningcurrentIndex = 0;
+let strikeShowing = document.getElementById("strike-showing")
+let strikecurrentIndex = 0;
+let ballShowing = document.getElementById("ball-showing")
+let ballcurrentIndex = 0;
+let outShowing = document.getElementById("out-showing")
+let outcurrentIndex = 0;
+let runnerShowing = document.getElementById("runner-showing")
+let runnercurrentIndex = 0;
+let scoreShowing = document.getElementById("score-showing")
 let scorecurrentIndex = 0;
+
+let hitButton = document.getElementById("hit-button");
 hitButton.addEventListener("click", () => {
     battercurrentIndex = (battercurrentIndex + 1) % batter.length;
     batterShowing.innerHTML = batter[battercurrentIndex];
@@ -272,29 +281,6 @@ homerunButton.addEventListener("click", () => {
     }
 });
 
-let outShowing = document.getElementById("out-showing")
-let outcurrentIndex = 0;
-let outButton = document.getElementById("out-button");
-outButton.addEventListener("click", () => {
-    battercurrentIndex = (battercurrentIndex + 1) % batter.length; 
-    batterShowing.innerHTML = batter[battercurrentIndex];
-    outcurrentIndex = (outcurrentIndex + 1) % out.length;
-    outShowing.innerHTML = out[outcurrentIndex];
-    strikecurrentIndex = 0
-    strikeShowing.innerHTML = strike[strikecurrentIndex];
-    ballcurrentIndex = 0
-    ballShowing.innerHTML = ball[ballcurrentIndex];
-
-    if (outcurrentIndex === 0) {
-        inningcurrentIndex = (inningcurrentIndex + 1) % inning.length;
-        inningShowing.innerHTML = inning[inningcurrentIndex];
-        runnercurrentIndex = 0
-        runnerShowing.innerHTML = runner[runnercurrentIndex];
-    }
-});
-
-let strikeShowing = document.getElementById("strike-showing")
-let strikecurrentIndex = 0;
 let strikeButton = document.getElementById("strike-button");
 strikeButton.addEventListener("click", () => {
     strikecurrentIndex = (strikecurrentIndex + 1) % strike.length;
@@ -315,8 +301,6 @@ strikeButton.addEventListener("click", () => {
     }
 });
 
-let ballShowing = document.getElementById("ball-showing")
-let ballcurrentIndex = 0;
 let ballButton = document.getElementById("ball-button");
 ballButton.addEventListener("click", () => {
     ballcurrentIndex = (ballcurrentIndex + 1) % ball.length;
@@ -327,12 +311,61 @@ ballButton.addEventListener("click", () => {
         batterShowing.innerHTML = batter[battercurrentIndex];
         strikecurrentIndex = 0
         strikeShowing.innerHTML = strike[strikecurrentIndex];
+
+        if (runnercurrentIndex === 0) {
+            runnercurrentIndex = 1;
+            runnerShowing.innerHTML = runner[runnercurrentIndex];
+        } else if (runnercurrentIndex === 1) {
+            runnercurrentIndex = 4;
+            runnerShowing.innerHTML = runner[runnercurrentIndex];
+        } else if (runnercurrentIndex === 2) {
+            runnercurrentIndex = 5;
+            runnerShowing.innerHTML = runner[runnercurrentIndex];
+        } else if (runnercurrentIndex === 3) {
+            runnercurrentIndex = 1;
+            runnerShowing.innerHTML = runner[runnercurrentIndex];
+            scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+            scoreShowing.innerHTML = score[scorecurrentIndex];
+        } else if (runnercurrentIndex === 4) {
+            runnercurrentIndex = 7;
+            runnerShowing.innerHTML = runner[runnercurrentIndex];
+        } else if (runnercurrentIndex === 5) {
+            runnercurrentIndex = 4;
+            runnerShowing.innerHTML = runner[runnercurrentIndex];
+            scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+            scoreShowing.innerHTML = score[scorecurrentIndex];
+        } else if (runnercurrentIndex === 6) {
+            runnercurrentIndex = 5;
+            runnerShowing.innerHTML = runner[runnercurrentIndex];
+            scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+            scoreShowing.innerHTML = score[scorecurrentIndex];
+        } else if (runnercurrentIndex === 7) {
+            runnercurrentIndex = 7;
+            runnerShowing.innerHTML = runner[runnercurrentIndex];
+            scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+            scoreShowing.innerHTML = score[scorecurrentIndex];
+        }
     }
 });
 
-let inningShowing = document.getElementById("inning-showing")
-let inningcurrentIndex = 0;
+let outButton = document.getElementById("out-button");
+outButton.addEventListener("click", () => {
+    battercurrentIndex = (battercurrentIndex + 1) % batter.length; 
+    batterShowing.innerHTML = batter[battercurrentIndex];
+    outcurrentIndex = (outcurrentIndex + 1) % out.length;
+    outShowing.innerHTML = out[outcurrentIndex];
+    strikecurrentIndex = 0
+    strikeShowing.innerHTML = strike[strikecurrentIndex];
+    ballcurrentIndex = 0
+    ballShowing.innerHTML = ball[ballcurrentIndex];
 
+    if (outcurrentIndex === 0) {
+        inningcurrentIndex = (inningcurrentIndex + 1) % inning.length;
+        inningShowing.innerHTML = inning[inningcurrentIndex];
+        runnercurrentIndex = 0
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    }
+});
 
 let scoreresetButton = document.getElementById("score-reset-button");
 scoreresetButton.addEventListener("click", () => {

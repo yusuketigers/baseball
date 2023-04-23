@@ -37,6 +37,38 @@ let score = [
     "10点"
 ]
 
+let out = [
+    "0アウト",
+    "1アウト",
+    "2アウト",
+]
+
+let strike = [
+    "0ストライク",
+    "1ストライク",
+    "2ストライク",
+]
+
+let ball = [
+    "0ボール",
+    "1ボール",
+    "2ボール",
+    "3ボール"
+]
+
+let inning = [
+    "1回",
+    "2回",
+    "3回",
+    "4回",
+    "5回",
+    "6回",
+    "7回",
+    "8回",
+    "9回",
+]
+
+
 let scoreShowing = document.getElementById("score-showing")
 let runnerShowing = document.getElementById("runner-showing")
 let hitButton = document.getElementById("hit-button");
@@ -240,14 +272,6 @@ homerunButton.addEventListener("click", () => {
     }
 });
 
-
-
-let out = [
-    "0アウト",
-    "1アウト",
-    "2アウト",
-]
-
 let outShowing = document.getElementById("out-showing")
 let outcurrentIndex = 0;
 let outButton = document.getElementById("out-button");
@@ -268,12 +292,6 @@ outButton.addEventListener("click", () => {
         runnerShowing.innerHTML = runner[runnercurrentIndex];
     }
 });
-
-let strike = [
-    "0ストライク",
-    "1ストライク",
-    "2ストライク",
-]
 
 let strikeShowing = document.getElementById("strike-showing")
 let strikecurrentIndex = 0;
@@ -297,14 +315,6 @@ strikeButton.addEventListener("click", () => {
     }
 });
 
-
-let ball = [
-    "0ボール",
-    "1ボール",
-    "2ボール",
-    "3ボール"
-]
-
 let ballShowing = document.getElementById("ball-showing")
 let ballcurrentIndex = 0;
 let ballButton = document.getElementById("ball-button");
@@ -319,19 +329,6 @@ ballButton.addEventListener("click", () => {
         strikeShowing.innerHTML = strike[strikecurrentIndex];
     }
 });
-
-
-let inning = [
-    "1回",
-    "2回",
-    "3回",
-    "4回",
-    "5回",
-    "6回",
-    "7回",
-    "8回",
-    "9回",
-]
 
 let inningShowing = document.getElementById("inning-showing")
 let inningcurrentIndex = 0;

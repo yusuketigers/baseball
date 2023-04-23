@@ -69,6 +69,10 @@ let score = [
     "10点"
 ]
 
+let progress = [
+    "-"
+]
+
 let batterShowing = document.getElementById("batter-showing")
 let battercurrentIndex = 0;
 let inningShowing = document.getElementById("inning-showing")
@@ -285,6 +289,21 @@ let strikeButton = document.getElementById("strike-button");
 strikeButton.addEventListener("click", () => {
     strikecurrentIndex = (strikecurrentIndex + 1) % strike.length;
     strikeShowing.innerHTML = strike[strikecurrentIndex];
+
+    if (strikecurrentIndex === 1) {
+        let progressText = localStorage.getItem("progressText")
+        progressText += ",1ストライク"
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
+    }
+    if (strikecurrentIndex === 2) {
+        let progressText = localStorage.getItem("progressText")
+        progressText += ",2ストライク"
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
+    }
     
     if (strikecurrentIndex === 0) {
         outcurrentIndex = (outcurrentIndex + 1) % out.length;
@@ -294,23 +313,100 @@ strikeButton.addEventListener("click", () => {
         ballcurrentIndex = 0
         ballShowing.innerHTML = ball[ballcurrentIndex];
 
-    if (outcurrentIndex === 0) {
-        inningcurrentIndex = (inningcurrentIndex + 1) % inning.length;
-        inningShowing.innerHTML = inning[inningcurrentIndex];
+        if (outcurrentIndex === 1) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",三振1アウト"
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        }
+
+        if (outcurrentIndex === 2) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",三振2アウト"
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        }
+
+        if (outcurrentIndex === 0) {
+            inningcurrentIndex = (inningcurrentIndex + 1) % inning.length;
+            inningShowing.innerHTML = inning[inningcurrentIndex];
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",三振3アウトチェンジ"
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        }
     }
-    }
+});
+
+let foulButton = document.getElementById("foul-button");
+foulButton.addEventListener("click", () => {
+    
+    if (strikecurrentIndex === 0) {
+        strikecurrentIndex = (strikecurrentIndex + 1) % strike.length;
+        strikeShowing.innerHTML = strike[strikecurrentIndex];
+        let progressText = localStorage.getItem("progressText")
+        progressText += ",ファール1ストライク"
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
+    } else if (strikecurrentIndex === 1) {
+        strikecurrentIndex = (strikecurrentIndex + 1) % strike.length;
+        strikeShowing.innerHTML = strike[strikecurrentIndex];
+    let progressText = localStorage.getItem("progressText")
+        progressText += ",ファール2ストライク"
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
+    } else if (strikecurrentIndex === 2) {
+        let progressText = localStorage.getItem("progressText")
+        progressText += ",ファール2ストライク"
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
+    } 
+    
 });
 
 let ballButton = document.getElementById("ball-button");
 ballButton.addEventListener("click", () => {
     ballcurrentIndex = (ballcurrentIndex + 1) % ball.length;
     ballShowing.innerHTML = ball[ballcurrentIndex];
+
+    if (ballcurrentIndex === 1) {
+        let progressText = localStorage.getItem("progressText")
+        progressText += ",1ボール"
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
+    }
+    if (ballcurrentIndex === 2) {
+        let progressText = localStorage.getItem("progressText")
+        progressText += ",2ボール"
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
+    }
+    if (ballcurrentIndex === 3) {
+        let progressText = localStorage.getItem("progressText")
+        progressText += ",3ボール"
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
+    }
     
     if (ballcurrentIndex === 0) {
         battercurrentIndex = (battercurrentIndex + 1) % batter.length;
         batterShowing.innerHTML = batter[battercurrentIndex];
         strikecurrentIndex = 0
         strikeShowing.innerHTML = strike[strikecurrentIndex];
+        let progressText = localStorage.getItem("progressText")
+        progressText += ",フォアボール"
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
 
         if (runnercurrentIndex === 0) {
             runnercurrentIndex = 1;
@@ -348,6 +444,82 @@ ballButton.addEventListener("click", () => {
     }
 });
 
+let deadballButton = document.getElementById("dead-ball-button");
+deadballButton.addEventListener("click", () => {
+    battercurrentIndex = (battercurrentIndex + 1) % batter.length;
+    batterShowing.innerHTML = batter[battercurrentIndex];
+    strikecurrentIndex = 0
+    strikeShowing.innerHTML = strike[strikecurrentIndex];
+    ballcurrentIndex = 0
+    ballShowing.innerHTML = ball[ballcurrentIndex];
+
+    if (runnercurrentIndex === 0) {
+        runnercurrentIndex = 1;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 1) {
+        runnercurrentIndex = 4;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 2) {
+        runnercurrentIndex = 4;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 3) {
+        runnercurrentIndex = 5;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 4) {
+        runnercurrentIndex = 7;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 5) {
+        runnercurrentIndex = 7;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 6) {
+        runnercurrentIndex = 7;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 7) {
+        runnercurrentIndex = 7;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    }
+});
+
+let walkButton = document.getElementById("walk-button");
+walkButton.addEventListener("click", () => {
+    battercurrentIndex = (battercurrentIndex + 1) % batter.length;
+    batterShowing.innerHTML = batter[battercurrentIndex];
+    strikecurrentIndex = 0
+    strikeShowing.innerHTML = strike[strikecurrentIndex];
+    ballcurrentIndex = 0
+    ballShowing.innerHTML = ball[ballcurrentIndex];
+
+    if (runnercurrentIndex === 0) {
+        runnercurrentIndex = 1;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 1) {
+        runnercurrentIndex = 4;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 2) {
+        runnercurrentIndex = 4;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 3) {
+        runnercurrentIndex = 5;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 4) {
+        runnercurrentIndex = 7;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 5) {
+        runnercurrentIndex = 7;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 6) {
+        runnercurrentIndex = 7;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 7) {
+        runnercurrentIndex = 7;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    }
+});
+
 let outButton = document.getElementById("out-button");
 outButton.addEventListener("click", () => {
     battercurrentIndex = (battercurrentIndex + 1) % batter.length; 
@@ -359,11 +531,32 @@ outButton.addEventListener("click", () => {
     ballcurrentIndex = 0
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
+    if (outcurrentIndex === 1) {
+        let progressText = localStorage.getItem("progressText")
+        progressText += ",1アウト"
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
+    }
+
+    if (outcurrentIndex === 2) {
+        let progressText = localStorage.getItem("progressText")
+        progressText += ",2アウト"
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
+    }
+
     if (outcurrentIndex === 0) {
         inningcurrentIndex = (inningcurrentIndex + 1) % inning.length;
         inningShowing.innerHTML = inning[inningcurrentIndex];
         runnercurrentIndex = 0
         runnerShowing.innerHTML = runner[runnercurrentIndex];
+        let progressText = localStorage.getItem("progressText")
+        progressText += ",3アウトチェンジ"
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
     }
 });
 
@@ -388,7 +581,20 @@ removeAllButton.addEventListener("click", () => {
     showLocalStorage()
 })
 
+progressLocalStorage = localStorage
+progressLocalStorage.removeItem("progressText")
+if (progressLocalStorage.getItem("progressText") == null) {
+    progressLocalStorage.setItem("progressText", progress.toString())
+}
+
+showProgressLocalStorage()
+
 function showLocalStorage(){
     let ls = document.getElementById("local-storage")
     ls.innerHTML = localStorage.getItem("batterText")
+}
+
+function showProgressLocalStorage(){
+    let ls = document.getElementById("progress-local-storage")
+    ls.innerHTML = progressLocalStorage.getItem("progressText")
 }

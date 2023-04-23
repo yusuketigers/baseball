@@ -13,6 +13,18 @@ let batter = [
     "村上"
 ]
 
+let rival = [
+    "オコエ",
+    "吉川",
+    "丸",
+    "岡本",
+    "中田",
+    "大城",
+    "ブリンソン",
+    "中山",
+    "戸郷"
+]
+
 let inning = [
     "1回",
     "2回",
@@ -75,6 +87,8 @@ let progress = [
 
 let batterShowing = document.getElementById("batter-showing")
 let battercurrentIndex = 0;
+let rivalShowing = document.getElementById("rival-showing")
+let rivalcurrentIndex = 0;
 let inningShowing = document.getElementById("inning-showing")
 let inningcurrentIndex = 0;
 let strikeShowing = document.getElementById("strike-showing")
@@ -693,11 +707,23 @@ if (progressLocalStorage.getItem("progressText") == null) {
     progressLocalStorage.setItem("progressText", progress.toString())
 }
 
+rivalLocalStorage = localStorage
+rivalLocalStorage.removeItem("rivalText")
+if (rivalLocalStorage.getItem("rivalText") == null) {
+    rivalLocalStorage.setItem("rivalText", rival.toString())
+}
+
 showProgressLocalStorage()
+showRivalLocalStorage()
 
 function showLocalStorage(){
     let ls = document.getElementById("local-storage")
     ls.innerHTML = localStorage.getItem("batterText")
+}
+
+function showRivalLocalStorage(){
+    let ls = document.getElementById("rival-local-storage")
+    ls.innerHTML = localStorage.getItem("rivalText")
 }
 
 function showProgressLocalStorage(){

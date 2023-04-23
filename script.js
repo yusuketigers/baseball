@@ -70,7 +70,7 @@ let score = [
 ]
 
 let progress = [
-    "-"
+    "近本"
 ]
 
 let batterShowing = document.getElementById("batter-showing")
@@ -96,6 +96,11 @@ hitButton.addEventListener("click", () => {
     strikeShowing.innerHTML = strike[strikecurrentIndex];
     ballcurrentIndex = 0
     ballShowing.innerHTML = ball[ballcurrentIndex];
+    let progressText = localStorage.getItem("progressText")
+    progressText += ",ヒット" + "," + batterShowing.innerHTML
+    console.log(progressText)
+    localStorage.setItem("progressText", progressText)
+    showProgressLocalStorage()
 
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
@@ -141,6 +146,11 @@ twobasehitButton.addEventListener("click", () => {
     strikeShowing.innerHTML = strike[strikecurrentIndex];
     ballcurrentIndex = 0
     ballShowing.innerHTML = ball[ballcurrentIndex];
+    let progressText = localStorage.getItem("progressText")
+    progressText += ",ツーベースヒット" + "," + batterShowing.innerHTML
+    console.log(progressText)
+    localStorage.setItem("progressText", progressText)
+    showProgressLocalStorage()
 
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 2;
@@ -190,6 +200,11 @@ threebasehitButton.addEventListener("click", () => {
     strikeShowing.innerHTML = strike[strikecurrentIndex];
     ballcurrentIndex = 0
     ballShowing.innerHTML = ball[ballcurrentIndex];
+    let progressText = localStorage.getItem("progressText")
+    progressText += ",スリーベースヒット" + "," + batterShowing.innerHTML
+    console.log(progressText)
+    localStorage.setItem("progressText", progressText)
+    showProgressLocalStorage()
 
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 3;
@@ -247,41 +262,81 @@ homerunButton.addEventListener("click", () => {
         runnerShowing.innerHTML = runner[runnercurrentIndex];
         scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
         scoreShowing.innerHTML = score[scorecurrentIndex];
+        let progressText = localStorage.getItem("progressText")
+        progressText += ",ソロホームラン！" + "," + batterShowing.innerHTML
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
     } else if (runnercurrentIndex === 1) {
         runnercurrentIndex = 0;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
         scorecurrentIndex = (scorecurrentIndex + 2) % score.length;
         scoreShowing.innerHTML = score[scorecurrentIndex];
+        let progressText = localStorage.getItem("progressText")
+        progressText += ",ツーランホームラン！" + "," + batterShowing.innerHTML
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
     } else if (runnercurrentIndex === 2) {
         runnercurrentIndex = 0;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
         scorecurrentIndex = (scorecurrentIndex + 2) % score.length;
         scoreShowing.innerHTML = score[scorecurrentIndex];
+        let progressText = localStorage.getItem("progressText")
+        progressText += ",ツーランホームラン！" + "," + batterShowing.innerHTML
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
     } else if (runnercurrentIndex === 3) {
         runnercurrentIndex = 0;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
         scorecurrentIndex = (scorecurrentIndex + 2) % score.length;
         scoreShowing.innerHTML = score[scorecurrentIndex];
+        let progressText = localStorage.getItem("progressText")
+        progressText += ",ツーランホームラン！" + "," + batterShowing.innerHTML
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
     } else if (runnercurrentIndex === 4) {
         runnercurrentIndex = 0;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
         scorecurrentIndex = (scorecurrentIndex + 3) % score.length;
         scoreShowing.innerHTML = score[scorecurrentIndex];
+        let progressText = localStorage.getItem("progressText")
+        progressText += ",スリーランホームラン！" + "," + batterShowing.innerHTML
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
     } else if (runnercurrentIndex === 5) {
         runnercurrentIndex = 0;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
         scorecurrentIndex = (scorecurrentIndex + 3) % score.length;
         scoreShowing.innerHTML = score[scorecurrentIndex];
+        let progressText = localStorage.getItem("progressText")
+        progressText += ",スリーランホームラン！" + "," + batterShowing.innerHTML
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
     } else if (runnercurrentIndex === 6) {
         runnercurrentIndex = 0;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
         scorecurrentIndex = (scorecurrentIndex + 3) % score.length;
         scoreShowing.innerHTML = score[scorecurrentIndex];
+        let progressText = localStorage.getItem("progressText")
+        progressText += ",スリーランホームラン！" + "," + batterShowing.innerHTML
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
     } else if (runnercurrentIndex === 7) {
         runnercurrentIndex = 0;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
         scorecurrentIndex = (scorecurrentIndex + 4) % score.length;
         scoreShowing.innerHTML = score[scorecurrentIndex];
+        let progressText = localStorage.getItem("progressText")
+        progressText += ",満塁ホームラン！" + "," + batterShowing.innerHTML
+        console.log(progressText)
+        localStorage.setItem("progressText", progressText)
+        showProgressLocalStorage()
     }
 });
 
@@ -315,7 +370,7 @@ strikeButton.addEventListener("click", () => {
 
         if (outcurrentIndex === 1) {
             let progressText = localStorage.getItem("progressText")
-            progressText += ",三振1アウト"
+            progressText += ",三振1アウト" + "," + batterShowing.innerHTML
             console.log(progressText)
             localStorage.setItem("progressText", progressText)
             showProgressLocalStorage()
@@ -323,7 +378,7 @@ strikeButton.addEventListener("click", () => {
 
         if (outcurrentIndex === 2) {
             let progressText = localStorage.getItem("progressText")
-            progressText += ",三振2アウト"
+            progressText += ",三振2アウト" + "," + batterShowing.innerHTML
             console.log(progressText)
             localStorage.setItem("progressText", progressText)
             showProgressLocalStorage()
@@ -333,7 +388,7 @@ strikeButton.addEventListener("click", () => {
             inningcurrentIndex = (inningcurrentIndex + 1) % inning.length;
             inningShowing.innerHTML = inning[inningcurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",三振3アウトチェンジ"
+            progressText += ",三振3アウトチェンジ" + "," + batterShowing.innerHTML
             console.log(progressText)
             localStorage.setItem("progressText", progressText)
             showProgressLocalStorage()
@@ -355,7 +410,7 @@ foulButton.addEventListener("click", () => {
     } else if (strikecurrentIndex === 1) {
         strikecurrentIndex = (strikecurrentIndex + 1) % strike.length;
         strikeShowing.innerHTML = strike[strikecurrentIndex];
-    let progressText = localStorage.getItem("progressText")
+        let progressText = localStorage.getItem("progressText")
         progressText += ",ファール2ストライク"
         console.log(progressText)
         localStorage.setItem("progressText", progressText)
@@ -403,7 +458,7 @@ ballButton.addEventListener("click", () => {
         strikecurrentIndex = 0
         strikeShowing.innerHTML = strike[strikecurrentIndex];
         let progressText = localStorage.getItem("progressText")
-        progressText += ",フォアボール"
+        progressText += ",フォアボール" + "," + batterShowing.innerHTML
         console.log(progressText)
         localStorage.setItem("progressText", progressText)
         showProgressLocalStorage()
@@ -452,6 +507,11 @@ deadballButton.addEventListener("click", () => {
     strikeShowing.innerHTML = strike[strikecurrentIndex];
     ballcurrentIndex = 0
     ballShowing.innerHTML = ball[ballcurrentIndex];
+    let progressText = localStorage.getItem("progressText")
+    progressText += ",デッドボール" + "," + batterShowing.innerHTML
+    console.log(progressText)
+    localStorage.setItem("progressText", progressText)
+    showProgressLocalStorage()
 
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
@@ -490,6 +550,11 @@ walkButton.addEventListener("click", () => {
     strikeShowing.innerHTML = strike[strikecurrentIndex];
     ballcurrentIndex = 0
     ballShowing.innerHTML = ball[ballcurrentIndex];
+    let progressText = localStorage.getItem("progressText")
+    progressText += ",申告敬遠" + "," + batterShowing.innerHTML
+    console.log(progressText)
+    localStorage.setItem("progressText", progressText)
+    showProgressLocalStorage()
 
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
@@ -533,7 +598,7 @@ outButton.addEventListener("click", () => {
 
     if (outcurrentIndex === 1) {
         let progressText = localStorage.getItem("progressText")
-        progressText += ",1アウト"
+        progressText += ",1アウト" + "," + batterShowing.innerHTML
         console.log(progressText)
         localStorage.setItem("progressText", progressText)
         showProgressLocalStorage()
@@ -541,7 +606,7 @@ outButton.addEventListener("click", () => {
 
     if (outcurrentIndex === 2) {
         let progressText = localStorage.getItem("progressText")
-        progressText += ",2アウト"
+        progressText += ",2アウト" + "," + batterShowing.innerHTML
         console.log(progressText)
         localStorage.setItem("progressText", progressText)
         showProgressLocalStorage()
@@ -553,12 +618,53 @@ outButton.addEventListener("click", () => {
         runnercurrentIndex = 0
         runnerShowing.innerHTML = runner[runnercurrentIndex];
         let progressText = localStorage.getItem("progressText")
-        progressText += ",3アウトチェンジ"
+        progressText += ",3アウトチェンジ" + "," + batterShowing.innerHTML
         console.log(progressText)
         localStorage.setItem("progressText", progressText)
         showProgressLocalStorage()
     }
 });
+
+let stealButton = document.getElementById("steal-button");
+stealButton.addEventListener("click", () => {
+    let progressText = localStorage.getItem("progressText")
+    progressText += ",盗塁"
+    console.log(progressText)
+    localStorage.setItem("progressText", progressText)
+    showProgressLocalStorage()
+
+    if (runnercurrentIndex === 1) {
+        runnercurrentIndex = 2;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 2) {
+        runnercurrentIndex = 3;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 3) {
+        runnercurrentIndex = 0;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 4) {
+        runnercurrentIndex = 6;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+    } else if (runnercurrentIndex === 5) {
+        runnercurrentIndex = 2;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 6) {
+        runnercurrentIndex = 3;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    } else if (runnercurrentIndex === 7) {
+        runnercurrentIndex = 7;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+    }
+});
+
 
 let scoreresetButton = document.getElementById("score-reset-button");
 scoreresetButton.addEventListener("click", () => {

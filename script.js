@@ -118,13 +118,14 @@ let scorecurrentIndex = 0;
 
 let hitButton = document.getElementById("hit-button");
 hitButton.addEventListener("click", () => {
-    batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
-    batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
     strikecurrentIndex = 0
     strikeShowing.innerHTML = strike[strikecurrentIndex];
     ballcurrentIndex = 0
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
+    if (inningcurrentIndex % 2 === 0) {
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
+        batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -310,18 +311,208 @@ hitButton.addEventListener("click", () => {
             showProgressLocalStorage()
         }
     }
+    } else if (inningcurrentIndex % 2 === 1) {
+        fieldFirstcurrentIndex = (fieldFirstcurrentIndex + 1) % fieldFirst.length;
+        fieldFirstShowing.innerHTML = fieldFirst[fieldFirstcurrentIndex];
+    if (runnercurrentIndex === 0) {
+        runnercurrentIndex = 1;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        if (outcurrentIndex === 0) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 0アウト1塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 1) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 1アウト1塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 2) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 2アウト1塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        }
+    } else if (runnercurrentIndex === 1) {
+        runnercurrentIndex = 4;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        if (outcurrentIndex === 0) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 0アウト1,2塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 1) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 1アウト1,2塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 2) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 2アウト1,2塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        }
+    } else if (runnercurrentIndex === 2) {
+        runnercurrentIndex = 5;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        if (outcurrentIndex === 0) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 0アウト1,3塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 1) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 1アウト1,3塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 2) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 2アウト1,3塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        }
+    } else if (runnercurrentIndex === 3) {
+        runnercurrentIndex = 1;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+        if (outcurrentIndex === 0) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 1点 0アウト1塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 1) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 1点 1アウト1塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 2) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 1点 2アウト1塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        }
+    } else if (runnercurrentIndex === 4) {
+        runnercurrentIndex = 7;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        if (outcurrentIndex === 0) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 0アウト満塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 1) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 1アウト満塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 2) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 2アウト満塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        }
+    } else if (runnercurrentIndex === 5) {
+        runnercurrentIndex = 4;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+        if (outcurrentIndex === 0) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 1点 0アウト1,2塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 1) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 1点 1アウト1,2塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 2) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 1点 2アウト1,2塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        }
+    } else if (runnercurrentIndex === 6) {
+        runnercurrentIndex = 5;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+        if (outcurrentIndex === 0) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 1点 0アウト1,3塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 1) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 1点 1アウト1,3塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 2) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 1点 2アウト1,3塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        }
+    } else if (runnercurrentIndex === 7) {
+        runnercurrentIndex = 7;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+        if (outcurrentIndex === 0) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 1点 0アウト満塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 1) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 1点 1アウト満塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 2) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ヒット 1点 2アウト満塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        }
+    }
+    }
 });
 
 
 let twobasehitButton = document.getElementById("two-base-hit-button");
 twobasehitButton.addEventListener("click", () => {
-    batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
-    batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
     strikecurrentIndex = 0
     strikeShowing.innerHTML = strike[strikecurrentIndex];
     ballcurrentIndex = 0
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
+    if (inningcurrentIndex % 2 === 0) {
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
+        batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 2;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -510,6 +701,199 @@ twobasehitButton.addEventListener("click", () => {
             localStorage.setItem("progressText", progressText)
             showProgressLocalStorage()
         }
+    }
+    } else if (inningcurrentIndex % 2 === 1) {
+        fieldFirstcurrentIndex = (fieldFirstcurrentIndex + 1) % fieldFirst.length;
+        fieldFirstShowing.innerHTML = fieldFirst[fieldFirstcurrentIndex];
+    if (runnercurrentIndex === 0) {
+        runnercurrentIndex = 2;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        if (outcurrentIndex === 0) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 0アウト2塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 1) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 1アウト2塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 2) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 2アウト2塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        }
+    } else if (runnercurrentIndex === 1) {
+        runnercurrentIndex = 5;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        if (outcurrentIndex === 0) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 0アウト2,3塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 1) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 1アウト2,3塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 2) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 2アウト2,3塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        }
+    } else if (runnercurrentIndex === 2) {
+        runnercurrentIndex = 2;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+        if (outcurrentIndex === 0) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 1点 0アウト2塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 1) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 1点 1アウト2塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 2) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 1点 2アウト2塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        }
+    } else if (runnercurrentIndex === 3) {
+        runnercurrentIndex = 2;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+        if (outcurrentIndex === 0) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 1点 0アウト2塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 1) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 1点 1アウト2塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 2) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 1点 2アウト2塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        }
+    } else if (runnercurrentIndex === 4) {
+        runnercurrentIndex = 6;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+        if (outcurrentIndex === 0) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 1点 0アウト2,3塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 1) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 1点 1アウト2,3塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 2) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 1点 2アウト2,3塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        }
+    } else if (runnercurrentIndex === 5) {
+        runnercurrentIndex = 6;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 1) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+        if (outcurrentIndex === 0) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 1点 0アウト2,3塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 1) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 1点 1アウト2,3塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 2) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 1点 2アウト2,3塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        }
+    } else if (runnercurrentIndex === 6) {
+        runnercurrentIndex = 2;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 2) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+        if (outcurrentIndex === 0) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 2点 0アウト2塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 1) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 2点 1アウト2塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 2) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 2点 2アウト2塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        }
+    } else if (runnercurrentIndex === 7) {
+        runnercurrentIndex = 6;
+        runnerShowing.innerHTML = runner[runnercurrentIndex];
+        scorecurrentIndex = (scorecurrentIndex + 2) % score.length;
+        scoreShowing.innerHTML = score[scorecurrentIndex];
+        if (outcurrentIndex === 0) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 2点 0アウト2,3塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 1) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 2点 1アウト2,3塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        } else if (outcurrentIndex === 2) {
+            let progressText = localStorage.getItem("progressText")
+            progressText += ",ツーベースヒット 2点 2アウト2,3塁" + "," + fieldFirstShowing.innerHTML
+            console.log(progressText)
+            localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
+        }
+    }
     }
 });
 

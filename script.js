@@ -96,7 +96,7 @@ let score = [
 ]
 
 let progress = [
-    "[先攻の攻撃]1番 近本"
+    "[1回表の攻撃]1番 近本"
 ]
 
 let batFirstShowing = document.getElementById("bat-first-showing")
@@ -1876,7 +1876,7 @@ swingStrikeButton.addEventListener("click", () => {
             inningcurrentIndex = (inningcurrentIndex + 1) % inning.length;
             inningShowing.innerHTML = inning[inningcurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",空振り 三振！ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",空振り 三振！ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -1994,7 +1994,7 @@ swingStrikeButton.addEventListener("click", () => {
         inningcurrentIndex = (inningcurrentIndex + 1) % inning.length;
         inningShowing.innerHTML = inning[inningcurrentIndex];
         let progressText = localStorage.getItem("progressText")
-        progressText += ",空振り 三振！ 3アウトチェンジ <後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+        progressText += ",空振り 三振！ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
         console.log(progressText)
@@ -2182,7 +2182,7 @@ lookingStrikeButton.addEventListener("click", () => {
             inningcurrentIndex = (inningcurrentIndex + 1) % inning.length;
             inningShowing.innerHTML = inning[inningcurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",見逃し 三振！ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",見逃し 三振！ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -2300,7 +2300,7 @@ lookingStrikeButton.addEventListener("click", () => {
         inningcurrentIndex = (inningcurrentIndex + 1) % inning.length;
         inningShowing.innerHTML = inning[inningcurrentIndex];
         let progressText = localStorage.getItem("progressText")
-        progressText += ",見逃し 三振！ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+        progressText += ",見逃し 三振！ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
         console.log(progressText)
@@ -3717,7 +3717,7 @@ pitcherGroundButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",ピッチャーゴロ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",ピッチャーゴロ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -3837,7 +3837,7 @@ pitcherGroundButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",ピッチャーゴロ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+            progressText += ",ピッチャーゴロ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -3969,7 +3969,7 @@ catcherGroundButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",キャッチャーゴロ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",キャッチャーゴロ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -4089,7 +4089,7 @@ catcherGroundButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",キャッチャーゴロ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+            progressText += ",キャッチャーゴロ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -4221,7 +4221,7 @@ firstGroundButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",ファーストゴロ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",ファーストゴロ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -4341,7 +4341,7 @@ firstGroundButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",ファーストゴロ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+            progressText += ",ファーストゴロ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -4473,7 +4473,7 @@ secondGroundButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",セカンドゴロ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",セカンドゴロ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -4593,7 +4593,7 @@ secondGroundButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",セカンドゴロ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+            progressText += ",セカンドゴロ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -4725,7 +4725,7 @@ thirdGroundButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",サードゴロ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",サードゴロ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -4845,7 +4845,7 @@ thirdGroundButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",サードゴロ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+            progressText += ",サードゴロ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -4977,7 +4977,7 @@ shortGroundButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",ショートゴロ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",ショートゴロ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -5097,7 +5097,7 @@ shortGroundButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",ショートゴロ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+            progressText += ",ショートゴロ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -5229,7 +5229,7 @@ leftGroundButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",レフトゴロ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",レフトゴロ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -5349,7 +5349,7 @@ leftGroundButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",レフトゴロ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+            progressText += ",レフトゴロ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -5481,7 +5481,7 @@ centerGroundButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",センターゴロ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",センターゴロ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -5601,7 +5601,7 @@ centerGroundButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",センターゴロ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+            progressText += ",センターゴロ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -5733,7 +5733,7 @@ rightGroundButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",ライトゴロ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",ライトゴロ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -5853,7 +5853,7 @@ rightGroundButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",ライトゴロ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+            progressText += ",ライトゴロ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -5985,7 +5985,7 @@ pitcherflyButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",ピッチャーフライ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",ピッチャーフライ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -6105,7 +6105,7 @@ pitcherflyButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",ピッチャーフライ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+            progressText += ",ピッチャーフライ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -6237,7 +6237,7 @@ catcherflyButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",キャッチャーフライ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",キャッチャーフライ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -6357,7 +6357,7 @@ catcherflyButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",キャッチャーフライ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+            progressText += ",キャッチャーフライ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -6489,7 +6489,7 @@ firstflyButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",ファーストフライ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",ファーストフライ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -6609,7 +6609,7 @@ firstflyButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",ファーストフライ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+            progressText += ",ファーストフライ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -6741,7 +6741,7 @@ secondflyButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",セカンドフライ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",セカンドフライ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -6861,7 +6861,7 @@ secondflyButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",セカンドフライ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+            progressText += ",セカンドフライ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -6993,7 +6993,7 @@ thirdflyButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",サードフライ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",サードフライ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -7113,7 +7113,7 @@ thirdflyButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",サードフライ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+            progressText += ",サードフライ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -7245,7 +7245,7 @@ shortflyButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",ショートフライ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",ショートフライ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -7365,7 +7365,7 @@ shortflyButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",ショートフライ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+            progressText += ",ショートフライ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -7497,7 +7497,7 @@ leftflyButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",レフトフライ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",レフトフライ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -7617,7 +7617,7 @@ leftflyButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",レフトフライ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+            progressText += ",レフトフライ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -7749,7 +7749,7 @@ centerflyButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",センターフライ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",センターフライ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -7869,7 +7869,7 @@ centerflyButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",センターフライ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+            progressText += ",センターフライ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -8001,7 +8001,7 @@ rightflyButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",ライトフライ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[後攻の攻撃]" + fieldFirstShowing.innerHTML
+            progressText += ",ライトフライ 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
             scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)
@@ -8121,7 +8121,7 @@ rightflyButton.addEventListener("click", () => {
             runnercurrentIndex = 0
             runnerShowing.innerHTML = runner[runnercurrentIndex];
             let progressText = localStorage.getItem("progressText")
-            progressText += ",ライトフライ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[先攻の攻撃]" + batFirstShowing.innerHTML
+            progressText += ",ライトフライ 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
         scorecurrentIndex = 0
         scoreShowing.innerHTML = score[scorecurrentIndex];
             console.log(progressText)

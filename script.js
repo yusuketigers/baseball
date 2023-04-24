@@ -12,6 +12,15 @@ let batFirst = [
     "9番 村上"
 ]
 
+let batFirstResult = [
+    
+]
+
+let fieldFirstResult = [
+    
+]
+
+
 let fieldFirst = [
     "1番 オコエ",
     "2番 吉川",
@@ -103,6 +112,10 @@ let batFirstShowing = document.getElementById("bat-first-showing")
 let batFirstcurrentIndex = 0;
 let fieldFirstShowing = document.getElementById("field-first-showing")
 let fieldFirstcurrentIndex = 0;
+let batFirstResultShowing = document.getElementById("bat-first-result-showing")
+let batFirstResultcurrentIndex = 0;
+let fieldFirstResultShowing = document.getElementById("field-first-result-showing")
+let fieldFirstResultcurrentIndex = 0;
 let inningShowing = document.getElementById("inning-showing")
 let inningcurrentIndex = 0;
 let strikeShowing = document.getElementById("strike-showing")

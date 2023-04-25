@@ -529,6 +529,9 @@ catcherHitButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " キャッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -915,6 +918,9 @@ firstHitButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ファーストへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -1301,6 +1307,9 @@ secondHitButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " セカンドへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -1687,6 +1696,9 @@ thirdHitButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " サードへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -2073,6 +2085,9 @@ shortHitButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ショートへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -2459,6 +2474,9 @@ pitcherAttackHitButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -2845,6 +2863,9 @@ firstAttackHitButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -3231,6 +3252,9 @@ secondAttackHitButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -3617,6 +3641,9 @@ thirdAttackHitButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -4003,6 +4030,9 @@ shortAttackHitButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -4389,6 +4419,9 @@ leftHitButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -4775,6 +4808,9 @@ centerHitButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -5161,6 +5197,9 @@ rightHitButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -5547,6 +5586,9 @@ twobasehitButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 2;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -5942,6 +5984,9 @@ threebasehitButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 3;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -6341,6 +6386,9 @@ homerunButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 0;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -7885,6 +7933,9 @@ deadballButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -8259,6 +8310,9 @@ walkButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
         runnerShowing.innerHTML = runner[runnercurrentIndex];
@@ -8641,6 +8695,9 @@ pitcherGroundButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -8893,6 +8950,9 @@ catcherGroundButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -9145,6 +9205,9 @@ firstGroundButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -9397,6 +9460,9 @@ secondGroundButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -9649,6 +9715,9 @@ thirdGroundButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -9901,6 +9970,9 @@ shortGroundButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -10153,6 +10225,9 @@ leftGroundButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -10405,6 +10480,9 @@ centerGroundButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -10657,6 +10735,9 @@ rightGroundButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -10909,6 +10990,9 @@ pitcherflyButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -11161,6 +11245,9 @@ catcherflyButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -11413,6 +11500,9 @@ firstflyButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -11665,6 +11755,9 @@ secondflyButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -11917,6 +12010,9 @@ thirdflyButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -12169,6 +12265,9 @@ shortflyButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -12421,6 +12520,9 @@ leftflyButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -12673,6 +12775,9 @@ centerflyButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -12925,6 +13030,9 @@ rightflyButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -13177,6 +13285,9 @@ pitcherFoulFlyButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -13429,6 +13540,9 @@ catcherFoulFlyButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -13681,6 +13795,9 @@ firstFoulFlyButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -13933,6 +14050,9 @@ secondFoulFlyButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -14185,6 +14305,9 @@ thirdFoulFlyButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -14437,6 +14560,9 @@ shortFoulFlyButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -14689,6 +14815,9 @@ leftFoulFlyButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -14941,6 +15070,9 @@ rightFoulFlyButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -15193,6 +15325,9 @@ pitcherlinerButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -15445,6 +15580,9 @@ firstlinerButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -15697,6 +15835,9 @@ secondlinerButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -15949,6 +16090,9 @@ thirdlinerButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -16201,6 +16345,9 @@ shortlinerButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -16453,6 +16600,9 @@ leftlinerButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -16705,6 +16855,9 @@ centerlinerButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -16957,6 +17110,9 @@ rightlinerButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
                 let progressText = localStorage.getItem("progressText")
@@ -17207,6 +17363,9 @@ errorButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
         runnerShowing.innerHTML = runner[runnercurrentIndex];

@@ -8639,7 +8639,7 @@ pitcherGroundButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -8891,7 +8891,7 @@ catcherGroundButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -9143,7 +9143,7 @@ firstGroundButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -9395,7 +9395,7 @@ secondGroundButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -9647,7 +9647,7 @@ thirdGroundButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -9899,7 +9899,7 @@ shortGroundButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -10151,7 +10151,7 @@ leftGroundButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -10403,7 +10403,7 @@ centerGroundButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -10655,7 +10655,7 @@ rightGroundButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -10907,7 +10907,7 @@ pitcherflyButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -11159,7 +11159,7 @@ catcherflyButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -11411,7 +11411,7 @@ firstflyButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -11663,7 +11663,7 @@ secondflyButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -11915,7 +11915,7 @@ thirdflyButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -12167,7 +12167,7 @@ shortflyButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -12419,7 +12419,7 @@ leftflyButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -12671,7 +12671,7 @@ centerflyButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -12923,7 +12923,7 @@ rightflyButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -13175,7 +13175,7 @@ pitcherFoulFlyButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -13427,7 +13427,7 @@ catcherFoulFlyButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -13679,7 +13679,7 @@ firstFoulFlyButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -13931,7 +13931,7 @@ secondFoulFlyButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -14183,7 +14183,7 @@ thirdFoulFlyButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -14435,7 +14435,7 @@ shortFoulFlyButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -14687,7 +14687,7 @@ leftFoulFlyButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -14939,7 +14939,7 @@ rightFoulFlyButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -15191,7 +15191,7 @@ pitcherlinerButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -15443,7 +15443,7 @@ firstlinerButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -15695,7 +15695,7 @@ secondlinerButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -15947,7 +15947,7 @@ thirdlinerButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -16199,7 +16199,7 @@ shortlinerButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -16451,7 +16451,7 @@ leftlinerButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -16703,7 +16703,7 @@ centerlinerButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {
@@ -16955,7 +16955,7 @@ rightlinerButton.addEventListener("click", () => {
     ballShowing.innerHTML = ball[ballcurrentIndex];
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; 
+        batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
         if (outcurrentIndex === 1) {
             if (runnercurrentIndex === 0) {

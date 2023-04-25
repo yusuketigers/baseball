@@ -12,6 +12,18 @@ let batFirst = [
     "9番 村上"
 ]
 
+let batFirstResult = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+]
+
 let fieldFirst = [
     "1番 オコエ",
     "2番 吉川",
@@ -101,6 +113,8 @@ let progress = [
 
 let batFirstShowing = document.getElementById("bat-first-showing")
 let batFirstcurrentIndex = 0;
+let batFirstResultShowing = document.getElementById("bat-first-result-showing")
+let batFirstResultcurrentIndex = 0;
 let fieldFirstShowing = document.getElementById("field-first-showing")
 let fieldFirstcurrentIndex = 0;
 let inningShowing = document.getElementById("inning-showing")
@@ -126,6 +140,9 @@ pitcherHitButton.addEventListener("click", () => {
     if (inningcurrentIndex % 2 === 0) {
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex];
+        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " ピッチャーへの内野安打"
+        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length;
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex];
     if (runnercurrentIndex === 0) {
         runnercurrentIndex = 1;
         runnerShowing.innerHTML = runner[runnercurrentIndex];

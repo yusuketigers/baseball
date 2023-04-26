@@ -80,11 +80,9 @@ let progress = [
 let batFirstShowing = document.getElementById("bat-first-showing")
 let batFirstcurrentIndex = 0;
 let batFirstResultShowing = document.getElementById("bat-first-result-showing")
-let batFirstResultcurrentIndex = 0;
 let fieldFirstShowing = document.getElementById("field-first-showing")
 let fieldFirstcurrentIndex = 0;
 let fieldFirstResultShowing = document.getElementById("field-first-result-showing")
-let fieldFirstResultcurrentIndex = 0;
 let inningShowing = document.getElementById("inning-showing")
 let inningcurrentIndex = 0;
 let countShowing = document.getElementById("count-showing")
@@ -120,11 +118,10 @@ function hit(buttonId, plusbase, positiontext) {;
 
         if (inningcurrentIndex % 2 === 1) { //裏の攻撃
             moveAllRunner(fieldFirst,plusbase,fieldFirstcurrentIndex)
-            fieldFirstResult[fieldFirstResultcurrentIndex] = fieldFirstResult[fieldFirstResultcurrentIndex] + " " + positiontext //打撃結果に追加
+            fieldFirstResult[fieldFirstcurrentIndex] = fieldFirstResult[fieldFirstcurrentIndex] + " " + positiontext //打撃結果に追加
             fieldFirstcurrentIndex = (fieldFirstcurrentIndex + 1) % fieldFirst.length; //次の打者
             fieldFirstShowing.innerHTML = fieldFirst[fieldFirstcurrentIndex][0]; //打者を表示
-            fieldFirstResultcurrentIndex = (fieldFirstResultcurrentIndex + 1) % fieldFirstResult.length; //次の打者の打席結果
-            fieldFirstResultShowing.innerHTML = fieldFirstResult[fieldFirstResultcurrentIndex]; //打席結果表示
+            fieldFirstResultShowing.innerHTML = fieldFirstResult[fieldFirstcurrentIndex]; //打席結果表示
             progressText = localStorage.getItem("progressText")
             if (scorecount > 0){
                 progressText += "," + positiontext + " " + scorecount + "点！ " + outcurrentIndex + "アウト" + runnerbase + ", " + fieldFirstShowing.innerHTML //試合経過
@@ -149,18 +146,12 @@ function count(buttonId, positiontext) {;
             countreset()
     
             if (inningcurrentIndex % 2 === 0) { //表
-                batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " " + positiontext + "三振" //打撃結果に追加
+                batFirstResult[batFirstcurrentIndex] = batFirstResult[batFirstcurrentIndex] + " " + positiontext + "三振" //打撃結果に追加
                 batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
                 batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex][0]; //打者を表示
-                batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length; //次の打者の打席結果
-                batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex]; //打席結果表示
+                batFirstResultShowing.innerHTML = batFirstResult[batFirstcurrentIndex]; //打席結果表示
                 if (outcurrentIndex === 3) { //3アウト
-                    outcurrentIndex = 0
-                    outShowing.innerHTML = outcurrentIndex + "アウト"; //アウト表示
-                    runnerbase = "ランナーなし" //ランナーなしとする
-                    runnerShowing.innerHTML = runnerbase;
-                    inningcurrentIndex = (inningcurrentIndex + 1) % inning.length; //イニング追加
-                    inningShowing.innerHTML = inning[inningcurrentIndex]; //イニング表示
+                    outInningRunnerReset(batFirst)
                     let progressText = localStorage.getItem("progressText")
                     progressText += "," + positiontext + "三振！ 3アウトチェンジ<先攻チーム " + scorecurrentIndex + "点>,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML //試合経過
                     scorecurrentIndex = 0
@@ -176,17 +167,12 @@ function count(buttonId, positiontext) {;
                     showProgressLocalStorage()
                 }
             } else { //裏
-                fieldFirstResult[fieldFirstResultcurrentIndex] = fieldFirstResult[fieldFirstResultcurrentIndex] + " " + positiontext + "三振" //打撃結果に追加
+                fieldFirstResult[fieldFirstcurrentIndex] = fieldFirstResult[fieldFirstcurrentIndex] + " " + positiontext + "三振" //打撃結果に追加
                 fieldFirstcurrentIndex = (fieldFirstcurrentIndex + 1) % fieldFirst.length;
                 fieldFirstShowing.innerHTML = fieldFirst[fieldFirstcurrentIndex][0]; //打者を表示
-                fieldFirstResultcurrentIndex = (fieldFirstResultcurrentIndex + 1) % fieldFirstResult.length; //次の打者の打席結果
-                fieldFirstResultShowing.innerHTML = fieldFirstResult[fieldFirstResultcurrentIndex]; //打席結果表示
+                fieldFirstResultShowing.innerHTML = fieldFirstResult[fieldFirstcurrentIndex]; //打席結果表示
                 if (outcurrentIndex === 3) {
-                    outcurrentIndex = 0
-                    runnerbase = "ランナーなし" //ランナーなしとする
-                    runnerShowing.innerHTML = runnerbase;
-                    inningcurrentIndex = (inningcurrentIndex + 1) % inning.length;
-                    inningShowing.innerHTML = inning[inningcurrentIndex];
+                    outInningRunnerReset(fieldFirst)
                     let progressText = localStorage.getItem("progressText")
                     progressText += "," + positiontext + "三振！ 3アウトチェンジ<先攻チーム " + scorecurrentIndex + "点>,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
                     scorecurrentIndex = 0
@@ -241,11 +227,10 @@ ballButton.addEventListener("click", () => {
     
             if (inningcurrentIndex % 2 === 0) { //表
                 oneMove(batFirst,batFirstcurrentIndex)
-                batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " " + "四球" //打撃結果に追加
+                batFirstResult[batFirstcurrentIndex] = batFirstResult[batFirstcurrentIndex] + " " + "四球" //打撃結果に追加
                 batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
                 batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex][0]; //打者を表示
-                batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length; //次の打者の打席結果
-                batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex]; //打席結果表示
+                batFirstResultShowing.innerHTML = batFirstResult[batFirstcurrentIndex]; //打席結果表示
                 let progressText = localStorage.getItem("progressText")
                 if (scorecount > 0){
                     progressText += ",押し出し四球 " + scorecount + "点！ " + outcurrentIndex + "アウト" + runnerbase + ", " + batFirstShowing.innerHTML //試合経過
@@ -257,11 +242,11 @@ ballButton.addEventListener("click", () => {
                 showProgressLocalStorage()
                 } else { //裏
                 oneMove(fieldFirst,fieldFirstcurrentIndex)
-                fieldFirstResult[fieldFirstResultcurrentIndex] = fieldFirstResult[fieldFirstResultcurrentIndex] + " " + "四球" //打撃結果に追加
+                fieldFirstResult[fieldFirstcurrentIndex] = fieldFirstResult[fieldFirstcurrentIndex] + " " + "四球" //打撃結果に追加
                 fieldFirstcurrentIndex = (fieldFirstcurrentIndex + 1) % fieldFirst.length;
                 fieldFirstShowing.innerHTML = fieldFirst[fieldFirstcurrentIndex][0]; //打者を表示
-                fieldFirstResultcurrentIndex = (fieldFirstResultcurrentIndex + 1) % fieldFirstResult.length; //次の打者の打席結果
-                fieldFirstResultShowing.innerHTML = fieldFirstResult[fieldFirstResultcurrentIndex]; //打席結果表示
+    
+                fieldFirstResultShowing.innerHTML = fieldFirstResult[fieldFirstcurrentIndex]; //打席結果表示
                 let progressText = localStorage.getItem("progressText")
                 if (scorecount > 0){
                     progressText += ",押し出し四球 " + scorecount + "点！ " + outcurrentIndex + "アウト" + runnerbase + ", " + fieldFirstShowing.innerHTML //試合経過
@@ -289,11 +274,10 @@ function walk(buttonId, positiontext) {;
 
     if (inningcurrentIndex % 2 === 0) {
         oneMove(batFirst,batFirstcurrentIndex)
-        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " " + positiontext //打撃結果に追加
+        batFirstResult[batFirstcurrentIndex] = batFirstResult[batFirstcurrentIndex] + " " + positiontext //打撃結果に追加
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex][0]; //打者を表示
-        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length; //次の打者の打席結果
-        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex]; //打席結果表示
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstcurrentIndex]; //打席結果表示
         let progressText = localStorage.getItem("progressText")
         if (scorecount > 0){
             progressText += ",押し出し" + positiontext + " " + scorecount + "点！ " + outcurrentIndex + "アウト" + runnerbase + ", " + batFirstShowing.innerHTML //試合経過
@@ -305,11 +289,10 @@ function walk(buttonId, positiontext) {;
         showProgressLocalStorage()
     } else {
         oneMove(fieldFirst,fieldFirstcurrentIndex)
-        fieldFirstResult[fieldFirstResultcurrentIndex] = fieldFirstResult[fieldFirstResultcurrentIndex] + " " + positiontext //打撃結果に追加
+        fieldFirstResult[fieldFirstcurrentIndex] = fieldFirstResult[fieldFirstcurrentIndex] + " " + positiontext //打撃結果に追加
         fieldFirstcurrentIndex = (fieldFirstcurrentIndex + 1) % fieldFirst.length;
         fieldFirstShowing.innerHTML = fieldFirst[fieldFirstcurrentIndex][0]; //打者を表示
-        fieldFirstResultcurrentIndex = (fieldFirstResultcurrentIndex + 1) % fieldFirstResult.length; //次の打者の打席結果
-        fieldFirstResultShowing.innerHTML = fieldFirstResult[fieldFirstResultcurrentIndex]; //打席結果表示
+        fieldFirstResultShowing.innerHTML = fieldFirstResult[fieldFirstcurrentIndex]; //打席結果表示
         let progressText = localStorage.getItem("progressText")
         if (scorecount > 0){
             progressText += ",押し出し" + positiontext + " " + scorecount + "点！ " + outcurrentIndex + "アウト" + runnerbase + ", " + fieldFirstShowing.innerHTML //試合経過
@@ -337,17 +320,12 @@ function out(buttonId, positiontext) {;
     countreset()
 
     if (inningcurrentIndex % 2 === 0) {
-        batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " " + positiontext //打撃結果に追加
+        batFirstResult[batFirstcurrentIndex] = batFirstResult[batFirstcurrentIndex] + " " + positiontext //打撃結果に追加
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex][0]; //打者を表示
-        batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length; //次の打者の打席結果
-        batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex]; //打席結果表示
+        batFirstResultShowing.innerHTML = batFirstResult[batFirstcurrentIndex]; //打席結果表示
         if (outcurrentIndex === 3) {
-            outcurrentIndex = 0
-            inningcurrentIndex = (inningcurrentIndex + 1) % inning.length;
-            inningShowing.innerHTML = inning[inningcurrentIndex];
-            runnerbase = "ランナーなし"
-            runnerShowing.innerHTML = runnerbase;
+            outInningRunnerReset(batFirst)
             let progressText = localStorage.getItem("progressText")
             progressText += ","+ positiontext +" 3アウトチェンジ<先攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML
             scorecurrentIndex = 0
@@ -363,17 +341,12 @@ function out(buttonId, positiontext) {;
             showProgressLocalStorage()
         }
     } else {
-        fieldFirstResult[fieldFirstResultcurrentIndex] = fieldFirstResult[fieldFirstResultcurrentIndex] + " " + positiontext //打撃結果に追加
+        fieldFirstResult[fieldFirstcurrentIndex] = fieldFirstResult[fieldFirstcurrentIndex] + " " + positiontext //打撃結果に追加
         fieldFirstcurrentIndex = (fieldFirstcurrentIndex + 1) % fieldFirst.length;
         fieldFirstShowing.innerHTML = fieldFirst[fieldFirstcurrentIndex][0]; //打者を表示
-        fieldFirstResultcurrentIndex = (fieldFirstResultcurrentIndex + 1) % fieldFirstResult.length; //次の打者の打席結果
-        fieldFirstResultShowing.innerHTML = fieldFirstResult[fieldFirstResultcurrentIndex]; //打席結果表示
+        fieldFirstResultShowing.innerHTML = fieldFirstResult[fieldFirstcurrentIndex]; //打席結果表示
         if (outcurrentIndex === 3) {
-            outcurrentIndex = 0
-            inningcurrentIndex = (inningcurrentIndex + 1) % inning.length;
-            inningShowing.innerHTML = inning[inningcurrentIndex];
-            runnerbase = "ランナーなし"
-            runnerShowing.innerHTML = runnerbase;
+            outInningRunnerReset(fieldFirst)
             let progressText = localStorage.getItem("progressText")
             progressText += ","+ positiontext +" 3アウトチェンジ<後攻チーム " + scoreShowing.innerHTML + ">,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
             scorecurrentIndex = 0
@@ -586,6 +559,18 @@ function moveAllRunner(firstPosition,plusbase,firstPositioncurrentIndex){//す�
     runnerShowing.innerHTML = runnerbase; //ランナーを表示
 }
 
+function outInningRunnerReset(firstPosition){
+    outcurrentIndex = 0
+    outShowing.innerHTML = outcurrentIndex + "アウト"; //アウト表示
+    inningcurrentIndex = (inningcurrentIndex + 1) % inning.length; //イニング追加
+    inningShowing.innerHTML = inning[inningcurrentIndex]; //イニング表示
+    runnerbase = "ランナーなし" //ランナーなしとする
+    runnerShowing.innerHTML = runnerbase;
+    for (i = 0; i < firstPosition.length; i++) {
+        firstPosition[i][1] = 0 //本塁に戻す
+    }
+}
+
 function oneMove(firstPosition,firstPositioncurrentIndex){
     // 各要素の2番目の要素の和を計算
     let secondElementSum = 0;
@@ -654,4 +639,13 @@ function generateButton() {
         generateButton(); // 新しいボタンを生成する関数を再帰的に呼び出し
     };
     document.getElementById("buttonContainer").appendChild(button); // ボタンをコンテナに追加
+}
+
+function outInningRunner(){
+    outcurrentIndex = 0
+    outShowing.innerHTML = outcurrentIndex + "アウト"; //アウト表示
+    inningcurrentIndex = (inningcurrentIndex + 1) % inning.length; //イニング追加
+    inningShowing.innerHTML = inning[inningcurrentIndex]; //イニング表示
+    runnerbase = "ランナーなし" //ランナーなしとする
+    runnerShowing.innerHTML = runnerbase;
 }

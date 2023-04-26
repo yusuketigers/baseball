@@ -99,49 +99,14 @@ let scorecurrentIndex = 0;
 
 function hit(buttonId, plusbase, positiontext) {;
     document.getElementById(buttonId).addEventListener("click", () => {
-        strikecurrentIndex = 0
-        ballcurrentIndex = 0
-        countShowing.innerHTML = ballcurrentIndex + "-" + strikecurrentIndex;
+        countreset()
 
         if (inningcurrentIndex % 2 === 0) { //表の攻撃
-            for (i = 0; i < batFirst.length; i++) {
-                if (batFirst[i][1] > 0) { // 塁上にいる選手のみ
-                    batFirst[i][1] += plusbase; // 塁を進める
-                }
-            }
-    
-            batFirst[batFirstcurrentIndex][1] += plusbase //打者の塁を進める
-            scorecount = 0; // 得点を初期化
-            runner = ""; // 0でない要素を格納するための配列を初期化
-    
-            for (i = 0; i < batFirst.length; i++) {
-                if (batFirst[i][1] >= 4) { // 本塁に帰ってきた選手のみ
-                    scorecount++; // 得点をカウントし
-                    batFirst[i][1] = 0 //本塁に戻す
-                }
-            }
-            scorecurrentIndex = scorecurrentIndex + scorecount
-    
-            runnerList = batFirst.filter(function(element) { //ここから先はよく分からんがランナーの塁を求めてる
-                return element[1] >= 1; 
-            }).sort(function(a, b) { 
-                return a[1] - b[1];
-            });
-            
-            runner = runnerList.map(function(element) {
-                return element[1];
-            }).join(",");
-    
-            runnerbase = "ランナー" + runner + "塁"
-            if (runner === ""){ //ランナーがいなかったら
-                runnerbase = "ランナーなし" //ランナーなしとする
-            }
-            runnerShowing.innerHTML = runnerbase;
-            batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " " + positiontext //打撃結果に追加
+            moveAllRunner(batFirst,plusbase,batFirstcurrentIndex)
+            batFirstResult[batFirstcurrentIndex] = batFirstResult[batFirstcurrentIndex] + " " + positiontext //打撃結果に追加
             batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; //次の打者
             batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex][0]; //打者を表示
-            batFirstResultcurrentIndex = (batFirstResultcurrentIndex + 1) % batFirstResult.length; //次の打者の打席結果
-            batFirstResultShowing.innerHTML = batFirstResult[batFirstResultcurrentIndex]; //打席結果表示
+            batFirstResultShowing.innerHTML = batFirstResult[batFirstcurrentIndex]; //打席結果表示
             progressText = localStorage.getItem("progressText")
             if (scorecount > 0){
                 progressText += "," + positiontext + " " + scorecount + "点！ " + outcurrentIndex + "アウト" + runnerbase + ", " + batFirstShowing.innerHTML //試合経過
@@ -154,39 +119,7 @@ function hit(buttonId, plusbase, positiontext) {;
         }
 
         if (inningcurrentIndex % 2 === 1) { //裏の攻撃
-            for (i = 0; i < fieldFirst.length; i++) {
-                if (fieldFirst[i][1] > 0) { // 塁上にいる選手のみ
-                    fieldFirst[i][1] += plusbase; // 塁を進める
-                }
-            }
-    
-            fieldFirst[fieldFirstcurrentIndex][1] += plusbase //打者の塁を進める
-            scorecount = 0; // 得点を初期化
-            runner = ""; // 0でない要素を格納するための配列を初期化
-    
-            for (i = 0; i < fieldFirst.length; i++) {
-                if (fieldFirst[i][1] >= 4) { // 本塁に帰ってきた選手のみ
-                    scorecount++; // 得点をカウントし
-                    fieldFirst[i][1] = 0 //本塁に戻す
-                }
-            }
-            scorecurrentIndex = scorecurrentIndex + scorecount
-    
-            runnerList = fieldFirst.filter(function(element) { //ここから先はよく分からんがランナーの塁を求めてる
-                return element[1] >= 1; 
-            }).sort(function(a, b) { 
-                return a[1] - b[1];
-            });
-            
-            runner = runnerList.map(function(element) {
-                return element[1];
-            }).join(",");
-    
-            runnerbase = "ランナー" + runner + "塁"
-            if (runner === ""){ //ランナーがいなかったら
-                runnerbase = "ランナーなし" //ランナーなしとする
-            }
-            runnerShowing.innerHTML = runnerbase;
+            moveAllRunner(fieldFirst,plusbase,fieldFirstcurrentIndex)
             fieldFirstResult[fieldFirstResultcurrentIndex] = fieldFirstResult[fieldFirstResultcurrentIndex] + " " + positiontext //打撃結果に追加
             fieldFirstcurrentIndex = (fieldFirstcurrentIndex + 1) % fieldFirst.length; //次の打者
             fieldFirstShowing.innerHTML = fieldFirst[fieldFirstcurrentIndex][0]; //打者を表示
@@ -209,14 +142,11 @@ function hit(buttonId, plusbase, positiontext) {;
 function count(buttonId, positiontext) {;
     document.getElementById(buttonId).addEventListener("click", () => {
         strikecurrentIndex++; //ストライク1追加
-        countShowing.innerHTML = ballcurrentIndex + "-" + strikecurrentIndex; //表示
         
         if (strikecurrentIndex === 3) { //3つ目のストライク
             outcurrentIndex++; //アウト1追加
             outShowing.innerHTML = outcurrentIndex + "アウト"; //アウト表示
-            strikecurrentIndex = 0
-            ballcurrentIndex = 0 //ボールを0に
-            countShowing.innerHTML = ballcurrentIndex + "-" + strikecurrentIndex; //表示
+            countreset()
     
             if (inningcurrentIndex % 2 === 0) { //表
                 batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " " + positiontext + "三振" //打撃結果に追加
@@ -235,7 +165,6 @@ function count(buttonId, positiontext) {;
                     progressText += "," + positiontext + "三振！ 3アウトチェンジ<先攻チーム " + scorecurrentIndex + "点>,[" + inningShowing.innerHTML + "の攻撃]" + fieldFirstShowing.innerHTML //試合経過
                     scorecurrentIndex = 0
                     scoreShowing.innerHTML = scorecurrentIndex + "点"; //0点に戻す
-                    scorecurrentIndexIndex = 0 //0点に戻す
                     console.log(progressText)
                     localStorage.setItem("progressText", progressText)
                     showProgressLocalStorage()
@@ -262,7 +191,6 @@ function count(buttonId, positiontext) {;
                     progressText += "," + positiontext + "三振！ 3アウトチェンジ<先攻チーム " + scorecurrentIndex + "点>,[" + inningShowing.innerHTML + "の攻撃]" + batFirstShowing.innerHTML
                     scorecurrentIndex = 0
                     scoreShowing.innerHTML = scorecurrentIndex + "点"; //0点に戻す
-                    scorecurrentIndexIndex = 0
                     console.log(progressText)
                     localStorage.setItem("progressText", progressText)
                     showProgressLocalStorage()
@@ -281,11 +209,9 @@ function count(buttonId, positiontext) {;
             localStorage.setItem("progressText", progressText)
             showProgressLocalStorage()
         }
+        countShowing.innerHTML = ballcurrentIndex + "-" + strikecurrentIndex; //表示
     })
 }
-
-count("looking-strike-button", "見逃し")
-count("swing-strike-button", "空振り")
 
 let foulButton = document.getElementById("foul-button");
 foulButton.addEventListener("click", () => { //ファール押したら
@@ -306,77 +232,15 @@ foulButton.addEventListener("click", () => { //ファール押したら
     }
 });
 
-plusonebase = 1
 let ballButton = document.getElementById("ball-button");
 ballButton.addEventListener("click", () => {
         ballcurrentIndex++; //ボール1追加
-        countShowing.innerHTML = ballcurrentIndex + "-" + strikecurrentIndex; //表示
         
         if (ballcurrentIndex === 4) {
-            strikecurrentIndex = 0 //ストライクを0に
-            ballcurrentIndex = 0 //ボールを0に
-            countShowing.innerHTML = ballcurrentIndex + "-" + strikecurrentIndex; //ボール表示
+            countreset()
     
             if (inningcurrentIndex % 2 === 0) { //表
-                // 各要素の2番目の要素の和を計算
-                let secondElementSum = 0;
-                for (let i = 0; i < batFirst.length; i++) {
-                    secondElementSum += batFirst[i][1];
-                }
-                
-                // 各要素の2番目の要素のうち、0でないものの数を計算
-                let secondElementNonZero = 0;
-                for (let i = 0; i < batFirst.length; i++) {
-                    if (batFirst[i][1] !== 0) {
-                        secondElementNonZero++;
-                    }
-                }
-                
-                secondElementSNZ = secondElementSum + secondElementNonZero
-
-                // 2番目の要素の和が2または5または9の場合に、0でない要素を1ずつ増やす
-                if (secondElementSNZ === 2 || secondElementSNZ === 5 || secondElementSNZ === 9) {
-                    for (let i = 0; i < batFirst.length; i++) {
-                        if (batFirst[i][1] !== 0) {
-                            batFirst[i][1]++;
-                        }
-                    }
-                } else if (secondElementSNZ === 6 ) {
-                    for (let i = 0; i < batFirst.length; i++) {
-                        if (batFirst[i][1] == 1) {
-                            batFirst[i][1]++;
-                        }
-                    }
-                }
-                
-                batFirst[batFirstcurrentIndex][1] += plusonebase
-                scorecount = 0; // 得点を初期化
-                runner = ""; // 0でない要素を格納するための配列を初期化
-    
-                for (i = 0; i < batFirst.length; i++) {
-                    if (batFirst[i][1] >= 4) { // 本塁に帰ってきた選手のみ
-                        scorecount++; // 得点をカウントし
-                        batFirst[i][1] = 0 //本塁に戻す
-                    }
-                }
-                scorecurrentIndex = scorecurrentIndex + scorecount
-    
-                runnerList = batFirst.filter(function(element) { //ここから先はよく分からんがランナーの塁を求めてる
-                    return element[1] >= 1; 
-                }).sort(function(a, b) { 
-                    return a[1] - b[1];
-                });
-            
-                runner = runnerList.map(function(element) {
-                    return element[1];
-                }).join(",");
-    
-                runnerbase = "ランナー" + runner + "塁"
-                if (runner === ""){ //ランナーがいなかったら
-                    runnerbase = "ランナーなし" //ランナーなしとする
-                }
-                runnerShowing.innerHTML = runnerbase;
-
+                oneMove(batFirst,batFirstcurrentIndex)
                 batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " " + "四球" //打撃結果に追加
                 batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
                 batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex][0]; //打者を表示
@@ -392,65 +256,7 @@ ballButton.addEventListener("click", () => {
                 localStorage.setItem("progressText", progressText)
                 showProgressLocalStorage()
                 } else { //裏
-                // 各要素の2番目の要素の和を計算
-                let secondElementSum = 0;
-                for (let i = 0; i < fieldFirst.length; i++) {
-                    secondElementSum += fieldFirst[i][1];
-                }
-                
-                // 各要素の2番目の要素のうち、0でないものの数を計算
-                let secondElementNonZero = 0;
-                for (let i = 0; i < fieldFirst.length; i++) {
-                    if (fieldFirst[i][1] !== 0) {
-                        secondElementNonZero++;
-                    }
-                }
-                
-                secondElementSNZ = secondElementSum + secondElementNonZero
-
-                // 2番目の要素の和が2または5または9の場合に、0でない要素を1ずつ増やす
-                if (secondElementSNZ === 2 || secondElementSNZ === 5 || secondElementSNZ === 9) {
-                    for (let i = 0; i < fieldFirst.length; i++) {
-                        if (fieldFirst[i][1] !== 0) {
-                            fieldFirst[i][1]++;
-                        }
-                    }
-                } else if (secondElementSNZ === 6 ) {
-                    for (let i = 0; i < fieldFirst.length; i++) {
-                        if (fieldFirst[i][1] == 1) {
-                            fieldFirst[i][1]++;
-                        }
-                    }
-                }
-                
-                fieldFirst[fieldFirstcurrentIndex][1] += plusonebase
-                scorecount = 0; // 得点を初期化
-                runner = ""; // 0でない要素を格納するための配列を初期化
-    
-                for (i = 0; i < fieldFirst.length; i++) {
-                    if (fieldFirst[i][1] >= 4) { // 本塁に帰ってきた選手のみ
-                        scorecount++; // 得点をカウントし
-                        fieldFirst[i][1] = 0 //本塁に戻す
-                    }
-                }
-                scorecurrentIndex = scorecurrentIndex + scorecount
-    
-                runnerList = fieldFirst.filter(function(element) { //ここから先はよく分からんがランナーの塁を求めてる
-                    return element[1] >= 1; 
-                }).sort(function(a, b) { 
-                    return a[1] - b[1];
-                });
-            
-                runner = runnerList.map(function(element) {
-                    return element[1];
-                }).join(",");
-    
-                runnerbase = "ランナー" + runner + "塁"
-                if (runner === ""){ //ランナーがいなかったら
-                    runnerbase = "ランナーなし" //ランナーなしとする
-                }
-                runnerShowing.innerHTML = runnerbase;
-
+                oneMove(fieldFirst,fieldFirstcurrentIndex)
                 fieldFirstResult[fieldFirstResultcurrentIndex] = fieldFirstResult[fieldFirstResultcurrentIndex] + " " + "四球" //打撃結果に追加
                 fieldFirstcurrentIndex = (fieldFirstcurrentIndex + 1) % fieldFirst.length;
                 fieldFirstShowing.innerHTML = fieldFirst[fieldFirstcurrentIndex][0]; //打者を表示
@@ -474,72 +280,15 @@ ballButton.addEventListener("click", () => {
             showProgressLocalStorage()
         }
         scoreShowing.innerHTML = scorecurrentIndex + "点"
+        countShowing.innerHTML = ballcurrentIndex + "-" + strikecurrentIndex; //表示
     })
 
 function walk(buttonId, positiontext) {;
     document.getElementById(buttonId).addEventListener("click", () => {
-        strikecurrentIndex = 0
-        ballcurrentIndex = 0
-        countShowing.innerHTML = ballcurrentIndex + "-" + strikecurrentIndex;
+        countreset()
 
     if (inningcurrentIndex % 2 === 0) {
-        let secondElementSum = 0;
-                for (let i = 0; i < batFirst.length; i++) {
-                    secondElementSum += batFirst[i][1];
-                }
-                
-                // 各要素の2番目の要素のうち、0でないものの数を計算
-                let secondElementNonZero = 0;
-                for (let i = 0; i < batFirst.length; i++) {
-                    if (batFirst[i][1] !== 0) {
-                        secondElementNonZero++;
-                    }
-                }
-                
-                secondElementSNZ = secondElementSum + secondElementNonZero
-
-                // 2番目の要素の和が2または5または9の場合に、0でない要素を1ずつ増やす
-                if (secondElementSNZ === 2 || secondElementSNZ === 5 || secondElementSNZ === 9) {
-                    for (let i = 0; i < batFirst.length; i++) {
-                        if (batFirst[i][1] !== 0) {
-                            batFirst[i][1]++;
-                        }
-                    }
-                } else if (secondElementSNZ === 6 ) {
-                    for (let i = 0; i < batFirst.length; i++) {
-                        if (batFirst[i][1] == 1) {
-                            batFirst[i][1]++;
-                        }
-                    }
-                }
-                
-                batFirst[batFirstcurrentIndex][1] += plusonebase
-                scorecount = 0; // 得点を初期化
-                runner = ""; // 0でない要素を格納するための配列を初期化
-    
-                for (i = 0; i < batFirst.length; i++) {
-                    if (batFirst[i][1] >= 4) { // 本塁に帰ってきた選手のみ
-                        scorecount++; // 得点をカウントし
-                        batFirst[i][1] = 0 //本塁に戻す
-                    }
-                }
-                scorecurrentIndex = scorecurrentIndex + scorecount
-    
-                runnerList = batFirst.filter(function(element) { //ここから先はよく分からんがランナーの塁を求めてる
-                    return element[1] >= 1; 
-                }).sort(function(a, b) { 
-                    return a[1] - b[1];
-                });
-            
-                runner = runnerList.map(function(element) {
-                    return element[1];
-                }).join(",");
-    
-                runnerbase = "ランナー" + runner + "塁"
-                if (runner === ""){ //ランナーがいなかったら
-                    runnerbase = "ランナーなし" //ランナーなしとする
-                }
-                runnerShowing.innerHTML = runnerbase;
+        oneMove(batFirst,batFirstcurrentIndex)
         batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " " + positiontext //打撃結果に追加
         batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length;
         batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex][0]; //打者を表示
@@ -555,63 +304,7 @@ function walk(buttonId, positiontext) {;
         localStorage.setItem("progressText", progressText)
         showProgressLocalStorage()
     } else {
-        let secondElementSum = 0;
-                for (let i = 0; i < fieldFirst.length; i++) {
-                    secondElementSum += fieldFirst[i][1];
-                }
-                
-                // 各要素の2番目の要素のうち、0でないものの数を計算
-                let secondElementNonZero = 0;
-                for (let i = 0; i < fieldFirst.length; i++) {
-                    if (fieldFirst[i][1] !== 0) {
-                        secondElementNonZero++;
-                    }
-                }
-                
-                secondElementSNZ = secondElementSum + secondElementNonZero
-
-                // 2番目の要素の和が2または5または9の場合に、0でない要素を1ずつ増やす
-                if (secondElementSNZ === 2 || secondElementSNZ === 5 || secondElementSNZ === 9) {
-                    for (let i = 0; i < fieldFirst.length; i++) {
-                        if (fieldFirst[i][1] !== 0) {
-                            fieldFirst[i][1]++;
-                        }
-                    }
-                } else if (secondElementSNZ === 6 ) {
-                    for (let i = 0; i < fieldFirst.length; i++) {
-                        if (fieldFirst[i][1] == 1) {
-                            fieldFirst[i][1]++;
-                        }
-                    }
-                }
-                
-                fieldFirst[fieldFirstcurrentIndex][1] += plusonebase
-                scorecount = 0; // 得点を初期化
-                runner = ""; // 0でない要素を格納するための配列を初期化
-    
-                for (i = 0; i < fieldFirst.length; i++) {
-                    if (fieldFirst[i][1] >= 4) { // 本塁に帰ってきた選手のみ
-                        scorecount++; // 得点をカウントし
-                        fieldFirst[i][1] = 0 //本塁に戻す
-                    }
-                }
-                scorecurrentIndex = scorecurrentIndex + scorecount
-    
-                runnerList = fieldFirst.filter(function(element) { //ここから先はよく分からんがランナーの塁を求めてる
-                    return element[1] >= 1; 
-                }).sort(function(a, b) { 
-                    return a[1] - b[1];
-                });
-            
-                runner = runnerList.map(function(element) {
-                    return element[1];
-                }).join(",");
-    
-                runnerbase = "ランナー" + runner + "塁"
-                if (runner === ""){ //ランナーがいなかったら
-                    runnerbase = "ランナーなし" //ランナーなしとする
-                }
-                runnerShowing.innerHTML = runnerbase;
+        oneMove(fieldFirst,fieldFirstcurrentIndex)
         fieldFirstResult[fieldFirstResultcurrentIndex] = fieldFirstResult[fieldFirstResultcurrentIndex] + " " + positiontext //打撃結果に追加
         fieldFirstcurrentIndex = (fieldFirstcurrentIndex + 1) % fieldFirst.length;
         fieldFirstShowing.innerHTML = fieldFirst[fieldFirstcurrentIndex][0]; //打者を表示
@@ -631,9 +324,6 @@ function walk(buttonId, positiontext) {;
 });
 }
 
-walk("dead-ball-button", "死球")
-walk("walk-button", "申告敬遠")
-
 let scoreresetButton = document.getElementById("score-reset-button");
 scoreresetButton.addEventListener("click", () => {
     scorecurrentIndex = 0;
@@ -644,9 +334,7 @@ function out(buttonId, positiontext) {;
     document.getElementById(buttonId).addEventListener("click", () => {
     outcurrentIndex++
     outShowing.innerHTML = outcurrentIndex + "アウト";
-    strikecurrentIndex = 0
-    ballcurrentIndex = 0
-    countShowing.innerHTML = ballcurrentIndex + "-" + strikecurrentIndex;
+    countreset()
 
     if (inningcurrentIndex % 2 === 0) {
         batFirstResult[batFirstResultcurrentIndex] = batFirstResult[batFirstResultcurrentIndex] + " " + positiontext //打撃結果に追加
@@ -798,6 +486,12 @@ out("left-liner-button", "レフトライナー")
 out("center-liner-button", "センターライナー")
 out("right-liner-button", "ライトライナー")
 
+count("looking-strike-button", "見逃し")
+count("swing-strike-button", "空振り")
+
+walk("dead-ball-button", "死球")
+walk("walk-button", "申告敬遠")
+
 let firstBat = batFirst.map(item => item[0]);
 let firstField = fieldFirst.map(item => item[0]);
 
@@ -844,4 +538,107 @@ function showFieldFirstLocalStorage(){
 function showProgressLocalStorage(){
     let ls = document.getElementById("progress-local-storage")
     ls.innerHTML = progressLocalStorage.getItem("progressText")
+}
+
+function countreset(){ //ボール・ストライクカウントをリセットして表示
+    strikecurrentIndex = 0
+    ballcurrentIndex = 0
+    countShowing.innerHTML = ballcurrentIndex + "-" + strikecurrentIndex;
+}
+
+function moveAllRunner(firstPosition,plusbase,firstPositioncurrentIndex){//すべてのランナーが同じ数ずつ進む
+    for (i = 0; i < firstPosition.length; i++) {
+        if (firstPosition[i][1] > 0) { // 塁上にいる選手のみ
+            firstPosition[i][1] += plusbase; // 塁を進める
+        }
+    }
+
+    firstPosition[firstPositioncurrentIndex][1] += plusbase //打者の塁を進める
+    scorecount = 0; // 得点を初期化
+    runner = ""; // 0でない要素を格納するための配列を初期化
+
+    for (i = 0; i < firstPosition.length; i++) {
+        if (firstPosition[i][1] >= 4) { // 本塁に帰ってきた選手のみ
+            scorecount++; // 得点をカウントし
+            firstPosition[i][1] = 0 //本塁に戻す
+        }
+    }
+    scorecurrentIndex = scorecurrentIndex + scorecount //イニングの得点を記録
+
+    runnerList = firstPosition.filter(function(element) { //ここから先はよく分からんがランナーの塁を求めてる
+        return element[1] >= 1; 
+    }).sort(function(a, b) { 
+        return a[1] - b[1];
+    });
+    
+    runner = runnerList.map(function(element) {
+        return element[1];
+    }).join(",");
+
+    runnerbase = "ランナー" + runner + "塁"
+    if (runner === ""){ //ランナーがいなかったら
+        runnerbase = "ランナーなし" //ランナーなしとする
+    }
+    runnerShowing.innerHTML = runnerbase; //ランナーを表示
+}
+
+function oneMove(firstPosition,firstPositioncurrentIndex){
+    // 各要素の2番目の要素の和を計算
+    let secondElementSum = 0;
+    for (let i = 0; i < firstPosition.length; i++) {
+        secondElementSum += firstPosition[i][1];
+    }
+    
+    // 各要素の2番目の要素のうち、0でないものの数を計算
+    let secondElementNonZero = 0;
+    for (let i = 0; i < firstPosition.length; i++) {
+        if (firstPosition[i][1] !== 0) {
+            secondElementNonZero++;
+        }
+    }
+    
+    secondElementSNZ = secondElementSum + secondElementNonZero
+
+    // 2番目の要素の和が2または5または9の場合に、0でない要素を1ずつ増やす
+    if (secondElementSNZ === 2 || secondElementSNZ === 5 || secondElementSNZ === 9) {
+        for (let i = 0; i < firstPosition.length; i++) {
+            if (firstPosition[i][1] !== 0) {
+                firstPosition[i][1]++;
+            }
+        }
+    } else if (secondElementSNZ === 6 ) {
+        for (let i = 0; i < firstPosition.length; i++) {
+            if (firstPosition[i][1] == 1) {
+                firstPosition[i][1]++;
+            }
+        }
+    }
+    
+    firstPosition[firstPositioncurrentIndex][1]++
+    scorecount = 0; // 得点を初期化
+    runner = ""; // 0でない要素を格納するための配列を初期化
+
+    for (i = 0; i < firstPosition.length; i++) {
+        if (firstPosition[i][1] >= 4) { // 本塁に帰ってきた選手のみ
+            scorecount++; // 得点をカウントし
+            firstPosition[i][1] = 0 //本塁に戻す
+        }
+    }
+    scorecurrentIndex = scorecurrentIndex + scorecount
+
+    runnerList = firstPosition.filter(function(element) { //ここから先はよく分からんがランナーの塁を求めてる
+        return element[1] >= 1; 
+    }).sort(function(a, b) { 
+        return a[1] - b[1];
+    });
+
+    runner = runnerList.map(function(element) {
+        return element[1];
+    }).join(",");
+
+    runnerbase = "ランナー" + runner + "塁"
+    if (runner === ""){ //ランナーがいなかったら
+        runnerbase = "ランナーなし" //ランナーなしとする
+    }
+    runnerShowing.innerHTML = runnerbase;
 }

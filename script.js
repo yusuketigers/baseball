@@ -360,6 +360,7 @@ function out(buttonId, positiontext) {;
             progressText += "," + positiontext + " " + outcurrentIndex + "アウト" + runnerbase + "," + batFirstShowing.innerHTML
             console.log(progressText)
             localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
         }
     } else {
         fieldFirstResult[fieldFirstResultcurrentIndex] = fieldFirstResult[fieldFirstResultcurrentIndex] + " " + positiontext //打撃結果に追加
@@ -385,6 +386,7 @@ function out(buttonId, positiontext) {;
             progressText += "," + positiontext + " " + outcurrentIndex + "アウト" + runnerbase + "," + fieldFirstShowing.innerHTML
             console.log(progressText)
             localStorage.setItem("progressText", progressText)
+            showProgressLocalStorage()
         }
     }
 });
@@ -488,6 +490,8 @@ out("right-liner-button", "ライトライナー")
 
 count("looking-strike-button", "見逃し")
 count("swing-strike-button", "空振り")
+count("swing-bunt-strike-button", "バント空振り")
+count("foul-bunt-button", "バントファール")
 
 walk("dead-ball-button", "死球")
 walk("walk-button", "申告敬遠")
@@ -641,4 +645,13 @@ function oneMove(firstPosition,firstPositioncurrentIndex){
         runnerbase = "ランナーなし" //ランナーなしとする
     }
     runnerShowing.innerHTML = runnerbase;
+}
+
+function generateButton() {
+    var button = document.createElement("button"); // 新しいボタンを作成
+    button.innerHTML = "新しいボタン"; // ボタンのテキストを設定
+    button.onclick = function() {
+        generateButton(); // 新しいボタンを生成する関数を再帰的に呼び出し
+    };
+    document.getElementById("buttonContainer").appendChild(button); // ボタンをコンテナに追加
 }

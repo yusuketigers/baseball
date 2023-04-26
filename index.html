@@ -22,7 +22,9 @@
     <p>カウント</p>
     <button id="looking-strike-button">見逃し</button>
     <button id="swing-strike-button">空振り</button>
+    <button id="swing-bunt-strike-button">バント空振り</button>
     <button id="foul-button">ファール</button>
+    <button id="foul-bunt-button">バントファール</button>
     <button id="ball-button">ボール</button>
     <p>セーフティバント</p>
     <button id="pitcher-safety-hit-button">ピッチャーセーフティ</button>
@@ -136,6 +138,9 @@
     <button id="pass-ball-button">パスボール</button>
     <button id="score-reset-button">得点リセット</button>
     <button id="remove-all-button">remove all</button>
+
+    <button id="generateButton" onclick="generateButton()">ボタンを生成</button>
+    <div id="buttonContainer"></div> <!-- 新しいボタンを追加するコンテナ -->
 
     <h2>試合経過</h2>
     <p id="progress-local-storage"></p>

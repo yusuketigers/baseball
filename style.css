@@ -1,0 +1,82 @@
+#batter-display {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#count-display {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#ball-light {
+    width: 100px;
+    height: 40px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #213435;
+    border-radius: 40px;
+}
+
+  #ball-light {
+    margin-bottom: 1rem;
+  }
+
+/* 信号機の本体 */
+#strike-light {
+    width: 100px;
+    height: 40px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #213435;
+    border-radius: 40px;
+}
+
+#strike-light {
+    margin-bottom: 1rem;
+  }
+
+  #out-light {
+    width: 100px;
+    height: 40px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #213435;
+    border-radius: 40px;
+}
+  
+  /* 信号機の光 */
+  .light {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    animation: shadow 9s infinite;
+  }
+  
+  /* 信号機の光（緑） */
+  .light.green {
+    background-color: #2ecc71;
+    color: #2ecc71;
+  }
+  
+  /* 信号機の光（黄色） */
+  .light.yellow {
+    background-color: #f1c40f;
+    color: #f1c40f;
+    animation-delay: 3s;
+  }
+
+  /* 信号機の光（赤） */
+  .light.red {
+    background-color: #df3f2e;
+    color: #df3f2e;
+    animation-delay: 6s;
+  }

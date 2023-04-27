@@ -4,20 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1 id="inning-showing">1回表</h1>
-    <h3>先攻チーム</h3>
-    <h2 id="bat-first-showing">1番 近本</h2>
-    <h4 id="bat-first-result-showing"></h4>
-    <h3>後攻チーム</h3>
-    <h2 id="field-first-showing">1番 オコエ</h2>
-    <h4 id="field-first-result-showing"></h4>
+    <div id="batter-display">
+        <div>
+            <h3>先攻チーム</h3>
+            <h2 id="bat-first-showing">1番 近本</h2>
+            <h4 id="bat-first-result-showing"></h4>
+        </div>
+        <div>
+            <h3>後攻チーム</h3>
+            <h2 id="field-first-showing">1番 オコエ</h2>
+            <h4 id="field-first-result-showing"></h4>
+        </div>
+    </div>
+
+    <div id="count-display">
+    <div id="ball-light">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+    </div>
+
+    <div id="strike-light">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+    </div>
+
+    <div id="out-light">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+    </div>
+    </div>
 
     <h3 id="score-showing">0点</h3>
-    <h3 id="out-showing">0アウト</h3>
     <h3 id="runner-showing">ランナーなし</h3>
-    <h3 id="count-showing">0-0</h3>
 
     <p>カウント</p>
     <button id="looking-strike-button">見逃し</button>

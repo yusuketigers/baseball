@@ -85,10 +85,8 @@ let fieldFirstcurrentIndex = 0;
 let fieldFirstResultShowing = document.getElementById("field-first-result-showing")
 let inningShowing = document.getElementById("inning-showing")
 let inningcurrentIndex = 0;
-let countShowing = document.getElementById("count-showing")
 let strikecurrentIndex = 0;
 let ballcurrentIndex = 0;
-let outShowing = document.getElementById("out-showing")
 let outcurrentIndex = 0;
 let runnerShowing = document.getElementById("runner-showing")
 let runnerbase = "ランナーなし"
@@ -101,7 +99,7 @@ function hit(buttonId, plusbase, positiontext) {;
 
         if (inningcurrentIndex % 2 === 0) { //表の攻撃
             moveAllRunner(batFirst,plusbase,batFirstcurrentIndex)
-            batFirstResult[batFirstcurrentIndex] = batFirstResult[batFirstcurrentIndex] + " " + positiontext //打撃結果に追加
+            batFirstResult[batFirstcurrentIndex] = batFirstResult[batFirstcurrentIndex] + positiontext + "<br>" //打撃結果に追加
             batFirstcurrentIndex = (batFirstcurrentIndex + 1) % batFirst.length; //次の打者
             batFirstShowing.innerHTML = batFirst[batFirstcurrentIndex][0]; //打者を表示
             batFirstResultShowing.innerHTML = batFirstResult[batFirstcurrentIndex]; //打席結果表示
@@ -139,10 +137,13 @@ function hit(buttonId, plusbase, positiontext) {;
 function count(buttonId, positiontext) {;
     document.getElementById(buttonId).addEventListener("click", () => {
         strikecurrentIndex++; //ストライク1追加
-        
+        let strikeLight = document.getElementById("strike-light")
+        strikeLight.children[strikecurrentIndex-1].classList.add("yellow")
+
         if (strikecurrentIndex === 3) { //3つ目のストライク
             outcurrentIndex++; //アウト1追加
-            outShowing.innerHTML = outcurrentIndex + "アウト"; //アウト表示
+            let outLight = document.getElementById("out-light")
+            outLight.children[outcurrentIndex-1].classList.add("red")
             countreset()
     
             if (inningcurrentIndex % 2 === 0) { //表
@@ -195,7 +196,6 @@ function count(buttonId, positiontext) {;
             localStorage.setItem("progressText", progressText)
             showProgressLocalStorage()
         }
-        countShowing.innerHTML = ballcurrentIndex + "-" + strikecurrentIndex; //表示
     })
 }
 
@@ -209,18 +209,20 @@ foulButton.addEventListener("click", () => { //ファール押したら
         showProgressLocalStorage()
     } else {
         strikecurrentIndex++; //ストライク+1
-        countShowing.innerHTML = ballcurrentIndex + "-" + strikecurrentIndex;
         progressText = localStorage.getItem("progressText")
         progressText += ",ファール " + ballcurrentIndex + "-" + strikecurrentIndex
         console.log(progressText)
         localStorage.setItem("progressText", progressText)
         showProgressLocalStorage()
+        let strikeLight = document.getElementById("strike-light")
+        strikeLight.children[strikecurrentIndex-1].classList.add("yellow")
     }
 });
 
 let ballButton = document.getElementById("ball-button");
 ballButton.addEventListener("click", () => {
         ballcurrentIndex++; //ボール1追加
+        let ballLight = document.getElementById("ball-light")
         
         if (ballcurrentIndex === 4) {
             countreset()
@@ -263,9 +265,9 @@ ballButton.addEventListener("click", () => {
             console.log(progressText)
             localStorage.setItem("progressText", progressText)
             showProgressLocalStorage()
+            ballLight.children[ballcurrentIndex-1].classList.add("green")
         }
         scoreShowing.innerHTML = scorecurrentIndex + "点"
-        countShowing.innerHTML = ballcurrentIndex + "-" + strikecurrentIndex; //表示
     })
 
 function walk(buttonId, positiontext) {;
@@ -316,8 +318,9 @@ scoreresetButton.addEventListener("click", () => {
 function out(buttonId, positiontext) {;
     document.getElementById(buttonId).addEventListener("click", () => {
     outcurrentIndex++
-    outShowing.innerHTML = outcurrentIndex + "アウト";
     countreset()
+    let outLight = document.getElementById("out-light")
+    outLight.children[outcurrentIndex-1].classList.add("red")
 
     if (inningcurrentIndex % 2 === 0) {
         batFirstResult[batFirstcurrentIndex] = batFirstResult[batFirstcurrentIndex] + " " + positiontext //打撃結果に追加
@@ -520,7 +523,14 @@ function showProgressLocalStorage(){
 function countreset(){ //ボール・ストライクカウントをリセットして表示
     strikecurrentIndex = 0
     ballcurrentIndex = 0
-    countShowing.innerHTML = ballcurrentIndex + "-" + strikecurrentIndex;
+    let strikeLight = document.getElementById("strike-light")
+    for (let e of strikeLight.children) {
+        e.classList.remove("yellow")
+    }
+    let ballLight = document.getElementById("ball-light")
+    for (let e of ballLight.children) {
+        e.classList.remove("green")
+    }
 }
 
 function moveAllRunner(firstPosition,plusbase,firstPositioncurrentIndex){//すべてのランナーが同じ数ずつ進む
@@ -561,13 +571,16 @@ function moveAllRunner(firstPosition,plusbase,firstPositioncurrentIndex){//す�
 
 function outInningRunnerReset(firstPosition){
     outcurrentIndex = 0
-    outShowing.innerHTML = outcurrentIndex + "アウト"; //アウト表示
     inningcurrentIndex = (inningcurrentIndex + 1) % inning.length; //イニング追加
     inningShowing.innerHTML = inning[inningcurrentIndex]; //イニング表示
     runnerbase = "ランナーなし" //ランナーなしとする
     runnerShowing.innerHTML = runnerbase;
     for (i = 0; i < firstPosition.length; i++) {
         firstPosition[i][1] = 0 //本塁に戻す
+    }
+    let outLight = document.getElementById("out-light")
+    for (let e of outLight.children) {
+        e.classList.remove("red")
     }
 }
 
@@ -629,23 +642,5 @@ function oneMove(firstPosition,firstPositioncurrentIndex){
     if (runner === ""){ //ランナーがいなかったら
         runnerbase = "ランナーなし" //ランナーなしとする
     }
-    runnerShowing.innerHTML = runnerbase;
-}
-
-function generateButton() {
-    var button = document.createElement("button"); // 新しいボタンを作成
-    button.innerHTML = "新しいボタン"; // ボタンのテキストを設定
-    button.onclick = function() {
-        generateButton(); // 新しいボタンを生成する関数を再帰的に呼び出し
-    };
-    document.getElementById("buttonContainer").appendChild(button); // ボタンをコンテナに追加
-}
-
-function outInningRunner(){
-    outcurrentIndex = 0
-    outShowing.innerHTML = outcurrentIndex + "アウト"; //アウト表示
-    inningcurrentIndex = (inningcurrentIndex + 1) % inning.length; //イニング追加
-    inningShowing.innerHTML = inning[inningcurrentIndex]; //イニング表示
-    runnerbase = "ランナーなし" //ランナーなしとする
     runnerShowing.innerHTML = runnerbase;
 }

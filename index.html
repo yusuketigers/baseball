@@ -10,12 +10,12 @@
     <h1 id="inning-showing">1回表</h1>
     <div id="batter-display">
         <div>
-            <h3>先攻チーム</h3>
+            <p>先攻チーム</p>
             <h2 id="bat-first-showing">1番 近本</h2>
             <h4 id="bat-first-result-showing"></h4>
         </div>
         <div>
-            <h3>後攻チーム</h3>
+            <p>後攻チーム</p>
             <h2 id="field-first-showing">1番 オコエ</h2>
             <h4 id="field-first-result-showing"></h4>
         </div>
@@ -44,118 +44,181 @@
     <h3 id="score-showing">0点</h3>
     <h3 id="runner-showing">ランナーなし</h3>
 
-    <p>カウント</p>
-    <button id="looking-strike-button">見逃し</button>
-    <button id="swing-strike-button">空振り</button>
-    <button id="foul-button">ファール</button>
-    <button id="ball-button">ボール</button>
-    <button id="swing-bunt-strike-button">バント空振り</button>
-    <button id="foul-bunt-button">バントファール</button>
-    <p>セーフティバント</p>
-    <button id="pitcher-safety-hit-button">ピッチャーセーフティ</button>
-    <button id="catcher-safety-hit-button">キャッチャーセーフティ</button>
-    <button id="first-safety-hit-button">ファーストセーフティ</button>
-    <button id="second-safety-hit-button">セカンドセーフティ</button>
-    <button id="third-safety-hit-button">サードセーフティ</button>
-    <button id="short-safety-hit-button">ショートセーフティ</button>
-    <p>内野安打</p>
-    <button id="pitcher-hit-button">ピッチャー内野安打</button>
-    <button id="catcher-hit-button">キャッチャー内野安打</button>
-    <button id="first-hit-button">ファースト内野安打</button>
-    <button id="second-hit-button">セカンド内野安打</button>
-    <button id="third-hit-button">サード内野安打</button>
-    <button id="short-hit-button">ショート内野安打</button>
-    <p>強襲ヒット</p>
-    <button id="pitcher-attack-hit-button">ピッチャー強襲ヒット</button>
-    <button id="first-attack-hit-button">ファースト強襲ヒット</button>
-    <button id="second-attack-hit-button">セカンド強襲ヒット</button>
-    <button id="third-attack-hit-button">サード強襲ヒット</button>
-    <button id="short-attack-hit-button">ショート強襲ヒット</button>
-    <p>ヒット</p>
-    <button id="left-hit-button">レフト前ヒット</button>
-    <button id="center-hit-button">センター前ヒット</button>
-    <button id="right-hit-button">ライト前ヒット</button>
-    <button id="first-line-hit-button">1塁線ヒット</button>
-    <button id="third-line-hit-button">3塁線ヒット</button>
-    <button id="left-line-hit-button">レフト線ヒット</button>
-    <button id="right-line-hit-button">ライト線ヒット</button>
-    <p>ポテンヒット</p>
-    <button id="left-bloop-hit-button">レフト前ポテンヒット</button>
-    <button id="center-bloop-hit-button">センター前ポテンヒット</button>
-    <button id="right-bloop-hit-button">ライト前ポテンヒット</button>
-    <p>2塁打</p>
-    <button id="two-base-left-line-hit-button">レフト線ツーベース</button>
-    <button id="two-base-right-line-hit-button">ライト線ツーベース</button>
-    <button id="two-base-first-line-hit-button">1塁線ツーベース</button>
-    <button id="two-base-third-line-hit-button">3塁線ツーベース</button>
-    <button id="two-base-left-over-hit-button">レフトオーバーツーベース</button>
-    <button id="two-base-center-over-hit-button">センターオーバーツーベース</button>
-    <button id="two-base-right-over-hit-button">ライトオーバーツーベース</button>
-    <button id="two-base-left-center-hit-button">左中間ツーベース</button>
-    <button id="two-base-center-right-hit-button">右中間ツーベース</button>
-    <p>3塁打</p>
-    <button id="three-base-left-line-hit-button">レフト線スリーベース</button>
-    <button id="three-base-right-line-hit-button">ライト線スリーベース</button>
-    <button id="three-base-first-line-hit-button">1塁線スリーベース</button>
-    <button id="three-base-third-line-hit-button">3塁線スリーベース</button>
-    <button id="three-base-left-over-hit-button">レフトオーバースリーベース</button>
-    <button id="three-base-center-over-hit-button">センターオーバースリーベース</button>
-    <button id="three-base-right-over-hit-button">ライトオーバースリーベース</button>
-    <button id="three-base-left-center-hit-button">左中間スリーベース</button>
-    <button id="three-base-center-right-hit-button">右中間スリーベース</button>
-    <p>本塁打</p>
-    <button id="left-homerun-button">レフトへのホームラン</button>
-    <button id="left-center-homerun-button">左中間ホームラン</button>
-    <button id="center-homerun-button">センターへのホームラン</button>
-    <button id="center-right-homerun-button">右中間ホームラン</button>
-    <button id="right-homerun-button">ライトへのホームラン</button>
-    <button id="left-running-homerun-button">レフトへのランニングホームラン</button>
-    <button id="left-center-running-homerun-button">左中間ランニングホームラン</button>
-    <button id="center-running-homerun-button">センターへのランニングホームラン</button>
-    <button id="center-right-running-homerun-button">右中間ランニングホームラン</button>
-    <button id="right-running-homerun-button">ライトへのランニングホームラン</button>
-    <p>四死球</p>
-    <button id="dead-ball-button">死球</button>
-    <button id="walk-button">申告敬遠</button>
-    <p>ゴロアウト</p>
-    <button id="pitcher-ground-button">ピッチャーゴロ</button>
-    <button id="catcher-ground-button">キャッチャーゴロ</button>
-    <button id="first-ground-button">ファーストゴロ</button>
-    <button id="second-ground-button">セカンドゴロ</button>
-    <button id="third-ground-button">サードゴロ</button>
-    <button id="short-ground-button">ショートゴロ</button>
-    <button id="left-ground-button">レフトゴロ</button>
-    <button id="center-ground-button">センターゴロ</button>
-    <button id="right-ground-button">ライトゴロ</button>
-    <p>フライアウト</p>
-    <button id="pitcher-fly-button">ピッチャーフライ</button>
-    <button id="catcher-fly-button">キャッチャーフライ</button>
-    <button id="first-fly-button">ファーストフライ</button>
-    <button id="second-fly-button">セカンドフライ</button>
-    <button id="third-fly-button">サードフライ</button>
-    <button id="short-fly-button">ショートフライ</button>
-    <button id="left-fly-button">レフトフライ</button>
-    <button id="center-fly-button">センターフライ</button>
-    <button id="right-fly-button">ライトフライ</button>
-    <p>ファールフライ</p>
-    <button id="pitcher-foul-fly-button">ピッチャーファールフライ</button>
-    <button id="catcher-foul-fly-button">キャッチャーファールフライ</button>
-    <button id="first-foul-fly-button">ファーストファールフライ</button>
-    <button id="second-foul-fly-button">セカンドファールフライ</button>
-    <button id="third-foul-fly-button">サードファールフライ</button>
-    <button id="short-foul-fly-button">ショートファールフライ</button>
-    <button id="left-foul-fly-button">レフトファールフライ</button>
-    <button id="right-foul-fly-button">ライトファールフライ</button>
-    <p>ライナー</p>
-    <button id="pitcher-liner-button">ピッチャーライナー</button>
-    <button id="first-liner-button">ファーストライナー</button>
-    <button id="second-liner-button">セカンドライナー</button>
-    <button id="third-liner-button">サードライナー</button>
-    <button id="short-liner-button">ショートライナー</button>
-    <button id="left-liner-button">レフトライナー</button>
-    <button id="center-liner-button">センターライナー</button>
-    <button id="right-liner-button">ライトライナー</button>
-    <p>その他・未実装</p>
+    <div id="strikeBall-display">
+        <button class="strike" id="looking-strike-button">見逃し</button>
+        <button class="strike" id="swing-strike-button">空振り</button>
+        <button class="strike" id="foul-button">ファール</button>
+        <button class="ball" id="ball-button">ボール</button>
+        <button class="bunt" id="swing-bunt-strike-button">バント空振り</button>
+        <button class="bunt" id="foul-bunt-button">バントファール</button>
+    </div>
+
+    <ul class="include-accordion scroll-control">
+        <li>
+          <button class="accordionBtn" type="button">ヒット</button>
+          <ul>
+            <button id="left-hit-button">レフト前ヒット</button>
+            <button id="center-hit-button">センター前ヒット</button>
+            <button id="right-hit-button">ライト前ヒット</button>
+            <button id="left-line-hit-button">レフト線ヒット</button>
+            <button id="right-line-hit-button">ライト線ヒット</button>
+            <button id="first-line-hit-button">1塁線ヒット</button>
+            <button id="third-line-hit-button">3塁線ヒット</button>
+          </ul>
+        </li>
+        <li>
+            <button class="accordionBtn" type="button">ポテンヒット</button>
+            <ul>
+                <button id="left-bloop-hit-button">レフト前ポテンヒット</button>
+                <button id="center-bloop-hit-button">センター前ポテンヒット</button>
+                <button id="right-bloop-hit-button">ライト前ポテンヒット</button>
+            </ul>
+          </li>
+        <li>
+          <button class="accordionBtn" type="button">内野安打</button>
+          <ul>
+              <button id="pitcher-hit-button">ピッチャー内野安打</button>
+              <button id="catcher-hit-button">キャッチャー内野安打</button>
+              <button id="first-hit-button">ファースト内野安打</button>
+              <button id="second-hit-button">セカンド内野安打</button>
+              <button id="third-hit-button">サード内野安打</button>
+              <button id="short-hit-button">ショート内野安打</button>
+          </ul>
+        </li>
+        <li>
+            <button class="accordionBtn" type="button">強襲ヒット</button>
+            <ul>
+                <button id="pitcher-attack-hit-button">ピッチャー強襲ヒット</button>
+                <button id="first-attack-hit-button">ファースト強襲ヒット</button>
+                <button id="second-attack-hit-button">セカンド強襲ヒット</button>
+                <button id="third-attack-hit-button">サード強襲ヒット</button>
+                <button id="short-attack-hit-button">ショート強襲ヒット</button>
+            </ul>
+          </li>
+        <li>
+          <button class="accordionBtn" type="button">セーフティバント</button>
+          <ul>
+              <button id="pitcher-safety-hit-button">ピッチャーセーフティ</button>
+              <button id="catcher-safety-hit-button">キャッチャーセーフティ</button>
+              <button id="first-safety-hit-button">ファーストセーフティ</button>
+              <button id="second-safety-hit-button">セカンドセーフティ</button>
+              <button id="third-safety-hit-button">サードセーフティ</button>
+              <button id="short-safety-hit-button">ショートセーフティ</button>
+            </ul>
+        </li>
+      </ul>
+
+      <ul class="include-accordion scroll-control">
+        <li>
+          <button class="accordionBtn" type="button">二塁打</button>
+          <ul>
+              <button id="two-base-left-line-hit-button">レフト線ツーベース</button>
+              <button id="two-base-right-line-hit-button">ライト線ツーベース</button>
+              <button id="two-base-left-center-hit-button">左中間ツーベース</button>
+              <button id="two-base-center-right-hit-button">右中間ツーベース</button>
+              <button id="two-base-left-over-hit-button">レフトオーバーツーベース</button>
+              <button id="two-base-center-over-hit-button">センターオーバーツーベース</button>
+              <button id="two-base-right-over-hit-button">ライトオーバーツーベース</button>
+              <button id="two-base-first-line-hit-button">1塁線ツーベース</button>
+              <button id="two-base-third-line-hit-button">3塁線ツーベース</button>
+          </ul>
+        </li>
+        <li>
+          <button class="accordionBtn" type="button">三塁打</button>
+          <ul>
+              <button id="three-base-left-line-hit-button">レフト線スリーベース</button>
+              <button id="three-base-right-line-hit-button">ライト線スリーベース</button>
+              <button id="three-base-left-center-hit-button">左中間スリーベース</button>
+              <button id="three-base-center-right-hit-button">右中間スリーベース</button>
+              <button id="three-base-left-over-hit-button">レフトオーバースリーベース</button>
+              <button id="three-base-center-over-hit-button">センターオーバースリーベース</button>
+              <button id="three-base-right-over-hit-button">ライトオーバースリーベース</button>
+              <button id="three-base-first-line-hit-button">1塁線スリーベース</button>
+              <button id="three-base-third-line-hit-button">3塁線スリーベース</button>
+            </ul>
+        </li>
+        <li>
+          <button class="accordionBtn" type="button">本塁打</button>
+          <ul>
+              <button id="left-homerun-button">レフトへのホームラン</button>
+              <button id="center-homerun-button">センターへのホームラン</button>
+              <button id="right-homerun-button">ライトへのホームラン</button>
+              <button id="left-center-homerun-button">左中間ホームラン</button>
+              <button id="center-right-homerun-button">右中間ホームラン</button>
+              <button id="left-running-homerun-button">レフトへのランニングホームラン</button>
+              <button id="center-running-homerun-button">センターへのランニングホームラン</button>
+              <button id="right-running-homerun-button">ライトへのランニングホームラン</button>
+              <button id="left-center-running-homerun-button">左中間ランニングホームラン</button>
+              <button id="center-right-running-homerun-button">右中間ランニングホームラン</button>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="include-accordion scroll-control">
+        <li>
+          <button class="accordionBtn out" type="button">ゴロアウト</button>
+          <ul>
+              <button id="catcher-ground-button">キャッチャーゴロ</button>
+              <button id="pitcher-ground-button">ピッチャーゴロ</button>
+              <button id="first-ground-button">ファーストゴロ</button>
+              <button id="second-ground-button">セカンドゴロ</button>
+              <button id="third-ground-button">サードゴロ</button>
+              <button id="short-ground-button">ショートゴロ</button>
+              <button id="left-ground-button">レフトゴロ</button>
+              <button id="center-ground-button">センターゴロ</button>
+              <button id="right-ground-button">ライトゴロ</button>
+          </ul>
+        </li>
+        <li>
+          <button class="accordionBtn out" type="button">フライアウト</button>
+          <ul>
+              <button id="catcher-fly-button">キャッチャーフライ</button>
+              <button id="pitcher-fly-button">ピッチャーフライ</button>
+              <button id="first-fly-button">ファーストフライ</button>
+              <button id="second-fly-button">セカンドフライ</button>
+              <button id="third-fly-button">サードフライ</button>
+              <button id="short-fly-button">ショートフライ</button>
+              <button id="left-fly-button">レフトフライ</button>
+              <button id="center-fly-button">センターフライ</button>
+              <button id="right-fly-button">ライトフライ</button>
+          </ul>
+        </li>
+        <li>
+          <button class="accordionBtn out" type="button">ファールフライ</button>
+          <ul>
+              <button id="catcher-foul-fly-button">キャッチャーファールフライ</button>
+              <button id="pitcher-foul-fly-button">ピッチャーファールフライ</button>
+              <button id="first-foul-fly-button">ファーストファールフライ</button>
+              <button id="second-foul-fly-button">セカンドファールフライ</button>
+              <button id="third-foul-fly-button">サードファールフライ</button>
+              <button id="short-foul-fly-button">ショートファールフライ</button>
+              <button id="left-foul-fly-button">レフトファールフライ</button>
+              <button id="right-foul-fly-button">ライトファールフライ</button>
+          </ul>
+        </li>
+        <li>
+            <button class="accordionBtn out" type="button">ライナー</button>
+            <ul>
+                <button id="first-liner-button">ファーストライナー</button>
+                <button id="second-liner-button">セカンドライナー</button>
+                <button id="third-liner-button">サードライナー</button>
+                <button id="short-liner-button">ショートライナー</button>
+                <button id="left-liner-button">レフトライナー</button>
+                <button id="center-liner-button">センターライナー</button>
+                <button id="right-liner-button">ライトライナー</button>
+                <button id="pitcher-liner-button">ピッチャーライナー</button>
+            </ul>
+          </li>
+      </ul>
+      <ul class="include-accordion scroll-control">
+        <li>
+          <button class="walk" id="dead-ball-button">死球</button>
+        </li>
+        <li>
+            <button class="walk" id="walk-button">申告敬遠</button>
+          </li>
+      </ul>
+
     <button id="error-button">エラー</button>
     <button id="steal-button">盗塁</button>
     <button id="restraint-error-button">牽制エラー</button>
@@ -176,8 +239,7 @@
 
     <h3>巨人</h3>
     <p id="field-first-local-storage"></p>
-
-    <script src="script.js"></script>
-
+      
+      <script src="script.js"></script>
 </body>
 </html>

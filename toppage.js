@@ -50,3 +50,4 @@ function addRecordButton(title) {
   button.addEventListener("click", handleRecordButtonClick); // クリックイベントを設定
   recordButtonsDiv.appendChild(button);
 }
+

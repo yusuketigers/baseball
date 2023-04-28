@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>野球試合記録</title>
+    <link rel="stylesheet" href="toppage.css">
+</head>
+<body>
+    <header>
+        <h1 class="title">野球試合記録</h1>
+    </header>
+    <button class="score-button">成績</button>
+    <button class="add-button">+</button>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <label for="title-input">記録タイトル:</label>
+            <input type="text" id="title-input">
+            <button id="create-button">作成</button>
+        </div>
+    </div>
+    <div id="record-buttons"></div>
+    <script src="toppage.js"></script>
+</body>
+</html>

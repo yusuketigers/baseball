@@ -688,3 +688,20 @@ const slideDown = (el) => {
       });
     });
   });
+
+  const recordButtonsDiv = document.getElementById("record-buttons");
+
+// 「記録タイトル」ボタンがクリックされたときに実行される関数
+function handleRecordButtonClick() {
+  // 選手入力ページに遷移する処理をここに実装する
+  window.location.href = "player-input.html"; // 例: 選手入力ページのファイル名をplayer-input.htmlとする場合
+}
+
+// 「記録タイトル」ボタンを動的に追加する関数
+function addRecordButton(title) {
+  const button = document.createElement("button");
+  button.textContent = title;
+  button.classList.add("record-button");
+  button.addEventListener("click", handleRecordButtonClick); // クリックイベントを設定
+  recordButtonsDiv.appendChild(button);
+}

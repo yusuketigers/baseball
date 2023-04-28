@@ -705,3 +705,8 @@ function addRecordButton(title) {
   button.addEventListener("click", handleRecordButtonClick); // クリックイベントを設定
   recordButtonsDiv.appendChild(button);
 }
+
+const backButton = document.querySelector('.back-to-top');
+backButton.addEventListener('click', () => {
+  window.history.back();
+});

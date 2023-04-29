@@ -66,3 +66,28 @@ function countreset(){ //ボール・ストライクカウントをリセット�
       e.classList.remove("green")
   }
 }
+
+const hitButton = document.querySelector('.hit');
+const modal = document.querySelector('#myModal');
+const doubleButton = document.querySelector('#double');
+const tripleButton = document.querySelector('#triple');
+
+hitButton.addEventListener('click', () => {
+	modal.style.display = 'block';
+});
+
+doubleButton.addEventListener('click', () => {
+	alert('二塁打！');
+	modal.style.display = 'none';
+});
+
+tripleButton.addEventListener('click', () => {
+	alert('三塁打！');
+	modal.style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+	if (event.target == modal) {
+		modal.style.display = 'none';
+	}
+});

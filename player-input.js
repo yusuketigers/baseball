@@ -94,7 +94,7 @@ function handleStartButtonClick() {
   localStorage.setItem("team1", JSON.stringify(team1));
   localStorage.setItem("team2", JSON.stringify(team2));
 
-  window.location.href = "index.html";
+  window.location.href = "recode.html";
 }
 
 startButton.addEventListener("click", handleStartButtonClick);

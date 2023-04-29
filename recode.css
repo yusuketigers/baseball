@@ -1,0 +1,191 @@
+table {
+	border-collapse: collapse;
+	margin: 20px auto;
+	width: 98%;
+  }
+
+  #player-table {
+	border-collapse: collapse;
+	margin: 20px auto;
+	width: 50%;
+  }
+  
+  th, td {
+	border: 1px solid black;
+	padding: 8px;
+	text-align: center;
+}
+  
+  th {
+	background-color: #CCC;
+  }
+  
+  .left-of-table {
+	width: 50px;
+  }
+
+  .right-of-table {
+	width: 1000px;
+  }
+
+  td:nth-child(10) {
+	border-right: 2px solid black; /* 10列目と11列目の間の線を太くする */
+  }
+
+  th:nth-child(10) {
+	border-right: 2px solid black; /* 10列目と11列目の間の線を太くする */
+  }
+  
+  tr:nth-child(even) {
+	background-color: #F5F5F5;
+  }
+  
+
+
+#batter-display {
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+  }
+
+/* 野球カウント全体のスタイル */
+#count-display {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 0px 0;
+	text-align: center;
+}
+
+/* ボール、ストライク、アウトのそれぞれのカウントスタイル */
+.balls-container,
+.strikes-container,
+.outs-container {
+	display: flex;
+	align-items: center;
+	margin: 10px;
+}
+
+#count-label {
+	font-size: 24px;
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+#ball-light {
+	display: flex;
+}
+
+#strike-light {
+	display: flex;
+}
+
+#out-light {
+	display: flex;
+}
+
+.light {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	margin-right: 5px;
+	background-color: #bbb;
+}
+
+
+  /* 信号機の光（緑） */
+  .light.green {
+	background-color: #2ecc71;
+	color: #2ecc71;
+  }
+  
+  /* 信号機の光（黄色） */
+  .light.yellow {
+	background-color: #f1c40f;
+	color: #f1c40f;
+	animation-delay: 3s;
+  }
+  
+  /* 信号機の光（赤） */
+  .light.red {
+	background-color: #df3f2e;
+	color: #df3f2e;
+	animation-delay: 6s;
+  }
+
+/* ボール、ストライクボタンのスタイル */
+.buttons-container {
+	display: flex;
+	justify-content: center;
+	margin: 50px 0;
+}
+
+button {
+	font-size: 24px;
+	font-weight: bold;
+	padding: 10px 20px;
+	margin: 0 10px;
+	border-radius: 5px;
+	border: none;
+	color: #fff;
+}
+
+.ball-button {
+	background-color: #8cc63f;
+}
+
+.strike-button {
+	background-color: #f5d130;
+}
+
+#strikeBall-display {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 0px 0;
+	text-align: center;
+}
+
+.ball,.walk {
+	background-color: #8cc63f;
+}
+
+.strike,.hit {
+	background-color: #f5d130;
+}
+
+.bunt {
+	background-color: silver;
+}
+
+.out {
+	background-color: palevioletred;
+}
+
+.error {
+	background-color: lightskyblue;
+}
+
+.next {
+	background-color: orange;
+}
+
+.triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-top: 50px solid #000;
+	background-color: #fff;
+  }
+  
+  #result-display {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 30px 0;
+	text-align: center;
+}

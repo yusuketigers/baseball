@@ -1,225 +1,225 @@
 #batter-display {
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
-}
-
-#count-display {
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
-}
-
-#strikeBall-display {
-  justify-content: space-around;
-  text-align: center;
-}
-
-.accordionBtn {
-  justify-content: center;
-}
-
-#ball-light {
-  width: 100px;
-  height: 40px;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #213435;
-  border-radius: 40px;
-}
-
-#ball-light {
-  margin-bottom: 1rem;
-}
-
-/* 信号機の本体 */
-#strike-light {
-  width: 100px;
-  height: 40px;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #213435;
-  border-radius: 40px;
-}
-
-#strike-light {
-  margin-bottom: 1rem;
-}
-
-#out-light {
-  width: 100px;
-  height: 40px;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #213435;
-  border-radius: 40px;
-}
-
-/* 信号機の光 */
-.light {
-  position: relative;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  animation: shadow 9s infinite;
-}
-
-/* 信号機の光（緑） */
-.light.green {
-  background-color: #2ecc71;
-  color: #2ecc71;
-}
-
-/* 信号機の光（黄色） */
-.light.yellow {
-  background-color: #f1c40f;
-  color: #f1c40f;
-  animation-delay: 3s;
-}
-
-/* 信号機の光（赤） */
-.light.red {
-  background-color: #df3f2e;
-  color: #df3f2e;
-  animation-delay: 6s;
-}
-
-ul{
-  background-color: black;
-  width: 300px;
-  padding: 0;
-  color: black;
-  float: left;
-  margin-left:30px;
-}
-
-li{
-  list-style: none;
-}
-
-ul ul{
-  height: 0;
-  padding: 0;
-  overflow: hidden;
-  transition: .5s;
-  border-top: 1px solid black;
-  background-color: black;
-  margin:0;
-}
-
-ul li li{
-  border-bottom: 1px dotted black;
-  padding: 10px 0 10px 10px;
-  margin-left:15px;
-}
-
-ul:nth-of-type(1) li.active li:last-child{
-  border-bottom:1px solid black; 
-}
-
-button{
-  position: relative;
-  border: none;
-  width: 100%;
-  background-color: skyblue;
-  color: #2c37ae;
-  cursor: pointer;
-  text-align: left;
-  padding: 15px 0 15px 20px;
-  font-size:1em;
-}
-button:hover{
-  background-color: pink;
-}
-
-.accodionBtn button::before,
-.accodionBtn button::after{
-  content:"";
-  position: absolute;
-  top: 20px;
-  width: 1.5px;
-  height: 8px;
-  background-color: #fff;
-  transition: .5s;
-}
-
-.accodionBtn button::before{
-  transform: rotate(-45deg);
-  right: 35px;
-}
-
-.accodionBtn button::after{
-  transform: rotate(45deg);
-  right: 30px;
-}
-
-li.active button::before{
-  transform: rotate(-135deg);
-  transition:.5s;
-}
-
-li.active button::after{
-  transform: rotate(135deg);
-  transition:.5s;
-}
-
-.strike {
-  background-color: yellow;
-  width: 130px;
-  border: 1px solid black;
-}
-
-.ball {
-  background-color: greenyellow;
-  width: 130px;
-  border: 1px solid black;
-}
-
-.bunt {
-  background-color: silver;
-  width: 180px;
-  border: 1px solid black;
-}
-
-.accordionBtn {
-  background-color: orange;
-  border: 1px solid black;
-}
-
-.walk {
-  background-color: lightgreen;
-  border: 1px solid black;
-}
-
-.out {
-  background-color: silver;
-  border: 1px solid black;
-}
-
-
-
-ul:nth-of-type(2){ background-color: #357D87; }
-ul:nth-of-type(2) ul{ background-color: #519FA5; border-top: 1px solid #5D9FA8; }
-ul:nth-of-type(2) button:hover{ background-color: pink; }
-ul:nth-of-type(2) li li{ border-bottom: 1px dotted #73BEBF; }
-ul:nth-of-type(2) li.active li:last-child{ border-bottom:1px solid #5D9FA8; }
-
-ul.active{ overflow-y: auto; }
-
-.back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: gray;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 150px;
-}
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+  }
+  
+  #count-display {
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+  }
+  
+  #strikeBall-display {
+	justify-content: space-around;
+	text-align: center;
+  }
+  
+  .accordionBtn {
+	justify-content: center;
+  }
+  
+  #ball-light {
+	width: 100px;
+	height: 40px;
+	padding: 0 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #213435;
+	border-radius: 40px;
+  }
+  
+  #ball-light {
+	margin-bottom: 1rem;
+  }
+  
+  /* 信号機の本体 */
+  #strike-light {
+	width: 100px;
+	height: 40px;
+	padding: 0 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #213435;
+	border-radius: 40px;
+  }
+  
+  #strike-light {
+	margin-bottom: 1rem;
+  }
+  
+  #out-light {
+	width: 100px;
+	height: 40px;
+	padding: 0 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #213435;
+	border-radius: 40px;
+  }
+  
+  /* 信号機の光 */
+  .light {
+	position: relative;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	animation: shadow 9s infinite;
+  }
+  
+  /* 信号機の光（緑） */
+  .light.green {
+	background-color: #2ecc71;
+	color: #2ecc71;
+  }
+  
+  /* 信号機の光（黄色） */
+  .light.yellow {
+	background-color: #f1c40f;
+	color: #f1c40f;
+	animation-delay: 3s;
+  }
+  
+  /* 信号機の光（赤） */
+  .light.red {
+	background-color: #df3f2e;
+	color: #df3f2e;
+	animation-delay: 6s;
+  }
+  
+  ul{
+	background-color: black;
+	width: 300px;
+	padding: 0;
+	color: black;
+	float: left;
+	margin-left:30px;
+  }
+  
+  li{
+	list-style: none;
+  }
+  
+  ul ul{
+	height: 0;
+	padding: 0;
+	overflow: hidden;
+	transition: .5s;
+	border-top: 1px solid black;
+	background-color: black;
+	margin:0;
+  }
+  
+  ul li li{
+	border-bottom: 1px dotted black;
+	padding: 10px 0 10px 10px;
+	margin-left:15px;
+  }
+  
+  ul:nth-of-type(1) li.active li:last-child{
+	border-bottom:1px solid black; 
+  }
+  
+  button{
+	position: relative;
+	border: none;
+	width: 100%;
+	background-color: skyblue;
+	color: #2c37ae;
+	cursor: pointer;
+	text-align: left;
+	padding: 15px 0 15px 20px;
+	font-size:1em;
+  }
+  button:hover{
+	background-color: pink;
+  }
+  
+  .accodionBtn button::before,
+  .accodionBtn button::after{
+	content:"";
+	position: absolute;
+	top: 20px;
+	width: 1.5px;
+	height: 8px;
+	background-color: #fff;
+	transition: .5s;
+  }
+  
+  .accodionBtn button::before{
+	transform: rotate(-45deg);
+	right: 35px;
+  }
+  
+  .accodionBtn button::after{
+	transform: rotate(45deg);
+	right: 30px;
+  }
+  
+  li.active button::before{
+	transform: rotate(-135deg);
+	transition:.5s;
+  }
+  
+  li.active button::after{
+	transform: rotate(135deg);
+	transition:.5s;
+  }
+  
+  .strike {
+	background-color: yellow;
+	width: 130px;
+	border: 1px solid black;
+  }
+  
+  .ball {
+	background-color: greenyellow;
+	width: 130px;
+	border: 1px solid black;
+  }
+  
+  .bunt {
+	background-color: silver;
+	width: 180px;
+	border: 1px solid black;
+  }
+  
+  .accordionBtn {
+	background-color: orange;
+	border: 1px solid black;
+  }
+  
+  .walk {
+	background-color: lightgreen;
+	border: 1px solid black;
+  }
+  
+  .out {
+	background-color: silver;
+	border: 1px solid black;
+  }
+  
+  
+  
+  ul:nth-of-type(2){ background-color: #357D87; }
+  ul:nth-of-type(2) ul{ background-color: #519FA5; border-top: 1px solid #5D9FA8; }
+  ul:nth-of-type(2) button:hover{ background-color: pink; }
+  ul:nth-of-type(2) li li{ border-bottom: 1px dotted #73BEBF; }
+  ul:nth-of-type(2) li.active li:last-child{ border-bottom:1px solid #5D9FA8; }
+  
+  ul.active{ overflow-y: auto; }
+  
+  .back-to-top {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background-color: gray;
+	color: white;
+	padding: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 150px;
+  }

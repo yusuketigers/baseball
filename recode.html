@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="recode.css">
+</head>
+<body>
+
+  <table>
+    <thead>
+      <tr>
+        <th>チーム名</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+        <th>9</th>
+        <th>R</th>
+        <th>H</th>
+        <th>E</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>チームA</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>チームB</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div id="record-buttons"></div>
+    <h1 id="inning-showing">1回表</h1>
+    <div id="batter-display">
+        <div>
+            <p>先攻チーム</p>
+            <h2 id="bat-first-showing">1番 近本</h2>
+            <h4 id="bat-first-result-showing"></h4>
+        </div>
+        <div>
+            <p>後攻チーム</p>
+            <h2 id="field-first-showing">1番 オコエ</h2>
+            <h4 id="field-first-result-showing"></h4>
+        </div>
+    </div>
+
+<div id="count-display">
+  <div class="balls-container">
+    <span class="count-label">B:</span>
+    <div id="ball-light">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+    </div>
+  </div> 
+
+  <div class="strikes-container">
+		<span class="count-label">S:</span>    
+    <div id="strike-light">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+    </div>
+  </div>
+
+  <div class="outs-container">
+		<span class="count-label">O:</span>
+    <div id="out-light">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+    </div>
+  </div>
+</div>  
+
+<div id="strikeBall-display">
+  <button class="ball" id="ball-button">ボール</button>
+  <button class="strike" id="looking-strike-button">見逃し</button>
+  <button class="strike" id="swing-strike-button">空振り</button>
+  <button class="strike" id="foul-button">ファール</button>
+  <button class="bunt" id="swing-bunt-strike-button">バント空振り</button>
+  <button class="bunt" id="foul-bunt-button">バントファール</button>
+</div>
+
+<div id="result-display">
+  <button class="hit" type="button">ヒット</button>
+  <button class="out" type="button">アウト</button>
+  <button class="error" type="button">エラー</button>
+  <button class="walk" type="button">死球</button>
+  <button class="walk" type="button">申告敬遠</button>
+  <button class="next" type="button">ランナー進塁</button>
+</div>
+
+<div id="batter-display">
+<div>
+
+  <table id="player-table">
+    <thead>
+      <tr>
+      <th>打順</th>
+      <th>位置</th>
+      <th>名前</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left-of-table">1</td>
+      <td class="left-of-table"></td>
+      <td class="right-of-table"></td>
+    </tr>
+    <tr>
+      <td class="left-of-table">2</td>
+      <td class="left-of-table"></td>
+      <td class="right-of-table"></td>
+    </tr>
+    <tr>
+      <td class="left-of-table">3</td>
+      <td class="left-of-table"></td>
+      <td class="right-of-table"></td>
+    </tr>
+    <tr>
+      <td class="left-of-table">4</td>
+      <td class="left-of-table"></td>
+      <td class="right-of-table"></td>
+    </tr>
+    <tr>
+      <td class="left-of-table">5</td>
+      <td class="left-of-table"></td>
+      <td class="right-of-table"></td>
+    </tr>
+    <tr>
+      <td class="left-of-table">6</td>
+      <td class="left-of-table"></td>
+      <td class="right-of-table"></td>
+    </tr>
+    <tr>
+      <td class="left-of-table">7</td>
+      <td class="left-of-table"></td>
+      <td class="right-of-table"></td>
+    </tr>
+    <tr>
+      <td class="left-of-table">8</td>
+      <td class="left-of-table"></td>
+      <td class="right-of-table"></td>
+    </tr>
+    <tr>
+      <td class="left-of-table">9</td>
+      <td class="left-of-table"></td>
+      <td class="right-of-table"></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+  <table id="player-table">
+    <thead>
+      <tr>
+        <th>打順</th>
+      <th>位置</th>
+      <th>名前</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left-of-table">1</td>
+      <td class="left-of-table"></td>
+      <td class="right-of-table"></td>
+    </tr>
+    <tr>
+      <td class="left-of-table">2</td>
+      <td class="left-of-table"></td>
+      <td class="right-of-table"></td>
+    </tr>
+    <tr>
+      <td class="left-of-table">3</td>
+      <td class="left-of-table"></td>
+      <td class="right-of-table"></td>
+    </tr>
+    <tr>
+      <td class="left-of-table">4</td>
+      <td class="left-of-table"></td>
+      <td class="right-of-table"></td>
+    </tr>
+    <tr>
+      <td class="left-of-table">5</td>
+      <td class="left-of-table"></td>
+      <td class="right-of-table"></td>
+    </tr>
+    <tr>
+      <td class="left-of-table">6</td>
+      <td class="left-of-table"></td>
+      <td class="right-of-table"></td>
+    </tr>
+    <tr>
+      <td class="left-of-table">7</td>
+      <td class="left-of-table"></td>
+      <td class="right-of-table"></td>
+    </tr>
+    <tr>
+      <td class="left-of-table">8</td>
+      <td class="left-of-table"></td>
+      <td class="right-of-table"></td>
+    </tr>
+    <tr>
+      <td class="left-of-table">9</td>
+      <td class="left-of-table"></td>
+      <td class="right-of-table"></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+
+<script src="recode.js"></script>
+</body>
+</html>

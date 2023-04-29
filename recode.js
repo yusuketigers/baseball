@@ -68,26 +68,69 @@ function countreset(){ //ボール・ストライクカウントをリセット�
 }
 
 const hitButton = document.querySelector('.hit');
-const modal = document.querySelector('#myModal');
+const hitModal = document.querySelector('#hitModal');
+const onceButton = document.querySelector('#once');
 const doubleButton = document.querySelector('#double');
 const tripleButton = document.querySelector('#triple');
+const fourthButton = document.querySelector('#fourth');
 
 hitButton.addEventListener('click', () => {
-	modal.style.display = 'block';
+	hitModal.style.display = 'block';
+});
+
+onceButton.addEventListener('click', () => {
+  alert('単打！');
+  hitModal.style.display = 'none';
 });
 
 doubleButton.addEventListener('click', () => {
 	alert('二塁打！');
-	modal.style.display = 'none';
+	hitModal.style.display = 'none';
 });
 
 tripleButton.addEventListener('click', () => {
 	alert('三塁打！');
-	modal.style.display = 'none';
+	hitModal.style.display = 'none';
+});
+
+fourthButton.addEventListener('click', () => {
+	alert('本塁打！');
+	hitModal.style.display = 'none';
 });
 
 window.addEventListener('click', (event) => {
-	if (event.target == modal) {
-		modal.style.display = 'none';
+	if (event.target == hitModal) {
+		hitModal.style.display = 'none';
+	}
+});
+
+const outButton = document.querySelector('.out');
+const outModal = document.querySelector('#outModal');
+const groundButton = document.querySelector('#ground');
+const flyButton = document.querySelector('#fly');
+const foulflyButton = document.querySelector('#foulfly');
+
+outButton.addEventListener('click', () => {
+	outModal.style.display = 'block';
+});
+
+groundButton.addEventListener('click', () => {
+  alert('ゴロ');
+  outModal.style.display = 'none';
+});
+
+flyButton.addEventListener('click', () => {
+	alert('フライ');
+	outModal.style.display = 'none';
+});
+
+foulflyButton.addEventListener('click', () => {
+	alert('ファールフライ');
+	outModal.style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+	if (event.target == outModal) {
+		outModal.style.display = 'none';
 	}
 });

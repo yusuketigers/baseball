@@ -209,6 +209,15 @@ button {
 	cursor: pointer;
 }
 
+.kill {
+	background-color: pink;
+	color: white;
+	font-size: 24px;
+	padding: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
 /* モーダルウィンドウ */
 .modal {
 	display: none; 

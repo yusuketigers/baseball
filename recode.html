@@ -120,15 +120,51 @@
 </div>
 
 <div id="result-display">
-  <button class="hit" type="button">ヒット</button>
+  <button class="hit1" id="hit1" type="button">ヒット</button>
   <div id="hitModal" class="modal">
 		<div class="modal-content">
-      <button class="base" id="once" type="button">単打</button>
-			<button class="base" id="double" type="button">二塁打</button>
-			<button class="base" id="triple" type="button">三塁打</button>
-      <button class="base" id="fourth" type="button">本塁打</button>
+      <button class="hit2" id="onebase" type="button">単打</button>
+      <div id="onebase-Modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <button class="pitcher" id="onebase-pitcher" type="button">投手</button>
+          <button class="catcher" id="onebase-catcher" type="button">捕手</button>
+          <button class="infield" id="onebase-first" type="button">一塁手</button>
+          <button class="infield" id="onebase-second" type="button">二塁手</button>
+          <button class="infield" id="onebase-third" type="button">三塁手</button>
+          <button class="infield" id="onebase-short" type="button">遊撃手</button>
+          <button class="outfield" id="onebase-left" type="button">左翼手</button>
+          <button class="outfield" id="onebase-center" type="button">中堅手</button>
+          <button class="outfield" id="onebase-right" type="button">右翼手</button>
+        </div>
+      </div>
+			<button class="hit2" id="twobase" type="button">二塁打</button>
+      <div id="twobase-Modal" class="modal">
+        <div class="modal-content">
+          <button class="outfield" id="twobase-left" type="button">左翼手</button>
+          <button class="outfield" id="twobase-center" type="button">中堅手</button>
+          <button class="outfield" id="twobase-right" type="button">右翼手</button>
+        </div>
+      </div>
+			<button class="hit2" id="threebase" type="button">三塁打</button>
+      <div id="threebase-Modal" class="modal">
+        <div class="modal-content">
+          <button class="outfield" id="threebase-left" type="button">左翼手</button>
+          <button class="outfield" id="threebase-center" type="button">中堅手</button>
+          <button class="outfield" id="threebase-right" type="button">右翼手</button>
+        </div>
+      </div>
+      <button class="hit2" id="homerun" type="button">本塁打</button>
+      <div id="homerun-Modal" class="modal">
+        <div class="modal-content">
+          <button class="outfield" id="homerun-left" type="button">左翼手</button>
+          <button class="outfield" id="homerun-center" type="button">中堅手</button>
+          <button class="outfield" id="homerun-right" type="button">右翼手</button>
+        </div>
+      </div>
 		</div>
 	</div>
+
   <button class="out" type="button">アウト</button>
   <div id="outModal" class="modal">
 		<div class="modal-content">

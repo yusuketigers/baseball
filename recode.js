@@ -92,40 +92,79 @@ errorButton.addEventListener("click", () => { //ファール押したら
 })
 
 
-const hitButton = document.querySelector('.hit');
-const hitModal = document.querySelector('#hitModal');
-const onceButton = document.querySelector('#once');
-const doubleButton = document.querySelector('#double');
-const tripleButton = document.querySelector('#triple');
-const fourthButton = document.querySelector('#fourth');
+const hit1Button = document.querySelector('#hit1');
 
-hitButton.addEventListener('click', () => {
+hit1Button.addEventListener('click', () => {
 	hitModal.style.display = 'block';
 });
 
-onceButton.addEventListener('click', () => {
-  alert('単打！');
+const hitModal = document.querySelector('#hitModal');
+
+const onebaseButton = document.querySelector('#onebase');
+const twobaseButton = document.querySelector('#twobase');
+const threebaseButton = document.querySelector('#threebase');
+const homerunButton = document.querySelector('#homerun');
+
+onebaseButton.addEventListener('click', () => {
+	onebaseModal.style.display = 'block';
+});
+
+twobaseButton.addEventListener('click', () => {
+	twobaseModal.style.display = 'block';
+});
+
+threebaseButton.addEventListener('click', () => {
+	threebaseModal.style.display = 'block';
+});
+
+homerunButton.addEventListener('click', () => {
+	homerunModal.style.display = 'block';
+});
+
+const onebaseModal = document.querySelector('#onebase-Modal');
+const twobaseModal = document.querySelector('#twobase-Modal');
+const threebaseModal = document.querySelector('#threebase-Modal');
+const homerunModal = document.querySelector('#homerun-Modal');
+
+
+function hit3(buttonId, position) {;
+  document.querySelector(buttonId).addEventListener("click", () => {
+    alert(position);
+    allMldalNone()
+  })
+}
+
+function allMldalNone(){
   hitModal.style.display = 'none';
-});
+  onebaseModal.style.display = 'none';
+  twobaseModal.style.display = 'none';
+  threebaseModal.style.display = 'none';
+  homerunModal.style.display = 'none';
+}
 
-doubleButton.addEventListener('click', () => {
-	alert('二塁打！');
-	hitModal.style.display = 'none';
-});
+hit3("#onebase-pitcher","ピッチャーへの内野安打！")
+hit3("#onebase-catcher","キャッチャーへの内野安打！")
+hit3("#onebase-first","ファーストへの内野安打！")
+hit3("#onebase-second","セカンドへの内野安打！")
+hit3("#onebase-third","サードへの内野安打！")
+hit3("#onebase-short","ショートへの内野安打！")
+hit3("#onebase-left","レフト前ヒット！")
+hit3("#onebase-center","センター前ヒット！")
+hit3("#onebase-right","ライト前ヒット！")
+hit3("#twobase-left","レフトへのツーベース！")
+hit3("#twobase-center","センターへのツーベース！")
+hit3("#twobase-right","ライトへのツーベース！")
+hit3("#threebase-left","レフトへのスリーベース！")
+hit3("#threebase-center","センターへのスリーベース！")
+hit3("#threebase-right","ライトへのスリーベース！")
+hit3("#homerun-left","レフトへのホームラン！")
+hit3("#homerun-center","センターへのホームラン！")
+hit3("#homerun-right","ライトへのホームラン！")
 
-tripleButton.addEventListener('click', () => {
-	alert('三塁打！');
-	hitModal.style.display = 'none';
-});
-
-fourthButton.addEventListener('click', () => {
-	alert('本塁打！');
-	hitModal.style.display = 'none';
-});
 
 window.addEventListener('click', (event) => {
 	if (event.target == hitModal) {
-		hitModal.style.display = 'none';
+		allMldalNone()
 	}
 });
 
@@ -159,6 +198,14 @@ window.addEventListener('click', (event) => {
 		outModal.style.display = 'none';
 	}
 });
+
+var closeButton = document.querySelector('.close');
+var modal = document.querySelector('.modal');
+
+closeButton.addEventListener('click', function() {
+  modal.style.display = 'none';
+});
+
 
 const cells = document.querySelectorAll('td');
 cells.forEach(cell => {

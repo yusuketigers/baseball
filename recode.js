@@ -1,6 +1,12 @@
 strikecurrentIndex=0
 ballcurrentIndex=0
 outcurrentIndex=0
+battercurrentIndex1=0
+battercurrentIndex2=0
+playerRunner1=[0,0,0,0,0,0,0,0,0]
+playerRunner2=[0,0,0,0,0,0,0,0,0]
+playerShowing1 = document.getElementById("player-showing1")
+playerShowing2 = document.getElementById("player-showing2")
 
 let foulButton = document.getElementById("foul-button");
 foulButton.addEventListener("click", () => { //ファール押したら
@@ -272,18 +278,28 @@ function addToList() {
       playerList2.push(cellText2);
     }
   }
-  for (var i = 0; i < playerList2.length; i++) {
-    if (playerList2[i] == '投') {
-      playerShowing2.innerHTML = playerList2[i+1]; //打者を表示
+  let playerPosition1 = [];
+  let playerPosition2 = [];
+  let playerName1 = [];
+  let playerName2 = [];
+
+for (let i = 1; i < playerList1.length; i += 3) {
+  playerPosition1.push(playerList1[i]);
+  playerPosition2.push(playerList2[i]);
+}
+console.log(playerPosition2)
+for (let i = 2; i < playerList1.length; i += 3) {
+  playerName1.push(playerList1[i]);
+  playerName2.push(playerList2[i]);
+}
+console.log(playerName2)
+
+  for (var i = 0; i < playerPosition2.length; i++) {
+    if (playerPosition2[i] == '投' || playerPosition2[i] == "1") {
+      playerShowing2.innerHTML = playerName2[i]; //打者を表示
     }
   }
-  playerShowing1.innerHTML = playerList1[2]; //打者を表示
+  playerShowing1.innerHTML = playerName1[0]; //打者を表示
   console.log(playerList1)
   console.log(playerList2)
 }
-
-playerRunner1=[0,0,0,0,0,0,0,0,0]
-playerRunner2=[0,0,0,0,0,0,0,0,0]
-
-playerShowing1 = document.getElementById("player-showing1")
-playerShowing2 = document.getElementById("player-showing2")

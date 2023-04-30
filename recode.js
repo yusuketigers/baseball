@@ -106,31 +106,61 @@ hit1Button.addEventListener('click', () => {
 
 const hitModal = document.querySelector('#hitModal');
 
-const onebaseButton = document.querySelector('#onebase');
-const twobaseButton = document.querySelector('#twobase');
-const threebaseButton = document.querySelector('#threebase');
-const homerunButton = document.querySelector('#homerun');
+const hitPitcherButton = document.querySelector('#hit-pitcher');
+const hitCatcherButton = document.querySelector('#hit-catcher');
+const hitFirstButton = document.querySelector('#hit-first');
+const hitSecondButton = document.querySelector('#hit-second');
+const hitThirdButton = document.querySelector('#hit-third');
+const hitShortButton = document.querySelector('#hit-short');
+const hitLeftButton = document.querySelector('#hit-left');
+const hitCenterButton = document.querySelector('#hit-center');
+const hitRightButton = document.querySelector('#hit-right');
 
-onebaseButton.addEventListener('click', () => {
-	onebaseModal.style.display = 'block';
+hitPitcherButton.addEventListener('click', () => {
+	hitPitcherModal.style.display = 'block';
 });
 
-twobaseButton.addEventListener('click', () => {
-	twobaseModal.style.display = 'block';
+hitCatcherButton.addEventListener('click', () => {
+	hitCatcherModal.style.display = 'block';
 });
 
-threebaseButton.addEventListener('click', () => {
-	threebaseModal.style.display = 'block';
+hitFirstButton.addEventListener('click', () => {
+	hitFirstModal.style.display = 'block';
 });
 
-homerunButton.addEventListener('click', () => {
-	homerunModal.style.display = 'block';
+hitSecondButton.addEventListener('click', () => {
+	hitSecondModal.style.display = 'block';
 });
 
-const onebaseModal = document.querySelector('#onebase-Modal');
-const twobaseModal = document.querySelector('#twobase-Modal');
-const threebaseModal = document.querySelector('#threebase-Modal');
-const homerunModal = document.querySelector('#homerun-Modal');
+hitThirdButton.addEventListener('click', () => {
+	hitThirdModal.style.display = 'block';
+});
+
+hitShortButton.addEventListener('click', () => {
+	hitShortModal.style.display = 'block';
+});
+
+hitLeftButton.addEventListener('click', () => {
+	hitLeftModal.style.display = 'block';
+});
+
+hitCenterButton.addEventListener('click', () => {
+	hitCenterModal.style.display = 'block';
+});
+
+hitRightButton.addEventListener('click', () => {
+	hitRightModal.style.display = 'block';
+});
+
+const hitPitcherModal = document.querySelector('#hit-pitcher-Modal');
+const hitCatcherModal = document.querySelector('#hit-catcher-Modal');
+const hitFirstModal = document.querySelector('#hit-first-Modal');
+const hitSecondModal = document.querySelector('#hit-second-Modal');
+const hitThirdModal = document.querySelector('#hit-third-Modal');
+const hitShortModal = document.querySelector('#hit-short-Modal');
+const hitLeftModal = document.querySelector('#hit-left-Modal');
+const hitCenterModal = document.querySelector('#hit-center-Modal');
+const hitRightModal = document.querySelector('#hit-right-Modal');
 
 
 function hit3(buttonId, position) {;
@@ -142,10 +172,15 @@ function hit3(buttonId, position) {;
 
 function allMldalNone(){
   hitModal.style.display = 'none';
-  onebaseModal.style.display = 'none';
-  twobaseModal.style.display = 'none';
-  threebaseModal.style.display = 'none';
-  homerunModal.style.display = 'none';
+  hitPitcherModal.style.display = 'none';
+  hitCatcherModal.style.display = 'none';
+  hitFirstModal.style.display = 'none';
+  hitSecondModal.style.display = 'none';
+  hitThirdModal.style.display = 'none';
+  hitShortModal.style.display = 'none';
+  hitLeftModal.style.display = 'none';
+  hitCenterModal.style.display = 'none';
+  hitRightModal.style.display = 'none';
   outModal.style.display = 'none';
   groundModal.style.display = 'none';
   flyModal.style.display = 'none';
@@ -153,11 +188,29 @@ function allMldalNone(){
 }
 
 hit3("#onebase-pitcher","ピッチャーへの内野安打！")
+hit3("#twobase-pitcher","ピッチャーへの二塁打！")
+hit3("#threebase-pitcher","ピッチャーへの三塁打！")
+hit3("#homerun-pitcher","ピッチャーへのホームラン！")
 hit3("#onebase-catcher","キャッチャーへの内野安打！")
+hit3("#twobase-catcher","キャッチャーへの二塁打！")
+hit3("#threebase-catcher","キャッチャーへの三塁打！")
+hit3("#homerun-catcher","キャッチャーへのホームラン！")
 hit3("#onebase-first","ファーストへの内野安打！")
+hit3("#twobase-first","ファーストへの二塁打！")
+hit3("#threebase-first","ファーストへの三塁打！")
+hit3("#homerun-first","ファーストへのホームラン！")
 hit3("#onebase-second","セカンドへの内野安打！")
+hit3("#twobase-second","セカンドへの二塁打！")
+hit3("#threebase-second","セカンドへの三塁打！")
+hit3("#homerun-second","セカンドへのホームラン！")
 hit3("#onebase-third","サードへの内野安打！")
+hit3("#twobase-third","サードへの二塁打！")
+hit3("#threebase-third","サードへの三塁打！")
+hit3("#homerun-third","サードへのホームラン！")
 hit3("#onebase-short","ショートへの内野安打！")
+hit3("#twobase-short","ショートへの二塁打！")
+hit3("#threebase-short","ショートへの三塁打！")
+hit3("#homerun-short","ショートへのホームラン！")
 hit3("#onebase-left","レフト前ヒット！")
 hit3("#onebase-center","センター前ヒット！")
 hit3("#onebase-right","ライト前ヒット！")
@@ -236,7 +289,7 @@ out3("#liner-center","センターライナー")
 out3("#liner-right","ライトライナー")
 
 window.addEventListener('click', (event) => {
-  if (event.target == hitModal || event.target == onebaseModal || event.target == twobaseModal || event.target == threebaseModal || event.target == homerunModal || event.target == outModal || event.target == groundModal || event.target == flyModal || event.target == linerModal) {
+  if (event.target == hitModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == hitLeftModal || event.target == hitCenterModal || event.target == hitRightModal) {
     allMldalNone()
   }
 });

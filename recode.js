@@ -182,9 +182,15 @@ function allMldalNone(){
   hitCenterModal.style.display = 'none';
   hitRightModal.style.display = 'none';
   outModal.style.display = 'none';
-  groundModal.style.display = 'none';
-  flyModal.style.display = 'none';
-  linerModal.style.display = 'none';
+  outPitcherModal.style.display = 'none';
+  outCatcherModal.style.display = 'none';
+  outFirstModal.style.display = 'none';
+  outSecondModal.style.display = 'none';
+  outThirdModal.style.display = 'none';
+  outShortModal.style.display = 'none';
+  outLeftModal.style.display = 'none';
+  outCenterModal.style.display = 'none';
+  outRightModal.style.display = 'none';
 }
 
 hit3("#onebase-pitcher","ピッチャーへの内野安打！")
@@ -233,25 +239,61 @@ out1Button.addEventListener('click', () => {
 
 const outModal = document.querySelector('#outModal');
 
-const groundButton = document.querySelector('#ground');
-const flyButton = document.querySelector('#fly');
-const linerButton = document.querySelector('#liner');
+const outPitcherButton = document.querySelector('#out-pitcher');
+const outCatcherButton = document.querySelector('#out-catcher');
+const outFirstButton = document.querySelector('#out-first');
+const outSecondButton = document.querySelector('#out-second');
+const outThirdButton = document.querySelector('#out-third');
+const outShortButton = document.querySelector('#out-short');
+const outLeftButton = document.querySelector('#out-left');
+const outCenterButton = document.querySelector('#out-center');
+const outRightButton = document.querySelector('#out-right');
 
-groundButton.addEventListener('click', () => {
-	groundModal.style.display = 'block';
+outPitcherButton.addEventListener('click', () => {
+	outPitcherModal.style.display = 'block';
 });
 
-flyButton.addEventListener('click', () => {
-	flyModal.style.display = 'block';
+outCatcherButton.addEventListener('click', () => {
+	outCatcherModal.style.display = 'block';
 });
 
-linerButton.addEventListener('click', () => {
-	linerModal.style.display = 'block';
+outFirstButton.addEventListener('click', () => {
+	outFirstModal.style.display = 'block';
 });
 
-const groundModal = document.querySelector('#ground-Modal');
-const flyModal = document.querySelector('#fly-Modal');
-const linerModal = document.querySelector('#liner-Modal');
+outSecondButton.addEventListener('click', () => {
+	outSecondModal.style.display = 'block';
+});
+
+outThirdButton.addEventListener('click', () => {
+	outThirdModal.style.display = 'block';
+});
+
+outShortButton.addEventListener('click', () => {
+	outShortModal.style.display = 'block';
+});
+
+outLeftButton.addEventListener('click', () => {
+	outLeftModal.style.display = 'block';
+});
+
+outCenterButton.addEventListener('click', () => {
+	outCenterModal.style.display = 'block';
+});
+
+outRightButton.addEventListener('click', () => {
+	outRightModal.style.display = 'block';
+});
+
+const outPitcherModal = document.querySelector('#out-pitcher-Modal');
+const outCatcherModal = document.querySelector('#out-catcher-Modal');
+const outFirstModal = document.querySelector('#out-first-Modal');
+const outSecondModal = document.querySelector('#out-second-Modal');
+const outThirdModal = document.querySelector('#out-third-Modal');
+const outShortModal = document.querySelector('#out-short-Modal');
+const outLeftModal = document.querySelector('#out-left-Modal');
+const outCenterModal = document.querySelector('#out-center-Modal');
+const outRightModal = document.querySelector('#out-right-Modal');
 
 function out3(buttonId, position) {;
   document.querySelector(buttonId).addEventListener("click", () => {
@@ -289,7 +331,7 @@ out3("#liner-center","センターライナー")
 out3("#liner-right","ライトライナー")
 
 window.addEventListener('click', (event) => {
-  if (event.target == hitModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == hitLeftModal || event.target == hitCenterModal || event.target == hitRightModal) {
+  if (event.target == hitModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == hitLeftModal || event.target == hitCenterModal || event.target == hitRightModal || event.target == outModal || event.target == outPitcherModal || event.target == outCatcherModal || event.target == outFirstModal || event.target == outSecondModal || event.target == outThirdModal || event.target == outShortModal || event.target == outLeftModal || event.target == outCenterModal || event.target == outRightModal) {
     allMldalNone()
   }
 });

@@ -339,4 +339,12 @@ button {
 	border-radius: 0%;
   }
   
+  body {
+	text-align: center;
+  }
   
+
+  #register {
+	background-color: violet;
+	display: inline-block;
+  }

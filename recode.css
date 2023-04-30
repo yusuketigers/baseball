@@ -259,21 +259,24 @@ button {
 	transform: rotate(45deg);
 	position: absolute;
 	top: 230px;
-	left: 820px;
+	left: 50%;
+    margin-left: 70px;
   }
   
   #square2 {
 	transform: rotate(45deg);
 	position: absolute;
 	top: 160px;
-	left: 720px;
+	left: 50%;
+    margin-left: 0;
   }
   
   #square3 {
 	transform: rotate(45deg);
 	position: absolute;
 	top: 230px;
-	left: 620px;
+	left: 50%;
+    margin-left: -70px;
   }
 
   .square.light {

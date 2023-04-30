@@ -17,17 +17,7 @@ function count(buttonId) {;
 
   if (strikecurrentIndex === 2) { //3つ目のストライク
       countreset()
-      if (outcurrentIndex === 2){
-        outcurrentIndex = 0
-        let outLight = document.getElementById("out-light")
-        for (let e of outLight.children) {
-            e.classList.remove("red")
-        }
-      } else {
-        outcurrentIndex++
-        let outLight = document.getElementById("out-light")
-        outLight.children[outcurrentIndex-1].classList.add("red")
-      }
+      outcount()
   } else { //1,2ストライク目
     strikecurrentIndex++; //ストライク1追加
     let strikeLight = document.getElementById("strike-light")
@@ -53,6 +43,31 @@ ballButton.addEventListener("click", () => { //ファール押したら
   }
 })
 
+
+function out(buttonId) {;
+  document.getElementById(buttonId).addEventListener("click", () => {
+  countreset()
+  outcount()
+});
+}
+
+out("ground")
+out("fly")
+out("foulfly")
+
+function outcount(){
+  if (outcurrentIndex === 2) {
+    outcurrentIndex=0
+    let outLight = document.getElementById("out-light")
+    for (let e of outLight.children) {
+        e.classList.remove("red")
+   }
+  } else {
+      outcurrentIndex++
+      let outLight = document.getElementById("out-light")
+      outLight.children[outcurrentIndex-1].classList.add("red")
+  }
+}
 
 function countreset(){ //ボール・ストライクカウントをリセットして表示
   strikecurrentIndex = 0
@@ -114,10 +129,10 @@ outButton.addEventListener('click', () => {
 	outModal.style.display = 'block';
 });
 
-groundButton.addEventListener('click', () => {
-  alert('ゴロ');
-  outModal.style.display = 'none';
-});
+// groundButton.addEventListener('click', () => {
+//   alert('ゴロ');
+//   outModal.style.display = 'none';
+// });
 
 flyButton.addEventListener('click', () => {
 	alert('フライ');

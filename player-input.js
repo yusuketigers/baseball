@@ -112,4 +112,3 @@ const backButton = document.querySelector('.back-to-top');
 backButton.addEventListener('click', () => {
   window.history.back();
 });
-

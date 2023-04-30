@@ -39,7 +39,7 @@ createButton.addEventListener("click", () => {
 // 「記録タイトル」ボタンがクリックされたときに実行される関数
 function handleRecordButtonClick() {
   // 選手入力ページに遷移する処理をここに実装する
-  window.location.href = "player-input.html"; // 例: 選手入力ページのファイル名をplayer-input.htmlとする場合
+  window.location.href = "recode.html"; // 例: 選手入力ページのファイル名をplayer-input.htmlとする場合
 }
 
 // 「記録タイトル」ボタンを動的に追加する関数

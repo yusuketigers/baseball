@@ -4,7 +4,13 @@ table {
 	width: 98%;
   }
 
-  #player-table {
+  #player-table1 {
+	border-collapse: collapse;
+	margin: 20px auto;
+	width: 50%;
+  }
+
+  #player-table2 {
 	border-collapse: collapse;
 	margin: 20px auto;
 	width: 50%;

@@ -159,3 +159,42 @@ window.addEventListener('click', (event) => {
 		outModal.style.display = 'none';
 	}
 });
+
+const cells = document.querySelectorAll('td');
+cells.forEach(cell => {
+  cell.addEventListener('input', function() {
+    console.log('Input detected');
+  });
+});
+
+function updateParagraph1(cell) {
+  const text = cell.innerText;
+  document.querySelector('#output1').textContent = text;
+}
+
+function updateParagraph2(cell) {
+  const text = cell.innerText;
+  document.querySelector('#output2').textContent = text;
+}
+
+function addToList() {
+  var playerList1 = [];
+  var playerList2 = [];
+  var table1 = document.getElementById("player-table1");
+  var table2 = document.getElementById("player-table2");
+  var cells1 = table1.getElementsByTagName('td');
+  var cells2 = table2.getElementsByTagName('td');
+  
+  for (var i = 0; i < cells1.length; i++) {
+    var cellText1 = cells1[i].innerText.trim();
+    var cellText2 = cells2[i].innerText.trim();
+    if (cellText1 !== '') {
+      playerList1.push(cellText1);
+    }
+    if (cellText2 !== '') {
+      playerList2.push(cellText2);
+    }
+  }
+  console.log(playerList1); // リストをコンソールに表示
+  console.log(playerList2); // リストをコンソールに表示
+}

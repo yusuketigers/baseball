@@ -62,7 +62,6 @@
 
 
   <div id="record-buttons"></div>
-    <h1 id="inning-showing">1回表</h1>
     <div id="batter-display">
         <div>
             <p>先攻チーム</p>
@@ -75,6 +74,12 @@
             <h4 id="field-first-result-showing"></h4>
         </div>
     </div>
+
+  <div id="square-light">
+    <div class="square" id="square1"></div>
+    <div class="square" id="square2"></div>
+    <div class="square" id="square3"></div>
+  </div>
 
 <div id="count-display">
   <div class="balls-container">
@@ -133,7 +138,7 @@
 			<button class="kill" id="foulfly" type="button">ファールフライ</button>
 		</div>
 	</div>
-  <button class="error" type="button">エラー</button>
+  <button class="error" id="error" type="button">エラー</button>
   <button class="walk" type="button">死球</button>
   <button class="walk" type="button">申告敬遠</button>
   <button class="next" type="button">ランナー進塁</button>

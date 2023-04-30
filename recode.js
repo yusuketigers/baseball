@@ -82,6 +82,16 @@ function countreset(){ //ボール・ストライクカウントをリセット�
   }
 }
 
+
+
+let errorButton = document.getElementById("error");
+errorButton.addEventListener("click", () => { //ファール押したら
+
+  let squareLight = document.getElementById("square-light")
+    squareLight.children[0].classList.add("light")
+})
+
+
 const hitButton = document.querySelector('.hit');
 const hitModal = document.querySelector('#hitModal');
 const onceButton = document.querySelector('#once');

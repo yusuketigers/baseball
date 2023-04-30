@@ -243,3 +243,42 @@ button {
 .hidden {
 	display: none;
 }
+
+.square {
+	width: 10px;
+	height: 10px;
+	background-color: white;
+	transform-origin: top left;
+	border: 1px solid black;
+  }
+  
+  #square1 {
+	transform: rotate(45deg);
+	position: absolute;
+	top: 230px;
+	left: 820px;
+  }
+  
+  #square2 {
+	transform: rotate(45deg);
+	position: absolute;
+	top: 160px;
+	left: 720px;
+  }
+  
+  #square3 {
+	transform: rotate(45deg);
+	position: absolute;
+	top: 230px;
+	left: 620px;
+  }
+
+  .square.light {
+	width: 10px;
+	height: 10px;
+	background-color: red;
+	transform-origin: top left;
+	border: 1px solid black;
+	border-radius: 0%;
+  }
+  

@@ -195,6 +195,18 @@ function addToList() {
       playerList2.push(cellText2);
     }
   }
-  console.log(playerList1); // リストをコンソールに表示
-  console.log(playerList2); // リストをコンソールに表示
+  for (var i = 0; i < playerList2.length; i++) {
+    if (playerList2[i] == '投') {
+      playerShowing2.innerHTML = playerList2[i+1]; //打者を表示
+    }
+  }
+  playerShowing1.innerHTML = playerList1[2]; //打者を表示
+  console.log(playerList1)
+  console.log(playerList2)
 }
+
+playerRunner1=[0,0,0,0,0,0,0,0,0]
+playerRunner2=[0,0,0,0,0,0,0,0,0]
+
+playerShowing1 = document.getElementById("player-showing1")
+playerShowing2 = document.getElementById("player-showing2")

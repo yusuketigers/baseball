@@ -126,7 +126,6 @@
       <button class="hit2" id="onebase" type="button">単打</button>
       <div id="onebase-Modal" class="modal">
         <div class="modal-content">
-          <span class="close">&times;</span>
           <button class="pitcher" id="onebase-pitcher" type="button">投手</button>
           <button class="catcher" id="onebase-catcher" type="button">捕手</button>
           <button class="infield" id="onebase-first" type="button">一塁手</button>
@@ -165,12 +164,51 @@
 		</div>
 	</div>
 
-  <button class="out" type="button">アウト</button>
+  <button class="out1" id="out1" type="button">アウト</button>
   <div id="outModal" class="modal">
 		<div class="modal-content">
-      <button class="kill" id="ground" type="button">ゴロ</button>
-			<button class="kill" id="fly" type="button">フライ</button>
-			<button class="kill" id="foulfly" type="button">ファールフライ</button>
+      <button class="out2" id="ground" type="button">ゴロ</button>
+      <div id="ground-Modal" class="modal">
+        <div class="modal-content">
+          <button class="pitcher" id="ground-pitcher" type="button">投手</button>
+          <button class="catcher" id="ground-catcher" type="button">捕手</button>
+          <button class="infield" id="ground-first" type="button">一塁手</button>
+          <button class="infield" id="ground-second" type="button">二塁手</button>
+          <button class="infield" id="ground-third" type="button">三塁手</button>
+          <button class="infield" id="ground-short" type="button">遊撃手</button>
+          <button class="outfield" id="ground-left" type="button">左翼手</button>
+          <button class="outfield" id="ground-center" type="button">中堅手</button>
+          <button class="outfield" id="ground-right" type="button">右翼手</button>
+        </div>
+      </div>
+			<button class="out2" id="fly" type="button">フライ</button>
+      <div id="fly-Modal" class="modal">
+        <div class="modal-content">
+          <button class="pitcher" id="fly-pitcher" type="button">投手</button>
+          <button class="catcher" id="fly-catcher" type="button">捕手</button>
+          <button class="infield" id="fly-first" type="button">一塁手</button>
+          <button class="infield" id="fly-second" type="button">二塁手</button>
+          <button class="infield" id="fly-third" type="button">三塁手</button>
+          <button class="infield" id="fly-short" type="button">遊撃手</button>
+          <button class="outfield" id="fly-left" type="button">左翼手</button>
+          <button class="outfield" id="fly-center" type="button">中堅手</button>
+          <button class="outfield" id="fly-right" type="button">右翼手</button>
+        </div>
+      </div>
+			<button class="out2" id="liner" type="button">ライナー</button>
+      <div id="liner-Modal" class="modal">
+        <div class="modal-content">
+          <button class="pitcher" id="liner-pitcher" type="button">投手</button>
+          <button class="catcher" id="liner-catcher" type="button">捕手</button>
+          <button class="infield" id="liner-first" type="button">一塁手</button>
+          <button class="infield" id="liner-second" type="button">二塁手</button>
+          <button class="infield" id="liner-third" type="button">三塁手</button>
+          <button class="infield" id="liner-short" type="button">遊撃手</button>
+          <button class="outfield" id="liner-left" type="button">左翼手</button>
+          <button class="outfield" id="liner-center" type="button">中堅手</button>
+          <button class="outfield" id="liner-right" type="button">右翼手</button>
+        </div>
+      </div>
 		</div>
 	</div>
   <button class="error" id="error" type="button">エラー</button>

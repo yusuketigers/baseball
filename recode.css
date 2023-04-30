@@ -254,8 +254,17 @@ button {
 	cursor: pointer;
 }
 
-.kill {
-	background-color: pink;
+.out1 {
+	background-color: palevioletred;
+	color: white;
+	font-size: 24px;
+	padding: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.out2 {
+	background-color: skyblue;
 	color: white;
 	font-size: 24px;
 	padding: 10px;
@@ -330,12 +339,4 @@ button {
 	border-radius: 0%;
   }
   
-  .close {
-	position: absolute;
-	top: 0;
-	right: 0;
-	font-size: 30px;
-	margin-right: 20px;
-	margin-top: 10px;
-  }
   

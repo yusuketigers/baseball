@@ -51,9 +51,9 @@ function out(buttonId) {;
 });
 }
 
-out("ground")
-out("fly")
-out("foulfly")
+// out("ground")
+// out("fly")
+// out("foulfly")
 
 function outcount(){
   if (outcurrentIndex === 2) {
@@ -140,6 +140,10 @@ function allMldalNone(){
   twobaseModal.style.display = 'none';
   threebaseModal.style.display = 'none';
   homerunModal.style.display = 'none';
+  outModal.style.display = 'none';
+  groundModal.style.display = 'none';
+  flyModal.style.display = 'none';
+  linerModal.style.display = 'none';
 }
 
 hit3("#onebase-pitcher","ピッチャーへの内野安打！")
@@ -162,50 +166,74 @@ hit3("#homerun-center","センターへのホームラン！")
 hit3("#homerun-right","ライトへのホームラン！")
 
 
-window.addEventListener('click', (event) => {
-	if (event.target == hitModal) {
-		allMldalNone()
-	}
-});
+const out1Button = document.querySelector('#out1');
 
-const outButton = document.querySelector('.out');
-const outModal = document.querySelector('#outModal');
-const groundButton = document.querySelector('#ground');
-const flyButton = document.querySelector('#fly');
-const foulflyButton = document.querySelector('#foulfly');
-
-outButton.addEventListener('click', () => {
+out1Button.addEventListener('click', () => {
 	outModal.style.display = 'block';
 });
 
-// groundButton.addEventListener('click', () => {
-//   alert('ゴロ');
-//   outModal.style.display = 'none';
-// });
+const outModal = document.querySelector('#outModal');
+
+const groundButton = document.querySelector('#ground');
+const flyButton = document.querySelector('#fly');
+const linerButton = document.querySelector('#liner');
+
+groundButton.addEventListener('click', () => {
+	groundModal.style.display = 'block';
+});
 
 flyButton.addEventListener('click', () => {
-	alert('フライ');
-	outModal.style.display = 'none';
+	flyModal.style.display = 'block';
 });
 
-foulflyButton.addEventListener('click', () => {
-	alert('ファールフライ');
-	outModal.style.display = 'none';
+linerButton.addEventListener('click', () => {
+	linerModal.style.display = 'block';
 });
+
+const groundModal = document.querySelector('#ground-Modal');
+const flyModal = document.querySelector('#fly-Modal');
+const linerModal = document.querySelector('#liner-Modal');
+
+function out3(buttonId, position) {;
+  document.querySelector(buttonId).addEventListener("click", () => {
+    alert(position);
+    allMldalNone()
+  })
+}
+
+out3("#ground-pitcher","ピッチャーゴロ")
+out3("#ground-catcher","キャッチャーゴロ")
+out3("#ground-first","ファーストゴロ")
+out3("#ground-second","セカンドゴロ")
+out3("#ground-third","サードゴロ")
+out3("#ground-short","ショートゴロ")
+out3("#ground-left","レフトゴロ")
+out3("#ground-center","センターゴロ")
+out3("#ground-right","ライトゴロ")
+out3("#fly-pitcher","ピッチャーフライ")
+out3("#fly-catcher","キャッチャーフライ")
+out3("#fly-first","ファーストフライ")
+out3("#fly-second","セカンドフライ")
+out3("#fly-third","サードフライ")
+out3("#fly-short","ショートフライ")
+out3("#fly-left","レフトフライ")
+out3("#fly-center","センターフライ")
+out3("#fly-right","ライトフライ")
+out3("#liner-pitcher","ピッチャーライナー")
+out3("#liner-catcher","キャッチャーライナー")
+out3("#liner-first","ファーストライナー")
+out3("#liner-second","セカンドライナー")
+out3("#liner-third","サードライナー")
+out3("#liner-short","ショートライナー")
+out3("#liner-left","レフトライナー")
+out3("#liner-center","センターライナー")
+out3("#liner-right","ライトライナー")
 
 window.addEventListener('click', (event) => {
-	if (event.target == outModal) {
-		outModal.style.display = 'none';
-	}
+  if (event.target == hitModal || event.target == onebaseModal || event.target == twobaseModal || event.target == threebaseModal || event.target == homerunModal || event.target == outModal || event.target == groundModal || event.target == flyModal || event.target == linerModal) {
+    allMldalNone()
+  }
 });
-
-var closeButton = document.querySelector('.close');
-var modal = document.querySelector('.modal');
-
-closeButton.addEventListener('click', function() {
-  modal.style.display = 'none';
-});
-
 
 const cells = document.querySelectorAll('td');
 cells.forEach(cell => {

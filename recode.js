@@ -245,11 +245,13 @@ cells.forEach(cell => {
 function updateParagraph1(cell) {
   const text = cell.innerText;
   document.querySelector('#output1').textContent = text;
+  document.querySelector('#output3').textContent = text;
 }
 
 function updateParagraph2(cell) {
   const text = cell.innerText;
   document.querySelector('#output2').textContent = text;
+  document.querySelector('#output4').textContent = text;
 }
 
 function addToList() {

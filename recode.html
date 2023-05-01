@@ -126,55 +126,301 @@
       <button class="pitcher" id="hit-pitcher" type="button">投手</button>
       <div id="hit-pitcher-Modal" class="modal">
         <div class="modal-content">
-          <button class="hit3" id="onebase-pitcher" type="button">単打</button>
-          <button class="hit3" id="twobase-pitcher" type="button">二塁打</button>
-          <button class="hit3" id="threebase-pitcher" type="button">三塁打</button>
-          <button class="hit3" id="homerun-pitcher" type="button">本塁打</button>
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="onebasePitcher0">
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+                <option value="-1">アウト</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="onebasePitcher1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="onebasePitcher2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="onebasePitcher3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="onebase-pitcher-closeModal">OK</button>
         </div>
       </div>
       <button class="catcher" id="hit-catcher" type="button">捕手</button>
       <div id="hit-catcher-Modal" class="modal">
         <div class="modal-content">
-          <button class="hit3" id="onebase-catcher" type="button">単打</button>
-          <button class="hit3" id="twobase-catcher" type="button">二塁打</button>
-          <button class="hit3" id="threebase-catcher" type="button">三塁打</button>
-          <button class="hit3" id="homerun-catcher" type="button">本塁打</button>
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="onebaseCatcher0">
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+                <option value="-1">アウト</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="onebaseCatcher1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="onebaseCatcher2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="onebaseCatcher3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="onebase-catcher-closeModal">OK</button>
         </div>
       </div>
       <button class="infield" id="hit-first" type="button">一塁手</button>
       <div id="hit-first-Modal" class="modal">
         <div class="modal-content">
-          <button class="hit3" id="onebase-first" type="button">単打</button>
-          <button class="hit3" id="twobase-first" type="button">二塁打</button>
-          <button class="hit3" id="threebase-first" type="button">三塁打</button>
-          <button class="hit3" id="homerun-first" type="button">本塁打</button>
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="onebaseFirst0">
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+                <option value="-1">アウト</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="onebaseFirst1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="onebaseFirst2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="onebaseFirst3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="onebase-first-closeModal">OK</button>
         </div>
       </div>
       <button class="infield" id="hit-second" type="button">二塁手</button>
       <div id="hit-second-Modal" class="modal">
         <div class="modal-content">
-          <button class="hit3" id="onebase-second" type="button">単打</button>
-          <button class="hit3" id="twobase-second" type="button">二塁打</button>
-          <button class="hit3" id="threebase-second" type="button">三塁打</button>
-          <button class="hit3" id="homerun-second" type="button">本塁打</button>
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="onebaseSecond0">
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+                <option value="-1">アウト</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="onebaseSecond1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="onebaseSecond2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="onebaseSecond3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="onebase-second-closeModal">OK</button>
         </div>
       </div>
       <button class="infield" id="hit-third" type="button">三塁手</button>
       <div id="hit-third-Modal" class="modal">
         <div class="modal-content">
-          <button class="hit3" id="onebase-third" type="button">単打</button>
-          <button class="hit3" id="twobase-third" type="button">二塁打</button>
-          <button class="hit3" id="threebase-third" type="button">三塁打</button>
-          <button class="hit3" id="homerun-third" type="button">本塁打</button>
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="onebaseThird0">
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+                <option value="-1">アウト</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="onebaseThird1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="onebaseThird2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="onebaseThird3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="onebase-third-closeModal">OK</button>
         </div>
       </div>
       <button class="infield" id="hit-short" type="button">遊撃手</button>
       <div id="hit-short-Modal" class="modal">
         <div class="modal-content">
-          <button class="hit3" id="onebase-short" type="button">単打</button>
-          <button class="hit3" id="twobase-short" type="button">二塁打</button>
-          <button class="hit3" id="threebase-short" type="button">三塁打</button>
-          <button class="hit3" id="homerun-short" type="button">本塁打</button>
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="onebaseShort0">
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+                <option value="-1">アウト</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="onebaseShort1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="onebaseShort2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="onebaseShort3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="onebase-short-closeModal">OK</button>
         </div>
       </div>
       <button class="outfield" id="hit-left" type="button">左翼手</button>

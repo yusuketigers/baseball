@@ -92,12 +92,12 @@ function countreset(){ //ボール・ストライクカウントをリセット�
 
 
 
-let errorButton = document.getElementById("error");
-errorButton.addEventListener("click", () => { //ファール押したら
+// let errorButton = document.getElementById("error");
+// errorButton.addEventListener("click", () => { //ファール押したら
 
-  let squareLight = document.getElementById("square-light")
-    squareLight.children[0].classList.add("light")
-})
+//   let squareLight = document.getElementById("square-light")
+//     squareLight.children[0].classList.add("light")
+// })
 
 
 const hit1Button = document.querySelector('#hit1');
@@ -211,6 +211,13 @@ function allModalNone(){
   outCenterModal.style.display = 'none';
   outRightModal.style.display = 'none';
 
+  hitPitcherModal.style.display = 'none';
+  hitCatcherModal.style.display = 'none';
+  hitFirstModal.style.display = 'none';
+  hitSecondModal.style.display = 'none';
+  hitThirdModal.style.display = 'none';
+  hitShortModal.style.display = 'none';
+
   onebaseLeftModal.style.display = 'none';
   twobaseLeftModal.style.display = 'none';
   threebaseLeftModal.style.display = 'none';
@@ -222,30 +229,30 @@ function allModalNone(){
   threebaseRightModal.style.display = 'none';
 }
 
-hit3("#onebase-pitcher","ピッチャーへの内野安打！")
-hit3("#twobase-pitcher","ピッチャーへの二塁打！")
-hit3("#threebase-pitcher","ピッチャーへの三塁打！")
-hit3("#homerun-pitcher","ピッチャーへのホームラン！")
-hit3("#onebase-catcher","キャッチャーへの内野安打！")
-hit3("#twobase-catcher","キャッチャーへの二塁打！")
-hit3("#threebase-catcher","キャッチャーへの三塁打！")
-hit3("#homerun-catcher","キャッチャーへのホームラン！")
-hit3("#onebase-first","ファーストへの内野安打！")
-hit3("#twobase-first","ファーストへの二塁打！")
-hit3("#threebase-first","ファーストへの三塁打！")
-hit3("#homerun-first","ファーストへのホームラン！")
-hit3("#onebase-second","セカンドへの内野安打！")
-hit3("#twobase-second","セカンドへの二塁打！")
-hit3("#threebase-second","セカンドへの三塁打！")
-hit3("#homerun-second","セカンドへのホームラン！")
-hit3("#onebase-third","サードへの内野安打！")
-hit3("#twobase-third","サードへの二塁打！")
-hit3("#threebase-third","サードへの三塁打！")
-hit3("#homerun-third","サードへのホームラン！")
-hit3("#onebase-short","ショートへの内野安打！")
-hit3("#twobase-short","ショートへの二塁打！")
-hit3("#threebase-short","ショートへの三塁打！")
-hit3("#homerun-short","ショートへのホームラン！")
+// hit3("#onebase-pitcher","ピッチャーへの内野安打！")
+// hit3("#twobase-pitcher","ピッチャーへの二塁打！")
+// hit3("#threebase-pitcher","ピッチャーへの三塁打！")
+// hit3("#homerun-pitcher","ピッチャーへのホームラン！")
+// hit3("#onebase-catcher","キャッチャーへの内野安打！")
+// hit3("#twobase-catcher","キャッチャーへの二塁打！")
+// hit3("#threebase-catcher","キャッチャーへの三塁打！")
+// hit3("#homerun-catcher","キャッチャーへのホームラン！")
+// hit3("#onebase-first","ファーストへの内野安打！")
+// hit3("#twobase-first","ファーストへの二塁打！")
+// hit3("#threebase-first","ファーストへの三塁打！")
+// hit3("#homerun-first","ファーストへのホームラン！")
+// hit3("#onebase-second","セカンドへの内野安打！")
+// hit3("#twobase-second","セカンドへの二塁打！")
+// hit3("#threebase-second","セカンドへの三塁打！")
+// hit3("#homerun-second","セカンドへのホームラン！")
+// hit3("#onebase-third","サードへの内野安打！")
+// hit3("#twobase-third","サードへの二塁打！")
+// hit3("#threebase-third","サードへの三塁打！")
+// hit3("#homerun-third","サードへのホームラン！")
+// hit3("#onebase-short","ショートへの内野安打！")
+// hit3("#twobase-short","ショートへの二塁打！")
+// hit3("#threebase-short","ショートへの三塁打！")
+// hit3("#homerun-short","ショートへのホームラン！")
 hit3("#onebase-left","レフト前ヒット！")
 hit3("#onebase-center","センター前ヒット！")
 hit3("#onebase-right","ライト前ヒット！")
@@ -360,7 +367,7 @@ out3("#liner-center","センターライナー")
 out3("#liner-right","ライトライナー")
 
 window.addEventListener('click', (event) => {
-  if (event.target == hitModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == hitLeftModal || event.target == hitCenterModal || event.target == hitRightModal || event.target == outModal || event.target == outPitcherModal || event.target == outCatcherModal || event.target == outFirstModal || event.target == outSecondModal || event.target == outThirdModal || event.target == outShortModal || event.target == outLeftModal || event.target == outCenterModal || event.target == outRightModal || event.target == onebaseLeftModal || event.target == twobaseLeftModal || event.target == threebaseLeftModal || event.target == onebaseCenterModal || event.target == twobaseCenterModal || event.target == threebaseCenterModal || event.target == onebaseRightModal || event.target == twobaseRightModal || event.target == threebaseRightModal) {
+  if (event.target == hitModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == hitLeftModal || event.target == hitCenterModal || event.target == hitRightModal || event.target == outModal || event.target == outPitcherModal || event.target == outCatcherModal || event.target == outFirstModal || event.target == outSecondModal || event.target == outThirdModal || event.target == outShortModal || event.target == outLeftModal || event.target == outCenterModal || event.target == outRightModal || event.target == onebaseLeftModal || event.target == twobaseLeftModal || event.target == threebaseLeftModal || event.target == onebaseCenterModal || event.target == twobaseCenterModal || event.target == threebaseCenterModal || event.target == onebaseRightModal || event.target == twobaseRightModal || event.target == threebaseRightModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal) {
     allModalNone()
   }
 });
@@ -429,6 +436,66 @@ console.log(playerName2)
 }
 
   // Get the modal
+var onebasePitcherModal = document.getElementById("hit-pitcher-Modal");
+var onebasePitcherButton = document.getElementById("hit-pitcher");
+var onebasePitcherCloseButton = document.getElementById("onebase-pitcher-closeModal");
+var onebasePitchered0 = document.getElementById("onebasePitcher0").value;
+var onebasePitchered1 = document.getElementById("onebasePitcher1").value;
+var onebasePitchered2 = document.getElementById("onebasePitcher2").value;
+var onebasePitchered3 = document.getElementById("onebasePitcher3").value;
+const onebasePitcher1 = document.getElementById("onebasePitcher1");
+const onebasePitcher2 = document.getElementById("onebasePitcher2");
+const onebasePitcher3 = document.getElementById("onebasePitcher3");
+var onebaseCatcherModal = document.getElementById("hit-catcher-Modal");
+var onebaseCatcherButton = document.getElementById("hit-catcher");
+var onebaseCatcherCloseButton = document.getElementById("onebase-catcher-closeModal");
+var onebaseCatchered0 = document.getElementById("onebaseCatcher0").value;
+var onebaseCatchered1 = document.getElementById("onebaseCatcher1").value;
+var onebaseCatchered2 = document.getElementById("onebaseCatcher2").value;
+var onebaseCatchered3 = document.getElementById("onebaseCatcher3").value;
+const onebaseCatcher1 = document.getElementById("onebaseCatcher1");
+const onebaseCatcher2 = document.getElementById("onebaseCatcher2");
+const onebaseCatcher3 = document.getElementById("onebaseCatcher3");
+var onebaseFirstModal = document.getElementById("hit-first-Modal");
+var onebaseFirstButton = document.getElementById("hit-first");
+var onebaseFirstCloseButton = document.getElementById("onebase-first-closeModal");
+var onebaseFirsted0 = document.getElementById("onebaseFirst0").value;
+var onebaseFirsted1 = document.getElementById("onebaseFirst1").value;
+var onebaseFirsted2 = document.getElementById("onebaseFirst2").value;
+var onebaseFirsted3 = document.getElementById("onebaseFirst3").value;
+const onebaseFirst1 = document.getElementById("onebaseFirst1");
+const onebaseFirst2 = document.getElementById("onebaseFirst2");
+const onebaseFirst3 = document.getElementById("onebaseFirst3");
+var onebaseSecondModal = document.getElementById("hit-second-Modal");
+var onebaseSecondButton = document.getElementById("hit-second");
+var onebaseSecondCloseButton = document.getElementById("onebase-second-closeModal");
+var onebaseSeconded0 = document.getElementById("onebaseSecond0").value;
+var onebaseSeconded1 = document.getElementById("onebaseSecond1").value;
+var onebaseSeconded2 = document.getElementById("onebaseSecond2").value;
+var onebaseSeconded3 = document.getElementById("onebaseSecond3").value;
+const onebaseSecond1 = document.getElementById("onebaseSecond1");
+const onebaseSecond2 = document.getElementById("onebaseSecond2");
+const onebaseSecond3 = document.getElementById("onebaseSecond3");
+var onebaseThirdModal = document.getElementById("hit-third-Modal");
+var onebaseThirdButton = document.getElementById("hit-third");
+var onebaseThirdCloseButton = document.getElementById("onebase-third-closeModal");
+var onebaseThirded0 = document.getElementById("onebaseThird0").value;
+var onebaseThirded1 = document.getElementById("onebaseThird1").value;
+var onebaseThirded2 = document.getElementById("onebaseThird2").value;
+var onebaseThirded3 = document.getElementById("onebaseThird3").value;
+const onebaseThird1 = document.getElementById("onebaseThird1");
+const onebaseThird2 = document.getElementById("onebaseThird2");
+const onebaseThird3 = document.getElementById("onebaseThird3");
+var onebaseShortModal = document.getElementById("hit-short-Modal");
+var onebaseShortButton = document.getElementById("hit-short");
+var onebaseShortCloseButton = document.getElementById("onebase-short-closeModal");
+var onebaseShorted0 = document.getElementById("onebaseShort0").value;
+var onebaseShorted1 = document.getElementById("onebaseShort1").value;
+var onebaseShorted2 = document.getElementById("onebaseShort2").value;
+var onebaseShorted3 = document.getElementById("onebaseShort3").value;
+const onebaseShort1 = document.getElementById("onebaseShort1");
+const onebaseShort2 = document.getElementById("onebaseShort2");
+const onebaseShort3 = document.getElementById("onebaseShort3");
 var onebaseLeftModal = document.getElementById("onebase-left-modal");
 var onebaseLeftButton = document.getElementById("onebase-left");
 var onebaseLeftCloseButton = document.getElementById("onebase-left-closeModal");
@@ -520,7 +587,12 @@ const threebaseRight1 = document.getElementById("threebaseRight1");
 const threebaseRight2 = document.getElementById("threebaseRight2");
 const threebaseRight3 = document.getElementById("threebaseRight3");
 
-
+runnerCheck(onebasePitcherButton,onebasePitcherModal,onebasePitcherCloseButton,onebasePitchered0,onebasePitchered1,onebasePitchered2,onebasePitchered3,"onebasePitcher0","onebasePitcher1","onebasePitcher2","onebasePitcher3")
+runnerCheck(onebaseCatcherButton,onebaseCatcherModal,onebaseCatcherCloseButton,onebaseCatchered0,onebaseCatchered1,onebaseCatchered2,onebaseCatchered3,"onebaseCatcher0","onebaseCatcher1","onebaseCatcher2","onebaseCatcher3")
+runnerCheck(onebaseFirstButton,onebaseFirstModal,onebaseFirstCloseButton,onebaseFirsted0,onebaseFirsted1,onebaseFirsted2,onebaseFirsted3,"onebaseFirst0","onebaseFirst1","onebaseFirst2","onebaseFirst3")
+runnerCheck(onebaseSecondButton,onebaseSecondModal,onebaseSecondCloseButton,onebaseSeconded0,onebaseSeconded1,onebaseSeconded2,onebaseSeconded3,"onebaseSecond0","onebaseSecond1","onebaseSecond2","onebaseSecond3")
+runnerCheck(onebaseThirdButton,onebaseThirdModal,onebaseThirdCloseButton,onebaseThirded0,onebaseThirded1,onebaseThirded2,onebaseThirded3,"onebaseThird0","onebaseThird1","onebaseThird2","onebaseThird3")
+runnerCheck(onebaseShortButton,onebaseShortModal,onebaseShortCloseButton,onebaseShorted0,onebaseShorted1,onebaseShorted2,onebaseShorted3,"onebaseShort0","onebaseShort1","onebaseShort2","onebaseShort3")
 runnerCheck(onebaseLeftButton,onebaseLeftModal,onebaseLeftCloseButton,onebaseLefted0,onebaseLefted1,onebaseLefted2,onebaseLefted3,"onebaseLeft0","onebaseLeft1","onebaseLeft2","onebaseLeft3")
 runnerCheck(twobaseLeftButton,twobaseLeftModal,twobaseLeftCloseButton,twobaseLefted0,twobaseLefted1,twobaseLefted2,twobaseLefted3,"twobaseLeft0","twobaseLeft1","twobaseLeft2","twobaseLeft3")
 runnerCheck(threebaseLeftButton,threebaseLeftModal,threebaseLeftCloseButton,threebaseLefted0,threebaseLefted1,threebaseLefted2,threebaseLefted3,"threebaseLeft0","threebaseLeft1","threebaseLeft2","threebaseLeft3")
@@ -597,6 +669,12 @@ CloseName.onclick = function() {
 
 
 function allPullDownChange(){
+  pullDownChange(onebasePitcher1,onebasePitcher2,onebasePitcher3,"onebasePitcher1","onebasePitcher2","onebasePitcher3")
+  pullDownChange(onebaseCatcher1,onebaseCatcher2,onebaseCatcher3,"onebaseCatcher1","onebaseCatcher2","onebaseCatcher3")
+  pullDownChange(onebaseFirst1,onebaseFirst2,onebaseFirst3,"onebaseFirst1","onebaseFirst2","onebaseFirst3")
+  pullDownChange(onebaseSecond1,onebaseSecond2,onebaseSecond3,"onebaseSecond1","onebaseSecond2","onebaseSecond3")
+  pullDownChange(onebaseThird1,onebaseThird2,onebaseThird3,"onebaseThird1","onebaseThird2","onebaseThird3")
+  pullDownChange(onebaseShort1,onebaseShort2,onebaseShort3,"onebaseShort1","onebaseShort2","onebaseShort3")
   pullDownChange(onebaseLeft1,onebaseLeft2,onebaseLeft3,"onebaseLeft1","onebaseLeft2","onebaseLeft3")
   pullDownChange(twobaseLeft1,twobaseLeft2,twobaseLeft3,"twobaseLeft1","twobaseLeft2","twobaseLeft3")
   pullDownChange(threebaseLeft1,threebaseLeft2,threebaseLeft3,"threebaseLeft1","threebaseLeft2","threebaseLeft3")

@@ -193,6 +193,7 @@ function allMldalNone(){
   outRightModal.style.display = 'none';
 
   onebaseLeftModal.style.display = 'none';
+  twobaseLeftModal.style.display = 'none';
 }
 
 hit3("#onebase-pitcher","ピッチャーへの内野安打！")
@@ -333,7 +334,7 @@ out3("#liner-center","センターライナー")
 out3("#liner-right","ライトライナー")
 
 window.addEventListener('click', (event) => {
-  if (event.target == hitModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == hitLeftModal || event.target == hitCenterModal || event.target == hitRightModal || event.target == outModal || event.target == outPitcherModal || event.target == outCatcherModal || event.target == outFirstModal || event.target == outSecondModal || event.target == outThirdModal || event.target == outShortModal || event.target == outLeftModal || event.target == outCenterModal || event.target == outRightModal || event.target == onebaseLeftModal) {
+  if (event.target == hitModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == hitLeftModal || event.target == hitCenterModal || event.target == hitRightModal || event.target == outModal || event.target == outPitcherModal || event.target == outCatcherModal || event.target == outFirstModal || event.target == outSecondModal || event.target == outThirdModal || event.target == outShortModal || event.target == outLeftModal || event.target == outCenterModal || event.target == outRightModal || event.target == onebaseLeftModal || event.target == twobaseLeftModal) {
     allMldalNone()
   }
 });
@@ -402,25 +403,30 @@ console.log(playerName2)
 }
 
   // Get the modal
-  var onebaseLeftModal = document.getElementById("onebase-left-modal");
-  
-  // Get the button that opens the modal
-  var onebaseLeftButton = document.getElementById("onebase-left");
-
-// Get the <span> element that closes the modal
+var onebaseLeftModal = document.getElementById("onebase-left-modal");
+var onebaseLeftButton = document.getElementById("onebase-left");
 var onebaseLeftCloseButton = document.getElementById("onebase-left-closeModal");
-
 var onebaseLefted0 = document.getElementById("onebaseLeft0").value;
-  var onebaseLefted1 = document.getElementById("onebaseLeft1").value;
-  var onebaseLefted2 = document.getElementById("onebaseLeft2").value;
-  var onebaseLefted3 = document.getElementById("onebaseLeft3").value;
-
-  const onebaseLeft1 = document.getElementById("onebaseLeft1");
+var onebaseLefted1 = document.getElementById("onebaseLeft1").value;
+var onebaseLefted2 = document.getElementById("onebaseLeft2").value;
+var onebaseLefted3 = document.getElementById("onebaseLeft3").value;
+const onebaseLeft1 = document.getElementById("onebaseLeft1");
 const onebaseLeft2 = document.getElementById("onebaseLeft2");
 const onebaseLeft3 = document.getElementById("onebaseLeft3");
+var twobaseLeftModal = document.getElementById("twobase-left-modal");
+var twobaseLeftButton = document.getElementById("twobase-left");
+var twobaseLeftCloseButton = document.getElementById("twobase-left-closeModal");
+var twobaseLefted0 = document.getElementById("twobaseLeft0").value;
+var twobaseLefted1 = document.getElementById("twobaseLeft1").value;
+var twobaseLefted2 = document.getElementById("twobaseLeft2").value;
+var twobaseLefted3 = document.getElementById("twobaseLeft3").value;
+const twobaseLeft1 = document.getElementById("twobaseLeft1");
+const twobaseLeft2 = document.getElementById("twobaseLeft2");
+const twobaseLeft3 = document.getElementById("twobaseLeft3");
 
-runnerCheck(onebaseLeftButton,onebaseLeftModal,onebaseLeftCloseButton,onebaseLeft1,onebaseLeft2,onebaseLeft3,onebaseLefted0,onebaseLefted1,onebaseLefted2,onebaseLefted3,"onebaseLeft0","onebaseLeft1","onebaseLeft2","onebaseLeft3")
-function runnerCheck(ButtonName,ModalName,CloseName,Name1,Name2,Name3,Named0,Named1,Named2,Named3,Letter0,Letter1,Letter2,Letter3){
+runnerCheck(onebaseLeftButton,onebaseLeftModal,onebaseLeftCloseButton,onebaseLefted0,onebaseLefted1,onebaseLefted2,onebaseLefted3,"onebaseLeft0","onebaseLeft1","onebaseLeft2","onebaseLeft3")
+runnerCheck(twobaseLeftButton,twobaseLeftModal,twobaseLeftCloseButton,twobaseLefted0,twobaseLefted1,twobaseLefted2,twobaseLefted3,"twobaseLeft0","twobaseLeft1","twobaseLeft2","twobaseLeft3")
+function runnerCheck(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3,Letter0,Letter1,Letter2,Letter3){
 // When the user clicks the button, open the modal 
 ButtonName.onclick = function() {
   ModalName.style.display = "block";
@@ -433,9 +439,6 @@ CloseName.onclick = function() {
   var Named1 = document.getElementById(Letter1).value;
   var Named2 = document.getElementById(Letter2).value;
   var Named3 = document.getElementById(Letter3).value;;
-  const Name1 = document.getElementById(Letter1);
-  const Name2 = document.getElementById(Letter2);
-  const Name3 = document.getElementById(Letter3);
 
   for (let i = 0; i < playerRunner1.length; i++) {
     if (playerRunner1[i] === 3){
@@ -462,7 +465,20 @@ CloseName.onclick = function() {
     }
   }
   console.log(playerRunner1)
-  // playerRunner1に1が含まれている場合は、プルダウンの内容を変更する
+  allPullDownChange()
+  
+  battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
+}
+}
+
+
+function allPullDownChange(){
+  pullDownChange(onebaseLeft1,onebaseLeft2,onebaseLeft3,"onebaseLeft1","onebaseLef2","onebaseLeft3")
+  pullDownChange(twobaseLeft1,twobaseLeft2,twobaseLeft3,"twobaseLeft1","twobaseLef2","twobaseLeft3")
+}
+// playerRunner1に1が含まれている場合は、プルダウンの内容を変更する
+function pullDownChange(Name1,Name2,Name3,Letter1,Letter2,Letter3){
+
   if (playerRunner1.includes(1)) {
     Name1.innerHTML = `
     <option value=1>1塁</option>
@@ -472,35 +488,33 @@ CloseName.onclick = function() {
     <option value=0>アウト</option>
     `;
   } else {
-    Name1.innerHTML = `
-    <option value=0>-</option>
-    `;
-  }
-  
-  if (playerRunner1.includes(2)) {
-    Name2.innerHTML = `
-    <option value=2>2塁</option>
-    <option value=3>3塁</option>
-    <option value=4>得点</option>
-    <option value=0>アウト</option>
-    `;
-  } else {
-    Name2.innerHTML = `
-    <option value=0>-</option>
-    `;
-  }
-  
-  if (playerRunner1.includes(3)) {
-    Name3.innerHTML = `
-    <option value=3>3塁</option>
-    <option value=4>得点</option>
-    <option value=0>アウト</option>
-    `;
-  } else {
-    Name3.innerHTML = `
-    <option value=0>-</option>
-    `;
-  }
-  battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
+  Name1.innerHTML = `
+  <option value=0>-</option>
+  `;
+}
+
+if (playerRunner1.includes(2)) {
+  Name2.innerHTML = `
+  <option value=2>2塁</option>
+  <option value=3>3塁</option>
+  <option value=4>得点</option>
+  <option value=0>アウト</option>
+  `;
+} else {
+  Name2.innerHTML = `
+  <option value=0>-</option>
+  `;
+}
+
+if (playerRunner1.includes(3)) {
+  Name3.innerHTML = `
+  <option value=3>3塁</option>
+  <option value=4>得点</option>
+  <option value=0>アウト</option>
+  `;
+} else {
+  Name3.innerHTML = `
+  <option value=0>-</option>
+  `;
 }
 }

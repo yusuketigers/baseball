@@ -171,6 +171,24 @@ function hit3(buttonId, position) {;
   })
 }
 
+function homerun(buttonId) {;
+  document.querySelector(buttonId).addEventListener("click", () => {
+    score1++
+    for (let i = 0; i < playerRunner1.length; i++) {
+      countreset()
+      if (playerRunner1[i] > 0){
+        score1++
+        console.log(score1)
+        playerRunner1[i]=0
+      }
+    }
+    console.log(playerRunner1)
+    runnerLight()
+    allModalNone()
+    allPullDownChange()
+  })
+}
+
 function allModalNone(){
   hitModal.style.display = 'none';
   hitPitcherModal.style.display = 'none';
@@ -237,9 +255,9 @@ hit3("#twobase-right","ライトへのツーベース！")
 hit3("#threebase-left","レフトへのスリーベース！")
 hit3("#threebase-center","センターへのスリーベース！")
 hit3("#threebase-right","ライトへのスリーベース！")
-hit3("#homerun-left","レフトへのホームラン！")
-hit3("#homerun-center","センターへのホームラン！")
-hit3("#homerun-right","ライトへのホームラン！")
+homerun("#homerun-left")
+homerun("#homerun-center")
+homerun("#homerun-right")
 
 
 const out1Button = document.querySelector('#out1');
@@ -567,41 +585,8 @@ CloseName.onclick = function() {
     }
   }
 
-  if (playerRunner1.includes(1)) {
-    if (squareLight) {
-      const square1 = document.getElementById("square1");
-      square1.classList.add("light");
-    }
-  } else {
-    if (squareLight) {
-      const squares = squareLight.children;
-      squares[0].classList.remove("light");
-    }
-  }
-
-  if (playerRunner1.includes(2)) {
-    if (squareLight) {
-      const square2 = document.getElementById("square2");
-      square2.classList.add("light");
-    }
-  } else {
-    if (squareLight) {
-      const squares = squareLight.children;
-      squares[1].classList.remove("light");
-    }
-  }
-
-  if (playerRunner1.includes(3)) {
-    if (squareLight) {
-      const square3 = document.getElementById("square3");
-      square3.classList.add("light");
-    }
-  } else {
-    if (squareLight) {
-      const squares = squareLight.children;
-      squares[2].classList.remove("light");
-    }
-  }
+  runnerLight()
+  
   
   console.log(playerRunner1)
   allPullDownChange()
@@ -662,5 +647,44 @@ if (playerRunner1.includes(3)) {
   Name3.innerHTML = `
   <option value=0>-</option>
   `;
+}
+}
+
+function runnerLight(){
+
+  if (playerRunner1.includes(1)) {
+    if (squareLight) {
+      const square1 = document.getElementById("square1");
+      square1.classList.add("light");
+    }
+} else {
+  if (squareLight) {
+    const squares = squareLight.children;
+    squares[0].classList.remove("light");
+  }
+}
+
+if (playerRunner1.includes(2)) {
+  if (squareLight) {
+    const square2 = document.getElementById("square2");
+    square2.classList.add("light");
+  }
+} else {
+  if (squareLight) {
+    const squares = squareLight.children;
+    squares[1].classList.remove("light");
+  }
+}
+
+if (playerRunner1.includes(3)) {
+  if (squareLight) {
+    const square3 = document.getElementById("square3");
+    square3.classList.add("light");
+  }
+} else {
+  if (squareLight) {
+    const squares = squareLight.children;
+    squares[2].classList.remove("light");
+  }
 }
 }

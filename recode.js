@@ -172,11 +172,11 @@ const hitCenterModal = document.querySelector('#hit-center-Modal');
 const hitRightModal = document.querySelector('#hit-right-Modal');
 
 
-function hit3(buttonId, position) {;
-  document.querySelector(buttonId).addEventListener("click", () => {
-    //alert(position);
-  })
-}
+// function hit3(buttonId, position) {;
+//   document.querySelector(buttonId).addEventListener("click", () => {
+//     //alert(position);
+//   })
+// }
 
 function homerun(buttonId) {;
   document.querySelector(buttonId).addEventListener("click", () => {
@@ -211,12 +211,12 @@ function allModalNone(){
   outPitcherModal.style.display = 'none';
   outCatcherModal.style.display = 'none';
   outFirstModal.style.display = 'none';
-  // outSecondModal.style.display = 'none';
-  // outThirdModal.style.display = 'none';
-  // outShortModal.style.display = 'none';
-  // outLeftModal.style.display = 'none';
-  // outCenterModal.style.display = 'none';
-  // outRightModal.style.display = 'none';
+  outSecondModal.style.display = 'none';
+  outThirdModal.style.display = 'none';
+  outShortModal.style.display = 'none';
+  outLeftModal.style.display = 'none';
+  outCenterModal.style.display = 'none';
+  outRightModal.style.display = 'none';
 
   hitPitcherModal.style.display = 'none';
   hitCatcherModal.style.display = 'none';
@@ -244,6 +244,24 @@ function allModalNone(){
   groundFirstModal.style.display = 'none';
   flyFirstModal.style.display = 'none';
   linerFirstModal.style.display = 'none';
+  groundSecondModal.style.display = 'none';
+  flySecondModal.style.display = 'none';
+  linerSecondModal.style.display = 'none';
+  groundThirdModal.style.display = 'none';
+  flyThirdModal.style.display = 'none';
+  linerThirdModal.style.display = 'none';
+  groundShortModal.style.display = 'none';
+  flyShortModal.style.display = 'none';
+  linerShortModal.style.display = 'none';
+  groundLeftModal.style.display = 'none';
+  flyLeftModal.style.display = 'none';
+  linerLeftModal.style.display = 'none';
+  groundCenterModal.style.display = 'none';
+  flyCenterModal.style.display = 'none';
+  linerCenterModal.style.display = 'none';
+  groundRightModal.style.display = 'none';
+  flyRightModal.style.display = 'none';
+  linerRightModal.style.display = 'none';
 }
 
 
@@ -315,39 +333,39 @@ outFirstButton.addEventListener('click', () => {
 	outFirstModal.style.display = 'block';
 });
 
-// outSecondButton.addEventListener('click', () => {
-// 	outSecondModal.style.display = 'block';
-// });
+outSecondButton.addEventListener('click', () => {
+	outSecondModal.style.display = 'block';
+});
 
-// outThirdButton.addEventListener('click', () => {
-// 	outThirdModal.style.display = 'block';
-// });
+outThirdButton.addEventListener('click', () => {
+	outThirdModal.style.display = 'block';
+});
 
-// outShortButton.addEventListener('click', () => {
-// 	outShortModal.style.display = 'block';
-// });
+outShortButton.addEventListener('click', () => {
+	outShortModal.style.display = 'block';
+});
 
-// outLeftButton.addEventListener('click', () => {
-// 	outLeftModal.style.display = 'block';
-// });
+outLeftButton.addEventListener('click', () => {
+	outLeftModal.style.display = 'block';
+});
 
-// outCenterButton.addEventListener('click', () => {
-// 	outCenterModal.style.display = 'block';
-// });
+outCenterButton.addEventListener('click', () => {
+	outCenterModal.style.display = 'block';
+});
 
-// outRightButton.addEventListener('click', () => {
-// 	outRightModal.style.display = 'block';
-// });
+outRightButton.addEventListener('click', () => {
+	outRightModal.style.display = 'block';
+});
 
 const outPitcherModal = document.querySelector('#out-pitcher-Modal');
 const outCatcherModal = document.querySelector('#out-catcher-Modal');
 const outFirstModal = document.querySelector('#out-first-Modal');
-// const outSecondModal = document.querySelector('#out-second-Modal');
-// const outThirdModal = document.querySelector('#out-third-Modal');
-// const outShortModal = document.querySelector('#out-short-Modal');
-// const outLeftModal = document.querySelector('#out-left-Modal');
-// const outCenterModal = document.querySelector('#out-center-Modal');
-// const outRightModal = document.querySelector('#out-right-Modal');
+const outSecondModal = document.querySelector('#out-second-Modal');
+const outThirdModal = document.querySelector('#out-third-Modal');
+const outShortModal = document.querySelector('#out-short-Modal');
+const outLeftModal = document.querySelector('#out-left-Modal');
+const outCenterModal = document.querySelector('#out-center-Modal');
+const outRightModal = document.querySelector('#out-right-Modal');
 
 // function out3(buttonId, position) {;
 //   document.querySelector(buttonId).addEventListener("click", () => {
@@ -386,7 +404,7 @@ const outFirstModal = document.querySelector('#out-first-Modal');
 // out3("#liner-right","ライトライナー")
 
 window.addEventListener('click', (event) => {
-  if (event.target == hitModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == hitLeftModal || event.target == hitCenterModal || event.target == hitRightModal || event.target == outModal || event.target == outPitcherModal || event.target == outCatcherModal || event.target == outFirstModal/* || event.target == outSecondModal || event.target == outThirdModal || event.target == outShortModal || event.target == outLeftModal || event.target == outCenterModal || event.target == outRightModal*/ || event.target == onebaseLeftModal || event.target == twobaseLeftModal || event.target == threebaseLeftModal || event.target == onebaseCenterModal || event.target == twobaseCenterModal || event.target == threebaseCenterModal || event.target == onebaseRightModal || event.target == twobaseRightModal || event.target == threebaseRightModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == groundPitcherModal || event.target == flyPitcherModal || event.target == linerPitcherModal || event.target == groundCatcherModal || event.target == flyCatcherModal || event.target == linerCatcherModal || event.target == groundFirstModal || event.target == flyFirstModal || event.target == linerFirstModal) {
+  if (event.target == hitModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == hitLeftModal || event.target == hitCenterModal || event.target == hitRightModal || event.target == outModal || event.target == outPitcherModal || event.target == outCatcherModal || event.target == outFirstModal || event.target == outSecondModal || event.target == outThirdModal || event.target == outShortModal || event.target == outLeftModal || event.target == outCenterModal || event.target == outRightModal || event.target == onebaseLeftModal || event.target == twobaseLeftModal || event.target == threebaseLeftModal || event.target == onebaseCenterModal || event.target == twobaseCenterModal || event.target == threebaseCenterModal || event.target == onebaseRightModal || event.target == twobaseRightModal || event.target == threebaseRightModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == groundPitcherModal || event.target == flyPitcherModal || event.target == linerPitcherModal || event.target == groundCatcherModal || event.target == flyCatcherModal || event.target == linerCatcherModal || event.target == groundFirstModal || event.target == flyFirstModal || event.target == linerFirstModal || event.target == groundSecondModal || event.target == flySecondModal || event.target == linerSecondModal || event.target == groundThirdModal || event.target == flyThirdModal || event.target == linerThirdModal || event.target == groundShortModal || event.target == flyShortModal || event.target == linerShortModal || event.target == groundLeftModal || event.target == flyLeftModal || event.target == linerLeftModal || event.target == groundCenterModal || event.target == flyCenterModal || event.target == linerCenterModal || event.target == groundRightModal || event.target == flyRightModal || event.target == linerRightModal) {
     allModalNone()
   }
 });
@@ -696,6 +714,186 @@ var linerFirsted3 = document.getElementById("linerFirst3").value;
 const linerFirst1 = document.getElementById("linerFirst1");
 const linerFirst2 = document.getElementById("linerFirst2");
 const linerFirst3 = document.getElementById("linerFirst3");
+var groundSecondModal = document.getElementById("ground-second-modal");
+var groundSecondButton = document.getElementById("ground-second");
+var groundSecondCloseButton = document.getElementById("ground-second-closeModal");
+var groundSeconded0 = document.getElementById("groundSecond0").value;
+var groundSeconded1 = document.getElementById("groundSecond1").value;
+var groundSeconded2 = document.getElementById("groundSecond2").value;
+var groundSeconded3 = document.getElementById("groundSecond3").value;
+const groundSecond1 = document.getElementById("groundSecond1");
+const groundSecond2 = document.getElementById("groundSecond2");
+const groundSecond3 = document.getElementById("groundSecond3");
+var flySecondModal = document.getElementById("fly-second-modal");
+var flySecondButton = document.getElementById("fly-second");
+var flySecondCloseButton = document.getElementById("fly-second-closeModal");
+var flySeconded0 = document.getElementById("flySecond0").value;
+var flySeconded1 = document.getElementById("flySecond1").value;
+var flySeconded2 = document.getElementById("flySecond2").value;
+var flySeconded3 = document.getElementById("flySecond3").value;
+const flySecond1 = document.getElementById("flySecond1");
+const flySecond2 = document.getElementById("flySecond2");
+const flySecond3 = document.getElementById("flySecond3");
+var linerSecondModal = document.getElementById("liner-second-modal");
+var linerSecondButton = document.getElementById("liner-second");
+var linerSecondCloseButton = document.getElementById("liner-second-closeModal");
+var linerSeconded0 = document.getElementById("linerSecond0").value;
+var linerSeconded1 = document.getElementById("linerSecond1").value;
+var linerSeconded2 = document.getElementById("linerSecond2").value;
+var linerSeconded3 = document.getElementById("linerSecond3").value;
+const linerSecond1 = document.getElementById("linerSecond1");
+const linerSecond2 = document.getElementById("linerSecond2");
+const linerSecond3 = document.getElementById("linerSecond3");
+var groundThirdModal = document.getElementById("ground-third-modal");
+var groundThirdButton = document.getElementById("ground-third");
+var groundThirdCloseButton = document.getElementById("ground-third-closeModal");
+var groundThirded0 = document.getElementById("groundThird0").value;
+var groundThirded1 = document.getElementById("groundThird1").value;
+var groundThirded2 = document.getElementById("groundThird2").value;
+var groundThirded3 = document.getElementById("groundThird3").value;
+const groundThird1 = document.getElementById("groundThird1");
+const groundThird2 = document.getElementById("groundThird2");
+const groundThird3 = document.getElementById("groundThird3");
+var flyThirdModal = document.getElementById("fly-third-modal");
+var flyThirdButton = document.getElementById("fly-third");
+var flyThirdCloseButton = document.getElementById("fly-third-closeModal");
+var flyThirded0 = document.getElementById("flyThird0").value;
+var flyThirded1 = document.getElementById("flyThird1").value;
+var flyThirded2 = document.getElementById("flyThird2").value;
+var flyThirded3 = document.getElementById("flyThird3").value;
+const flyThird1 = document.getElementById("flyThird1");
+const flyThird2 = document.getElementById("flyThird2");
+const flyThird3 = document.getElementById("flyThird3");
+var linerThirdModal = document.getElementById("liner-third-modal");
+var linerThirdButton = document.getElementById("liner-third");
+var linerThirdCloseButton = document.getElementById("liner-third-closeModal");
+var linerThirded0 = document.getElementById("linerThird0").value;
+var linerThirded1 = document.getElementById("linerThird1").value;
+var linerThirded2 = document.getElementById("linerThird2").value;
+var linerThirded3 = document.getElementById("linerThird3").value;
+const linerThird1 = document.getElementById("linerThird1");
+const linerThird2 = document.getElementById("linerThird2");
+const linerThird3 = document.getElementById("linerThird3");
+var groundShortModal = document.getElementById("ground-short-modal");
+var groundShortButton = document.getElementById("ground-short");
+var groundShortCloseButton = document.getElementById("ground-short-closeModal");
+var groundShorted0 = document.getElementById("groundShort0").value;
+var groundShorted1 = document.getElementById("groundShort1").value;
+var groundShorted2 = document.getElementById("groundShort2").value;
+var groundShorted3 = document.getElementById("groundShort3").value;
+const groundShort1 = document.getElementById("groundShort1");
+const groundShort2 = document.getElementById("groundShort2");
+const groundShort3 = document.getElementById("groundShort3");
+var flyShortModal = document.getElementById("fly-short-modal");
+var flyShortButton = document.getElementById("fly-short");
+var flyShortCloseButton = document.getElementById("fly-short-closeModal");
+var flyShorted0 = document.getElementById("flyShort0").value;
+var flyShorted1 = document.getElementById("flyShort1").value;
+var flyShorted2 = document.getElementById("flyShort2").value;
+var flyShorted3 = document.getElementById("flyShort3").value;
+const flyShort1 = document.getElementById("flyShort1");
+const flyShort2 = document.getElementById("flyShort2");
+const flyShort3 = document.getElementById("flyShort3");
+var linerShortModal = document.getElementById("liner-short-modal");
+var linerShortButton = document.getElementById("liner-short");
+var linerShortCloseButton = document.getElementById("liner-short-closeModal");
+var linerShorted0 = document.getElementById("linerShort0").value;
+var linerShorted1 = document.getElementById("linerShort1").value;
+var linerShorted2 = document.getElementById("linerShort2").value;
+var linerShorted3 = document.getElementById("linerShort3").value;
+const linerShort1 = document.getElementById("linerShort1");
+const linerShort2 = document.getElementById("linerShort2");
+const linerShort3 = document.getElementById("linerShort3");
+var groundLeftModal = document.getElementById("ground-left-modal");
+var groundLeftButton = document.getElementById("ground-left");
+var groundLeftCloseButton = document.getElementById("ground-left-closeModal");
+var groundLefted0 = document.getElementById("groundLeft0").value;
+var groundLefted1 = document.getElementById("groundLeft1").value;
+var groundLefted2 = document.getElementById("groundLeft2").value;
+var groundLefted3 = document.getElementById("groundLeft3").value;
+const groundLeft1 = document.getElementById("groundLeft1");
+const groundLeft2 = document.getElementById("groundLeft2");
+const groundLeft3 = document.getElementById("groundLeft3");
+var flyLeftModal = document.getElementById("fly-left-modal");
+var flyLeftButton = document.getElementById("fly-left");
+var flyLeftCloseButton = document.getElementById("fly-left-closeModal");
+var flyLefted0 = document.getElementById("flyLeft0").value;
+var flyLefted1 = document.getElementById("flyLeft1").value;
+var flyLefted2 = document.getElementById("flyLeft2").value;
+var flyLefted3 = document.getElementById("flyLeft3").value;
+const flyLeft1 = document.getElementById("flyLeft1");
+const flyLeft2 = document.getElementById("flyLeft2");
+const flyLeft3 = document.getElementById("flyLeft3");
+var linerLeftModal = document.getElementById("liner-left-modal");
+var linerLeftButton = document.getElementById("liner-left");
+var linerLeftCloseButton = document.getElementById("liner-left-closeModal");
+var linerLefted0 = document.getElementById("linerLeft0").value;
+var linerLefted1 = document.getElementById("linerLeft1").value;
+var linerLefted2 = document.getElementById("linerLeft2").value;
+var linerLefted3 = document.getElementById("linerLeft3").value;
+const linerLeft1 = document.getElementById("linerLeft1");
+const linerLeft2 = document.getElementById("linerLeft2");
+const linerLeft3 = document.getElementById("linerLeft3");
+var groundCenterModal = document.getElementById("ground-center-modal");
+var groundCenterButton = document.getElementById("ground-center");
+var groundCenterCloseButton = document.getElementById("ground-center-closeModal");
+var groundCentered0 = document.getElementById("groundCenter0").value;
+var groundCentered1 = document.getElementById("groundCenter1").value;
+var groundCentered2 = document.getElementById("groundCenter2").value;
+var groundCentered3 = document.getElementById("groundCenter3").value;
+const groundCenter1 = document.getElementById("groundCenter1");
+const groundCenter2 = document.getElementById("groundCenter2");
+const groundCenter3 = document.getElementById("groundCenter3");
+var flyCenterModal = document.getElementById("fly-center-modal");
+var flyCenterButton = document.getElementById("fly-center");
+var flyCenterCloseButton = document.getElementById("fly-center-closeModal");
+var flyCentered0 = document.getElementById("flyCenter0").value;
+var flyCentered1 = document.getElementById("flyCenter1").value;
+var flyCentered2 = document.getElementById("flyCenter2").value;
+var flyCentered3 = document.getElementById("flyCenter3").value;
+const flyCenter1 = document.getElementById("flyCenter1");
+const flyCenter2 = document.getElementById("flyCenter2");
+const flyCenter3 = document.getElementById("flyCenter3");
+var linerCenterModal = document.getElementById("liner-center-modal");
+var linerCenterButton = document.getElementById("liner-center");
+var linerCenterCloseButton = document.getElementById("liner-center-closeModal");
+var linerCentered0 = document.getElementById("linerCenter0").value;
+var linerCentered1 = document.getElementById("linerCenter1").value;
+var linerCentered2 = document.getElementById("linerCenter2").value;
+var linerCentered3 = document.getElementById("linerCenter3").value;
+const linerCenter1 = document.getElementById("linerCenter1");
+const linerCenter2 = document.getElementById("linerCenter2");
+const linerCenter3 = document.getElementById("linerCenter3");
+var groundRightModal = document.getElementById("ground-right-modal");
+var groundRightButton = document.getElementById("ground-right");
+var groundRightCloseButton = document.getElementById("ground-right-closeModal");
+var groundRighted0 = document.getElementById("groundRight0").value;
+var groundRighted1 = document.getElementById("groundRight1").value;
+var groundRighted2 = document.getElementById("groundRight2").value;
+var groundRighted3 = document.getElementById("groundRight3").value;
+const groundRight1 = document.getElementById("groundRight1");
+const groundRight2 = document.getElementById("groundRight2");
+const groundRight3 = document.getElementById("groundRight3");
+var flyRightModal = document.getElementById("fly-right-modal");
+var flyRightButton = document.getElementById("fly-right");
+var flyRightCloseButton = document.getElementById("fly-right-closeModal");
+var flyRighted0 = document.getElementById("flyRight0").value;
+var flyRighted1 = document.getElementById("flyRight1").value;
+var flyRighted2 = document.getElementById("flyRight2").value;
+var flyRighted3 = document.getElementById("flyRight3").value;
+const flyRight1 = document.getElementById("flyRight1");
+const flyRight2 = document.getElementById("flyRight2");
+const flyRight3 = document.getElementById("flyRight3");
+var linerRightModal = document.getElementById("liner-right-modal");
+var linerRightButton = document.getElementById("liner-right");
+var linerRightCloseButton = document.getElementById("liner-right-closeModal");
+var linerRighted0 = document.getElementById("linerRight0").value;
+var linerRighted1 = document.getElementById("linerRight1").value;
+var linerRighted2 = document.getElementById("linerRight2").value;
+var linerRighted3 = document.getElementById("linerRight3").value;
+const linerRight1 = document.getElementById("linerRight1");
+const linerRight2 = document.getElementById("linerRight2");
+const linerRight3 = document.getElementById("linerRight3");
 
 runnerCheck1(onebasePitcherButton,onebasePitcherModal,onebasePitcherCloseButton,onebasePitchered0,onebasePitchered1,onebasePitchered2,onebasePitchered3,"onebasePitcher0","onebasePitcher1","onebasePitcher2","onebasePitcher3")
 runnerCheck1(onebaseCatcherButton,onebaseCatcherModal,onebaseCatcherCloseButton,onebaseCatchered0,onebaseCatchered1,onebaseCatchered2,onebaseCatchered3,"onebaseCatcher0","onebaseCatcher1","onebaseCatcher2","onebaseCatcher3")
@@ -722,6 +920,24 @@ runnerCheck2(linerCatcherButton,linerCatcherModal,linerCatcherCloseButton,linerC
 runnerCheck2(groundFirstButton,groundFirstModal,groundFirstCloseButton,groundFirsted0,groundFirsted1,groundFirsted2,groundFirsted3,"groundFirst0","groundFirst1","groundFirst2","groundFirst3")
 runnerCheck2(flyFirstButton,flyFirstModal,flyFirstCloseButton,flyFirsted0,flyFirsted1,flyFirsted2,flyFirsted3,"flyFirst0","flyFirst1","flyFirst2","flyFirst3")
 runnerCheck2(linerFirstButton,linerFirstModal,linerFirstCloseButton,linerFirsted0,linerFirsted1,linerFirsted2,linerFirsted3,"linerFirst0","linerFirst1","linerFirst2","linerFirst3")
+runnerCheck2(groundSecondButton,groundSecondModal,groundSecondCloseButton,groundSeconded0,groundSeconded1,groundSeconded2,groundSeconded3,"groundSecond0","groundSecond1","groundSecond2","groundSecond3")
+runnerCheck2(flySecondButton,flySecondModal,flySecondCloseButton,flySeconded0,flySeconded1,flySeconded2,flySeconded3,"flySecond0","flySecond1","flySecond2","flySecond3")
+runnerCheck2(linerSecondButton,linerSecondModal,linerSecondCloseButton,linerSeconded0,linerSeconded1,linerSeconded2,linerSeconded3,"linerSecond0","linerSecond1","linerSecond2","linerSecond3")
+runnerCheck2(groundThirdButton,groundThirdModal,groundThirdCloseButton,groundThirded0,groundThirded1,groundThirded2,groundThirded3,"groundThird0","groundThird1","groundThird2","groundThird3")
+runnerCheck2(flyThirdButton,flyThirdModal,flyThirdCloseButton,flyThirded0,flyThirded1,flyThirded2,flyThirded3,"flyThird0","flyThird1","flyThird2","flyThird3")
+runnerCheck2(linerThirdButton,linerThirdModal,linerThirdCloseButton,linerThirded0,linerThirded1,linerThirded2,linerThirded3,"linerThird0","linerThird1","linerThird2","linerThird3")
+runnerCheck2(groundShortButton,groundShortModal,groundShortCloseButton,groundShorted0,groundShorted1,groundShorted2,groundShorted3,"groundShort0","groundShort1","groundShort2","groundShort3")
+runnerCheck2(flyShortButton,flyShortModal,flyShortCloseButton,flyShorted0,flyShorted1,flyShorted2,flyShorted3,"flyShort0","flyShort1","flyShort2","flyShort3")
+runnerCheck2(linerShortButton,linerShortModal,linerShortCloseButton,linerShorted0,linerShorted1,linerShorted2,linerShorted3,"linerShort0","linerShort1","linerShort2","linerShort3")
+runnerCheck2(groundLeftButton,groundLeftModal,groundLeftCloseButton,groundLefted0,groundLefted1,groundLefted2,groundLefted3,"groundLeft0","groundLeft1","groundLeft2","groundLeft3")
+runnerCheck2(flyLeftButton,flyLeftModal,flyLeftCloseButton,flyLefted0,flyLefted1,flyLefted2,flyLefted3,"flyLeft0","flyLeft1","flyLeft2","flyLeft3")
+runnerCheck2(linerLeftButton,linerLeftModal,linerLeftCloseButton,linerLefted0,linerLefted1,linerLefted2,linerLefted3,"linerLeft0","linerLeft1","linerLeft2","linerLeft3")
+runnerCheck2(groundCenterButton,groundCenterModal,groundCenterCloseButton,groundCentered0,groundCentered1,groundCentered2,groundCentered3,"groundCenter0","groundCenter1","groundCenter2","groundCenter3")
+runnerCheck2(flyCenterButton,flyCenterModal,flyCenterCloseButton,flyCentered0,flyCentered1,flyCentered2,flyCentered3,"flyCenter0","flyCenter1","flyCenter2","flyCenter3")
+runnerCheck2(linerCenterButton,linerCenterModal,linerCenterCloseButton,linerCentered0,linerCentered1,linerCentered2,linerCentered3,"linerCenter0","linerCenter1","linerCenter2","linerCenter3")
+runnerCheck2(groundRightButton,groundRightModal,groundRightCloseButton,groundRighted0,groundRighted1,groundRighted2,groundRighted3,"groundRight0","groundRight1","groundRight2","groundRight3")
+runnerCheck2(flyRightButton,flyRightModal,flyRightCloseButton,flyRighted0,flyRighted1,flyRighted2,flyRighted3,"flyRight0","flyRight1","flyRight2","flyRight3")
+runnerCheck2(linerRightButton,linerRightModal,linerRightCloseButton,linerRighted0,linerRighted1,linerRighted2,linerRighted3,"linerRight0","linerRight1","linerRight2","linerRight3")
 
 function runnerCheck1(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3,Letter0,Letter1,Letter2,Letter3){
 // When the user clicks the button, open the modal 
@@ -885,6 +1101,24 @@ function allPullDownChange(){
   pullDownChange(groundFirst1,groundFirst2,groundFirst3,"groundFirst1","groundFirst2","groundFirst3")
   pullDownChange(flyFirst1,flyFirst2,flyFirst3,"flyFirst1","flyFirst2","flyFirst3")
   pullDownChange(linerFirst1,linerFirst2,linerFirst3,"linerFirst1","linerFirst2","linerFirst3")
+  pullDownChange(groundSecond1,groundSecond2,groundSecond3,"groundSecond1","groundSecond2","groundSecond3")
+  pullDownChange(flySecond1,flySecond2,flySecond3,"flySecond1","flySecond2","flySecond3")
+  pullDownChange(linerSecond1,linerSecond2,linerSecond3,"linerSecond1","linerSecond2","linerSecond3")
+  pullDownChange(groundThird1,groundThird2,groundThird3,"groundThird1","groundThird2","groundThird3")
+  pullDownChange(flyThird1,flyThird2,flyThird3,"flyThird1","flyThird2","flyThird3")
+  pullDownChange(linerThird1,linerThird2,linerThird3,"linerThird1","linerThird2","linerThird3")
+  pullDownChange(groundShort1,groundShort2,groundShort3,"groundShort1","groundShort2","groundShort3")
+  pullDownChange(flyShort1,flyShort2,flyShort3,"flyShort1","flyShort2","flyShort3")
+  pullDownChange(linerShort1,linerShort2,linerShort3,"linerShort1","linerShort2","linerShort3")
+  pullDownChange(groundLeft1,groundLeft2,groundLeft3,"groundLeft1","groundLeft2","groundLeft3")
+  pullDownChange(flyLeft1,flyLeft2,flyLeft3,"flyLeft1","flyLeft2","flyLeft3")
+  pullDownChange(linerLeft1,linerLeft2,linerLeft3,"linerLeft1","linerLeft2","linerLeft3")
+  pullDownChange(groundCenter1,groundCenter2,groundCenter3,"groundCenter1","groundCenter2","groundCenter3")
+  pullDownChange(flyCenter1,flyCenter2,flyCenter3,"flyCenter1","flyCenter2","flyCenter3")
+  pullDownChange(linerCenter1,linerCenter2,linerCenter3,"linerCenter1","linerCenter2","linerCenter3")
+  pullDownChange(groundRight1,groundRight2,groundRight3,"groundRight1","groundRight2","groundRight3")
+  pullDownChange(flyRight1,flyRight2,flyRight3,"flyRight1","flyRight2","flyRight3")
+  pullDownChange(linerRight1,linerRight2,linerRight3,"linerRight1","linerRight2","linerRight3")
 }
 // playerRunner1に1が含まれている場合は、プルダウンの内容を変更する
 function pullDownChange(Name1,Name2,Name3,Letter1,Letter2,Letter3){

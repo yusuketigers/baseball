@@ -7,6 +7,7 @@ playerRunner1=[0,0,0,0,0,0,0,0,0]
 playerRunner2=[0,0,0,0,0,0,0,0,0]
 playerShowing1 = document.getElementById("player-showing1")
 playerShowing2 = document.getElementById("player-showing2")
+score1=0
 
 let foulButton = document.getElementById("foul-button");
 foulButton.addEventListener("click", () => { //ファール押したら
@@ -165,8 +166,7 @@ const hitRightModal = document.querySelector('#hit-right-Modal');
 
 function hit3(buttonId, position) {;
   document.querySelector(buttonId).addEventListener("click", () => {
-    alert(position);
-    allMldalNone()
+    //alert(position);
   })
 }
 
@@ -191,6 +191,8 @@ function allMldalNone(){
   outLeftModal.style.display = 'none';
   outCenterModal.style.display = 'none';
   outRightModal.style.display = 'none';
+
+  onebaseLeftModal.style.display = 'none';
 }
 
 hit3("#onebase-pitcher","ピッチャーへの内野安打！")
@@ -331,7 +333,7 @@ out3("#liner-center","センターライナー")
 out3("#liner-right","ライトライナー")
 
 window.addEventListener('click', (event) => {
-  if (event.target == hitModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == hitLeftModal || event.target == hitCenterModal || event.target == hitRightModal || event.target == outModal || event.target == outPitcherModal || event.target == outCatcherModal || event.target == outFirstModal || event.target == outSecondModal || event.target == outThirdModal || event.target == outShortModal || event.target == outLeftModal || event.target == outCenterModal || event.target == outRightModal) {
+  if (event.target == hitModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == hitLeftModal || event.target == hitCenterModal || event.target == hitRightModal || event.target == outModal || event.target == outPitcherModal || event.target == outCatcherModal || event.target == outFirstModal || event.target == outSecondModal || event.target == outThirdModal || event.target == outShortModal || event.target == outLeftModal || event.target == outCenterModal || event.target == outRightModal || event.target == onebaseLeftModal) {
     allMldalNone()
   }
 });
@@ -397,4 +399,108 @@ console.log(playerName2)
   playerShowing1.innerHTML = playerName1[0]; //打者を表示
   console.log(playerList1)
   console.log(playerList2)
+}
+
+  // Get the modal
+  var onebaseLeftModal = document.getElementById("onebase-left-modal");
+  
+  // Get the button that opens the modal
+  var onebaseLeftButton = document.getElementById("onebase-left");
+
+// Get the <span> element that closes the modal
+var onebaseLeftCloseButton = document.getElementById("onebase-left-closeModal");
+
+var onebaseLefted0 = document.getElementById("onebaseLeft0").value;
+  var onebaseLefted1 = document.getElementById("onebaseLeft1").value;
+  var onebaseLefted2 = document.getElementById("onebaseLeft2").value;
+  var onebaseLefted3 = document.getElementById("onebaseLeft3").value;
+
+  const onebaseLeft1 = document.getElementById("onebaseLeft1");
+const onebaseLeft2 = document.getElementById("onebaseLeft2");
+const onebaseLeft3 = document.getElementById("onebaseLeft3");
+
+runnerCheck(onebaseLeftButton,onebaseLeftModal,onebaseLeftCloseButton,onebaseLeft1,onebaseLeft2,onebaseLeft3,onebaseLefted0,onebaseLefted1,onebaseLefted2,onebaseLefted3,"onebaseLeft0","onebaseLeft1","onebaseLeft2","onebaseLeft3")
+function runnerCheck(ButtonName,ModalName,CloseName,Name1,Name2,Name3,Named0,Named1,Named2,Named3,Letter0,Letter1,Letter2,Letter3){
+// When the user clicks the button, open the modal 
+ButtonName.onclick = function() {
+  ModalName.style.display = "block";
+}
+
+// When the user clicks on OK, close the modal
+CloseName.onclick = function() {
+  allMldalNone()
+  var Named0 = document.getElementById(Letter0).value;
+  var Named1 = document.getElementById(Letter1).value;
+  var Named2 = document.getElementById(Letter2).value;
+  var Named3 = document.getElementById(Letter3).value;;
+  const Name1 = document.getElementById(Letter1);
+  const Name2 = document.getElementById(Letter2);
+  const Name3 = document.getElementById(Letter3);
+
+  for (let i = 0; i < playerRunner1.length; i++) {
+    if (playerRunner1[i] === 3){
+      playerRunner1[i] = parseInt(Named3)
+    }
+  }
+  for (let i = 0; i < playerRunner1.length; i++) {
+    if (playerRunner1[i] === 2){
+      playerRunner1[i] = parseInt(Named2)
+    }
+  }
+  for (let i = 0; i < playerRunner1.length; i++) {
+    if (playerRunner1[i] === 1){
+      playerRunner1[i] = parseInt(Named1)
+    }
+  }
+  playerRunner1[battercurrentIndex1] = parseInt(Named0)
+  
+  for (let i = 0; i < playerRunner1.length; i++) {
+    if (playerRunner1[i] === 4){
+      score1++
+      console.log(score1)
+      playerRunner1[i]=0
+    }
+  }
+  console.log(playerRunner1)
+  // playerRunner1に1が含まれている場合は、プルダウンの内容を変更する
+  if (playerRunner1.includes(1)) {
+    Name1.innerHTML = `
+    <option value=1>1塁</option>
+    <option value=2>2塁</option>
+    <option value=3>3塁</option>
+    <option value=4>得点</option>
+    <option value=0>アウト</option>
+    `;
+  } else {
+    Name1.innerHTML = `
+    <option value=0>-</option>
+    `;
+  }
+  
+  if (playerRunner1.includes(2)) {
+    Name2.innerHTML = `
+    <option value=2>2塁</option>
+    <option value=3>3塁</option>
+    <option value=4>得点</option>
+    <option value=0>アウト</option>
+    `;
+  } else {
+    Name2.innerHTML = `
+    <option value=0>-</option>
+    `;
+  }
+  
+  if (playerRunner1.includes(3)) {
+    Name3.innerHTML = `
+    <option value=3>3塁</option>
+    <option value=4>得点</option>
+    <option value=0>アウト</option>
+    `;
+  } else {
+    Name3.innerHTML = `
+    <option value=0>-</option>
+    `;
+  }
+  battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
+}
 }

@@ -348,3 +348,23 @@ button {
 	background-color: violet;
 	display: inline-block;
   }
+
+.runner-select {
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+}
+
+.selectRunner {
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+	margin-top: 20px;
+	margin-left: -80px;
+}
+
+.closeModal {
+	background-color: pink;
+}
+
+  

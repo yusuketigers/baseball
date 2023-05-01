@@ -521,6 +521,7 @@ ButtonName.onclick = function() {
 // When the user clicks on OK, close the modal
 CloseName.onclick = function() {
   allModalNone()
+  countreset()
   var Named0 = document.getElementById(Letter0).value;
   var Named1 = document.getElementById(Letter1).value;
   var Named2 = document.getElementById(Letter2).value;
@@ -548,6 +549,20 @@ CloseName.onclick = function() {
       score1++
       console.log(score1)
       playerRunner1[i]=0
+    }
+  }
+
+  for (let i = 0; i < playerRunner1.length; i++) {
+    if (playerRunner1[i] < 0){
+      countreset()
+      outcount()
+      console.log(outcurrentIndex)
+      playerRunner1[i]=0
+      if (outcurrentIndex === 0){
+        for (let i = 0; i < playerRunner1.length; i++) {
+          playerRunner1[i]=0
+        }
+      }
     }
   }
   console.log(playerRunner1)
@@ -578,7 +593,7 @@ function pullDownChange(Name1,Name2,Name3,Letter1,Letter2,Letter3){
     <option value=2>2塁</option>
     <option value=3>3塁</option>
     <option value=4>得点</option>
-    <option value=0>アウト</option>
+    <option value=-1>アウト</option>
     `;
   } else {
   Name1.innerHTML = `
@@ -591,7 +606,7 @@ if (playerRunner1.includes(2)) {
   <option value=2>2塁</option>
   <option value=3>3塁</option>
   <option value=4>得点</option>
-  <option value=0>アウト</option>
+  <option value=-1>アウト</option>
   `;
 } else {
   Name2.innerHTML = `
@@ -603,7 +618,7 @@ if (playerRunner1.includes(3)) {
   Name3.innerHTML = `
   <option value=3>3塁</option>
   <option value=4>得点</option>
-  <option value=0>アウト</option>
+  <option value=-1>アウト</option>
   `;
 } else {
   Name3.innerHTML = `

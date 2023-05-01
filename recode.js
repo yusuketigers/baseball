@@ -51,12 +51,25 @@ ballButton.addEventListener("click", () => { //ファール押したら
 
   if (ballcurrentIndex === 3) { //3つ目のストライク
       countreset()
+      oneMove()
+      battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
   } else { //1,2ストライク目
     ballcurrentIndex++; //ストライク1追加
     let ballLight = document.getElementById("ball-light")
     ballLight.children[ballcurrentIndex-1].classList.add("green")
   }
 })
+
+function walk(buttonId) {;
+  document.getElementById(buttonId).addEventListener("click", () => {
+      countreset()
+      oneMove()
+      battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
+});
+}
+
+walk("deadball")
+walk("fourball")
 
 
 // function out(buttonId) {;
@@ -1201,3 +1214,81 @@ if (playerRunner1.includes(3)) {
   }
 }
 }
+
+function oneMove(){
+  // 各要素の和を計算
+  let elementSum = 0;
+  for (let i = 0; i < playerRunner1.length; i++) {
+      elementSum += playerRunner1[i];
+  }
+  
+  // 要素のうち、0でないものの数を計算
+  let elementNonZero = 0;
+  for (let i = 0; i < playerRunner1.length; i++) {
+      if (playerRunner1[i] !== 0) {
+          elementNonZero++;
+      }
+  }
+  
+  elementSNZ = elementSum + elementNonZero
+
+  // 2番目の要素の和が2または5または9の場合に、0でない要素を1ずつ増やす
+  if (elementSNZ === 2 || elementSNZ === 5 || elementSNZ === 9) {
+      for (let i = 0; i < playerRunner1.length; i++) {
+          if (playerRunner1[i] !== 0) {
+              playerRunner1[i]++;
+          }
+      }
+  } else if (elementSNZ === 6 ) {
+      for (let i = 0; i < playerRunner1.length; i++) {
+          if (playerRunner1[i] == 1) {
+              playerRunner1[i]++;
+          }
+      }
+  }
+  
+  playerRunner1[battercurrentIndex1]++
+  // scorecount = 0; // 得点を初期化
+  // runner = ""; // 0でない要素を格納するための配列を初期化
+
+  for (i = 0; i < playerRunner1.length; i++) {
+      if (playerRunner1[i] >= 4) { // 本塁に帰ってきた選手のみ
+          score1++; // 得点をカウントし
+          playerRunner1[i] = 0 //本塁に戻す
+      }
+  }
+  // scorecurrentIndex = scorecurrentIndex + scorecount
+
+  // runnerList = playerRunner1.filter(function(element) { //ここから先はよく分からんがランナーの塁を求めてる
+  //     return element[1] >= 1; 
+  // }).sort(function(a, b) { 
+  //     return a[1] - b[1];
+  // });
+
+  // runner = runnerList.map(function(element) {
+  //     return element[1];
+  // }).join(",");
+
+  // runnerbase = "ランナー" + runner + "塁"
+  // if (runner === ""){ //ランナーがいなかったら
+  //     runnerbase = "ランナーなし" //ランナーなしとする
+  // }
+  // runnerShowing.innerHTML = runnerbase;
+  runnerLight()
+  allPullDownChange()
+  console.log(playerRunner1)
+  console.log(score1)
+}
+
+// メニューを開く関数
+const slideDown = (el) => {
+  el.style.height = 'auto'; //いったんautoに
+  let h = el.offsetHeight; //autoにした要素から高さを取得
+  el.style.height = h + 'px';
+  el.animate([ //高さ0から取得した高さまでのアニメーション
+    { height: 0 },
+    { height: h + 'px' }
+  ], {
+    duration: 300, //アニメーションの時間（ms）
+   });
+};

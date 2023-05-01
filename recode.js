@@ -170,7 +170,7 @@ function hit3(buttonId, position) {;
   })
 }
 
-function allMldalNone(){
+function allModalNone(){
   hitModal.style.display = 'none';
   hitPitcherModal.style.display = 'none';
   hitCatcherModal.style.display = 'none';
@@ -194,6 +194,13 @@ function allMldalNone(){
 
   onebaseLeftModal.style.display = 'none';
   twobaseLeftModal.style.display = 'none';
+  threebaseLeftModal.style.display = 'none';
+  onebaseCenterModal.style.display = 'none';
+  twobaseCenterModal.style.display = 'none';
+  threebaseCenterModal.style.display = 'none';
+  onebaseRightModal.style.display = 'none';
+  twobaseRightModal.style.display = 'none';
+  threebaseRightModal.style.display = 'none';
 }
 
 hit3("#onebase-pitcher","ピッチャーへの内野安打！")
@@ -301,7 +308,7 @@ const outRightModal = document.querySelector('#out-right-Modal');
 function out3(buttonId, position) {;
   document.querySelector(buttonId).addEventListener("click", () => {
     alert(position);
-    allMldalNone()
+    allModalNone()
   })
 }
 
@@ -334,8 +341,8 @@ out3("#liner-center","センターライナー")
 out3("#liner-right","ライトライナー")
 
 window.addEventListener('click', (event) => {
-  if (event.target == hitModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == hitLeftModal || event.target == hitCenterModal || event.target == hitRightModal || event.target == outModal || event.target == outPitcherModal || event.target == outCatcherModal || event.target == outFirstModal || event.target == outSecondModal || event.target == outThirdModal || event.target == outShortModal || event.target == outLeftModal || event.target == outCenterModal || event.target == outRightModal || event.target == onebaseLeftModal || event.target == twobaseLeftModal) {
-    allMldalNone()
+  if (event.target == hitModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == hitLeftModal || event.target == hitCenterModal || event.target == hitRightModal || event.target == outModal || event.target == outPitcherModal || event.target == outCatcherModal || event.target == outFirstModal || event.target == outSecondModal || event.target == outThirdModal || event.target == outShortModal || event.target == outLeftModal || event.target == outCenterModal || event.target == outRightModal || event.target == onebaseLeftModal || event.target == twobaseLeftModal || event.target == threebaseLeftModal || event.target == onebaseCenterModal || event.target == twobaseCenterModal || event.target == threebaseCenterModal || event.target == onebaseRightModal || event.target == twobaseRightModal || event.target == threebaseRightModal) {
+    allModalNone()
   }
 });
 
@@ -423,9 +430,88 @@ var twobaseLefted3 = document.getElementById("twobaseLeft3").value;
 const twobaseLeft1 = document.getElementById("twobaseLeft1");
 const twobaseLeft2 = document.getElementById("twobaseLeft2");
 const twobaseLeft3 = document.getElementById("twobaseLeft3");
+var threebaseLeftModal = document.getElementById("threebase-left-modal");
+var threebaseLeftButton = document.getElementById("threebase-left");
+var threebaseLeftCloseButton = document.getElementById("threebase-left-closeModal");
+var threebaseLefted0 = document.getElementById("threebaseLeft0").value;
+var threebaseLefted1 = document.getElementById("threebaseLeft1").value;
+var threebaseLefted2 = document.getElementById("threebaseLeft2").value;
+var threebaseLefted3 = document.getElementById("threebaseLeft3").value;
+const threebaseLeft1 = document.getElementById("threebaseLeft1");
+const threebaseLeft2 = document.getElementById("threebaseLeft2");
+const threebaseLeft3 = document.getElementById("threebaseLeft3");
+var onebaseCenterModal = document.getElementById("onebase-center-modal");
+var onebaseCenterButton = document.getElementById("onebase-center");
+var onebaseCenterCloseButton = document.getElementById("onebase-center-closeModal");
+var onebaseCentered0 = document.getElementById("onebaseCenter0").value;
+var onebaseCentered1 = document.getElementById("onebaseCenter1").value;
+var onebaseCentered2 = document.getElementById("onebaseCenter2").value;
+var onebaseCentered3 = document.getElementById("onebaseCenter3").value;
+const onebaseCenter1 = document.getElementById("onebaseCenter1");
+const onebaseCenter2 = document.getElementById("onebaseCenter2");
+const onebaseCenter3 = document.getElementById("onebaseCenter3");
+var twobaseCenterModal = document.getElementById("twobase-center-modal");
+var twobaseCenterButton = document.getElementById("twobase-center");
+var twobaseCenterCloseButton = document.getElementById("twobase-center-closeModal");
+var twobaseCentered0 = document.getElementById("twobaseCenter0").value;
+var twobaseCentered1 = document.getElementById("twobaseCenter1").value;
+var twobaseCentered2 = document.getElementById("twobaseCenter2").value;
+var twobaseCentered3 = document.getElementById("twobaseCenter3").value;
+const twobaseCenter1 = document.getElementById("twobaseCenter1");
+const twobaseCenter2 = document.getElementById("twobaseCenter2");
+const twobaseCenter3 = document.getElementById("twobaseCenter3");
+var threebaseCenterModal = document.getElementById("threebase-center-modal");
+var threebaseCenterButton = document.getElementById("threebase-center");
+var threebaseCenterCloseButton = document.getElementById("threebase-center-closeModal");
+var threebaseCentered0 = document.getElementById("threebaseCenter0").value;
+var threebaseCentered1 = document.getElementById("threebaseCenter1").value;
+var threebaseCentered2 = document.getElementById("threebaseCenter2").value;
+var threebaseCentered3 = document.getElementById("threebaseCenter3").value;
+const threebaseCenter1 = document.getElementById("threebaseCenter1");
+const threebaseCenter2 = document.getElementById("threebaseCenter2");
+const threebaseCenter3 = document.getElementById("threebaseCenter3");
+var onebaseRightModal = document.getElementById("onebase-right-modal");
+var onebaseRightButton = document.getElementById("onebase-right");
+var onebaseRightCloseButton = document.getElementById("onebase-right-closeModal");
+var onebaseRighted0 = document.getElementById("onebaseRight0").value;
+var onebaseRighted1 = document.getElementById("onebaseRight1").value;
+var onebaseRighted2 = document.getElementById("onebaseRight2").value;
+var onebaseRighted3 = document.getElementById("onebaseRight3").value;
+const onebaseRight1 = document.getElementById("onebaseRight1");
+const onebaseRight2 = document.getElementById("onebaseRight2");
+const onebaseRight3 = document.getElementById("onebaseRight3");
+var twobaseRightModal = document.getElementById("twobase-right-modal");
+var twobaseRightButton = document.getElementById("twobase-right");
+var twobaseRightCloseButton = document.getElementById("twobase-right-closeModal");
+var twobaseRighted0 = document.getElementById("twobaseRight0").value;
+var twobaseRighted1 = document.getElementById("twobaseRight1").value;
+var twobaseRighted2 = document.getElementById("twobaseRight2").value;
+var twobaseRighted3 = document.getElementById("twobaseRight3").value;
+const twobaseRight1 = document.getElementById("twobaseRight1");
+const twobaseRight2 = document.getElementById("twobaseRight2");
+const twobaseRight3 = document.getElementById("twobaseRight3");
+var threebaseRightModal = document.getElementById("threebase-right-modal");
+var threebaseRightButton = document.getElementById("threebase-right");
+var threebaseRightCloseButton = document.getElementById("threebase-right-closeModal");
+var threebaseRighted0 = document.getElementById("threebaseRight0").value;
+var threebaseRighted1 = document.getElementById("threebaseRight1").value;
+var threebaseRighted2 = document.getElementById("threebaseRight2").value;
+var threebaseRighted3 = document.getElementById("threebaseRight3").value;
+const threebaseRight1 = document.getElementById("threebaseRight1");
+const threebaseRight2 = document.getElementById("threebaseRight2");
+const threebaseRight3 = document.getElementById("threebaseRight3");
+
 
 runnerCheck(onebaseLeftButton,onebaseLeftModal,onebaseLeftCloseButton,onebaseLefted0,onebaseLefted1,onebaseLefted2,onebaseLefted3,"onebaseLeft0","onebaseLeft1","onebaseLeft2","onebaseLeft3")
 runnerCheck(twobaseLeftButton,twobaseLeftModal,twobaseLeftCloseButton,twobaseLefted0,twobaseLefted1,twobaseLefted2,twobaseLefted3,"twobaseLeft0","twobaseLeft1","twobaseLeft2","twobaseLeft3")
+runnerCheck(threebaseLeftButton,threebaseLeftModal,threebaseLeftCloseButton,threebaseLefted0,threebaseLefted1,threebaseLefted2,threebaseLefted3,"threebaseLeft0","threebaseLeft1","threebaseLeft2","threebaseLeft3")
+runnerCheck(onebaseCenterButton,onebaseCenterModal,onebaseCenterCloseButton,onebaseCentered0,onebaseCentered1,onebaseCentered2,onebaseCentered3,"onebaseCenter0","onebaseCenter1","onebaseCenter2","onebaseCenter3")
+runnerCheck(twobaseCenterButton,twobaseCenterModal,twobaseCenterCloseButton,twobaseCentered0,twobaseCentered1,twobaseCentered2,twobaseCentered3,"twobaseCenter0","twobaseCenter1","twobaseCenter2","twobaseCenter3")
+runnerCheck(threebaseCenterButton,threebaseCenterModal,threebaseCenterCloseButton,threebaseCentered0,threebaseCentered1,threebaseCentered2,threebaseCentered3,"threebaseCenter0","threebaseCenter1","threebaseCenter2","threebaseCenter3")
+runnerCheck(onebaseRightButton,onebaseRightModal,onebaseRightCloseButton,onebaseRighted0,onebaseRighted1,onebaseRighted2,onebaseRighted3,"onebaseRight0","onebaseRight1","onebaseRight2","onebaseRight3")
+runnerCheck(twobaseRightButton,twobaseRightModal,twobaseRightCloseButton,twobaseRighted0,twobaseRighted1,twobaseRighted2,twobaseRighted3,"twobaseRight0","twobaseRight1","twobaseRight2","twobaseRight3")
+runnerCheck(threebaseRightButton,threebaseRightModal,threebaseRightCloseButton,threebaseRighted0,threebaseRighted1,threebaseRighted2,threebaseRighted3,"threebaseRight0","threebaseRight1","threebaseRight2","threebaseRight3")
+
 function runnerCheck(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3,Letter0,Letter1,Letter2,Letter3){
 // When the user clicks the button, open the modal 
 ButtonName.onclick = function() {
@@ -434,7 +520,7 @@ ButtonName.onclick = function() {
 
 // When the user clicks on OK, close the modal
 CloseName.onclick = function() {
-  allMldalNone()
+  allModalNone()
   var Named0 = document.getElementById(Letter0).value;
   var Named1 = document.getElementById(Letter1).value;
   var Named2 = document.getElementById(Letter2).value;
@@ -473,8 +559,15 @@ CloseName.onclick = function() {
 
 
 function allPullDownChange(){
-  pullDownChange(onebaseLeft1,onebaseLeft2,onebaseLeft3,"onebaseLeft1","onebaseLef2","onebaseLeft3")
-  pullDownChange(twobaseLeft1,twobaseLeft2,twobaseLeft3,"twobaseLeft1","twobaseLef2","twobaseLeft3")
+  pullDownChange(onebaseLeft1,onebaseLeft2,onebaseLeft3,"onebaseLeft1","onebaseLeft2","onebaseLeft3")
+  pullDownChange(twobaseLeft1,twobaseLeft2,twobaseLeft3,"twobaseLeft1","twobaseLeft2","twobaseLeft3")
+  pullDownChange(threebaseLeft1,threebaseLeft2,threebaseLeft3,"threebaseLeft1","threebaseLeft2","threebaseLeft3")
+  pullDownChange(onebaseCenter1,onebaseCenter2,onebaseCenter3,"onebaseCenter1","onebaseCenter2","onebaseCenter3")
+  pullDownChange(twobaseCenter1,twobaseCenter2,twobaseCenter3,"twobaseCenter1","twobaseCenter2","twobaseCenter3")
+  pullDownChange(threebaseCenter1,threebaseCenter2,threebaseCenter3,"threebaseCenter1","threebaseCenter2","threebaseCenter3")
+  pullDownChange(onebaseRight1,onebaseRight2,onebaseRight3,"onebaseRight1","onebaseRight2","onebaseRight3")
+  pullDownChange(twobaseRight1,twobaseRight2,twobaseRight3,"twobaseRight1","twobaseRight2","twobaseRight3")
+  pullDownChange(threebaseRight1,threebaseRight2,threebaseRight3,"threebaseRight1","threebaseRight2","threebaseRight3")
 }
 // playerRunner1に1が含まれている場合は、プルダウンの内容を変更する
 function pullDownChange(Name1,Name2,Name3,Letter1,Letter2,Letter3){

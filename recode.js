@@ -8,6 +8,7 @@ playerRunner2=[0,0,0,0,0,0,0,0,0]
 playerShowing1 = document.getElementById("player-showing1")
 playerShowing2 = document.getElementById("player-showing2")
 score1=0
+const squareLight = document.getElementById("square-light");
 
 let foulButton = document.getElementById("foul-button");
 foulButton.addEventListener("click", () => { //ファール押したら
@@ -565,6 +566,43 @@ CloseName.onclick = function() {
       }
     }
   }
+
+  if (playerRunner1.includes(1)) {
+    if (squareLight) {
+      const square1 = document.getElementById("square1");
+      square1.classList.add("light");
+    }
+  } else {
+    if (squareLight) {
+      const squares = squareLight.children;
+      squares[0].classList.remove("light");
+    }
+  }
+
+  if (playerRunner1.includes(2)) {
+    if (squareLight) {
+      const square2 = document.getElementById("square2");
+      square2.classList.add("light");
+    }
+  } else {
+    if (squareLight) {
+      const squares = squareLight.children;
+      squares[1].classList.remove("light");
+    }
+  }
+
+  if (playerRunner1.includes(3)) {
+    if (squareLight) {
+      const square3 = document.getElementById("square3");
+      square3.classList.add("light");
+    }
+  } else {
+    if (squareLight) {
+      const squares = squareLight.children;
+      squares[2].classList.remove("light");
+    }
+  }
+  
   console.log(playerRunner1)
   allPullDownChange()
   

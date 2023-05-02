@@ -1134,6 +1134,7 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
       } else {
         outcount()
         allModalNone()
+        countreset()
       }
   } 
 

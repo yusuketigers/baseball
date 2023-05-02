@@ -537,13 +537,6 @@ function count(buttonId) {;//見逃し・空振りボタン
   if (strikecurrentIndex === 2) {
       countreset()
       outcount()
-      if (outcurrentIndex === 0){
-        for (let i = 0; i < playerRunner1.length; i++) {
-          playerRunner1[i]=0
-        }
-        runnerLight()
-        allPullDownChange()
-      }
   } else {
     strikePlus()
   }
@@ -555,7 +548,11 @@ ballButton.addEventListener("click", () => {
   if (ballcurrentIndex === 3) {
       countreset()
       oneMove()
-      battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
+      if (inningcurrentIndex < 13){
+        battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
+      } else {
+        battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
+      }
   } else {
     ballPlus()
   }
@@ -565,12 +562,16 @@ function walk(buttonId) {;//死球・申告敬遠
   document.getElementById(buttonId).addEventListener("click", () => {
       countreset()
       oneMove()
-      battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
+      if (inningcurrentIndex < 13){
+        battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
+      } else {
+        battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
+      }
 });
 }
 
 function outcount(){
-  if (outcurrentIndex === 2) {
+  if (outcurrentIndex === 2) {//アウトランプ消し、ランナー帰す、点数入力、、次の回ハイライト、合計点入力、次に備えてscore=0、塁ライト、プルダウン変更
     outcurrentIndex=0
     var rows = document.getElementsByTagName('tr');
     for (let e of outLight.children) {
@@ -578,34 +579,56 @@ function outcount(){
     }
     tableCells[inningcurrentIndex].style.backgroundColor = "white";
    if (inningcurrentIndex < 13){
+    for (let i = 0; i < playerRunner1.length; i++) {
+      playerRunner1[i]=0
+    }
       rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
       inningcurrentIndex = inningcurrentIndex + 13
       tableCells[inningcurrentIndex].style.backgroundColor = "pink";
       scoresum1()
       score=0
    } else {
+    for (let i = 0; i < playerRunner2.length; i++) {
+      playerRunner2[i]=0
+    }
       rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
       inningcurrentIndex = inningcurrentIndex - 12
       tableCells[inningcurrentIndex].style.backgroundColor = "pink";
       scoresum2()
       score=0
-      console.log(inningcurrentIndex)
    }
   } else {
       outPlus()
   }
+  runnerLight()
+  allPullDownChange()
 }
 
 function homerun(buttonId) {;//ホームランボタン
   document.querySelector(buttonId).addEventListener("click", () => {
     score++
-    for (let i = 0; i < playerRunner1.length; i++) {
-      countreset()
-      if (playerRunner1[i] > 0){
-        score++
-        playerRunner1[i]=0
+    if (inningcurrentIndex < 13){
+      for (let i = 0; i < playerRunner1.length; i++) {
+        if (playerRunner1[i] > 0){
+          score++
+          var rows = document.getElementsByTagName('tr');
+          rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
+          scoresum1()
+          playerRunner1[i]=0
+        }
+      }
+    } else {
+      for (let i = 0; i < playerRunner2.length; i++) {
+        if (playerRunner2[i] > 0){
+          score++
+          var rows = document.getElementsByTagName('tr');
+          rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
+          scoresum2()
+          playerRunner2[i]=0
+        }
       }
     }
+    countreset()
     runnerLight()
     allModalNone()
     allPullDownChange()
@@ -664,8 +687,9 @@ CloseName.onclick = function() {
   var Named2 = document.getElementById(Letter2).value;
   var Named3 = document.getElementById(Letter3).value;;
 
-  for (let i = 0; i < playerRunner1.length; i++) {
-    if (playerRunner1[i] === 3){
+  if (inningcurrentIndex < 13){
+    for (let i = 0; i < playerRunner1.length; i++) {
+      if (playerRunner1[i] === 3){
       playerRunner1[i] = parseInt(Named3)
     }
   }
@@ -684,29 +708,64 @@ CloseName.onclick = function() {
   for (let i = 0; i < playerRunner1.length; i++) {
     if (playerRunner1[i] === 4){
       score++
+      var rows = document.getElementsByTagName('tr');
+      rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
+      scoresum1()
       playerRunner1[i]=0
     }
   }
-
+  
   for (let i = 0; i < playerRunner1.length; i++) {
     if (playerRunner1[i] < 0){
       outcount()
       playerRunner1[i]=0
-      if (outcurrentIndex === 0){
-        for (let i = 0; i < playerRunner1.length; i++) {
-          playerRunner1[i]=0
-        }
-      }
     }
   }
+  battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
+} else {
+  for (let i = 0; i < playerRunner2.length; i++) {
+    if (playerRunner2[i] === 3){
+    playerRunner2[i] = parseInt(Named3)
+  }
+}
+for (let i = 0; i < playerRunner2.length; i++) {
+  if (playerRunner2[i] === 2){
+    playerRunner2[i] = parseInt(Named2)
+  }
+}
+for (let i = 0; i < playerRunner2.length; i++) {
+  if (playerRunner2[i] === 1){
+    playerRunner2[i] = parseInt(Named1)
+  }
+}
+playerRunner2[battercurrentIndex2] = parseInt(Named0)
+
+for (let i = 0; i < playerRunner2.length; i++) {
+  if (playerRunner2[i] === 4){
+    score++
+    var rows = document.getElementsByTagName('tr');
+    rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
+    scoresum2()
+    playerRunner2[i]=0
+  }
+}
+
+for (let i = 0; i < playerRunner2.length; i++) {
+  if (playerRunner2[i] < 0){
+    outcount()
+    playerRunner2[i]=0
+  }
+}
+battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
+}
+  
   runnerLight()
   allPullDownChange()
-  
-  battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
 }
 }
 
 function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3,Letter0,Letter1,Letter2,Letter3){
+  if (inningcurrentIndex < 13){
     ButtonName.onclick = function() {
       if(playerRunner1.includes(1)||playerRunner1.includes(2)||playerRunner1.includes(3)){
         ModalName.style.display = "block";
@@ -715,16 +774,16 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
         allModalNone()
         countreset()
       }
-  } 
+    } 
 
-  CloseName.onclick = function() {
+    CloseName.onclick = function() {
     allModalNone()
     countreset()
     var Named0 = document.getElementById(Letter0).value;
     var Named1 = document.getElementById(Letter1).value;
     var Named2 = document.getElementById(Letter2).value;
     var Named3 = document.getElementById(Letter3).value;;
-  
+    
     for (let i = 0; i < playerRunner1.length; i++) {
       if (playerRunner1[i] === 3){
         playerRunner1[i] = parseInt(Named3)
@@ -745,26 +804,78 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
     for (let i = 0; i < playerRunner1.length; i++) {
       if (playerRunner1[i] === 4){
         score++
+        var rows = document.getElementsByTagName('tr');
+        rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
+        scoresum1()
         playerRunner1[i]=0
       }
     }
-  
+    
     for (let i = 0; i < playerRunner1.length; i++) {
       if (playerRunner1[i] < 0){
         outcount()
         playerRunner1[i]=0
-        if (outcurrentIndex === 0){
-          for (let i = 0; i < playerRunner1.length; i++) {
-            playerRunner1[i]=0
-          }
-        }
       }
     }
-    runnerLight()
-    allPullDownChange()
-    
     battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
   }
+} else {
+  ButtonName.onclick = function() {
+    if(playerRunner2.includes(1)||playerRunner2.includes(2)||playerRunner2.includes(3)){
+      ModalName.style.display = "block";
+    } else {
+      outcount()
+      allModalNone()
+      countreset()
+    }
+  } 
+
+  CloseName.onclick = function() {
+  allModalNone()
+  countreset()
+  var Named0 = document.getElementById(Letter0).value;
+  var Named1 = document.getElementById(Letter1).value;
+  var Named2 = document.getElementById(Letter2).value;
+  var Named3 = document.getElementById(Letter3).value;;
+  
+  for (let i = 0; i < playerRunner2.length; i++) {
+    if (playerRunner2[i] === 3){
+      playerRunner2[i] = parseInt(Named3)
+    }
+  }
+  for (let i = 0; i < playerRunner2.length; i++) {
+    if (playerRunner2[i] === 2){
+      playerRunner2[i] = parseInt(Named2)
+    }
+  }
+  for (let i = 0; i < playerRunner2.length; i++) {
+    if (playerRunner2[i] === 1){
+      playerRunner2[i] = parseInt(Named1)
+    }
+  }
+  playerRunner2[battercurrentIndex2] = parseInt(Named0)
+  
+  for (let i = 0; i < playerRunner2.length; i++) {
+    if (playerRunner2[i] === 4){
+      score++
+      var rows = document.getElementsByTagName('tr');
+      rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
+      scoresum2()
+      playerRunner2[i]=0
+    }
+  }
+  
+  for (let i = 0; i < playerRunner2.length; i++) {
+    if (playerRunner2[i] < 0){
+      outcount()
+      playerRunner2[i]=0
+    }
+  }
+  battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
+}
+}
+  runnerLight()
+  allPullDownChange()
   }
 
 
@@ -779,10 +890,11 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
       var Named2 = document.getElementById(Letter2).value;
       var Named3 = document.getElementById(Letter3).value;;
     
-      for (let i = 0; i < playerRunner1.length; i++) {
-        if (playerRunner1[i] === 3){
-          playerRunner1[i] = parseInt(Named3)
-        }
+      if (inningcurrentIndex < 13){
+        for (let i = 0; i < playerRunner1.length; i++) {
+          if (playerRunner1[i] === 3){
+            playerRunner1[i] = parseInt(Named3)
+          }
       }
       for (let i = 0; i < playerRunner1.length; i++) {
         if (playerRunner1[i] === 2){
@@ -798,6 +910,9 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
       for (let i = 0; i < playerRunner1.length; i++) {
         if (playerRunner1[i] === 4){
           score++
+          var rows = document.getElementsByTagName('tr');
+          rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
+          scoresum1()
           playerRunner1[i]=0
         }
       }
@@ -806,13 +921,42 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
         if (playerRunner1[i] < 0){
           outcount()
           playerRunner1[i]=0
-          if (outcurrentIndex === 0){
-            for (let i = 0; i < playerRunner1.length; i++) {
-              playerRunner1[i]=0
-            }
-          }
         }
       }
+    } else {
+      for (let i = 0; i < playerRunner2.length; i++) {
+        if (playerRunner2[i] === 3){
+          playerRunner2[i] = parseInt(Named3)
+        }
+    }
+    for (let i = 0; i < playerRunner2.length; i++) {
+      if (playerRunner2[i] === 2){
+        playerRunner2[i] = parseInt(Named2)
+      }
+    }
+    for (let i = 0; i < playerRunner2.length; i++) {
+      if (playerRunner2[i] === 1){
+        playerRunner2[i] = parseInt(Named1)
+      }
+    }
+    
+    for (let i = 0; i < playerRunner2.length; i++) {
+      if (playerRunner2[i] === 4){
+        score++
+        var rows = document.getElementsByTagName('tr');
+        rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
+        scoresum2()
+        playerRunner2[i]=0
+      }
+    }
+  
+    for (let i = 0; i < playerRunner2.length; i++) {
+      if (playerRunner2[i] < 0){
+        outcount()
+        playerRunner2[i]=0
+      }
+    }
+    }
       runnerLight()
       allPullDownChange()
     }
@@ -822,8 +966,9 @@ let borkButton = document.getElementById("bork");//ボークボタン
 borkButton.addEventListener("click", () => {
   allModalNone()
     
-      for (let i = 0; i < playerRunner1.length; i++) {
-        if (playerRunner1[i] === 3){
+  if (inningcurrentIndex < 13){
+    for (let i = 0; i < playerRunner1.length; i++) {
+      if (playerRunner1[i] === 3){
           playerRunner1[i]++
         }
       }
@@ -841,9 +986,39 @@ borkButton.addEventListener("click", () => {
       for (let i = 0; i < playerRunner1.length; i++) {
         if (playerRunner1[i] === 4){
           score++
+          var rows = document.getElementsByTagName('tr');
+          rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
+          scoresum1()
           playerRunner1[i]=0
         }
       }
+    } else {
+      for (let i = 0; i < playerRunner2.length; i++) {
+        if (playerRunner2[i] === 3){
+            playerRunner2[i]++
+          }
+        }
+        for (let i = 0; i < playerRunner2.length; i++) {
+          if (playerRunner2[i] === 2){
+            playerRunner2[i]++
+          }
+        }
+        for (let i = 0; i < playerRunner2.length; i++) {
+          if (playerRunner2[i] === 1){
+            playerRunner2[i]++
+          }
+        }
+        
+        for (let i = 0; i < playerRunner2.length; i++) {
+          if (playerRunner2[i] === 4){
+            score++
+            var rows = document.getElementsByTagName('tr');
+            rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
+            scoresum2()
+            playerRunner2[i]=0
+          }
+        }
+    }
       runnerLight()
       allPullDownChange()
 })
@@ -972,8 +1147,9 @@ function updateParagraph2(cell) {
 }
 
 function pullDownChange(Name1,Name2,Name3,Letter1,Letter2,Letter3){//ランナーの状況に応じてプルダウンの内容を変更する
-  if (playerRunner1.includes(1)) {
-    Name1.innerHTML = `
+  if (inningcurrentIndex < 13){
+    if (playerRunner1.includes(1)) {
+      Name1.innerHTML = `
     <option value=1>1塁</option>
     <option value=2>2塁</option>
     <option value=3>3塁</option>
@@ -981,9 +1157,9 @@ function pullDownChange(Name1,Name2,Name3,Letter1,Letter2,Letter3){//ランナ�
     <option value=-1>アウト</option>
     `;
   } else {
-  Name1.innerHTML = `
-  <option value=0>-</option>
-  `;
+    Name1.innerHTML = `
+    <option value=0>-</option>
+    `;
 }
 
 if (playerRunner1.includes(2)) {
@@ -1010,14 +1186,91 @@ if (playerRunner1.includes(3)) {
   <option value=0>-</option>
   `;
 }
+} else {
+  if (playerRunner2.includes(1)) {
+    Name1.innerHTML = `
+  <option value=1>1塁</option>
+  <option value=2>2塁</option>
+  <option value=3>3塁</option>
+  <option value=4>得点</option>
+  <option value=-1>アウト</option>
+  `;
+} else {
+  Name1.innerHTML = `
+  <option value=0>-</option>
+  `;
+}
+
+if (playerRunner2.includes(2)) {
+Name2.innerHTML = `
+<option value=2>2塁</option>
+<option value=3>3塁</option>
+<option value=4>得点</option>
+<option value=-1>アウト</option>
+`;
+} else {
+Name2.innerHTML = `
+<option value=0>-</option>
+`;
+}
+
+if (playerRunner2.includes(3)) {
+Name3.innerHTML = `
+<option value=3>3塁</option>
+<option value=4>得点</option>
+<option value=-1>アウト</option>
+`;
+} else {
+Name3.innerHTML = `
+<option value=0>-</option>
+`;
+}
+}
 }
 
 function runnerLight(){//ランナーがいる塁を光らせる
-  if (playerRunner1.includes(1)) {
+  if (inningcurrentIndex < 13){
+    if (playerRunner1.includes(1)) {
+      if (squareLight) {
+        const square1 = document.getElementById("square1");
+        square1.classList.add("light");
+    }
+  } else {
+    if (squareLight) {
+      const squares = squareLight.children;
+      squares[0].classList.remove("light");
+    }
+  }
+  
+  if (playerRunner1.includes(2)) {
+    if (squareLight) {
+      const square2 = document.getElementById("square2");
+      square2.classList.add("light");
+    }
+  } else {
+    if (squareLight) {
+      const squares = squareLight.children;
+      squares[1].classList.remove("light");
+    }
+  }
+
+  if (playerRunner1.includes(3)) {
+  if (squareLight) {
+    const square3 = document.getElementById("square3");
+    square3.classList.add("light");
+  }
+} else {
+  if (squareLight) {
+    const squares = squareLight.children;
+    squares[2].classList.remove("light");
+  }
+}
+} else {
+  if (playerRunner2.includes(1)) {
     if (squareLight) {
       const square1 = document.getElementById("square1");
       square1.classList.add("light");
-    }
+  }
 } else {
   if (squareLight) {
     const squares = squareLight.children;
@@ -1025,7 +1278,7 @@ function runnerLight(){//ランナーがいる塁を光らせる
   }
 }
 
-if (playerRunner1.includes(2)) {
+if (playerRunner2.includes(2)) {
   if (squareLight) {
     const square2 = document.getElementById("square2");
     square2.classList.add("light");
@@ -1037,41 +1290,43 @@ if (playerRunner1.includes(2)) {
   }
 }
 
-if (playerRunner1.includes(3)) {
-  if (squareLight) {
-    const square3 = document.getElementById("square3");
-    square3.classList.add("light");
-  }
+if (playerRunner2.includes(3)) {
+if (squareLight) {
+  const square3 = document.getElementById("square3");
+  square3.classList.add("light");
+}
 } else {
-  if (squareLight) {
-    const squares = squareLight.children;
-    squares[2].classList.remove("light");
-  }
+if (squareLight) {
+  const squares = squareLight.children;
+  squares[2].classList.remove("light");
+}
+}
 }
 }
 
 function oneMove(){//詰まっているときのランナー
-  let runnerbaseSum = 0;
-  for (let i = 0; i < playerRunner1.length; i++) {
+  if (inningcurrentIndex < 13){
+    let runnerbaseSum = 0;
+    for (let i = 0; i < playerRunner1.length; i++) {
       runnerbaseSum += playerRunner1[i];
   }
   
   let runnerbaseNonZero = 0;
   for (let i = 0; i < playerRunner1.length; i++) {
       if (playerRunner1[i] !== 0) {
-          runnerbaseNonZero++;
+        runnerbaseNonZero++;
       }
   }
   runnerbaseSNZ = runnerbaseSum + runnerbaseNonZero
 
   if (runnerbaseSNZ === 2 || runnerbaseSNZ === 5 || runnerbaseSNZ === 9) {//1塁、1,2塁、満塁のとき
-      for (let i = 0; i < playerRunner1.length; i++) {
-          if (playerRunner1[i] !== 0) {
-              playerRunner1[i]++;
-          }
+    for (let i = 0; i < playerRunner1.length; i++) {
+      if (playerRunner1[i] !== 0) {
+        playerRunner1[i]++;
       }
+    }
   } else if (runnerbaseSNZ === 6 ) {//1,3塁のとき
-      for (let i = 0; i < playerRunner1.length; i++) {
+    for (let i = 0; i < playerRunner1.length; i++) {
           if (playerRunner1[i] == 1) {
               playerRunner1[i]++;
           }
@@ -1079,13 +1334,56 @@ function oneMove(){//詰まっているときのランナー
   }
   
   playerRunner1[battercurrentIndex1]++
-
+  
   for (i = 0; i < playerRunner1.length; i++) {
-      if (playerRunner1[i] >= 4) {
-          score++;
-          playerRunner1[i] = 0
-      }
+    if (playerRunner1[i] >= 4) {
+      score++;
+      var rows = document.getElementsByTagName('tr');
+      rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
+      scoresum1()
+      playerRunner1[i] = 0
+    }
   }
+} else {
+  let runnerbaseSum = 0;
+  for (let i = 0; i < playerRunner2.length; i++) {
+    runnerbaseSum += playerRunner2[i];
+}
+
+let runnerbaseNonZero = 0;
+for (let i = 0; i < playerRunner2.length; i++) {
+    if (playerRunner2[i] !== 0) {
+      runnerbaseNonZero++;
+    }
+}
+runnerbaseSNZ = runnerbaseSum + runnerbaseNonZero
+
+if (runnerbaseSNZ === 2 || runnerbaseSNZ === 5 || runnerbaseSNZ === 9) {//1塁、1,2塁、満塁のとき
+  for (let i = 0; i < playerRunner2.length; i++) {
+    if (playerRunner2[i] !== 0) {
+      playerRunner2[i]++;
+    }
+  }
+} else if (runnerbaseSNZ === 6 ) {//1,3塁のとき
+  for (let i = 0; i < playerRunner2.length; i++) {
+        if (playerRunner2[i] == 1) {
+            playerRunner2[i]++;
+        }
+    }
+}
+
+playerRunner2[battercurrentIndex2]++
+
+for (i = 0; i < playerRunner2.length; i++) {
+  if (playerRunner2[i] >= 4) {
+    score++;
+    var rows = document.getElementsByTagName('tr');
+    rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
+    scoresum2()
+    playerRunner2[i] = 0
+  }
+}
+}
   runnerLight()
   allPullDownChange()
 }

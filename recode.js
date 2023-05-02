@@ -575,8 +575,10 @@ ballButton.addEventListener("click", () => {
       oneMove()
       if (inningcurrentIndex < 13){
         battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
+        playerShowing1.innerHTML = playerName1[battercurrentIndex1]
       } else {
         battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
+        playerShowing2.innerHTML = playerName2[battercurrentIndex2]
       }
   } else {
     ballPlus()
@@ -589,14 +591,16 @@ function walk(buttonId) {;//死球・申告敬遠
       oneMove()
       if (inningcurrentIndex < 13){
         battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
+        playerShowing1.innerHTML = playerName1[battercurrentIndex1]
       } else {
         battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
+        playerShowing2.innerHTML = playerName2[battercurrentIndex2]
       }
 });
 }
 
 function outcount(){
-  if (outcurrentIndex === 2) {//アウトランプ消し、ランナー帰す、点数入力、、次の回ハイライト、合計点入力、次に備えてscore=0、塁ライト、プルダウン変更
+  if (outcurrentIndex === 2) {//アウトランプ消し、ランナー帰す、点数入力、次の回ハイライト、合計点入力、次に備えてscore=0、塁灯火、プルダウン変更
     outcurrentIndex=0
     var rows = document.getElementsByTagName('tr');
     for (let e of outLight.children) {
@@ -643,6 +647,7 @@ function homerun(buttonId) {;//ホームランボタン
       rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
       scoresum1()
       battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
+      playerShowing1.innerHTML = playerName1[battercurrentIndex1]
     } else {
       for (let i = 0; i < playerRunner2.length; i++) {
         if (playerRunner2[i] > 0){
@@ -654,6 +659,7 @@ function homerun(buttonId) {;//ホームランボタン
       rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
       scoresum2()
       battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
+      playerShowing2.innerHTML = playerName2[battercurrentIndex2]
     }
     countreset()
     runnerLight()
@@ -749,6 +755,16 @@ CloseName.onclick = function() {
     }
   }
   battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
+  if (inningcurrentIndex < 13){
+    playerShowing1.innerHTML = playerName1[battercurrentIndex1]
+  } else {
+      for (var i = 0; i < playerPosition1.length; i++) {
+        if (playerPosition1[i] == '投' || playerPosition1[i] == "1") {
+            playerShowing1.innerHTML = playerName1[i];
+        }
+      } 
+      playerShowing2.innerHTML = playerName2[battercurrentIndex2]
+  }
 } else {
   for (let i = 0; i < playerRunner2.length; i++) {
     if (playerRunner2[i] === 3){
@@ -784,6 +800,16 @@ for (let i = 0; i < playerRunner2.length; i++) {
   }
 }
 battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
+if (inningcurrentIndex < 13){
+  for (var i = 0; i < playerPosition2.length; i++) {
+      if (playerPosition2[i] == '投' || playerPosition2[i] == "1") {
+          playerShowing2.innerHTML = playerName2[i];
+      }
+    } 
+    playerShowing1.innerHTML = playerName1[battercurrentIndex1]
+} else {
+    playerShowing2.innerHTML = playerName2[battercurrentIndex2]
+}
 }
   
   runnerLight()

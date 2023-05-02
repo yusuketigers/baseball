@@ -73,135 +73,6 @@ const passBallModal = document.querySelector('#pass-ball-Modal');
 const restraintModal = document.querySelector('#restraint-Modal');
 const cells = document.querySelectorAll('td');
 let outLight = document.getElementById("out-light")
-
-
-let foulButton = document.getElementById("foul-button");//ファールボタン
-foulButton.addEventListener("click", () => {
-    if (strikecurrentIndex === 2) {
-    } else {
-        strikePlus()
-    }
-});
-
-function count(buttonId) {;//見逃し・空振りボタン
-  document.getElementById(buttonId).addEventListener("click", () => {
-  if (strikecurrentIndex === 2) {
-      countreset()
-      outcount()
-      if (outcurrentIndex === 0){
-        for (let i = 0; i < playerRunner1.length; i++) {
-          playerRunner1[i]=0
-        }
-        runnerLight()
-        allPullDownChange()
-      }
-  } else {
-    strikePlus()
-  }
-})
-}
-
-let ballButton = document.getElementById("ball-button");//ボールボタン
-ballButton.addEventListener("click", () => {
-  if (ballcurrentIndex === 3) {
-      countreset()
-      oneMove()
-      battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
-  } else {
-    ballPlus()
-  }
-})
-
-function walk(buttonId) {;//死球・申告敬遠
-  document.getElementById(buttonId).addEventListener("click", () => {
-      countreset()
-      oneMove()
-      battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
-});
-}
-
-function outcount(){
-  if (outcurrentIndex === 2) {
-    outcurrentIndex=0
-    var rows = document.getElementsByTagName('tr');
-    for (let e of outLight.children) {
-        e.classList.remove("red")
-    }
-    tableCells[inningcurrentIndex].style.backgroundColor = "white";
-   if (inningcurrentIndex < 13){
-      rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
-      inningcurrentIndex = inningcurrentIndex + 13
-      tableCells[inningcurrentIndex].style.backgroundColor = "pink";
-      scoresum1()
-      score=0
-   } else {
-      rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
-      inningcurrentIndex = inningcurrentIndex - 12
-      tableCells[inningcurrentIndex].style.backgroundColor = "pink";
-      scoresum2()
-      score=0
-      console.log(inningcurrentIndex)
-   }
-  } else {
-      outPlus()
-  }
-}
-
-function homerun(buttonId) {;//ホームランボタン
-  document.querySelector(buttonId).addEventListener("click", () => {
-    score++
-    for (let i = 0; i < playerRunner1.length; i++) {
-      countreset()
-      if (playerRunner1[i] > 0){
-        score++
-        playerRunner1[i]=0
-      }
-    }
-    runnerLight()
-    allModalNone()
-    allPullDownChange()
-  })
-}
-
-window.addEventListener('click', (event) => {//modal外を触ったら消える
-  if (event.target == hitModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == hitLeftModal || event.target == hitCenterModal || event.target == hitRightModal || event.target == outModal || event.target == outPitcherModal || event.target == outCatcherModal || event.target == outFirstModal || event.target == outSecondModal || event.target == outThirdModal || event.target == outShortModal || event.target == outLeftModal || event.target == outCenterModal || event.target == outRightModal || event.target == onebaseLeftModal || event.target == twobaseLeftModal || event.target == threebaseLeftModal || event.target == onebaseCenterModal || event.target == twobaseCenterModal || event.target == threebaseCenterModal || event.target == onebaseRightModal || event.target == twobaseRightModal || event.target == threebaseRightModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == groundPitcherModal || event.target == flyPitcherModal || event.target == linerPitcherModal || event.target == groundCatcherModal || event.target == flyCatcherModal || event.target == linerCatcherModal || event.target == groundFirstModal || event.target == flyFirstModal || event.target == linerFirstModal || event.target == groundSecondModal || event.target == flySecondModal || event.target == linerSecondModal || event.target == groundThirdModal || event.target == flyThirdModal || event.target == linerThirdModal || event.target == groundShortModal || event.target == flyShortModal || event.target == linerShortModal || event.target == groundLeftModal || event.target == flyLeftModal || event.target == linerLeftModal || event.target == groundCenterModal || event.target == flyCenterModal || event.target == linerCenterModal || event.target == groundRightModal || event.target == flyRightModal || event.target == linerRightModal || event.target == runnerModal || event.target == stealModal || event.target == wildPitchModal || event.target == passBallModal || event.target == restraintModal) {
-    allModalNone()
-  }
-});
-
-function addToList() {//試合開始ボタン
-  for (var i = 0; i < cells1.length; i++) {
-    var cellText1 = cells1[i].innerText.trim();
-    var cellText2 = cells2[i].innerText.trim();
-    if (cellText1 !== '') {
-      playerList1.push(cellText1);
-    }
-    if (cellText2 !== '') {
-      playerList2.push(cellText2);
-    }
-  }
-
-for (let i = 1; i < playerList1.length; i += 3) {
-  playerPosition1.push(playerList1[i]);
-  playerPosition2.push(playerList2[i]);
-}
-
-for (let i = 2; i < playerList1.length; i += 3) {
-  playerName1.push(playerList1[i]);
-  playerName2.push(playerList2[i]);
-}
- 
-for (var i = 0; i < playerPosition2.length; i++) {
-  if (playerPosition2[i] == '投' || playerPosition2[i] == "1") {
-      playerShowing2.innerHTML = playerName2[i];
-  }
-}
-  playerShowing1.innerHTML = playerName1[0];
-  inningcurrentIndex=1
-  tableCells[inningcurrentIndex].style.backgroundColor = "pink";
-}
-
-  // Get the modal
 var onebasePitcherModal = document.getElementById("hit-pitcher-Modal");
 var onebasePitcherButton = document.getElementById("hit-pitcher");
 var onebasePitcherCloseButton = document.getElementById("onebase-pitcher-closeModal");
@@ -352,7 +223,6 @@ var threebaseRighted3 = document.getElementById("threebaseRight3").value;
 const threebaseRight1 = document.getElementById("threebaseRight1");
 const threebaseRight2 = document.getElementById("threebaseRight2");
 const threebaseRight3 = document.getElementById("threebaseRight3");
-
 var groundPitcherModal = document.getElementById("ground-pitcher-modal");
 var groundPitcherButton = document.getElementById("ground-pitcher");
 var groundPitcherCloseButton = document.getElementById("ground-pitcher-closeModal");
@@ -623,9 +493,6 @@ var linerRighted3 = document.getElementById("linerRight3").value;
 const linerRight1 = document.getElementById("linerRight1");
 const linerRight2 = document.getElementById("linerRight2");
 const linerRight3 = document.getElementById("linerRight3");
-
-// var stealModal = document.getElementById("steal-Modal");
-// var stealButton = document.getElementById("steal");
 var stealCloseButton = document.getElementById("steal-closeModal");
 var stealed1 = document.getElementById("steal1").value;
 var stealed2 = document.getElementById("steal2").value;
@@ -633,8 +500,6 @@ var stealed3 = document.getElementById("steal3").value;
 const steal1 = document.getElementById("steal1");
 const steal2 = document.getElementById("steal2");
 const steal3 = document.getElementById("steal3");
-// var wildPitchModal = document.getElementById("wild-pitch-Modal");
-// var wildPitchButton = document.getElementById("wild-pitch");
 var wildPitchCloseButton = document.getElementById("wild-pitch-closeModal");
 var wildPitched1 = document.getElementById("wildPitch1").value;
 var wildPitched2 = document.getElementById("wildPitch2").value;
@@ -642,8 +507,6 @@ var wildPitched3 = document.getElementById("wildPitch3").value;
 const wildPitch1 = document.getElementById("wildPitch1");
 const wildPitch2 = document.getElementById("wildPitch2");
 const wildPitch3 = document.getElementById("wildPitch3");
-// var passBallModal = document.getElementById("pass-ball-Modal");
-// var passBallButton = document.getElementById("pass-ball");
 var passBallCloseButton = document.getElementById("pass-ball-closeModal");
 var passBalled1 = document.getElementById("passBall1").value;
 var passBalled2 = document.getElementById("passBall2").value;
@@ -651,8 +514,6 @@ var passBalled3 = document.getElementById("passBall3").value;
 const passBall1 = document.getElementById("passBall1");
 const passBall2 = document.getElementById("passBall2");
 const passBall3 = document.getElementById("passBall3");
-// var restraintModal = document.getElementById("restraint-Modal");
-// var restraintButton = document.getElementById("restraint");
 var restraintCloseButton = document.getElementById("restraint-closeModal");
 var restrainted1 = document.getElementById("restraint1").value;
 var restrainted2 = document.getElementById("restraint2").value;
@@ -660,64 +521,141 @@ var restrainted3 = document.getElementById("restraint3").value;
 const restraint1 = document.getElementById("restraint1");
 const restraint2 = document.getElementById("restraint2");
 const restraint3 = document.getElementById("restraint3");
-
-runnerCheck1(onebasePitcherButton,onebasePitcherModal,onebasePitcherCloseButton,onebasePitchered0,onebasePitchered1,onebasePitchered2,onebasePitchered3,"onebasePitcher0","onebasePitcher1","onebasePitcher2","onebasePitcher3")
-runnerCheck1(onebaseCatcherButton,onebaseCatcherModal,onebaseCatcherCloseButton,onebaseCatchered0,onebaseCatchered1,onebaseCatchered2,onebaseCatchered3,"onebaseCatcher0","onebaseCatcher1","onebaseCatcher2","onebaseCatcher3")
-runnerCheck1(onebaseFirstButton,onebaseFirstModal,onebaseFirstCloseButton,onebaseFirsted0,onebaseFirsted1,onebaseFirsted2,onebaseFirsted3,"onebaseFirst0","onebaseFirst1","onebaseFirst2","onebaseFirst3")
-runnerCheck1(onebaseSecondButton,onebaseSecondModal,onebaseSecondCloseButton,onebaseSeconded0,onebaseSeconded1,onebaseSeconded2,onebaseSeconded3,"onebaseSecond0","onebaseSecond1","onebaseSecond2","onebaseSecond3")
-runnerCheck1(onebaseThirdButton,onebaseThirdModal,onebaseThirdCloseButton,onebaseThirded0,onebaseThirded1,onebaseThirded2,onebaseThirded3,"onebaseThird0","onebaseThird1","onebaseThird2","onebaseThird3")
-runnerCheck1(onebaseShortButton,onebaseShortModal,onebaseShortCloseButton,onebaseShorted0,onebaseShorted1,onebaseShorted2,onebaseShorted3,"onebaseShort0","onebaseShort1","onebaseShort2","onebaseShort3")
-runnerCheck1(onebaseLeftButton,onebaseLeftModal,onebaseLeftCloseButton,onebaseLefted0,onebaseLefted1,onebaseLefted2,onebaseLefted3,"onebaseLeft0","onebaseLeft1","onebaseLeft2","onebaseLeft3")
-runnerCheck1(twobaseLeftButton,twobaseLeftModal,twobaseLeftCloseButton,twobaseLefted0,twobaseLefted1,twobaseLefted2,twobaseLefted3,"twobaseLeft0","twobaseLeft1","twobaseLeft2","twobaseLeft3")
-runnerCheck1(threebaseLeftButton,threebaseLeftModal,threebaseLeftCloseButton,threebaseLefted0,threebaseLefted1,threebaseLefted2,threebaseLefted3,"threebaseLeft0","threebaseLeft1","threebaseLeft2","threebaseLeft3")
-runnerCheck1(onebaseCenterButton,onebaseCenterModal,onebaseCenterCloseButton,onebaseCentered0,onebaseCentered1,onebaseCentered2,onebaseCentered3,"onebaseCenter0","onebaseCenter1","onebaseCenter2","onebaseCenter3")
-runnerCheck1(twobaseCenterButton,twobaseCenterModal,twobaseCenterCloseButton,twobaseCentered0,twobaseCentered1,twobaseCentered2,twobaseCentered3,"twobaseCenter0","twobaseCenter1","twobaseCenter2","twobaseCenter3")
-runnerCheck1(threebaseCenterButton,threebaseCenterModal,threebaseCenterCloseButton,threebaseCentered0,threebaseCentered1,threebaseCentered2,threebaseCentered3,"threebaseCenter0","threebaseCenter1","threebaseCenter2","threebaseCenter3")
-runnerCheck1(onebaseRightButton,onebaseRightModal,onebaseRightCloseButton,onebaseRighted0,onebaseRighted1,onebaseRighted2,onebaseRighted3,"onebaseRight0","onebaseRight1","onebaseRight2","onebaseRight3")
-runnerCheck1(twobaseRightButton,twobaseRightModal,twobaseRightCloseButton,twobaseRighted0,twobaseRighted1,twobaseRighted2,twobaseRighted3,"twobaseRight0","twobaseRight1","twobaseRight2","twobaseRight3")
-runnerCheck1(threebaseRightButton,threebaseRightModal,threebaseRightCloseButton,threebaseRighted0,threebaseRighted1,threebaseRighted2,threebaseRighted3,"threebaseRight0","threebaseRight1","threebaseRight2","threebaseRight3")
-
-runnerCheck2(groundPitcherButton,groundPitcherModal,groundPitcherCloseButton,groundPitchered0,groundPitchered1,groundPitchered2,groundPitchered3,"groundPitcher0","groundPitcher1","groundPitcher2","groundPitcher3")
-runnerCheck2(flyPitcherButton,flyPitcherModal,flyPitcherCloseButton,flyPitchered0,flyPitchered1,flyPitchered2,flyPitchered3,"flyPitcher0","flyPitcher1","flyPitcher2","flyPitcher3")
-runnerCheck2(linerPitcherButton,linerPitcherModal,linerPitcherCloseButton,linerPitchered0,linerPitchered1,linerPitchered2,linerPitchered3,"linerPitcher0","linerPitcher1","linerPitcher2","linerPitcher3")
-runnerCheck2(groundCatcherButton,groundCatcherModal,groundCatcherCloseButton,groundCatchered0,groundCatchered1,groundCatchered2,groundCatchered3,"groundCatcher0","groundCatcher1","groundCatcher2","groundCatcher3")
-runnerCheck2(flyCatcherButton,flyCatcherModal,flyCatcherCloseButton,flyCatchered0,flyCatchered1,flyCatchered2,flyCatchered3,"flyCatcher0","flyCatcher1","flyCatcher2","flyCatcher3")
-runnerCheck2(linerCatcherButton,linerCatcherModal,linerCatcherCloseButton,linerCatchered0,linerCatchered1,linerCatchered2,linerCatchered3,"linerCatcher0","linerCatcher1","linerCatcher2","linerCatcher3")
-runnerCheck2(groundFirstButton,groundFirstModal,groundFirstCloseButton,groundFirsted0,groundFirsted1,groundFirsted2,groundFirsted3,"groundFirst0","groundFirst1","groundFirst2","groundFirst3")
-runnerCheck2(flyFirstButton,flyFirstModal,flyFirstCloseButton,flyFirsted0,flyFirsted1,flyFirsted2,flyFirsted3,"flyFirst0","flyFirst1","flyFirst2","flyFirst3")
-runnerCheck2(linerFirstButton,linerFirstModal,linerFirstCloseButton,linerFirsted0,linerFirsted1,linerFirsted2,linerFirsted3,"linerFirst0","linerFirst1","linerFirst2","linerFirst3")
-runnerCheck2(groundSecondButton,groundSecondModal,groundSecondCloseButton,groundSeconded0,groundSeconded1,groundSeconded2,groundSeconded3,"groundSecond0","groundSecond1","groundSecond2","groundSecond3")
-runnerCheck2(flySecondButton,flySecondModal,flySecondCloseButton,flySeconded0,flySeconded1,flySeconded2,flySeconded3,"flySecond0","flySecond1","flySecond2","flySecond3")
-runnerCheck2(linerSecondButton,linerSecondModal,linerSecondCloseButton,linerSeconded0,linerSeconded1,linerSeconded2,linerSeconded3,"linerSecond0","linerSecond1","linerSecond2","linerSecond3")
-runnerCheck2(groundThirdButton,groundThirdModal,groundThirdCloseButton,groundThirded0,groundThirded1,groundThirded2,groundThirded3,"groundThird0","groundThird1","groundThird2","groundThird3")
-runnerCheck2(flyThirdButton,flyThirdModal,flyThirdCloseButton,flyThirded0,flyThirded1,flyThirded2,flyThirded3,"flyThird0","flyThird1","flyThird2","flyThird3")
-runnerCheck2(linerThirdButton,linerThirdModal,linerThirdCloseButton,linerThirded0,linerThirded1,linerThirded2,linerThirded3,"linerThird0","linerThird1","linerThird2","linerThird3")
-runnerCheck2(groundShortButton,groundShortModal,groundShortCloseButton,groundShorted0,groundShorted1,groundShorted2,groundShorted3,"groundShort0","groundShort1","groundShort2","groundShort3")
-runnerCheck2(flyShortButton,flyShortModal,flyShortCloseButton,flyShorted0,flyShorted1,flyShorted2,flyShorted3,"flyShort0","flyShort1","flyShort2","flyShort3")
-runnerCheck2(linerShortButton,linerShortModal,linerShortCloseButton,linerShorted0,linerShorted1,linerShorted2,linerShorted3,"linerShort0","linerShort1","linerShort2","linerShort3")
-runnerCheck2(groundLeftButton,groundLeftModal,groundLeftCloseButton,groundLefted0,groundLefted1,groundLefted2,groundLefted3,"groundLeft0","groundLeft1","groundLeft2","groundLeft3")
-runnerCheck2(flyLeftButton,flyLeftModal,flyLeftCloseButton,flyLefted0,flyLefted1,flyLefted2,flyLefted3,"flyLeft0","flyLeft1","flyLeft2","flyLeft3")
-runnerCheck2(linerLeftButton,linerLeftModal,linerLeftCloseButton,linerLefted0,linerLefted1,linerLefted2,linerLefted3,"linerLeft0","linerLeft1","linerLeft2","linerLeft3")
-runnerCheck2(groundCenterButton,groundCenterModal,groundCenterCloseButton,groundCentered0,groundCentered1,groundCentered2,groundCentered3,"groundCenter0","groundCenter1","groundCenter2","groundCenter3")
-runnerCheck2(flyCenterButton,flyCenterModal,flyCenterCloseButton,flyCentered0,flyCentered1,flyCentered2,flyCentered3,"flyCenter0","flyCenter1","flyCenter2","flyCenter3")
-runnerCheck2(linerCenterButton,linerCenterModal,linerCenterCloseButton,linerCentered0,linerCentered1,linerCentered2,linerCentered3,"linerCenter0","linerCenter1","linerCenter2","linerCenter3")
-runnerCheck2(groundRightButton,groundRightModal,groundRightCloseButton,groundRighted0,groundRighted1,groundRighted2,groundRighted3,"groundRight0","groundRight1","groundRight2","groundRight3")
-runnerCheck2(flyRightButton,flyRightModal,flyRightCloseButton,flyRighted0,flyRighted1,flyRighted2,flyRighted3,"flyRight0","flyRight1","flyRight2","flyRight3")
-runnerCheck2(linerRightButton,linerRightModal,linerRightCloseButton,linerRighted0,linerRighted1,linerRighted2,linerRighted3,"linerRight0","linerRight1","linerRight2","linerRight3")
-
-runnerCheck3(stealButton,stealModal,stealCloseButton,stealed1,stealed2,stealed3,"steal1","steal2","steal3")
-runnerCheck3(wildPitchButton,wildPitchModal,wildPitchCloseButton,wildPitched1,wildPitched2,wildPitched3,"wildPitch1","wildPitch2","wildPitch3")
-runnerCheck3(passBallButton,passBallModal,passBallCloseButton,passBalled1,passBalled2,passBalled3,"passBall1","passBall2","passBall3")
-runnerCheck3(restraintButton,restraintModal,restraintCloseButton,restrainted1,restrainted2,restrainted3,"restraint1","restraint2","restraint3")
+//宣言
 
 
-function runnerCheck1(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3,Letter0,Letter1,Letter2,Letter3){
-// When the user clicks the button, open the modal 
+let foulButton = document.getElementById("foul-button");//ファールボタン
+foulButton.addEventListener("click", () => {
+    if (strikecurrentIndex === 2) {
+    } else {
+        strikePlus()
+    }
+});
+
+function count(buttonId) {;//見逃し・空振りボタン
+  document.getElementById(buttonId).addEventListener("click", () => {
+  if (strikecurrentIndex === 2) {
+      countreset()
+      outcount()
+      if (outcurrentIndex === 0){
+        for (let i = 0; i < playerRunner1.length; i++) {
+          playerRunner1[i]=0
+        }
+        runnerLight()
+        allPullDownChange()
+      }
+  } else {
+    strikePlus()
+  }
+})
+}
+
+let ballButton = document.getElementById("ball-button");//ボールボタン
+ballButton.addEventListener("click", () => {
+  if (ballcurrentIndex === 3) {
+      countreset()
+      oneMove()
+      battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
+  } else {
+    ballPlus()
+  }
+})
+
+function walk(buttonId) {;//死球・申告敬遠
+  document.getElementById(buttonId).addEventListener("click", () => {
+      countreset()
+      oneMove()
+      battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
+});
+}
+
+function outcount(){
+  if (outcurrentIndex === 2) {
+    outcurrentIndex=0
+    var rows = document.getElementsByTagName('tr');
+    for (let e of outLight.children) {
+        e.classList.remove("red")
+    }
+    tableCells[inningcurrentIndex].style.backgroundColor = "white";
+   if (inningcurrentIndex < 13){
+      rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
+      inningcurrentIndex = inningcurrentIndex + 13
+      tableCells[inningcurrentIndex].style.backgroundColor = "pink";
+      scoresum1()
+      score=0
+   } else {
+      rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
+      inningcurrentIndex = inningcurrentIndex - 12
+      tableCells[inningcurrentIndex].style.backgroundColor = "pink";
+      scoresum2()
+      score=0
+      console.log(inningcurrentIndex)
+   }
+  } else {
+      outPlus()
+  }
+}
+
+function homerun(buttonId) {;//ホームランボタン
+  document.querySelector(buttonId).addEventListener("click", () => {
+    score++
+    for (let i = 0; i < playerRunner1.length; i++) {
+      countreset()
+      if (playerRunner1[i] > 0){
+        score++
+        playerRunner1[i]=0
+      }
+    }
+    runnerLight()
+    allModalNone()
+    allPullDownChange()
+  })
+}
+
+window.addEventListener('click', (event) => {//modal外を触ったら消える
+  if (event.target == hitModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == hitLeftModal || event.target == hitCenterModal || event.target == hitRightModal || event.target == outModal || event.target == outPitcherModal || event.target == outCatcherModal || event.target == outFirstModal || event.target == outSecondModal || event.target == outThirdModal || event.target == outShortModal || event.target == outLeftModal || event.target == outCenterModal || event.target == outRightModal || event.target == onebaseLeftModal || event.target == twobaseLeftModal || event.target == threebaseLeftModal || event.target == onebaseCenterModal || event.target == twobaseCenterModal || event.target == threebaseCenterModal || event.target == onebaseRightModal || event.target == twobaseRightModal || event.target == threebaseRightModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == groundPitcherModal || event.target == flyPitcherModal || event.target == linerPitcherModal || event.target == groundCatcherModal || event.target == flyCatcherModal || event.target == linerCatcherModal || event.target == groundFirstModal || event.target == flyFirstModal || event.target == linerFirstModal || event.target == groundSecondModal || event.target == flySecondModal || event.target == linerSecondModal || event.target == groundThirdModal || event.target == flyThirdModal || event.target == linerThirdModal || event.target == groundShortModal || event.target == flyShortModal || event.target == linerShortModal || event.target == groundLeftModal || event.target == flyLeftModal || event.target == linerLeftModal || event.target == groundCenterModal || event.target == flyCenterModal || event.target == linerCenterModal || event.target == groundRightModal || event.target == flyRightModal || event.target == linerRightModal || event.target == runnerModal || event.target == stealModal || event.target == wildPitchModal || event.target == passBallModal || event.target == restraintModal) {
+    allModalNone()
+  }
+});
+
+function addToList() {//試合開始ボタン
+  for (var i = 0; i < cells1.length; i++) {
+    var cellText1 = cells1[i].innerText.trim();
+    var cellText2 = cells2[i].innerText.trim();
+    if (cellText1 !== '') {
+      playerList1.push(cellText1);
+    }
+    if (cellText2 !== '') {
+      playerList2.push(cellText2);
+    }
+  }
+
+for (let i = 1; i < playerList1.length; i += 3) {
+  playerPosition1.push(playerList1[i]);
+  playerPosition2.push(playerList2[i]);
+}
+
+for (let i = 2; i < playerList1.length; i += 3) {
+  playerName1.push(playerList1[i]);
+  playerName2.push(playerList2[i]);
+}
+ 
+for (var i = 0; i < playerPosition2.length; i++) {
+  if (playerPosition2[i] == '投' || playerPosition2[i] == "1") {
+      playerShowing2.innerHTML = playerName2[i];
+  }
+}
+  playerShowing1.innerHTML = playerName1[0];
+  inningcurrentIndex=1
+  tableCells[inningcurrentIndex].style.backgroundColor = "pink";
+}
+
+
+function runnerCheck1(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3,Letter0,Letter1,Letter2,Letter3){//ランナーを確認するモーダルが出現
 ButtonName.onclick = function() {
   ModalName.style.display = "block";
 }
 
-// When the user clicks on OK, close the modal
 CloseName.onclick = function() {
   allModalNone()
   countreset()
@@ -746,7 +684,6 @@ CloseName.onclick = function() {
   for (let i = 0; i < playerRunner1.length; i++) {
     if (playerRunner1[i] === 4){
       score++
-      console.log(score)
       playerRunner1[i]=0
     }
   }
@@ -754,7 +691,6 @@ CloseName.onclick = function() {
   for (let i = 0; i < playerRunner1.length; i++) {
     if (playerRunner1[i] < 0){
       outcount()
-      console.log(outcurrentIndex)
       playerRunner1[i]=0
       if (outcurrentIndex === 0){
         for (let i = 0; i < playerRunner1.length; i++) {
@@ -763,11 +699,7 @@ CloseName.onclick = function() {
       }
     }
   }
-
   runnerLight()
-  
-  
-  console.log(playerRunner1)
   allPullDownChange()
   
   battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
@@ -775,8 +707,6 @@ CloseName.onclick = function() {
 }
 
 function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3,Letter0,Letter1,Letter2,Letter3){
-  // When the user clicks the button, open the modal 
-  
     ButtonName.onclick = function() {
       if(playerRunner1.includes(1)||playerRunner1.includes(2)||playerRunner1.includes(3)){
         ModalName.style.display = "block";
@@ -787,10 +717,6 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
       }
   } 
 
-  
-
-
-  // When the user clicks on OK, close the modal
   CloseName.onclick = function() {
     allModalNone()
     countreset()
@@ -819,7 +745,6 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
     for (let i = 0; i < playerRunner1.length; i++) {
       if (playerRunner1[i] === 4){
         score++
-        console.log(score)
         playerRunner1[i]=0
       }
     }
@@ -827,7 +752,6 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
     for (let i = 0; i < playerRunner1.length; i++) {
       if (playerRunner1[i] < 0){
         outcount()
-        console.log(outcurrentIndex)
         playerRunner1[i]=0
         if (outcurrentIndex === 0){
           for (let i = 0; i < playerRunner1.length; i++) {
@@ -836,11 +760,7 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
         }
       }
     }
-  
     runnerLight()
-    
-    
-    console.log(playerRunner1)
     allPullDownChange()
     
     battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
@@ -849,15 +769,12 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
 
 
   function runnerCheck3(ButtonName,ModalName,CloseName,Named1,Named2,Named3,Letter1,Letter2,Letter3){
-    // When the user clicks the button, open the modal 
     ButtonName.onclick = function() {
       ModalName.style.display = "block";
     }
     
-    // When the user clicks on OK, close the modal
     CloseName.onclick = function() {
       allModalNone()
-      // var Named0 = document.getElementById(Letter0).value;
       var Named1 = document.getElementById(Letter1).value;
       var Named2 = document.getElementById(Letter2).value;
       var Named3 = document.getElementById(Letter3).value;;
@@ -877,12 +794,10 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
           playerRunner1[i] = parseInt(Named1)
         }
       }
-      // playerRunner1[battercurrentIndex1] = parseInt(Named0)
       
       for (let i = 0; i < playerRunner1.length; i++) {
         if (playerRunner1[i] === 4){
           score++
-          console.log(score)
           playerRunner1[i]=0
         }
       }
@@ -890,7 +805,6 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
       for (let i = 0; i < playerRunner1.length; i++) {
         if (playerRunner1[i] < 0){
           outcount()
-          console.log(outcurrentIndex)
           playerRunner1[i]=0
           if (outcurrentIndex === 0){
             for (let i = 0; i < playerRunner1.length; i++) {
@@ -899,152 +813,12 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
           }
         }
       }
-    
       runnerLight()
-      
-      
-      console.log(playerRunner1)
       allPullDownChange()
-      
-      // battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
     }
     }
 
 
-
-    
-
-function allPullDownChange(){
-  pullDownChange(onebasePitcher1,onebasePitcher2,onebasePitcher3,"onebasePitcher1","onebasePitcher2","onebasePitcher3")
-  pullDownChange(onebaseCatcher1,onebaseCatcher2,onebaseCatcher3,"onebaseCatcher1","onebaseCatcher2","onebaseCatcher3")
-  pullDownChange(onebaseFirst1,onebaseFirst2,onebaseFirst3,"onebaseFirst1","onebaseFirst2","onebaseFirst3")
-  pullDownChange(onebaseSecond1,onebaseSecond2,onebaseSecond3,"onebaseSecond1","onebaseSecond2","onebaseSecond3")
-  pullDownChange(onebaseThird1,onebaseThird2,onebaseThird3,"onebaseThird1","onebaseThird2","onebaseThird3")
-  pullDownChange(onebaseShort1,onebaseShort2,onebaseShort3,"onebaseShort1","onebaseShort2","onebaseShort3")
-  pullDownChange(onebaseLeft1,onebaseLeft2,onebaseLeft3,"onebaseLeft1","onebaseLeft2","onebaseLeft3")
-  pullDownChange(twobaseLeft1,twobaseLeft2,twobaseLeft3,"twobaseLeft1","twobaseLeft2","twobaseLeft3")
-  pullDownChange(threebaseLeft1,threebaseLeft2,threebaseLeft3,"threebaseLeft1","threebaseLeft2","threebaseLeft3")
-  pullDownChange(onebaseCenter1,onebaseCenter2,onebaseCenter3,"onebaseCenter1","onebaseCenter2","onebaseCenter3")
-  pullDownChange(twobaseCenter1,twobaseCenter2,twobaseCenter3,"twobaseCenter1","twobaseCenter2","twobaseCenter3")
-  pullDownChange(threebaseCenter1,threebaseCenter2,threebaseCenter3,"threebaseCenter1","threebaseCenter2","threebaseCenter3")
-  pullDownChange(onebaseRight1,onebaseRight2,onebaseRight3,"onebaseRight1","onebaseRight2","onebaseRight3")
-  pullDownChange(twobaseRight1,twobaseRight2,twobaseRight3,"twobaseRight1","twobaseRight2","twobaseRight3")
-  pullDownChange(threebaseRight1,threebaseRight2,threebaseRight3,"threebaseRight1","threebaseRight2","threebaseRight3")
-
-  pullDownChange(groundPitcher1,groundPitcher2,groundPitcher3,"groundPitcher1","groundPitcher2","groundPitcher3")
-  pullDownChange(flyPitcher1,flyPitcher2,flyPitcher3,"flyPitcher1","flyPitcher2","flyPitcher3")
-  pullDownChange(linerPitcher1,linerPitcher2,linerPitcher3,"linerPitcher1","linerPitcher2","linerPitcher3")
-  pullDownChange(groundCatcher1,groundCatcher2,groundCatcher3,"groundCatcher1","groundCatcher2","groundCatcher3")
-  pullDownChange(flyCatcher1,flyCatcher2,flyCatcher3,"flyCatcher1","flyCatcher2","flyCatcher3")
-  pullDownChange(linerCatcher1,linerCatcher2,linerCatcher3,"linerCatcher1","linerCatcher2","linerCatcher3")
-  pullDownChange(groundFirst1,groundFirst2,groundFirst3,"groundFirst1","groundFirst2","groundFirst3")
-  pullDownChange(flyFirst1,flyFirst2,flyFirst3,"flyFirst1","flyFirst2","flyFirst3")
-  pullDownChange(linerFirst1,linerFirst2,linerFirst3,"linerFirst1","linerFirst2","linerFirst3")
-  pullDownChange(groundSecond1,groundSecond2,groundSecond3,"groundSecond1","groundSecond2","groundSecond3")
-  pullDownChange(flySecond1,flySecond2,flySecond3,"flySecond1","flySecond2","flySecond3")
-  pullDownChange(linerSecond1,linerSecond2,linerSecond3,"linerSecond1","linerSecond2","linerSecond3")
-  pullDownChange(groundThird1,groundThird2,groundThird3,"groundThird1","groundThird2","groundThird3")
-  pullDownChange(flyThird1,flyThird2,flyThird3,"flyThird1","flyThird2","flyThird3")
-  pullDownChange(linerThird1,linerThird2,linerThird3,"linerThird1","linerThird2","linerThird3")
-  pullDownChange(groundShort1,groundShort2,groundShort3,"groundShort1","groundShort2","groundShort3")
-  pullDownChange(flyShort1,flyShort2,flyShort3,"flyShort1","flyShort2","flyShort3")
-  pullDownChange(linerShort1,linerShort2,linerShort3,"linerShort1","linerShort2","linerShort3")
-  pullDownChange(groundLeft1,groundLeft2,groundLeft3,"groundLeft1","groundLeft2","groundLeft3")
-  pullDownChange(flyLeft1,flyLeft2,flyLeft3,"flyLeft1","flyLeft2","flyLeft3")
-  pullDownChange(linerLeft1,linerLeft2,linerLeft3,"linerLeft1","linerLeft2","linerLeft3")
-  pullDownChange(groundCenter1,groundCenter2,groundCenter3,"groundCenter1","groundCenter2","groundCenter3")
-  pullDownChange(flyCenter1,flyCenter2,flyCenter3,"flyCenter1","flyCenter2","flyCenter3")
-  pullDownChange(linerCenter1,linerCenter2,linerCenter3,"linerCenter1","linerCenter2","linerCenter3")
-  pullDownChange(groundRight1,groundRight2,groundRight3,"groundRight1","groundRight2","groundRight3")
-  pullDownChange(flyRight1,flyRight2,flyRight3,"flyRight1","flyRight2","flyRight3")
-  pullDownChange(linerRight1,linerRight2,linerRight3,"linerRight1","linerRight2","linerRight3")
-
-  pullDownChange(steal1,steal2,steal3,"steal1","steal2","steal3")
-  pullDownChange(wildPitch1,wildPitch2,wildPitch3,"wildPitch1","wildPitch2","wildPitch3")
-  pullDownChange(passBall1,passBall2,passBall3,"passBall1","passBall2","passBall3")
-  pullDownChange(restraint1,restraint2,restraint3,"restraint1","restraint2","restraint3")
-}
-// playerRunner1に1が含まれている場合は、プルダウンの内容を変更する
-function pullDownChange(Name1,Name2,Name3,Letter1,Letter2,Letter3){
-
-  if (playerRunner1.includes(1)) {
-    Name1.innerHTML = `
-    <option value=1>1塁</option>
-    <option value=2>2塁</option>
-    <option value=3>3塁</option>
-    <option value=4>得点</option>
-    <option value=-1>アウト</option>
-    `;
-  } else {
-  Name1.innerHTML = `
-  <option value=0>-</option>
-  `;
-}
-
-if (playerRunner1.includes(2)) {
-  Name2.innerHTML = `
-  <option value=2>2塁</option>
-  <option value=3>3塁</option>
-  <option value=4>得点</option>
-  <option value=-1>アウト</option>
-  `;
-} else {
-  Name2.innerHTML = `
-  <option value=0>-</option>
-  `;
-}
-
-if (playerRunner1.includes(3)) {
-  Name3.innerHTML = `
-  <option value=3>3塁</option>
-  <option value=4>得点</option>
-  <option value=-1>アウト</option>
-  `;
-} else {
-  Name3.innerHTML = `
-  <option value=0>-</option>
-  `;
-}
-}
-
-function runnerLight(){
-
-  if (playerRunner1.includes(1)) {
-    if (squareLight) {
-      const square1 = document.getElementById("square1");
-      square1.classList.add("light");
-    }
-} else {
-  if (squareLight) {
-    const squares = squareLight.children;
-    squares[0].classList.remove("light");
-  }
-}
-
-if (playerRunner1.includes(2)) {
-  if (squareLight) {
-    const square2 = document.getElementById("square2");
-    square2.classList.add("light");
-  }
-} else {
-  if (squareLight) {
-    const squares = squareLight.children;
-    squares[1].classList.remove("light");
-  }
-}
-
-if (playerRunner1.includes(3)) {
-  if (squareLight) {
-    const square3 = document.getElementById("square3");
-    square3.classList.add("light");
-  }
-} else {
-  if (squareLight) {
-    const squares = squareLight.children;
-    squares[2].classList.remove("light");
-  }
-}
-}
 
 function oneMove(){
   // 各要素の和を計算
@@ -1330,6 +1104,85 @@ function updateParagraph2(cell) {
   document.querySelector('#output4').textContent = text;
 }
 
+function pullDownChange(Name1,Name2,Name3,Letter1,Letter2,Letter3){
+  if (playerRunner1.includes(1)) {
+    Name1.innerHTML = `
+    <option value=1>1塁</option>
+    <option value=2>2塁</option>
+    <option value=3>3塁</option>
+    <option value=4>得点</option>
+    <option value=-1>アウト</option>
+    `;
+  } else {
+  Name1.innerHTML = `
+  <option value=0>-</option>
+  `;
+}
+
+if (playerRunner1.includes(2)) {
+  Name2.innerHTML = `
+  <option value=2>2塁</option>
+  <option value=3>3塁</option>
+  <option value=4>得点</option>
+  <option value=-1>アウト</option>
+  `;
+} else {
+  Name2.innerHTML = `
+  <option value=0>-</option>
+  `;
+}
+
+if (playerRunner1.includes(3)) {
+  Name3.innerHTML = `
+  <option value=3>3塁</option>
+  <option value=4>得点</option>
+  <option value=-1>アウト</option>
+  `;
+} else {
+  Name3.innerHTML = `
+  <option value=0>-</option>
+  `;
+}
+}
+
+function runnerLight(){
+  if (playerRunner1.includes(1)) {
+    if (squareLight) {
+      const square1 = document.getElementById("square1");
+      square1.classList.add("light");
+    }
+} else {
+  if (squareLight) {
+    const squares = squareLight.children;
+    squares[0].classList.remove("light");
+  }
+}
+
+if (playerRunner1.includes(2)) {
+  if (squareLight) {
+    const square2 = document.getElementById("square2");
+    square2.classList.add("light");
+  }
+} else {
+  if (squareLight) {
+    const squares = squareLight.children;
+    squares[1].classList.remove("light");
+  }
+}
+
+if (playerRunner1.includes(3)) {
+  if (squareLight) {
+    const square3 = document.getElementById("square3");
+    square3.classList.add("light");
+  }
+} else {
+  if (squareLight) {
+    const squares = squareLight.children;
+    squares[2].classList.remove("light");
+  }
+}
+}
+
 hit1Button.addEventListener('click', () => {hitModal.style.display = 'block';});
 hitPitcherButton.addEventListener('click', () => {hitPitcherModal.style.display = 'block';});
 hitCatcherButton.addEventListener('click', () => {hitCatcherModal.style.display = 'block';});
@@ -1365,3 +1218,98 @@ walk("fourball")
 homerun("#homerun-left")
 homerun("#homerun-center")
 homerun("#homerun-right")
+runnerCheck1(onebasePitcherButton,onebasePitcherModal,onebasePitcherCloseButton,onebasePitchered0,onebasePitchered1,onebasePitchered2,onebasePitchered3,"onebasePitcher0","onebasePitcher1","onebasePitcher2","onebasePitcher3")
+runnerCheck1(onebaseCatcherButton,onebaseCatcherModal,onebaseCatcherCloseButton,onebaseCatchered0,onebaseCatchered1,onebaseCatchered2,onebaseCatchered3,"onebaseCatcher0","onebaseCatcher1","onebaseCatcher2","onebaseCatcher3")
+runnerCheck1(onebaseFirstButton,onebaseFirstModal,onebaseFirstCloseButton,onebaseFirsted0,onebaseFirsted1,onebaseFirsted2,onebaseFirsted3,"onebaseFirst0","onebaseFirst1","onebaseFirst2","onebaseFirst3")
+runnerCheck1(onebaseSecondButton,onebaseSecondModal,onebaseSecondCloseButton,onebaseSeconded0,onebaseSeconded1,onebaseSeconded2,onebaseSeconded3,"onebaseSecond0","onebaseSecond1","onebaseSecond2","onebaseSecond3")
+runnerCheck1(onebaseThirdButton,onebaseThirdModal,onebaseThirdCloseButton,onebaseThirded0,onebaseThirded1,onebaseThirded2,onebaseThirded3,"onebaseThird0","onebaseThird1","onebaseThird2","onebaseThird3")
+runnerCheck1(onebaseShortButton,onebaseShortModal,onebaseShortCloseButton,onebaseShorted0,onebaseShorted1,onebaseShorted2,onebaseShorted3,"onebaseShort0","onebaseShort1","onebaseShort2","onebaseShort3")
+runnerCheck1(onebaseLeftButton,onebaseLeftModal,onebaseLeftCloseButton,onebaseLefted0,onebaseLefted1,onebaseLefted2,onebaseLefted3,"onebaseLeft0","onebaseLeft1","onebaseLeft2","onebaseLeft3")
+runnerCheck1(twobaseLeftButton,twobaseLeftModal,twobaseLeftCloseButton,twobaseLefted0,twobaseLefted1,twobaseLefted2,twobaseLefted3,"twobaseLeft0","twobaseLeft1","twobaseLeft2","twobaseLeft3")
+runnerCheck1(threebaseLeftButton,threebaseLeftModal,threebaseLeftCloseButton,threebaseLefted0,threebaseLefted1,threebaseLefted2,threebaseLefted3,"threebaseLeft0","threebaseLeft1","threebaseLeft2","threebaseLeft3")
+runnerCheck1(onebaseCenterButton,onebaseCenterModal,onebaseCenterCloseButton,onebaseCentered0,onebaseCentered1,onebaseCentered2,onebaseCentered3,"onebaseCenter0","onebaseCenter1","onebaseCenter2","onebaseCenter3")
+runnerCheck1(twobaseCenterButton,twobaseCenterModal,twobaseCenterCloseButton,twobaseCentered0,twobaseCentered1,twobaseCentered2,twobaseCentered3,"twobaseCenter0","twobaseCenter1","twobaseCenter2","twobaseCenter3")
+runnerCheck1(threebaseCenterButton,threebaseCenterModal,threebaseCenterCloseButton,threebaseCentered0,threebaseCentered1,threebaseCentered2,threebaseCentered3,"threebaseCenter0","threebaseCenter1","threebaseCenter2","threebaseCenter3")
+runnerCheck1(onebaseRightButton,onebaseRightModal,onebaseRightCloseButton,onebaseRighted0,onebaseRighted1,onebaseRighted2,onebaseRighted3,"onebaseRight0","onebaseRight1","onebaseRight2","onebaseRight3")
+runnerCheck1(twobaseRightButton,twobaseRightModal,twobaseRightCloseButton,twobaseRighted0,twobaseRighted1,twobaseRighted2,twobaseRighted3,"twobaseRight0","twobaseRight1","twobaseRight2","twobaseRight3")
+runnerCheck1(threebaseRightButton,threebaseRightModal,threebaseRightCloseButton,threebaseRighted0,threebaseRighted1,threebaseRighted2,threebaseRighted3,"threebaseRight0","threebaseRight1","threebaseRight2","threebaseRight3")
+runnerCheck2(groundPitcherButton,groundPitcherModal,groundPitcherCloseButton,groundPitchered0,groundPitchered1,groundPitchered2,groundPitchered3,"groundPitcher0","groundPitcher1","groundPitcher2","groundPitcher3")
+runnerCheck2(flyPitcherButton,flyPitcherModal,flyPitcherCloseButton,flyPitchered0,flyPitchered1,flyPitchered2,flyPitchered3,"flyPitcher0","flyPitcher1","flyPitcher2","flyPitcher3")
+runnerCheck2(linerPitcherButton,linerPitcherModal,linerPitcherCloseButton,linerPitchered0,linerPitchered1,linerPitchered2,linerPitchered3,"linerPitcher0","linerPitcher1","linerPitcher2","linerPitcher3")
+runnerCheck2(groundCatcherButton,groundCatcherModal,groundCatcherCloseButton,groundCatchered0,groundCatchered1,groundCatchered2,groundCatchered3,"groundCatcher0","groundCatcher1","groundCatcher2","groundCatcher3")
+runnerCheck2(flyCatcherButton,flyCatcherModal,flyCatcherCloseButton,flyCatchered0,flyCatchered1,flyCatchered2,flyCatchered3,"flyCatcher0","flyCatcher1","flyCatcher2","flyCatcher3")
+runnerCheck2(linerCatcherButton,linerCatcherModal,linerCatcherCloseButton,linerCatchered0,linerCatchered1,linerCatchered2,linerCatchered3,"linerCatcher0","linerCatcher1","linerCatcher2","linerCatcher3")
+runnerCheck2(groundFirstButton,groundFirstModal,groundFirstCloseButton,groundFirsted0,groundFirsted1,groundFirsted2,groundFirsted3,"groundFirst0","groundFirst1","groundFirst2","groundFirst3")
+runnerCheck2(flyFirstButton,flyFirstModal,flyFirstCloseButton,flyFirsted0,flyFirsted1,flyFirsted2,flyFirsted3,"flyFirst0","flyFirst1","flyFirst2","flyFirst3")
+runnerCheck2(linerFirstButton,linerFirstModal,linerFirstCloseButton,linerFirsted0,linerFirsted1,linerFirsted2,linerFirsted3,"linerFirst0","linerFirst1","linerFirst2","linerFirst3")
+runnerCheck2(groundSecondButton,groundSecondModal,groundSecondCloseButton,groundSeconded0,groundSeconded1,groundSeconded2,groundSeconded3,"groundSecond0","groundSecond1","groundSecond2","groundSecond3")
+runnerCheck2(flySecondButton,flySecondModal,flySecondCloseButton,flySeconded0,flySeconded1,flySeconded2,flySeconded3,"flySecond0","flySecond1","flySecond2","flySecond3")
+runnerCheck2(linerSecondButton,linerSecondModal,linerSecondCloseButton,linerSeconded0,linerSeconded1,linerSeconded2,linerSeconded3,"linerSecond0","linerSecond1","linerSecond2","linerSecond3")
+runnerCheck2(groundThirdButton,groundThirdModal,groundThirdCloseButton,groundThirded0,groundThirded1,groundThirded2,groundThirded3,"groundThird0","groundThird1","groundThird2","groundThird3")
+runnerCheck2(flyThirdButton,flyThirdModal,flyThirdCloseButton,flyThirded0,flyThirded1,flyThirded2,flyThirded3,"flyThird0","flyThird1","flyThird2","flyThird3")
+runnerCheck2(linerThirdButton,linerThirdModal,linerThirdCloseButton,linerThirded0,linerThirded1,linerThirded2,linerThirded3,"linerThird0","linerThird1","linerThird2","linerThird3")
+runnerCheck2(groundShortButton,groundShortModal,groundShortCloseButton,groundShorted0,groundShorted1,groundShorted2,groundShorted3,"groundShort0","groundShort1","groundShort2","groundShort3")
+runnerCheck2(flyShortButton,flyShortModal,flyShortCloseButton,flyShorted0,flyShorted1,flyShorted2,flyShorted3,"flyShort0","flyShort1","flyShort2","flyShort3")
+runnerCheck2(linerShortButton,linerShortModal,linerShortCloseButton,linerShorted0,linerShorted1,linerShorted2,linerShorted3,"linerShort0","linerShort1","linerShort2","linerShort3")
+runnerCheck2(groundLeftButton,groundLeftModal,groundLeftCloseButton,groundLefted0,groundLefted1,groundLefted2,groundLefted3,"groundLeft0","groundLeft1","groundLeft2","groundLeft3")
+runnerCheck2(flyLeftButton,flyLeftModal,flyLeftCloseButton,flyLefted0,flyLefted1,flyLefted2,flyLefted3,"flyLeft0","flyLeft1","flyLeft2","flyLeft3")
+runnerCheck2(linerLeftButton,linerLeftModal,linerLeftCloseButton,linerLefted0,linerLefted1,linerLefted2,linerLefted3,"linerLeft0","linerLeft1","linerLeft2","linerLeft3")
+runnerCheck2(groundCenterButton,groundCenterModal,groundCenterCloseButton,groundCentered0,groundCentered1,groundCentered2,groundCentered3,"groundCenter0","groundCenter1","groundCenter2","groundCenter3")
+runnerCheck2(flyCenterButton,flyCenterModal,flyCenterCloseButton,flyCentered0,flyCentered1,flyCentered2,flyCentered3,"flyCenter0","flyCenter1","flyCenter2","flyCenter3")
+runnerCheck2(linerCenterButton,linerCenterModal,linerCenterCloseButton,linerCentered0,linerCentered1,linerCentered2,linerCentered3,"linerCenter0","linerCenter1","linerCenter2","linerCenter3")
+runnerCheck2(groundRightButton,groundRightModal,groundRightCloseButton,groundRighted0,groundRighted1,groundRighted2,groundRighted3,"groundRight0","groundRight1","groundRight2","groundRight3")
+runnerCheck2(flyRightButton,flyRightModal,flyRightCloseButton,flyRighted0,flyRighted1,flyRighted2,flyRighted3,"flyRight0","flyRight1","flyRight2","flyRight3")
+runnerCheck2(linerRightButton,linerRightModal,linerRightCloseButton,linerRighted0,linerRighted1,linerRighted2,linerRighted3,"linerRight0","linerRight1","linerRight2","linerRight3")
+runnerCheck3(stealButton,stealModal,stealCloseButton,stealed1,stealed2,stealed3,"steal1","steal2","steal3")
+runnerCheck3(wildPitchButton,wildPitchModal,wildPitchCloseButton,wildPitched1,wildPitched2,wildPitched3,"wildPitch1","wildPitch2","wildPitch3")
+runnerCheck3(passBallButton,passBallModal,passBallCloseButton,passBalled1,passBalled2,passBalled3,"passBall1","passBall2","passBall3")
+runnerCheck3(restraintButton,restraintModal,restraintCloseButton,restrainted1,restrainted2,restrainted3,"restraint1","restraint2","restraint3")
+
+function allPullDownChange(){
+  pullDownChange(onebasePitcher1,onebasePitcher2,onebasePitcher3,"onebasePitcher1","onebasePitcher2","onebasePitcher3")
+  pullDownChange(onebaseCatcher1,onebaseCatcher2,onebaseCatcher3,"onebaseCatcher1","onebaseCatcher2","onebaseCatcher3")
+  pullDownChange(onebaseFirst1,onebaseFirst2,onebaseFirst3,"onebaseFirst1","onebaseFirst2","onebaseFirst3")
+  pullDownChange(onebaseSecond1,onebaseSecond2,onebaseSecond3,"onebaseSecond1","onebaseSecond2","onebaseSecond3")
+  pullDownChange(onebaseThird1,onebaseThird2,onebaseThird3,"onebaseThird1","onebaseThird2","onebaseThird3")
+  pullDownChange(onebaseShort1,onebaseShort2,onebaseShort3,"onebaseShort1","onebaseShort2","onebaseShort3")
+  pullDownChange(onebaseLeft1,onebaseLeft2,onebaseLeft3,"onebaseLeft1","onebaseLeft2","onebaseLeft3")
+  pullDownChange(twobaseLeft1,twobaseLeft2,twobaseLeft3,"twobaseLeft1","twobaseLeft2","twobaseLeft3")
+  pullDownChange(threebaseLeft1,threebaseLeft2,threebaseLeft3,"threebaseLeft1","threebaseLeft2","threebaseLeft3")
+  pullDownChange(onebaseCenter1,onebaseCenter2,onebaseCenter3,"onebaseCenter1","onebaseCenter2","onebaseCenter3")
+  pullDownChange(twobaseCenter1,twobaseCenter2,twobaseCenter3,"twobaseCenter1","twobaseCenter2","twobaseCenter3")
+  pullDownChange(threebaseCenter1,threebaseCenter2,threebaseCenter3,"threebaseCenter1","threebaseCenter2","threebaseCenter3")
+  pullDownChange(onebaseRight1,onebaseRight2,onebaseRight3,"onebaseRight1","onebaseRight2","onebaseRight3")
+  pullDownChange(twobaseRight1,twobaseRight2,twobaseRight3,"twobaseRight1","twobaseRight2","twobaseRight3")
+  pullDownChange(threebaseRight1,threebaseRight2,threebaseRight3,"threebaseRight1","threebaseRight2","threebaseRight3")
+  pullDownChange(groundPitcher1,groundPitcher2,groundPitcher3,"groundPitcher1","groundPitcher2","groundPitcher3")
+  pullDownChange(flyPitcher1,flyPitcher2,flyPitcher3,"flyPitcher1","flyPitcher2","flyPitcher3")
+  pullDownChange(linerPitcher1,linerPitcher2,linerPitcher3,"linerPitcher1","linerPitcher2","linerPitcher3")
+  pullDownChange(groundCatcher1,groundCatcher2,groundCatcher3,"groundCatcher1","groundCatcher2","groundCatcher3")
+  pullDownChange(flyCatcher1,flyCatcher2,flyCatcher3,"flyCatcher1","flyCatcher2","flyCatcher3")
+  pullDownChange(linerCatcher1,linerCatcher2,linerCatcher3,"linerCatcher1","linerCatcher2","linerCatcher3")
+  pullDownChange(groundFirst1,groundFirst2,groundFirst3,"groundFirst1","groundFirst2","groundFirst3")
+  pullDownChange(flyFirst1,flyFirst2,flyFirst3,"flyFirst1","flyFirst2","flyFirst3")
+  pullDownChange(linerFirst1,linerFirst2,linerFirst3,"linerFirst1","linerFirst2","linerFirst3")
+  pullDownChange(groundSecond1,groundSecond2,groundSecond3,"groundSecond1","groundSecond2","groundSecond3")
+  pullDownChange(flySecond1,flySecond2,flySecond3,"flySecond1","flySecond2","flySecond3")
+  pullDownChange(linerSecond1,linerSecond2,linerSecond3,"linerSecond1","linerSecond2","linerSecond3")
+  pullDownChange(groundThird1,groundThird2,groundThird3,"groundThird1","groundThird2","groundThird3")
+  pullDownChange(flyThird1,flyThird2,flyThird3,"flyThird1","flyThird2","flyThird3")
+  pullDownChange(linerThird1,linerThird2,linerThird3,"linerThird1","linerThird2","linerThird3")
+  pullDownChange(groundShort1,groundShort2,groundShort3,"groundShort1","groundShort2","groundShort3")
+  pullDownChange(flyShort1,flyShort2,flyShort3,"flyShort1","flyShort2","flyShort3")
+  pullDownChange(linerShort1,linerShort2,linerShort3,"linerShort1","linerShort2","linerShort3")
+  pullDownChange(groundLeft1,groundLeft2,groundLeft3,"groundLeft1","groundLeft2","groundLeft3")
+  pullDownChange(flyLeft1,flyLeft2,flyLeft3,"flyLeft1","flyLeft2","flyLeft3")
+  pullDownChange(linerLeft1,linerLeft2,linerLeft3,"linerLeft1","linerLeft2","linerLeft3")
+  pullDownChange(groundCenter1,groundCenter2,groundCenter3,"groundCenter1","groundCenter2","groundCenter3")
+  pullDownChange(flyCenter1,flyCenter2,flyCenter3,"flyCenter1","flyCenter2","flyCenter3")
+  pullDownChange(linerCenter1,linerCenter2,linerCenter3,"linerCenter1","linerCenter2","linerCenter3")
+  pullDownChange(groundRight1,groundRight2,groundRight3,"groundRight1","groundRight2","groundRight3")
+  pullDownChange(flyRight1,flyRight2,flyRight3,"flyRight1","flyRight2","flyRight3")
+  pullDownChange(linerRight1,linerRight2,linerRight3,"linerRight1","linerRight2","linerRight3")
+  pullDownChange(steal1,steal2,steal3,"steal1","steal2","steal3")
+  pullDownChange(wildPitch1,wildPitch2,wildPitch3,"wildPitch1","wildPitch2","wildPitch3")
+  pullDownChange(passBall1,passBall2,passBall3,"passBall1","passBall2","passBall3")
+  pullDownChange(restraint1,restraint2,restraint3,"restraint1","restraint2","restraint3")
+}

@@ -2288,7 +2288,157 @@
   <button class="error" id="error" type="button">エラー</button>
   <button class="walk" id="deadball" type="button">死球</button>
   <button class="walk" id="fourball" type="button">申告敬遠</button>
-  <button class="next" type="button">ランナー進塁</button>
+  <button class="next" id="next" type="button">ランナー進塁</button>
+  <div id="runnerModal" class="modal">
+		<div class="modal-content">
+      <button class="pitcher" id="steal" type="button">盗塁</button>
+      <div id="steal-Modal" class="modal">
+        <div class="modal-content">
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="steal1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="steal2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="steal3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="steal-closeModal">OK</button>
+        </div>
+      </div>
+      <button class="catcher" id="wild-pitch" type="button">WP</button>
+      <div id="wild-pitch-Modal" class="modal">
+        <div class="modal-content">
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="wildPitch1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="wildPitch2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="wildPitch3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="wild-pitch-closeModal">OK</button>
+        </div>
+      </div>
+      <button class="infield" id="pass-ball" type="button">PB</button>
+      <div id="pass-ball-Modal" class="modal">
+        <div class="modal-content">
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="passBall1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="passBall2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="passBall3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="pass-ball-closeModal">OK</button>
+        </div>
+      </div>
+      <button class="infield" id="restraint" type="button">牽制</button>
+      <div id="restraint-Modal" class="modal">
+        <div class="modal-content">
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="restraint1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="restraint2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="restraint3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="restraint-closeModal">OK</button>
+        </div>
+      </div>
+      <button class="infield" id="bork" type="button">BK</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div id="batter-display">

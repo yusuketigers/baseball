@@ -616,23 +616,23 @@ function homerun(buttonId) {;//ホームランボタン
       for (let i = 0; i < playerRunner1.length; i++) {
         if (playerRunner1[i] > 0){
           score++
-          var rows = document.getElementsByTagName('tr');
-          rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
-          scoresum1()
           playerRunner1[i]=0
         }
       }
+      var rows = document.getElementsByTagName('tr');
+      rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
+      scoresum1()
       battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
     } else {
       for (let i = 0; i < playerRunner2.length; i++) {
         if (playerRunner2[i] > 0){
           score++
-          var rows = document.getElementsByTagName('tr');
-          rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
-          scoresum2()
           playerRunner2[i]=0
         }
       }
+      var rows = document.getElementsByTagName('tr');
+      rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
+      scoresum2()
       battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
     }
     countreset()
@@ -676,9 +676,9 @@ for (var i = 0; i < playerPosition2.length; i++) {
   }
 }
   playerShowing1.innerHTML = playerName1[0];
-  inningcurrentIndex=1
-  tableCells[inningcurrentIndex].style.backgroundColor = "pink";
 }
+inningcurrentIndex=1
+tableCells[inningcurrentIndex].style.backgroundColor = "pink";
 
 
 function runnerCheck1(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3,Letter0,Letter1,Letter2,Letter3){//ランナーを確認するモーダルが出現

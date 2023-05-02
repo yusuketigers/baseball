@@ -101,11 +101,13 @@ function outcount(){
     rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
       inningcurrentIndex = inningcurrentIndex + 13
       tableCells[inningcurrentIndex].style.backgroundColor = "pink";
+      scoresum1()
       score=0
    } else {
     rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
       inningcurrentIndex = inningcurrentIndex - 12
       tableCells[inningcurrentIndex].style.backgroundColor = "pink";
+      scoresum2()
       score=0
       console.log(inningcurrentIndex)
    }
@@ -1526,3 +1528,27 @@ borkButton.addEventListener("click", () => { //ファール押したら
       console.log(playerRunner1)
       allPullDownChange()
 })
+
+function scoresum1(){
+const row1Cells = document.getElementsByTagName("tr")[1].getElementsByTagName("td");
+let sum1 = 0;
+for (let i = 1; i <= 9; i++) {
+  sum1 += parseInt(row1Cells[i].textContent) || 0;
+}
+
+
+  // 計算された和を1行目の11番目のセルに入力する
+  document.getElementById("sum1").textContent = sum1;
+}
+
+function scoresum2(){
+  // 2行目の2番目から10番目のセルの和を計算する
+const row2Cells = document.getElementsByTagName("tr")[2].getElementsByTagName("td");
+let sum2 = 0;
+for (let i = 1; i <= 9; i++) {
+  sum2 += parseInt(row2Cells[i].textContent) || 0;
+}
+
+// 計算された和を2行目の11番目のセルに入力する
+document.getElementById("sum2").textContent = sum2;
+}

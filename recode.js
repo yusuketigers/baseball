@@ -7,8 +7,7 @@ playerRunner1=[0,0,0,0,0,0,0,0,0]
 playerRunner2=[0,0,0,0,0,0,0,0,0]
 playerShowing1 = document.getElementById("player-showing1")
 playerShowing2 = document.getElementById("player-showing2")
-score1=0
-score2=0
+score=0
 inningcurrentIndex=0
 const squareLight = document.getElementById("square-light");
 var tableCells = document.getElementsByTagName("td");
@@ -89,17 +88,25 @@ walk("fourball")
 function outcount(){
   if (outcurrentIndex === 2) {
     outcurrentIndex=0
+    // table.rows[1].cells[1].textContent = "新しい値";
+    // 2つの行を取得する
+    var rows = document.getElementsByTagName('tr');
+
     let outLight = document.getElementById("out-light")
     for (let e of outLight.children) {
         e.classList.remove("red")
     }
     tableCells[inningcurrentIndex].style.backgroundColor = "white";
    if (inningcurrentIndex < 13){
+    rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
       inningcurrentIndex = inningcurrentIndex + 13
       tableCells[inningcurrentIndex].style.backgroundColor = "pink";
+      score=0
    } else {
+    rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
       inningcurrentIndex = inningcurrentIndex - 12
       tableCells[inningcurrentIndex].style.backgroundColor = "pink";
+      score=0
       console.log(inningcurrentIndex)
    }
   } else {
@@ -205,12 +212,12 @@ const hitRightModal = document.querySelector('#hit-right-Modal');
 
 function homerun(buttonId) {;
   document.querySelector(buttonId).addEventListener("click", () => {
-    score1++
+    score++
     for (let i = 0; i < playerRunner1.length; i++) {
       countreset()
       if (playerRunner1[i] > 0){
-        score1++
-        console.log(score1)
+        score++
+        console.log(score)
         playerRunner1[i]=0
       }
     }
@@ -1087,8 +1094,8 @@ CloseName.onclick = function() {
   
   for (let i = 0; i < playerRunner1.length; i++) {
     if (playerRunner1[i] === 4){
-      score1++
-      console.log(score1)
+      score++
+      console.log(score)
       playerRunner1[i]=0
     }
   }
@@ -1159,8 +1166,8 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
     
     for (let i = 0; i < playerRunner1.length; i++) {
       if (playerRunner1[i] === 4){
-        score1++
-        console.log(score1)
+        score++
+        console.log(score)
         playerRunner1[i]=0
       }
     }
@@ -1222,8 +1229,8 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
       
       for (let i = 0; i < playerRunner1.length; i++) {
         if (playerRunner1[i] === 4){
-          score1++
-          console.log(score1)
+          score++
+          console.log(score)
           playerRunner1[i]=0
         }
       }
@@ -1425,7 +1432,7 @@ function oneMove(){
 
   for (i = 0; i < playerRunner1.length; i++) {
       if (playerRunner1[i] >= 4) { // 本塁に帰ってきた選手のみ
-          score1++; // 得点をカウントし
+          score++; // 得点をカウントし
           playerRunner1[i] = 0 //本塁に戻す
       }
   }
@@ -1449,7 +1456,7 @@ function oneMove(){
   runnerLight()
   allPullDownChange()
   console.log(playerRunner1)
-  console.log(score1)
+  console.log(score)
 }
 
 // メニューを開く関数
@@ -1494,8 +1501,8 @@ borkButton.addEventListener("click", () => { //ファール押したら
       
       for (let i = 0; i < playerRunner1.length; i++) {
         if (playerRunner1[i] === 4){
-          score1++
-          console.log(score1)
+          score++
+          console.log(score)
           playerRunner1[i]=0
         }
       }

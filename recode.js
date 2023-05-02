@@ -537,6 +537,11 @@ function count(buttonId) {;//見逃し・空振りボタン
   if (strikecurrentIndex === 2) {
       countreset()
       outcount()
+      if (inningcurrentIndex < 13){
+        battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
+      } else {
+        battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
+      }
   } else {
     strikePlus()
   }
@@ -617,6 +622,7 @@ function homerun(buttonId) {;//ホームランボタン
           playerRunner1[i]=0
         }
       }
+      battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
     } else {
       for (let i = 0; i < playerRunner2.length; i++) {
         if (playerRunner2[i] > 0){
@@ -627,6 +633,7 @@ function homerun(buttonId) {;//ホームランボタン
           playerRunner2[i]=0
         }
       }
+      battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
     }
     countreset()
     runnerLight()

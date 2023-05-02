@@ -818,95 +818,9 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
     }
     }
 
-
-
-function oneMove(){
-  // 各要素の和を計算
-  let elementSum = 0;
-  for (let i = 0; i < playerRunner1.length; i++) {
-      elementSum += playerRunner1[i];
-  }
-  
-  // 要素のうち、0でないものの数を計算
-  let elementNonZero = 0;
-  for (let i = 0; i < playerRunner1.length; i++) {
-      if (playerRunner1[i] !== 0) {
-          elementNonZero++;
-      }
-  }
-  
-  elementSNZ = elementSum + elementNonZero
-
-  // 2番目の要素の和が2または5または9の場合に、0でない要素を1ずつ増やす
-  if (elementSNZ === 2 || elementSNZ === 5 || elementSNZ === 9) {
-      for (let i = 0; i < playerRunner1.length; i++) {
-          if (playerRunner1[i] !== 0) {
-              playerRunner1[i]++;
-          }
-      }
-  } else if (elementSNZ === 6 ) {
-      for (let i = 0; i < playerRunner1.length; i++) {
-          if (playerRunner1[i] == 1) {
-              playerRunner1[i]++;
-          }
-      }
-  }
-  
-  playerRunner1[battercurrentIndex1]++
-  // scorecount = 0; // 得点を初期化
-  // runner = ""; // 0でない要素を格納するための配列を初期化
-
-  for (i = 0; i < playerRunner1.length; i++) {
-      if (playerRunner1[i] >= 4) { // 本塁に帰ってきた選手のみ
-          score++; // 得点をカウントし
-          playerRunner1[i] = 0 //本塁に戻す
-      }
-  }
-  // scorecurrentIndex = scorecurrentIndex + scorecount
-
-  // runnerList = playerRunner1.filter(function(element) { //ここから先はよく分からんがランナーの塁を求めてる
-  //     return element[1] >= 1; 
-  // }).sort(function(a, b) { 
-  //     return a[1] - b[1];
-  // });
-
-  // runner = runnerList.map(function(element) {
-  //     return element[1];
-  // }).join(",");
-
-  // runnerbase = "ランナー" + runner + "塁"
-  // if (runner === ""){ //ランナーがいなかったら
-  //     runnerbase = "ランナーなし" //ランナーなしとする
-  // }
-  // runnerShowing.innerHTML = runnerbase;
-  runnerLight()
-  allPullDownChange()
-  console.log(playerRunner1)
-  console.log(score)
-}
-
-// メニューを開く関数
-const slideDown = (el) => {
-  el.style.height = 'auto'; //いったんautoに
-  let h = el.offsetHeight; //autoにした要素から高さを取得
-  el.style.height = h + 'px';
-  el.animate([ //高さ0から取得した高さまでのアニメーション
-    { height: 0 },
-    { height: h + 'px' }
-  ], {
-    duration: 300, //アニメーションの時間（ms）
-   });
-};
-
-
-let borkButton = document.getElementById("bork");
-borkButton.addEventListener("click", () => { //ファール押したら
-
+let borkButton = document.getElementById("bork");//ボークボタン
+borkButton.addEventListener("click", () => {
   allModalNone()
-      // var Named0 = document.getElementById(Letter0).value;
-      // var Named1 = document.getElementById(Letter1).value;
-      // var Named2 = document.getElementById(Letter2).value;
-      // var Named3 = document.getElementById(Letter3).value;;
     
       for (let i = 0; i < playerRunner1.length; i++) {
         if (playerRunner1[i] === 3){
@@ -923,65 +837,18 @@ borkButton.addEventListener("click", () => { //ファール押したら
           playerRunner1[i]++
         }
       }
-      // playerRunner1[battercurrentIndex1] = parseInt(Named0)
       
       for (let i = 0; i < playerRunner1.length; i++) {
         if (playerRunner1[i] === 4){
           score++
-          console.log(score)
           playerRunner1[i]=0
         }
       }
-    
-      // for (let i = 0; i < playerRunner1.length; i++) {
-      //   if (playerRunner1[i] < 0){
-      //     outcount()
-      //     console.log(outcurrentIndex)
-      //     playerRunner1[i]=0
-      //     if (outcurrentIndex === 0){
-      //       for (let i = 0; i < playerRunner1.length; i++) {
-      //         playerRunner1[i]=0
-      //       }
-      //     }
-      //   }
-      // }
-    
       runnerLight()
-      
-      
-      console.log(playerRunner1)
       allPullDownChange()
 })
 
-function scoresum1(){
-const row1Cells = document.getElementsByTagName("tr")[1].getElementsByTagName("td");
-let sum1 = 0;
-for (let i = 1; i <= 9; i++) {
-  sum1 += parseInt(row1Cells[i].textContent) || 0;
-}
-
-
-  // 計算された和を1行目の11番目のセルに入力する
-  document.getElementById("sum1").textContent = sum1;
-}
-
-function scoresum2(){
-  // 2行目の2番目から10番目のセルの和を計算する
-const row2Cells = document.getElementsByTagName("tr")[2].getElementsByTagName("td");
-let sum2 = 0;
-for (let i = 1; i <= 9; i++) {
-  sum2 += parseInt(row2Cells[i].textContent) || 0;
-}
-
-// 計算された和を2行目の11番目のセルに入力する
-document.getElementById("sum2").textContent = sum2;
-}
-
-
-
-
-//これより下
-
+//関数等
 function strikePlus(){//ストライク+1
   strikecurrentIndex++;
   strikeLight = document.getElementById("strike-light")
@@ -1013,7 +880,7 @@ function countreset(){ //ボール・ストライクカウントをリセット�
   }
 }
 
-function allModalNone(){
+function allModalNone(){//すべてのモーダルを閉じる
   hitModal.style.display = 'none';
   hitPitcherModal.style.display = 'none';
   hitCatcherModal.style.display = 'none';
@@ -1104,7 +971,7 @@ function updateParagraph2(cell) {
   document.querySelector('#output4').textContent = text;
 }
 
-function pullDownChange(Name1,Name2,Name3,Letter1,Letter2,Letter3){
+function pullDownChange(Name1,Name2,Name3,Letter1,Letter2,Letter3){//ランナーの状況に応じてプルダウンの内容を変更する
   if (playerRunner1.includes(1)) {
     Name1.innerHTML = `
     <option value=1>1塁</option>
@@ -1145,7 +1012,7 @@ if (playerRunner1.includes(3)) {
 }
 }
 
-function runnerLight(){
+function runnerLight(){//ランナーがいる塁を光らせる
   if (playerRunner1.includes(1)) {
     if (squareLight) {
       const square1 = document.getElementById("square1");
@@ -1182,6 +1049,64 @@ if (playerRunner1.includes(3)) {
   }
 }
 }
+
+function oneMove(){//詰まっているときのランナー
+  let runnerbaseSum = 0;
+  for (let i = 0; i < playerRunner1.length; i++) {
+      runnerbaseSum += playerRunner1[i];
+  }
+  
+  let runnerbaseNonZero = 0;
+  for (let i = 0; i < playerRunner1.length; i++) {
+      if (playerRunner1[i] !== 0) {
+          runnerbaseNonZero++;
+      }
+  }
+  runnerbaseSNZ = runnerbaseSum + runnerbaseNonZero
+
+  if (runnerbaseSNZ === 2 || runnerbaseSNZ === 5 || runnerbaseSNZ === 9) {//1塁、1,2塁、満塁のとき
+      for (let i = 0; i < playerRunner1.length; i++) {
+          if (playerRunner1[i] !== 0) {
+              playerRunner1[i]++;
+          }
+      }
+  } else if (runnerbaseSNZ === 6 ) {//1,3塁のとき
+      for (let i = 0; i < playerRunner1.length; i++) {
+          if (playerRunner1[i] == 1) {
+              playerRunner1[i]++;
+          }
+      }
+  }
+  
+  playerRunner1[battercurrentIndex1]++
+
+  for (i = 0; i < playerRunner1.length; i++) {
+      if (playerRunner1[i] >= 4) {
+          score++;
+          playerRunner1[i] = 0
+      }
+  }
+  runnerLight()
+  allPullDownChange()
+}
+
+function scoresum1(){//合計点を計算する
+  const row1Cells = document.getElementsByTagName("tr")[1].getElementsByTagName("td");
+  let sum1 = 0;
+  for (let i = 1; i <= 9; i++) {
+    sum1 += parseInt(row1Cells[i].textContent) || 0;
+  }
+    document.getElementById("sum1").textContent = sum1;
+  }
+  
+  function scoresum2(){
+  const row2Cells = document.getElementsByTagName("tr")[2].getElementsByTagName("td");
+  let sum2 = 0;
+  for (let i = 1; i <= 9; i++) {
+    sum2 += parseInt(row2Cells[i].textContent) || 0;
+  }
+  document.getElementById("sum2").textContent = sum2;
+  }
 
 hit1Button.addEventListener('click', () => {hitModal.style.display = 'block';});
 hitPitcherButton.addEventListener('click', () => {hitPitcherModal.style.display = 'block';});

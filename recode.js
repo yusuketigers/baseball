@@ -536,12 +536,32 @@ function count(buttonId) {;//見逃し・空振りボタン
   document.getElementById(buttonId).addEventListener("click", () => {
   if (strikecurrentIndex === 2) {
       countreset()
-      outcount()
       if (inningcurrentIndex < 13){
         battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
+        if (outcurrentIndex === 2){
+          for (var i = 0; i < playerPosition1.length; i++) {
+            if (playerPosition1[i] == '投' || playerPosition1[i] == "1") {
+                playerShowing1.innerHTML = playerName1[i];
+            }
+          } 
+          playerShowing2.innerHTML = playerName2[battercurrentIndex2]
+        } else {
+          playerShowing1.innerHTML = playerName1[battercurrentIndex1]
+        }
       } else {
         battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
+        if (outcurrentIndex === 2){
+          for (var i = 0; i < playerPosition2.length; i++) {
+            if (playerPosition2[i] == '投' || playerPosition2[i] == "1") {
+                playerShowing2.innerHTML = playerName2[i];
+            }
+          } 
+          playerShowing1.innerHTML = playerName1[battercurrentIndex1]
+        } else {
+          playerShowing2.innerHTML = playerName2[battercurrentIndex2]
+        }
       }
+      outcount()
   } else {
     strikePlus()
   }

@@ -11,6 +11,19 @@ score=0
 inningcurrentIndex=0
 const squareLight = document.getElementById("square-light");
 var tableCells = document.getElementsByTagName("td");
+const hit1Button = document.querySelector('#hit1');
+const hitModal = document.querySelector('#hitModal');
+const hitPitcherButton = document.querySelector('#hit-pitcher');
+const hitCatcherButton = document.querySelector('#hit-catcher');
+const hitFirstButton = document.querySelector('#hit-first');
+const hitSecondButton = document.querySelector('#hit-second');
+const hitThirdButton = document.querySelector('#hit-third');
+const hitShortButton = document.querySelector('#hit-short');
+const hitLeftButton = document.querySelector('#hit-left');
+const hitCenterButton = document.querySelector('#hit-center');
+const hitRightButton = document.querySelector('#hit-right');
+let outLight = document.getElementById("out-light")
+
 
 let foulButton = document.getElementById("foul-button");//ファールボタン
 foulButton.addEventListener("click", () => {
@@ -49,7 +62,7 @@ ballButton.addEventListener("click", () => {
   }
 })
 
-function walk(buttonId) {;
+function walk(buttonId) {;//死球・申告敬遠
   document.getElementById(buttonId).addEventListener("click", () => {
       countreset()
       oneMove()
@@ -57,38 +70,22 @@ function walk(buttonId) {;
 });
 }
 
-
-// function out(buttonId) {;
-//   document.getElementById(buttonId).addEventListener("click", () => {
-//   countreset()
-//   outcount()
-// });
-// }
-
-// out("ground")
-// out("fly")
-// out("liner")
-
 function outcount(){
   if (outcurrentIndex === 2) {
     outcurrentIndex=0
-    // table.rows[1].cells[1].textContent = "新しい値";
-    // 2つの行を取得する
     var rows = document.getElementsByTagName('tr');
-
-    let outLight = document.getElementById("out-light")
     for (let e of outLight.children) {
         e.classList.remove("red")
     }
     tableCells[inningcurrentIndex].style.backgroundColor = "white";
    if (inningcurrentIndex < 13){
-    rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
+      rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
       inningcurrentIndex = inningcurrentIndex + 13
       tableCells[inningcurrentIndex].style.backgroundColor = "pink";
       scoresum1()
       score=0
    } else {
-    rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
+      rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
       inningcurrentIndex = inningcurrentIndex - 12
       tableCells[inningcurrentIndex].style.backgroundColor = "pink";
       scoresum2()
@@ -96,42 +93,13 @@ function outcount(){
       console.log(inningcurrentIndex)
    }
   } else {
-      outcurrentIndex++
-      let outLight = document.getElementById("out-light")
-      outLight.children[outcurrentIndex-1].classList.add("red")
+      outPlus()
   }
 }
-
-function countreset(){ //ボール・ストライクカウントをリセットして表示
-  strikecurrentIndex = 0
-  ballcurrentIndex = 0
-  let strikeLight = document.getElementById("strike-light")
-  for (let e of strikeLight.children) {
-      e.classList.remove("yellow")
-  }
-  let ballLight = document.getElementById("ball-light")
-  for (let e of ballLight.children) {
-      e.classList.remove("green")
-  }
-}
-
-const hit1Button = document.querySelector('#hit1');
 
 hit1Button.addEventListener('click', () => {
 	hitModal.style.display = 'block';
 });
-
-const hitModal = document.querySelector('#hitModal');
-
-const hitPitcherButton = document.querySelector('#hit-pitcher');
-const hitCatcherButton = document.querySelector('#hit-catcher');
-const hitFirstButton = document.querySelector('#hit-first');
-const hitSecondButton = document.querySelector('#hit-second');
-const hitThirdButton = document.querySelector('#hit-third');
-const hitShortButton = document.querySelector('#hit-short');
-const hitLeftButton = document.querySelector('#hit-left');
-const hitCenterButton = document.querySelector('#hit-center');
-const hitRightButton = document.querySelector('#hit-right');
 
 hitPitcherButton.addEventListener('click', () => {
 	hitPitcherModal.style.display = 'block';
@@ -1540,6 +1508,25 @@ function ballPlus(){//ボール+1
   ballcurrentIndex++;
   let ballLight = document.getElementById("ball-light")
   ballLight.children[ballcurrentIndex-1].classList.add("green")
+}
+
+function outPlus(){//アウト+1
+  outcurrentIndex++
+  let outLight = document.getElementById("out-light")
+  outLight.children[outcurrentIndex-1].classList.add("red")
+}
+
+function countreset(){ //ボール・ストライクカウントをリセットして表示
+  strikecurrentIndex = 0
+  ballcurrentIndex = 0
+  let strikeLight = document.getElementById("strike-light")
+  for (let e of strikeLight.children) {
+      e.classList.remove("yellow")
+  }
+  let ballLight = document.getElementById("ball-light")
+  for (let e of ballLight.children) {
+      e.classList.remove("green")
+  }
 }
 
 count("looking-strike-button")

@@ -12,20 +12,17 @@ inningcurrentIndex=0
 const squareLight = document.getElementById("square-light");
 var tableCells = document.getElementsByTagName("td");
 
-let foulButton = document.getElementById("foul-button");
-foulButton.addEventListener("click", () => { //ファール押したら
-    if (strikecurrentIndex === 2) { //2ストだったら
+let foulButton = document.getElementById("foul-button");//ファールボタン
+foulButton.addEventListener("click", () => {
+    if (strikecurrentIndex === 2) {
     } else {
-        strikecurrentIndex++; //ストライク+1
-        strikeLight = document.getElementById("strike-light")
-        strikeLight.children[strikecurrentIndex-1].classList.add("yellow")
+        strikePlus()
     }
 });
 
-function count(buttonId) {;
+function count(buttonId) {;//見逃し・空振りボタン
   document.getElementById(buttonId).addEventListener("click", () => {
-
-  if (strikecurrentIndex === 2) { //3つ目のストライク
+  if (strikecurrentIndex === 2) {
       countreset()
       outcount()
       if (outcurrentIndex === 0){
@@ -35,30 +32,20 @@ function count(buttonId) {;
         runnerLight()
         allPullDownChange()
       }
-  } else { //1,2ストライク目
-    strikecurrentIndex++; //ストライク1追加
-    let strikeLight = document.getElementById("strike-light")
-    strikeLight.children[strikecurrentIndex-1].classList.add("yellow")
+  } else {
+    strikePlus()
   }
 })
 }
 
-count("looking-strike-button")
-count("swing-strike-button")
-count("swing-bunt-strike-button")
-count("foul-bunt-button")
-
-let ballButton = document.getElementById("ball-button");
-ballButton.addEventListener("click", () => { //ファール押したら
-
-  if (ballcurrentIndex === 3) { //3つ目のストライク
+let ballButton = document.getElementById("ball-button");//ボールボタン
+ballButton.addEventListener("click", () => {
+  if (ballcurrentIndex === 3) {
       countreset()
       oneMove()
       battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
-  } else { //1,2ストライク目
-    ballcurrentIndex++; //ストライク1追加
-    let ballLight = document.getElementById("ball-light")
-    ballLight.children[ballcurrentIndex-1].classList.add("green")
+  } else {
+    ballPlus()
   }
 })
 
@@ -69,9 +56,6 @@ function walk(buttonId) {;
       battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
 });
 }
-
-walk("deadball")
-walk("fourball")
 
 
 // function out(buttonId) {;
@@ -130,16 +114,6 @@ function countreset(){ //ボール・ストライクカウントをリセット�
       e.classList.remove("green")
   }
 }
-
-
-
-// let errorButton = document.getElementById("error");
-// errorButton.addEventListener("click", () => { //ファール押したら
-
-//   let squareLight = document.getElementById("square-light")
-//     squareLight.children[0].classList.add("light")
-// })
-
 
 const hit1Button = document.querySelector('#hit1');
 
@@ -1553,3 +1527,24 @@ for (let i = 1; i <= 9; i++) {
 // 計算された和を2行目の11番目のセルに入力する
 document.getElementById("sum2").textContent = sum2;
 }
+
+//これより下
+
+function strikePlus(){//ストライク+1
+  strikecurrentIndex++;
+  strikeLight = document.getElementById("strike-light")
+  strikeLight.children[strikecurrentIndex-1].classList.add("yellow")
+}
+
+function ballPlus(){//ボール+1
+  ballcurrentIndex++;
+  let ballLight = document.getElementById("ball-light")
+  ballLight.children[ballcurrentIndex-1].classList.add("green")
+}
+
+count("looking-strike-button")
+count("swing-strike-button")
+count("swing-bunt-strike-button")
+count("foul-bunt-button")
+walk("deadball")
+walk("fourball")

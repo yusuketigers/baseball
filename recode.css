@@ -362,3 +362,25 @@ button {
 .closeModal {
 	background-color: pink;
 }
+
+#steal{
+	background-color: yellow;
+	color: black;
+}
+
+#wild-pitch {
+	background-color: pink;
+}
+
+#pass-ball {
+	background-color: skyblue;
+}
+
+#restraint {
+	background-color: greenyellow;
+}
+
+#bork{
+	background-color: black;
+	color: white;
+}

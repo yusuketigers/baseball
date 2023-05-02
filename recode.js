@@ -8,7 +8,10 @@ playerRunner2=[0,0,0,0,0,0,0,0,0]
 playerShowing1 = document.getElementById("player-showing1")
 playerShowing2 = document.getElementById("player-showing2")
 score1=0
+score2=0
+inningcurrentIndex=0
 const squareLight = document.getElementById("square-light");
+var tableCells = document.getElementsByTagName("td");
 
 let foulButton = document.getElementById("foul-button");
 foulButton.addEventListener("click", () => { //ファール押したら
@@ -89,6 +92,15 @@ function outcount(){
     let outLight = document.getElementById("out-light")
     for (let e of outLight.children) {
         e.classList.remove("red")
+    }
+    tableCells[inningcurrentIndex].style.backgroundColor = "white";
+   if (inningcurrentIndex < 13){
+      inningcurrentIndex = inningcurrentIndex + 13
+      tableCells[inningcurrentIndex].style.backgroundColor = "pink";
+   } else {
+      inningcurrentIndex = inningcurrentIndex - 12
+      tableCells[inningcurrentIndex].style.backgroundColor = "pink";
+      console.log(inningcurrentIndex)
    }
   } else {
       outcurrentIndex++
@@ -481,6 +493,8 @@ console.log(playerName2)
     }
   }
   playerShowing1.innerHTML = playerName1[0]; //打者を表示
+  inningcurrentIndex=1
+  tableCells[inningcurrentIndex].style.backgroundColor = "pink";
   console.log(playerList1)
   console.log(playerList2)
 }

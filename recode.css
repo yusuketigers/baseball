@@ -42,10 +42,6 @@ table {
 	border-right: 2px solid black; /* 10列目と11列目の間の線を太くする */
   }
   
-  tr:nth-child(even) {
-	background-color: #F5F5F5;
-  }
-  
 
 
   #batter-display {
@@ -366,5 +362,3 @@ button {
 .closeModal {
 	background-color: pink;
 }
-
-  

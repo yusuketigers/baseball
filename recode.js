@@ -20,6 +20,8 @@ playerShowing2 = document.getElementById("player-showing2")
 score=0
 inningcurrentIndex=0
 outNumber=0
+hit1=0
+hit2=0
 var tableCells = document.getElementsByTagName("td");
 const squareLight = document.getElementById("square-light");
 const hit1Button = document.querySelector('#hit1');
@@ -617,6 +619,8 @@ function outcount(){
       tableCells[inningcurrentIndex].style.backgroundColor = "pink";
       scoresum1()
       score=0
+      var rows = document.getElementsByTagName('tr');
+      rows[1].getElementsByTagName('td')[11].innerText = hit1;
    } else {
     for (let i = 0; i < playerRunner2.length; i++) {
       playerRunner2[i]=0
@@ -626,6 +630,8 @@ function outcount(){
       tableCells[inningcurrentIndex].style.backgroundColor = "pink";
       scoresum2()
       score=0
+      var rows = document.getElementsByTagName('tr');
+      rows[2].getElementsByTagName('td')[11].innerText = hit2;
    }
   } else {
       outPlus()
@@ -646,6 +652,8 @@ function homerun(buttonId) {;//ホームランボタン
       }
       var rows = document.getElementsByTagName('tr');
       rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
+      hit1++
+      rows[1].getElementsByTagName('td')[11].innerText = hit1;
       scoresum1()
       battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
       playerShowing1.innerHTML = playerName1[battercurrentIndex1]
@@ -658,6 +666,8 @@ function homerun(buttonId) {;//ホームランボタン
       }
       var rows = document.getElementsByTagName('tr');
       rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
+      hit2++
+      rows[2].getElementsByTagName('td')[11].innerText = hit2;
       scoresum2()
       battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
       playerShowing2.innerHTML = playerName2[battercurrentIndex2]
@@ -773,6 +783,9 @@ CloseName.onclick = function() {
       playerRunner1[i]=0
     }
   }
+  hit1++
+  var rows = document.getElementsByTagName('tr');
+  rows[1].getElementsByTagName('td')[11].innerText = hit1;
 } else {
   for (let i = 0; i < playerRunner2.length; i++) {
     if (playerRunner2[i] === 3){
@@ -824,63 +837,28 @@ for (let i = 0; i < playerRunner2.length; i++) {
     playerRunner2[i]=0
   }
 }
+hit2++
+var rows = document.getElementsByTagName('tr');
+rows[2].getElementsByTagName('td')[11].innerText = hit2;
 }
-  
   runnerLight()
   allPullDownChange()
 }
 }
 
-function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3,Letter0,Letter1,Letter2,Letter3){
-    ButtonName.onclick = function() {
-      if (inningcurrentIndex < 13){
-        if(playerRunner1.includes(1) || playerRunner1.includes(2) || playerRunner1.includes(3)){
-          ModalName.style.display = "block";
-        } else {
-        battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
-        if (outcurrentIndex === 2){
-          for (var i = 0; i < playerPosition1.length; i++) {
-            if (playerPosition1[i] == '投' || playerPosition1[i] == "1") {
-                playerShowing1.innerHTML = playerName1[i];
-            }
-          }
-          playerShowing2.innerHTML = playerName2[battercurrentIndex2]
-        } else {
-          playerShowing1.innerHTML = playerName1[battercurrentIndex1]
-        }
-        outcount()
-    allModalNone()
-  }
-} else {
-  if(playerRunner2.includes(1) || playerRunner2.includes(2) || playerRunner2.includes(3)){
+function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3,Letter0,Letter1,Letter2,Letter3){//ランナーを確認するモーダルが出現
+  ButtonName.onclick = function() {
     ModalName.style.display = "block";
-  } else {
-    battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
-      if (outcurrentIndex === 2){
-        for (var i = 0; i < playerPosition2.length; i++) {
-          if (playerPosition2[i] == '投' || playerPosition2[i] == "1") {
-              playerShowing2.innerHTML = playerName2[i];
-          }
-        }
-        playerShowing1.innerHTML = playerName1[battercurrentIndex1]
-      } else {
-        playerShowing2.innerHTML = playerName2[battercurrentIndex2]
-      }
-      outcount()
-      allModalNone()
   }
-} 
-        countreset()
-    } 
-
-    CloseName.onclick = function() {
+  
+  CloseName.onclick = function() {
     allModalNone()
     countreset()
     var Named0 = document.getElementById(Letter0).value;
     var Named1 = document.getElementById(Letter1).value;
     var Named2 = document.getElementById(Letter2).value;
     var Named3 = document.getElementById(Letter3).value;;
-    
+  
     if (inningcurrentIndex < 13){
       for (let i = 0; i < playerRunner1.length; i++) {
         if (playerRunner1[i] === 3){
@@ -908,87 +886,86 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
         playerRunner1[i]=0
       }
     }
-
+    
     battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
     for (let i = 0; i < playerRunner1.length; i++) {
       if (playerRunner1[i] < 0){
         outNumber++
       }
-      if (outcurrentIndex + outNumber > 2){
-        for (var j = 0; j < playerPosition1.length; j++) {
-          if (playerPosition1[j] == '投' || playerPosition1[j] == "1") {
-            playerShowing1.innerHTML = playerName1[j];
+        if (outcurrentIndex + outNumber > 2){
+          for (var j = 0; j < playerPosition1.length; j++) {
+            if (playerPosition1[j] == '投' || playerPosition1[j] == "1") {
+                playerShowing1.innerHTML = playerName1[j];
+            }
           }
-        }
-        playerShowing2.innerHTML = playerName2[battercurrentIndex2]
-        } else {
+          playerShowing2.innerHTML = playerName2[battercurrentIndex2]
+        } else{
           playerShowing1.innerHTML = playerName1[battercurrentIndex1]
         }
       }
       outNumber=0
       for (let i = 0; i < playerRunner1.length; i++) {
-        if (playerRunner1[i] < 0){
-          outcount()
-          playerRunner1[i]=0
-        }
-      }
-    } else{
-      for (let i = 0; i < playerRunner2.length; i++) {
-        if (playerRunner2[i] === 3){
-          playerRunner2[i] = parseInt(Named3)
-        }
-      }
-      for (let i = 0; i < playerRunner2.length; i++) {
-        if (playerRunner2[i] === 2){
-          playerRunner2[i] = parseInt(Named2)
-        }
-      }
-      for (let i = 0; i < playerRunner2.length; i++) {
-        if (playerRunner2[i] === 1){
-          playerRunner2[i] = parseInt(Named1)
-        }
-      }
-      playerRunner2[battercurrentIndex2] = parseInt(Named0)
-      
-      for (let i = 0; i < playerRunner2.length; i++) {
-        if (playerRunner2[i] === 4){
-          score++
-          var rows = document.getElementsByTagName('tr');
-          rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
-          scoresum2()
-          playerRunner2[i]=0
-        }
-      }
-      
-      battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
-      for (let i = 0; i < playerRunner2.length; i++) {
-        if (playerRunner2[i] < 0){
-          outNumber++
-        }
-          if (outcurrentIndex + outNumber > 2){
-            for (var j = 0; j < playerPosition2.length; j++) {
-              if (playerPosition2[j] == '投' || playerPosition2[j] == "1") {
-                  playerShowing2.innerHTML = playerName2[j];
-              }
-            }
-            playerShowing1.innerHTML = playerName1[battercurrentIndex1]
-          } else{
-            playerShowing2.innerHTML = playerName2[battercurrentIndex2]
-          }
-        }
-        outNumber=0
-        for (let i = 0; i < playerRunner2.length; i++) {
-        if (playerRunner2[i] < 0){
-          outcount()
-          playerRunner2[i]=0
-        }
+      if (playerRunner1[i] < 0){
+        outcount()
+        playerRunner1[i]=0
       }
     }
+  } else {
+    for (let i = 0; i < playerRunner2.length; i++) {
+      if (playerRunner2[i] === 3){
+      playerRunner2[i] = parseInt(Named3)
+    }
   }
-  runnerLight()
-  allPullDownChange()
+  for (let i = 0; i < playerRunner2.length; i++) {
+    if (playerRunner2[i] === 2){
+      playerRunner2[i] = parseInt(Named2)
+    }
   }
-
+  for (let i = 0; i < playerRunner2.length; i++) {
+    if (playerRunner2[i] === 1){
+      playerRunner2[i] = parseInt(Named1)
+    }
+  }
+  playerRunner2[battercurrentIndex2] = parseInt(Named0)
+  
+  for (let i = 0; i < playerRunner2.length; i++) {
+    if (playerRunner2[i] === 4){
+      score++
+      var rows = document.getElementsByTagName('tr');
+      rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
+      scoresum2()
+      playerRunner2[i]=0
+    }
+  }
+  
+  battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
+  for (let i = 0; i < playerRunner2.length; i++) {
+    if (playerRunner2[i] < 0){
+      outNumber++
+    }
+      if (outcurrentIndex + outNumber > 2){
+        for (var j = 0; j < playerPosition2.length; j++) {
+          if (playerPosition2[j] == '投' || playerPosition2[j] == "1") {
+              playerShowing2.innerHTML = playerName2[j];
+          }
+        }
+        playerShowing1.innerHTML = playerName1[battercurrentIndex1]
+      } else{
+        playerShowing2.innerHTML = playerName2[battercurrentIndex2]
+      }
+    }
+    outNumber=0
+    for (let i = 0; i < playerRunner2.length; i++) {
+    if (playerRunner2[i] < 0){
+      outcount()
+      playerRunner2[i]=0
+    }
+  }
+  }
+    runnerLight()
+    allPullDownChange()
+  }
+  }
 
   function runnerCheck3(ButtonName,ModalName,CloseName,Named1,Named2,Named3,Letter1,Letter2,Letter3){
     ButtonName.onclick = function() {

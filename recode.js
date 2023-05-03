@@ -836,7 +836,6 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
       if (inningcurrentIndex < 13){
         if(playerRunner1.includes(1) || playerRunner1.includes(2) || playerRunner1.includes(3)){
           ModalName.style.display = "block";
-          console.log(inningcurrentIndex)
         } else {
         battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
         if (outcurrentIndex === 2){
@@ -849,12 +848,8 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
         } else {
           playerShowing1.innerHTML = playerName1[battercurrentIndex1]
         }
-      for (let i = 0; i < playerRunner1.length; i++) {
-      if (playerRunner1[i] < 0){
         outcount()
-        playerRunner1[i]=0
-      }
-    }
+    allModalNone()
   }
 } else {
   if(playerRunner2.includes(1) || playerRunner2.includes(2) || playerRunner2.includes(3)){
@@ -871,8 +866,10 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
       } else {
         playerShowing2.innerHTML = playerName2[battercurrentIndex2]
       }
+      outcount()
+      allModalNone()
   }
-}
+} 
         countreset()
     } 
 

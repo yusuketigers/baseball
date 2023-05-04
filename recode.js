@@ -17,11 +17,13 @@ let playerName1 = [];
 let playerName2 = [];
 playerShowing1 = document.getElementById("player-showing1")
 playerShowing2 = document.getElementById("player-showing2")
+resultShowing = document.getElementById("result-showing")
 score=0
 inningcurrentIndex=0
 outNumber=0
 hit1=0
 hit2=0
+nextOut=0
 var tableCells = document.getElementsByTagName("td");
 const squareLight = document.getElementById("square-light");
 const hit1Button = document.querySelector('#hit1');
@@ -531,16 +533,19 @@ let foulButton = document.getElementById("foul-button");//ファールボタン
 foulButton.addEventListener("click", () => {
     if (strikecurrentIndex === 2) {
     } else {
-        strikePlus()
+      strikePlus()
     }
+    resultShowing.innerHTML = "ファール " + ballcurrentIndex + "-" + strikecurrentIndex
 });
 
-function count(buttonId) {;//見逃し・空振りボタン
+function count(buttonId,position) {;//見逃し・空振りボタン
   document.getElementById(buttonId).addEventListener("click", () => {
   if (strikecurrentIndex === 2) {
       countreset()
       if (inningcurrentIndex < 13){
         battercurrentIndex1 = (battercurrentIndex1 + 1) % playerRunner1.length
+        nextOut=outcurrentIndex+1
+        resultShowing.innerHTML = position + "三振！ " + nextOut + "アウト"
         if (outcurrentIndex === 2){
           for (var i = 0; i < playerPosition1.length; i++) {
             if (playerPosition1[i] == '投' || playerPosition1[i] == "1") {
@@ -548,11 +553,13 @@ function count(buttonId) {;//見逃し・空振りボタン
             }
           } 
           playerShowing2.innerHTML = playerName2[battercurrentIndex2]
+          resultShowing.innerHTML = position + "三振！ " + "3アウトチェンジ"
         } else {
           playerShowing1.innerHTML = playerName1[battercurrentIndex1]
         }
       } else {
         battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
+        resultShowing.innerHTML = position + "三振！ " + nextOut + "アウト"
         if (outcurrentIndex === 2){
           for (var i = 0; i < playerPosition2.length; i++) {
             if (playerPosition2[i] == '投' || playerPosition2[i] == "1") {
@@ -560,6 +567,7 @@ function count(buttonId) {;//見逃し・空振りボタン
             }
           } 
           playerShowing1.innerHTML = playerName1[battercurrentIndex1]
+          resultShowing.innerHTML = position + "三振！ " + "3アウトチェンジ"
         } else {
           playerShowing2.innerHTML = playerName2[battercurrentIndex2]
         }
@@ -567,6 +575,7 @@ function count(buttonId) {;//見逃し・空振りボタン
       outcount()
   } else {
     strikePlus()
+    resultShowing.innerHTML = position + "ストライク " + ballcurrentIndex + "-" + strikecurrentIndex
   }
 })
 }
@@ -583,12 +592,13 @@ ballButton.addEventListener("click", () => {
         battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
         playerShowing2.innerHTML = playerName2[battercurrentIndex2]
       }
+      resultShowing.innerHTML = "フォアボール"
   } else {
     ballPlus()
   }
 })
 
-function walk(buttonId) {;//死球・申告敬遠
+function walk(buttonId,position) {;//死球・申告敬遠
   document.getElementById(buttonId).addEventListener("click", () => {
       countreset()
       oneMove()
@@ -599,6 +609,7 @@ function walk(buttonId) {;//死球・申告敬遠
         battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
         playerShowing2.innerHTML = playerName2[battercurrentIndex2]
       }
+      resultShowing.innerHTML = position
 });
 }
 
@@ -714,6 +725,7 @@ for (var i = 0; i < playerPosition2.length; i++) {
   }
 }
   playerShowing1.innerHTML = playerName1[0];
+  resultShowing.innerHTML = "試合開始"
 }
 inningcurrentIndex=1
 tableCells[inningcurrentIndex].style.backgroundColor = "pink";
@@ -1150,6 +1162,7 @@ function ballPlus(){//ボール+1
   ballcurrentIndex++;
   let ballLight = document.getElementById("ball-light")
   ballLight.children[ballcurrentIndex-1].classList.add("green")
+  resultShowing.innerHTML = "ボール " + ballcurrentIndex + "-" + strikecurrentIndex
 }
 
 function outPlus(){//アウト+1
@@ -1551,12 +1564,12 @@ wildPitchButton.addEventListener('click', () => {wildPitchModal.style.display = 
 passBallButton.addEventListener('click', () => {passBallModal.style.display = 'block';});
 restraintButton.addEventListener('click', () => {restraintModal.style.display = 'block';});
 
-count("looking-strike-button")
-count("swing-strike-button")
-count("swing-bunt-strike-button")
-count("foul-bunt-button")
-walk("deadball")
-walk("fourball")
+count("looking-strike-button","見逃し")
+count("swing-strike-button","空振り")
+count("swing-bunt-strike-button","スリーバント失敗 ")
+count("foul-bunt-button","スリーバント失敗 ")
+walk("deadball","デッドボール")
+walk("fourball","申告敬遠")
 homerun("#homerun-left")
 homerun("#homerun-center")
 homerun("#homerun-right")

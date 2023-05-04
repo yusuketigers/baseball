@@ -19,6 +19,7 @@ playerShowing1 = document.getElementById("player-showing1")
 playerShowing2 = document.getElementById("player-showing2")
 resultShowing = document.getElementById("result-showing")
 score=0
+nowScore=0
 inningcurrentIndex=0
 outNumber=0
 hit1=0
@@ -592,7 +593,12 @@ ballButton.addEventListener("click", () => {
         battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
         playerShowing2.innerHTML = playerName2[battercurrentIndex2]
       }
-      resultShowing.innerHTML = "フォアボール"
+      if (nowScore > 0){
+        resultShowing.innerHTML = "フォアボール " + nowScore + "点！"
+      } else {
+        resultShowing.innerHTML = "フォアボール"
+      }
+      nowScore=0
   } else {
     ballPlus()
   }
@@ -609,7 +615,12 @@ function walk(buttonId,position) {;//死球・申告敬遠
         battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
         playerShowing2.innerHTML = playerName2[battercurrentIndex2]
       }
-      resultShowing.innerHTML = position
+      if (nowScore > 0){
+        resultShowing.innerHTML = position + " " + nowScore + "点！"
+      } else {
+        resultShowing.innerHTML = position
+      }
+      nowScore=0
 });
 }
 
@@ -651,12 +662,14 @@ function outcount(){
   allPullDownChange()
 }
 
-function homerun(buttonId) {;//ホームランボタン
+function homerun(buttonId,position) {;//ホームランボタン
   document.querySelector(buttonId).addEventListener("click", () => {
+    nowScore++
     score++
     if (inningcurrentIndex < 13){
       for (let i = 0; i < playerRunner1.length; i++) {
         if (playerRunner1[i] > 0){
+          nowScore++
           score++
           playerRunner1[i]=0
         }
@@ -671,6 +684,7 @@ function homerun(buttonId) {;//ホームランボタン
     } else {
       for (let i = 0; i < playerRunner2.length; i++) {
         if (playerRunner2[i] > 0){
+          nowScore++
           score++
           playerRunner2[i]=0
         }
@@ -687,6 +701,12 @@ function homerun(buttonId) {;//ホームランボタン
     runnerLight()
     allModalNone()
     allPullDownChange()
+    if (nowScore > 0){
+      resultShowing.innerHTML = position + " " + nowScore + "点！"
+    } else {
+      resultShowing.innerHTML = position
+    }
+    nowScore=0
   })
 }
 
@@ -697,7 +717,6 @@ window.addEventListener('click', (event) => {//modal外を触ったら消える
 });
 
 function addToList() {//試合開始ボタン
-  console.log("hoge")
   for (var i = 0; i < cells1.length; i++) {
     var cellText1 = cells1[i].innerText.trim();
     var cellText2 = cells2[i].innerText.trim();
@@ -731,7 +750,7 @@ inningcurrentIndex=1
 tableCells[inningcurrentIndex].style.backgroundColor = "pink";
 
 
-function runnerCheck1(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3,Letter0,Letter1,Letter2,Letter3){//ランナーを確認するモーダルが出現
+function runnerCheck1(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3,Letter0,Letter1,Letter2,Letter3,position){//ランナーを確認するモーダルが出現
 ButtonName.onclick = function() {
   ModalName.style.display = "block";
 }
@@ -764,6 +783,7 @@ CloseName.onclick = function() {
   
   for (let i = 0; i < playerRunner1.length; i++) {
     if (playerRunner1[i] === 4){
+      nowScore++
       score++
       var rows = document.getElementsByTagName('tr');
       rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
@@ -818,6 +838,7 @@ playerRunner2[battercurrentIndex2] = parseInt(Named0)
 
 for (let i = 0; i < playerRunner2.length; i++) {
   if (playerRunner2[i] === 4){
+    nowScore++
     score++
     var rows = document.getElementsByTagName('tr');
     rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
@@ -855,10 +876,16 @@ rows[2].getElementsByTagName('td')[11].innerText = hit2;
 }
   runnerLight()
   allPullDownChange()
+  if (nowScore > 0){
+    resultShowing.innerHTML = position + " " + nowScore + "点！"
+  } else {
+    resultShowing.innerHTML = position
+  }
+  nowScore=0
 }
 }
 
-function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3,Letter0,Letter1,Letter2,Letter3){//ランナーを確認するモーダルが出現
+function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3,Letter0,Letter1,Letter2,Letter3,position){//ランナーを確認するモーダルが出現
   ButtonName.onclick = function() {
     ModalName.style.display = "block";
   }
@@ -891,6 +918,7 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
     
     for (let i = 0; i < playerRunner1.length; i++) {
       if (playerRunner1[i] === 4){
+        nowScore++
         score++
         var rows = document.getElementsByTagName('tr');
         rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
@@ -942,6 +970,7 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
   
   for (let i = 0; i < playerRunner2.length; i++) {
     if (playerRunner2[i] === 4){
+      nowScore++
       score++
       var rows = document.getElementsByTagName('tr');
       rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
@@ -976,10 +1005,16 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
   }
     runnerLight()
     allPullDownChange()
+    if (nowScore > 0){
+      resultShowing.innerHTML = position + " " + nowScore + "点！"
+    } else {
+      resultShowing.innerHTML = position
+    }
+    nowScore=0
   }
   }
 
-  function runnerCheck3(ButtonName,ModalName,CloseName,Named1,Named2,Named3,Letter1,Letter2,Letter3){
+  function runnerCheck3(ButtonName,ModalName,CloseName,Named1,Named2,Named3,Letter1,Letter2,Letter3,position){
     ButtonName.onclick = function() {
       ModalName.style.display = "block";
     }
@@ -1009,6 +1044,7 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
       
       for (let i = 0; i < playerRunner1.length; i++) {
         if (playerRunner1[i] === 4){
+          nowScore++
           score++
           var rows = document.getElementsByTagName('tr');
           rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
@@ -1056,6 +1092,7 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
     
     for (let i = 0; i < playerRunner2.length; i++) {
       if (playerRunner2[i] === 4){
+        nowScore++
         score++
         var rows = document.getElementsByTagName('tr');
         rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
@@ -1087,6 +1124,12 @@ function runnerCheck2(ButtonName,ModalName,CloseName,Named0,Named1,Named2,Named3
     }
       runnerLight()
       allPullDownChange()
+      if (nowScore > 0){
+        resultShowing.innerHTML = position + " " + nowScore + "点！"
+      } else {
+        resultShowing.innerHTML = position
+      }
+      nowScore=0
     }
     }
 
@@ -1113,6 +1156,7 @@ borkButton.addEventListener("click", () => {
       
       for (let i = 0; i < playerRunner1.length; i++) {
         if (playerRunner1[i] === 4){
+          nowScore++
           score++
           var rows = document.getElementsByTagName('tr');
           rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
@@ -1139,6 +1183,7 @@ borkButton.addEventListener("click", () => {
         
         for (let i = 0; i < playerRunner2.length; i++) {
           if (playerRunner2[i] === 4){
+            nowScore++
             score++
             var rows = document.getElementsByTagName('tr');
             rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
@@ -1149,6 +1194,12 @@ borkButton.addEventListener("click", () => {
     }
       runnerLight()
       allPullDownChange()
+      if (nowScore > 0){
+        resultShowing.innerHTML = position + " " + nowScore + "点！"
+      } else {
+        resultShowing.innerHTML = position
+      }
+      nowScore=0
 })
 
 //関数等
@@ -1466,6 +1517,7 @@ function oneMove(){//詰まっているときのランナー
   
   for (i = 0; i < playerRunner1.length; i++) {
     if (playerRunner1[i] >= 4) {
+      nowScore++
       score++;
       var rows = document.getElementsByTagName('tr');
       rows[1].getElementsByTagName('td')[inningcurrentIndex].innerText = score;
@@ -1505,6 +1557,7 @@ playerRunner2[battercurrentIndex2]++
 
 for (i = 0; i < playerRunner2.length; i++) {
   if (playerRunner2[i] >= 4) {
+    nowScore++
     score++;
     var rows = document.getElementsByTagName('tr');
     rows[2].getElementsByTagName('td')[inningcurrentIndex-13].innerText = score;
@@ -1570,55 +1623,55 @@ count("swing-bunt-strike-button","スリーバント失敗 ")
 count("foul-bunt-button","スリーバント失敗 ")
 walk("deadball","デッドボール")
 walk("fourball","申告敬遠")
-homerun("#homerun-left")
-homerun("#homerun-center")
-homerun("#homerun-right")
-runnerCheck1(onebasePitcherButton,onebasePitcherModal,onebasePitcherCloseButton,onebasePitchered0,onebasePitchered1,onebasePitchered2,onebasePitchered3,"onebasePitcher0","onebasePitcher1","onebasePitcher2","onebasePitcher3")
-runnerCheck1(onebaseCatcherButton,onebaseCatcherModal,onebaseCatcherCloseButton,onebaseCatchered0,onebaseCatchered1,onebaseCatchered2,onebaseCatchered3,"onebaseCatcher0","onebaseCatcher1","onebaseCatcher2","onebaseCatcher3")
-runnerCheck1(onebaseFirstButton,onebaseFirstModal,onebaseFirstCloseButton,onebaseFirsted0,onebaseFirsted1,onebaseFirsted2,onebaseFirsted3,"onebaseFirst0","onebaseFirst1","onebaseFirst2","onebaseFirst3")
-runnerCheck1(onebaseSecondButton,onebaseSecondModal,onebaseSecondCloseButton,onebaseSeconded0,onebaseSeconded1,onebaseSeconded2,onebaseSeconded3,"onebaseSecond0","onebaseSecond1","onebaseSecond2","onebaseSecond3")
-runnerCheck1(onebaseThirdButton,onebaseThirdModal,onebaseThirdCloseButton,onebaseThirded0,onebaseThirded1,onebaseThirded2,onebaseThirded3,"onebaseThird0","onebaseThird1","onebaseThird2","onebaseThird3")
-runnerCheck1(onebaseShortButton,onebaseShortModal,onebaseShortCloseButton,onebaseShorted0,onebaseShorted1,onebaseShorted2,onebaseShorted3,"onebaseShort0","onebaseShort1","onebaseShort2","onebaseShort3")
-runnerCheck1(onebaseLeftButton,onebaseLeftModal,onebaseLeftCloseButton,onebaseLefted0,onebaseLefted1,onebaseLefted2,onebaseLefted3,"onebaseLeft0","onebaseLeft1","onebaseLeft2","onebaseLeft3")
-runnerCheck1(twobaseLeftButton,twobaseLeftModal,twobaseLeftCloseButton,twobaseLefted0,twobaseLefted1,twobaseLefted2,twobaseLefted3,"twobaseLeft0","twobaseLeft1","twobaseLeft2","twobaseLeft3")
-runnerCheck1(threebaseLeftButton,threebaseLeftModal,threebaseLeftCloseButton,threebaseLefted0,threebaseLefted1,threebaseLefted2,threebaseLefted3,"threebaseLeft0","threebaseLeft1","threebaseLeft2","threebaseLeft3")
-runnerCheck1(onebaseCenterButton,onebaseCenterModal,onebaseCenterCloseButton,onebaseCentered0,onebaseCentered1,onebaseCentered2,onebaseCentered3,"onebaseCenter0","onebaseCenter1","onebaseCenter2","onebaseCenter3")
-runnerCheck1(twobaseCenterButton,twobaseCenterModal,twobaseCenterCloseButton,twobaseCentered0,twobaseCentered1,twobaseCentered2,twobaseCentered3,"twobaseCenter0","twobaseCenter1","twobaseCenter2","twobaseCenter3")
-runnerCheck1(threebaseCenterButton,threebaseCenterModal,threebaseCenterCloseButton,threebaseCentered0,threebaseCentered1,threebaseCentered2,threebaseCentered3,"threebaseCenter0","threebaseCenter1","threebaseCenter2","threebaseCenter3")
-runnerCheck1(onebaseRightButton,onebaseRightModal,onebaseRightCloseButton,onebaseRighted0,onebaseRighted1,onebaseRighted2,onebaseRighted3,"onebaseRight0","onebaseRight1","onebaseRight2","onebaseRight3")
-runnerCheck1(twobaseRightButton,twobaseRightModal,twobaseRightCloseButton,twobaseRighted0,twobaseRighted1,twobaseRighted2,twobaseRighted3,"twobaseRight0","twobaseRight1","twobaseRight2","twobaseRight3")
-runnerCheck1(threebaseRightButton,threebaseRightModal,threebaseRightCloseButton,threebaseRighted0,threebaseRighted1,threebaseRighted2,threebaseRighted3,"threebaseRight0","threebaseRight1","threebaseRight2","threebaseRight3")
-runnerCheck2(groundPitcherButton,groundPitcherModal,groundPitcherCloseButton,groundPitchered0,groundPitchered1,groundPitchered2,groundPitchered3,"groundPitcher0","groundPitcher1","groundPitcher2","groundPitcher3")
-runnerCheck2(flyPitcherButton,flyPitcherModal,flyPitcherCloseButton,flyPitchered0,flyPitchered1,flyPitchered2,flyPitchered3,"flyPitcher0","flyPitcher1","flyPitcher2","flyPitcher3")
-runnerCheck2(linerPitcherButton,linerPitcherModal,linerPitcherCloseButton,linerPitchered0,linerPitchered1,linerPitchered2,linerPitchered3,"linerPitcher0","linerPitcher1","linerPitcher2","linerPitcher3")
-runnerCheck2(groundCatcherButton,groundCatcherModal,groundCatcherCloseButton,groundCatchered0,groundCatchered1,groundCatchered2,groundCatchered3,"groundCatcher0","groundCatcher1","groundCatcher2","groundCatcher3")
-runnerCheck2(flyCatcherButton,flyCatcherModal,flyCatcherCloseButton,flyCatchered0,flyCatchered1,flyCatchered2,flyCatchered3,"flyCatcher0","flyCatcher1","flyCatcher2","flyCatcher3")
-runnerCheck2(linerCatcherButton,linerCatcherModal,linerCatcherCloseButton,linerCatchered0,linerCatchered1,linerCatchered2,linerCatchered3,"linerCatcher0","linerCatcher1","linerCatcher2","linerCatcher3")
-runnerCheck2(groundFirstButton,groundFirstModal,groundFirstCloseButton,groundFirsted0,groundFirsted1,groundFirsted2,groundFirsted3,"groundFirst0","groundFirst1","groundFirst2","groundFirst3")
-runnerCheck2(flyFirstButton,flyFirstModal,flyFirstCloseButton,flyFirsted0,flyFirsted1,flyFirsted2,flyFirsted3,"flyFirst0","flyFirst1","flyFirst2","flyFirst3")
-runnerCheck2(linerFirstButton,linerFirstModal,linerFirstCloseButton,linerFirsted0,linerFirsted1,linerFirsted2,linerFirsted3,"linerFirst0","linerFirst1","linerFirst2","linerFirst3")
-runnerCheck2(groundSecondButton,groundSecondModal,groundSecondCloseButton,groundSeconded0,groundSeconded1,groundSeconded2,groundSeconded3,"groundSecond0","groundSecond1","groundSecond2","groundSecond3")
-runnerCheck2(flySecondButton,flySecondModal,flySecondCloseButton,flySeconded0,flySeconded1,flySeconded2,flySeconded3,"flySecond0","flySecond1","flySecond2","flySecond3")
-runnerCheck2(linerSecondButton,linerSecondModal,linerSecondCloseButton,linerSeconded0,linerSeconded1,linerSeconded2,linerSeconded3,"linerSecond0","linerSecond1","linerSecond2","linerSecond3")
-runnerCheck2(groundThirdButton,groundThirdModal,groundThirdCloseButton,groundThirded0,groundThirded1,groundThirded2,groundThirded3,"groundThird0","groundThird1","groundThird2","groundThird3")
-runnerCheck2(flyThirdButton,flyThirdModal,flyThirdCloseButton,flyThirded0,flyThirded1,flyThirded2,flyThirded3,"flyThird0","flyThird1","flyThird2","flyThird3")
-runnerCheck2(linerThirdButton,linerThirdModal,linerThirdCloseButton,linerThirded0,linerThirded1,linerThirded2,linerThirded3,"linerThird0","linerThird1","linerThird2","linerThird3")
-runnerCheck2(groundShortButton,groundShortModal,groundShortCloseButton,groundShorted0,groundShorted1,groundShorted2,groundShorted3,"groundShort0","groundShort1","groundShort2","groundShort3")
-runnerCheck2(flyShortButton,flyShortModal,flyShortCloseButton,flyShorted0,flyShorted1,flyShorted2,flyShorted3,"flyShort0","flyShort1","flyShort2","flyShort3")
-runnerCheck2(linerShortButton,linerShortModal,linerShortCloseButton,linerShorted0,linerShorted1,linerShorted2,linerShorted3,"linerShort0","linerShort1","linerShort2","linerShort3")
-runnerCheck2(groundLeftButton,groundLeftModal,groundLeftCloseButton,groundLefted0,groundLefted1,groundLefted2,groundLefted3,"groundLeft0","groundLeft1","groundLeft2","groundLeft3")
-runnerCheck2(flyLeftButton,flyLeftModal,flyLeftCloseButton,flyLefted0,flyLefted1,flyLefted2,flyLefted3,"flyLeft0","flyLeft1","flyLeft2","flyLeft3")
-runnerCheck2(linerLeftButton,linerLeftModal,linerLeftCloseButton,linerLefted0,linerLefted1,linerLefted2,linerLefted3,"linerLeft0","linerLeft1","linerLeft2","linerLeft3")
-runnerCheck2(groundCenterButton,groundCenterModal,groundCenterCloseButton,groundCentered0,groundCentered1,groundCentered2,groundCentered3,"groundCenter0","groundCenter1","groundCenter2","groundCenter3")
-runnerCheck2(flyCenterButton,flyCenterModal,flyCenterCloseButton,flyCentered0,flyCentered1,flyCentered2,flyCentered3,"flyCenter0","flyCenter1","flyCenter2","flyCenter3")
-runnerCheck2(linerCenterButton,linerCenterModal,linerCenterCloseButton,linerCentered0,linerCentered1,linerCentered2,linerCentered3,"linerCenter0","linerCenter1","linerCenter2","linerCenter3")
-runnerCheck2(groundRightButton,groundRightModal,groundRightCloseButton,groundRighted0,groundRighted1,groundRighted2,groundRighted3,"groundRight0","groundRight1","groundRight2","groundRight3")
-runnerCheck2(flyRightButton,flyRightModal,flyRightCloseButton,flyRighted0,flyRighted1,flyRighted2,flyRighted3,"flyRight0","flyRight1","flyRight2","flyRight3")
-runnerCheck2(linerRightButton,linerRightModal,linerRightCloseButton,linerRighted0,linerRighted1,linerRighted2,linerRighted3,"linerRight0","linerRight1","linerRight2","linerRight3")
-runnerCheck3(stealButton,stealModal,stealCloseButton,stealed1,stealed2,stealed3,"steal1","steal2","steal3")
-runnerCheck3(wildPitchButton,wildPitchModal,wildPitchCloseButton,wildPitched1,wildPitched2,wildPitched3,"wildPitch1","wildPitch2","wildPitch3")
-runnerCheck3(passBallButton,passBallModal,passBallCloseButton,passBalled1,passBalled2,passBalled3,"passBall1","passBall2","passBall3")
-runnerCheck3(restraintButton,restraintModal,restraintCloseButton,restrainted1,restrainted2,restrainted3,"restraint1","restraint2","restraint3")
+homerun("#homerun-left","レフトへのホームラン")
+homerun("#homerun-center","センターへのホームラン")
+homerun("#homerun-right","ライトへのホームラン")
+runnerCheck1(onebasePitcherButton,onebasePitcherModal,onebasePitcherCloseButton,onebasePitchered0,onebasePitchered1,onebasePitchered2,onebasePitchered3,"onebasePitcher0","onebasePitcher1","onebasePitcher2","onebasePitcher3","ピッチャーへの内野安打")
+runnerCheck1(onebaseCatcherButton,onebaseCatcherModal,onebaseCatcherCloseButton,onebaseCatchered0,onebaseCatchered1,onebaseCatchered2,onebaseCatchered3,"onebaseCatcher0","onebaseCatcher1","onebaseCatcher2","onebaseCatcher3","キャッチャーへの内野安打")
+runnerCheck1(onebaseFirstButton,onebaseFirstModal,onebaseFirstCloseButton,onebaseFirsted0,onebaseFirsted1,onebaseFirsted2,onebaseFirsted3,"onebaseFirst0","onebaseFirst1","onebaseFirst2","onebaseFirst3","ファーストへの内野安打")
+runnerCheck1(onebaseSecondButton,onebaseSecondModal,onebaseSecondCloseButton,onebaseSeconded0,onebaseSeconded1,onebaseSeconded2,onebaseSeconded3,"onebaseSecond0","onebaseSecond1","onebaseSecond2","onebaseSecond3","セカンドへの内野安打")
+runnerCheck1(onebaseThirdButton,onebaseThirdModal,onebaseThirdCloseButton,onebaseThirded0,onebaseThirded1,onebaseThirded2,onebaseThirded3,"onebaseThird0","onebaseThird1","onebaseThird2","onebaseThird3","サードへの内野安打")
+runnerCheck1(onebaseShortButton,onebaseShortModal,onebaseShortCloseButton,onebaseShorted0,onebaseShorted1,onebaseShorted2,onebaseShorted3,"onebaseShort0","onebaseShort1","onebaseShort2","onebaseShort3","ショートへの内野安打")
+runnerCheck1(onebaseLeftButton,onebaseLeftModal,onebaseLeftCloseButton,onebaseLefted0,onebaseLefted1,onebaseLefted2,onebaseLefted3,"onebaseLeft0","onebaseLeft1","onebaseLeft2","onebaseLeft3","レフト前ヒット")
+runnerCheck1(twobaseLeftButton,twobaseLeftModal,twobaseLeftCloseButton,twobaseLefted0,twobaseLefted1,twobaseLefted2,twobaseLefted3,"twobaseLeft0","twobaseLeft1","twobaseLeft2","twobaseLeft3","レフトへのツーベース")
+runnerCheck1(threebaseLeftButton,threebaseLeftModal,threebaseLeftCloseButton,threebaseLefted0,threebaseLefted1,threebaseLefted2,threebaseLefted3,"threebaseLeft0","threebaseLeft1","threebaseLeft2","threebaseLeft3","レフトへのスリーべース")
+runnerCheck1(onebaseCenterButton,onebaseCenterModal,onebaseCenterCloseButton,onebaseCentered0,onebaseCentered1,onebaseCentered2,onebaseCentered3,"onebaseCenter0","onebaseCenter1","onebaseCenter2","onebaseCenter3","センター前ヒット")
+runnerCheck1(twobaseCenterButton,twobaseCenterModal,twobaseCenterCloseButton,twobaseCentered0,twobaseCentered1,twobaseCentered2,twobaseCentered3,"twobaseCenter0","twobaseCenter1","twobaseCenter2","twobaseCenter3","センターへのツーベース")
+runnerCheck1(threebaseCenterButton,threebaseCenterModal,threebaseCenterCloseButton,threebaseCentered0,threebaseCentered1,threebaseCentered2,threebaseCentered3,"threebaseCenter0","threebaseCenter1","threebaseCenter2","threebaseCenter3","センターへのスリーベース")
+runnerCheck1(onebaseRightButton,onebaseRightModal,onebaseRightCloseButton,onebaseRighted0,onebaseRighted1,onebaseRighted2,onebaseRighted3,"onebaseRight0","onebaseRight1","onebaseRight2","onebaseRight3","ライト前ヒット")
+runnerCheck1(twobaseRightButton,twobaseRightModal,twobaseRightCloseButton,twobaseRighted0,twobaseRighted1,twobaseRighted2,twobaseRighted3,"twobaseRight0","twobaseRight1","twobaseRight2","twobaseRight3","ライトへのツーベース")
+runnerCheck1(threebaseRightButton,threebaseRightModal,threebaseRightCloseButton,threebaseRighted0,threebaseRighted1,threebaseRighted2,threebaseRighted3,"threebaseRight0","threebaseRight1","threebaseRight2","threebaseRight3","ライトへのスリーベース")
+runnerCheck2(groundPitcherButton,groundPitcherModal,groundPitcherCloseButton,groundPitchered0,groundPitchered1,groundPitchered2,groundPitchered3,"groundPitcher0","groundPitcher1","groundPitcher2","groundPitcher3","ピッチャーゴロ")
+runnerCheck2(flyPitcherButton,flyPitcherModal,flyPitcherCloseButton,flyPitchered0,flyPitchered1,flyPitchered2,flyPitchered3,"flyPitcher0","flyPitcher1","flyPitcher2","flyPitcher3","ピッチャーフライ")
+runnerCheck2(linerPitcherButton,linerPitcherModal,linerPitcherCloseButton,linerPitchered0,linerPitchered1,linerPitchered2,linerPitchered3,"linerPitcher0","linerPitcher1","linerPitcher2","linerPitcher3","ピッチャーライナー")
+runnerCheck2(groundCatcherButton,groundCatcherModal,groundCatcherCloseButton,groundCatchered0,groundCatchered1,groundCatchered2,groundCatchered3,"groundCatcher0","groundCatcher1","groundCatcher2","groundCatcher3","キャッチャーゴロ")
+runnerCheck2(flyCatcherButton,flyCatcherModal,flyCatcherCloseButton,flyCatchered0,flyCatchered1,flyCatchered2,flyCatchered3,"flyCatcher0","flyCatcher1","flyCatcher2","flyCatcher3","キャッチャーフライ")
+runnerCheck2(linerCatcherButton,linerCatcherModal,linerCatcherCloseButton,linerCatchered0,linerCatchered1,linerCatchered2,linerCatchered3,"linerCatcher0","linerCatcher1","linerCatcher2","linerCatcher3","キャッチャーライナー")
+runnerCheck2(groundFirstButton,groundFirstModal,groundFirstCloseButton,groundFirsted0,groundFirsted1,groundFirsted2,groundFirsted3,"groundFirst0","groundFirst1","groundFirst2","groundFirst3","ファーストゴロ")
+runnerCheck2(flyFirstButton,flyFirstModal,flyFirstCloseButton,flyFirsted0,flyFirsted1,flyFirsted2,flyFirsted3,"flyFirst0","flyFirst1","flyFirst2","flyFirst3","ファーストフライ")
+runnerCheck2(linerFirstButton,linerFirstModal,linerFirstCloseButton,linerFirsted0,linerFirsted1,linerFirsted2,linerFirsted3,"linerFirst0","linerFirst1","linerFirst2","linerFirst3","ファーストライナー")
+runnerCheck2(groundSecondButton,groundSecondModal,groundSecondCloseButton,groundSeconded0,groundSeconded1,groundSeconded2,groundSeconded3,"groundSecond0","groundSecond1","groundSecond2","groundSecond3","セカンドゴロ")
+runnerCheck2(flySecondButton,flySecondModal,flySecondCloseButton,flySeconded0,flySeconded1,flySeconded2,flySeconded3,"flySecond0","flySecond1","flySecond2","flySecond3","セカンドフライ")
+runnerCheck2(linerSecondButton,linerSecondModal,linerSecondCloseButton,linerSeconded0,linerSeconded1,linerSeconded2,linerSeconded3,"linerSecond0","linerSecond1","linerSecond2","linerSecond3","セカンドライナー")
+runnerCheck2(groundThirdButton,groundThirdModal,groundThirdCloseButton,groundThirded0,groundThirded1,groundThirded2,groundThirded3,"groundThird0","groundThird1","groundThird2","groundThird3","サードゴロ")
+runnerCheck2(flyThirdButton,flyThirdModal,flyThirdCloseButton,flyThirded0,flyThirded1,flyThirded2,flyThirded3,"flyThird0","flyThird1","flyThird2","flyThird3","サードフライ")
+runnerCheck2(linerThirdButton,linerThirdModal,linerThirdCloseButton,linerThirded0,linerThirded1,linerThirded2,linerThirded3,"linerThird0","linerThird1","linerThird2","linerThird3","サードライナー")
+runnerCheck2(groundShortButton,groundShortModal,groundShortCloseButton,groundShorted0,groundShorted1,groundShorted2,groundShorted3,"groundShort0","groundShort1","groundShort2","groundShort3","ショートゴロ")
+runnerCheck2(flyShortButton,flyShortModal,flyShortCloseButton,flyShorted0,flyShorted1,flyShorted2,flyShorted3,"flyShort0","flyShort1","flyShort2","flyShort3","ショートフライ")
+runnerCheck2(linerShortButton,linerShortModal,linerShortCloseButton,linerShorted0,linerShorted1,linerShorted2,linerShorted3,"linerShort0","linerShort1","linerShort2","linerShort3","ショートライナー")
+runnerCheck2(groundLeftButton,groundLeftModal,groundLeftCloseButton,groundLefted0,groundLefted1,groundLefted2,groundLefted3,"groundLeft0","groundLeft1","groundLeft2","groundLeft3","レフトゴロ")
+runnerCheck2(flyLeftButton,flyLeftModal,flyLeftCloseButton,flyLefted0,flyLefted1,flyLefted2,flyLefted3,"flyLeft0","flyLeft1","flyLeft2","flyLeft3","レフトフライ")
+runnerCheck2(linerLeftButton,linerLeftModal,linerLeftCloseButton,linerLefted0,linerLefted1,linerLefted2,linerLefted3,"linerLeft0","linerLeft1","linerLeft2","linerLeft3","レフトライナー")
+runnerCheck2(groundCenterButton,groundCenterModal,groundCenterCloseButton,groundCentered0,groundCentered1,groundCentered2,groundCentered3,"groundCenter0","groundCenter1","groundCenter2","groundCenter3","センターゴロ")
+runnerCheck2(flyCenterButton,flyCenterModal,flyCenterCloseButton,flyCentered0,flyCentered1,flyCentered2,flyCentered3,"flyCenter0","flyCenter1","flyCenter2","flyCenter3","センターフライ")
+runnerCheck2(linerCenterButton,linerCenterModal,linerCenterCloseButton,linerCentered0,linerCentered1,linerCentered2,linerCentered3,"linerCenter0","linerCenter1","linerCenter2","linerCenter3","センターライナー")
+runnerCheck2(groundRightButton,groundRightModal,groundRightCloseButton,groundRighted0,groundRighted1,groundRighted2,groundRighted3,"groundRight0","groundRight1","groundRight2","groundRight3","ライトゴロ")
+runnerCheck2(flyRightButton,flyRightModal,flyRightCloseButton,flyRighted0,flyRighted1,flyRighted2,flyRighted3,"flyRight0","flyRight1","flyRight2","flyRight3","ライトフライ")
+runnerCheck2(linerRightButton,linerRightModal,linerRightCloseButton,linerRighted0,linerRighted1,linerRighted2,linerRighted3,"linerRight0","linerRight1","linerRight2","linerRight3","ライトライナー")
+runnerCheck3(stealButton,stealModal,stealCloseButton,stealed1,stealed2,stealed3,"steal1","steal2","steal3","盗塁")
+runnerCheck3(wildPitchButton,wildPitchModal,wildPitchCloseButton,wildPitched1,wildPitched2,wildPitched3,"wildPitch1","wildPitch2","wildPitch3","ワイルドピッチ")
+runnerCheck3(passBallButton,passBallModal,passBallCloseButton,passBalled1,passBalled2,passBalled3,"passBall1","passBall2","passBall3","パスボール")
+runnerCheck3(restraintButton,restraintModal,restraintCloseButton,restrainted1,restrainted2,restrainted3,"restraint1","restraint2","restraint3","牽制")
 
 function allPullDownChange(){
   pullDownChange(onebasePitcher1,onebasePitcher2,onebasePitcher3,"onebasePitcher1","onebasePitcher2","onebasePitcher3")

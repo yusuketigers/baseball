@@ -576,7 +576,7 @@ function count(buttonId,position) {;//見逃し・空振りボタン
       outcount()
   } else {
     strikePlus()
-    resultShowing.innerHTML = position + "ストライク " + ballcurrentIndex + "-" + strikecurrentIndex
+    resultShowing.innerHTML = position + " " + ballcurrentIndex + "-" + strikecurrentIndex
   }
 })
 }

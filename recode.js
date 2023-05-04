@@ -1619,8 +1619,8 @@ restraintButton.addEventListener('click', () => {restraintModal.style.display = 
 
 count("looking-strike-button","見逃し")
 count("swing-strike-button","空振り")
-count("swing-bunt-strike-button","スリーバント失敗 ")
-count("foul-bunt-button","スリーバント失敗 ")
+count("swing-bunt-strike-button","バント空振り ")
+count("foul-bunt-button","バントファール ")
 walk("deadball","デッドボール")
 walk("fourball","申告敬遠")
 homerun("#homerun-left","レフトへのホームラン")

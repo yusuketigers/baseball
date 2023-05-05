@@ -73,10 +73,12 @@ const outCenterModal = document.querySelector('#out-center-Modal');
 const outRightModal = document.querySelector('#out-right-Modal');
 const nextButton = document.querySelector('#next');
 const runnerModal = document.querySelector('#runnerModal');
+const errorButton = document.querySelector('#error');
 const stealButton = document.querySelector('#steal');
 const wildPitchButton = document.querySelector('#wild-pitch');
 const passBallButton = document.querySelector('#pass-ball');
 const restraintButton = document.querySelector('#restraint');
+const errorModal = document.querySelector('#error-Modal');
 const stealModal = document.querySelector('#steal-Modal');
 const wildPitchModal = document.querySelector('#wild-pitch-Modal');
 const passBallModal = document.querySelector('#pass-ball-Modal');
@@ -503,6 +505,13 @@ var linerRighted3 = document.getElementById("linerRight3").value;
 const linerRight1 = document.getElementById("linerRight1");
 const linerRight2 = document.getElementById("linerRight2");
 const linerRight3 = document.getElementById("linerRight3");
+var errorCloseButton = document.getElementById("error-closeModal");
+// var errored1 = document.getElementById("error1").value;
+// var errored2 = document.getElementById("error2").value;
+// var errored3 = document.getElementById("error3").value;
+// const error1 = document.getElementById("error1");
+// const error2 = document.getElementById("error2");
+// const error3 = document.getElementById("error3");
 var stealCloseButton = document.getElementById("steal-closeModal");
 var stealed1 = document.getElementById("steal1").value;
 var stealed2 = document.getElementById("steal2").value;
@@ -735,7 +744,7 @@ function homerun(buttonId,position) {;//ホームランボタン
 }
 
 window.addEventListener('click', (event) => {//modal外を触ったら消える
-  if (event.target == hitModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == hitLeftModal || event.target == hitCenterModal || event.target == hitRightModal || event.target == outModal || event.target == outPitcherModal || event.target == outCatcherModal || event.target == outFirstModal || event.target == outSecondModal || event.target == outThirdModal || event.target == outShortModal || event.target == outLeftModal || event.target == outCenterModal || event.target == outRightModal || event.target == onebaseLeftModal || event.target == twobaseLeftModal || event.target == threebaseLeftModal || event.target == onebaseCenterModal || event.target == twobaseCenterModal || event.target == threebaseCenterModal || event.target == onebaseRightModal || event.target == twobaseRightModal || event.target == threebaseRightModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == groundPitcherModal || event.target == flyPitcherModal || event.target == linerPitcherModal || event.target == groundCatcherModal || event.target == flyCatcherModal || event.target == linerCatcherModal || event.target == groundFirstModal || event.target == flyFirstModal || event.target == linerFirstModal || event.target == groundSecondModal || event.target == flySecondModal || event.target == linerSecondModal || event.target == groundThirdModal || event.target == flyThirdModal || event.target == linerThirdModal || event.target == groundShortModal || event.target == flyShortModal || event.target == linerShortModal || event.target == groundLeftModal || event.target == flyLeftModal || event.target == linerLeftModal || event.target == groundCenterModal || event.target == flyCenterModal || event.target == linerCenterModal || event.target == groundRightModal || event.target == flyRightModal || event.target == linerRightModal || event.target == runnerModal || event.target == stealModal || event.target == wildPitchModal || event.target == passBallModal || event.target == restraintModal) {
+  if (event.target == hitModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == hitLeftModal || event.target == hitCenterModal || event.target == hitRightModal || event.target == outModal || event.target == outPitcherModal || event.target == outCatcherModal || event.target == outFirstModal || event.target == outSecondModal || event.target == outThirdModal || event.target == outShortModal || event.target == outLeftModal || event.target == outCenterModal || event.target == outRightModal || event.target == onebaseLeftModal || event.target == twobaseLeftModal || event.target == threebaseLeftModal || event.target == onebaseCenterModal || event.target == twobaseCenterModal || event.target == threebaseCenterModal || event.target == onebaseRightModal || event.target == twobaseRightModal || event.target == threebaseRightModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == groundPitcherModal || event.target == flyPitcherModal || event.target == linerPitcherModal || event.target == groundCatcherModal || event.target == flyCatcherModal || event.target == linerCatcherModal || event.target == groundFirstModal || event.target == flyFirstModal || event.target == linerFirstModal || event.target == groundSecondModal || event.target == flySecondModal || event.target == linerSecondModal || event.target == groundThirdModal || event.target == flyThirdModal || event.target == linerThirdModal || event.target == groundShortModal || event.target == flyShortModal || event.target == linerShortModal || event.target == groundLeftModal || event.target == flyLeftModal || event.target == linerLeftModal || event.target == groundCenterModal || event.target == flyCenterModal || event.target == linerCenterModal || event.target == groundRightModal || event.target == flyRightModal || event.target == linerRightModal || event.target == runnerModal || event.target == stealModal || event.target == wildPitchModal || event.target == passBallModal || event.target == restraintModal || event.target == errorModal) {
     allModalNone()
   }
 });
@@ -1340,6 +1349,8 @@ function allModalNone(){//すべてのモーダルを閉じる
   flyRightModal.style.display = 'none';
   linerRightModal.style.display = 'none';
 
+  errorModal.style.display = 'none';
+
   runnerModal.style.display = 'none';
   stealModal.style.display = 'none';
   wildPitchModal.style.display = 'none';
@@ -1650,6 +1661,7 @@ outLeftButton.addEventListener('click', () => {outLeftModal.style.display = 'blo
 outCenterButton.addEventListener('click', () => {outCenterModal.style.display = 'block';});
 outRightButton.addEventListener('click', () => {outRightModal.style.display = 'block';});
 nextButton.addEventListener('click', () => {runnerModal.style.display = 'block';});
+errorButton.addEventListener('click', () => {errorModal.style.display = 'block';});
 stealButton.addEventListener('click', () => {stealModal.style.display = 'block';});
 wildPitchButton.addEventListener('click', () => {wildPitchModal.style.display = 'block';});
 passBallButton.addEventListener('click', () => {passBallModal.style.display = 'block';});

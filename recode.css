@@ -391,6 +391,7 @@ button {
 	align-items: center;
 	margin-bottom: 20px;
 	text-align: center;
+	margin: 0.5px 0;
   }
   
   .toggle-button {

@@ -672,6 +672,8 @@ function outcount(){
       score=0
       var rows = document.getElementsByTagName('tr');
       rows[1].getElementsByTagName('td')[11].innerText = hit1;
+      var rows = document.getElementsByTagName('tr');
+      rows[2].getElementsByTagName('td')[12].innerText = error2;
    } else {
     for (let i = 0; i < playerRunner2.length; i++) {
       playerRunner2[i]=0
@@ -683,6 +685,8 @@ function outcount(){
       score=0
       var rows = document.getElementsByTagName('tr');
       rows[2].getElementsByTagName('td')[11].innerText = hit2;
+      var rows = document.getElementsByTagName('tr');
+      rows[1].getElementsByTagName('td')[12].innerText = error1;
    }
   } else {
       outPlus()
@@ -1350,6 +1354,9 @@ function allModalNone(){//すべてのモーダルを閉じる
   linerRightModal.style.display = 'none';
 
   errorModal.style.display = 'none';
+  for (let i = 0; i < toggleButtons.length; i++) {
+    toggleButtons[i].checked = false; // トグルボタンをオフにする
+  }
 
   runnerModal.style.display = 'none';
   stealModal.style.display = 'none';
@@ -1770,4 +1777,33 @@ function allPullDownChange(){
   pullDownChange(wildPitch1,wildPitch2,wildPitch3,"wildPitch1","wildPitch2","wildPitch3")
   pullDownChange(passBall1,passBall2,passBall3,"passBall1","passBall2","passBall3")
   pullDownChange(restraint1,restraint2,restraint3,"restraint1","restraint2","restraint3")
+}
+
+const toggleButtons = document.querySelectorAll('.toggle-button-checkbox');
+let error1 = 0;
+let error2 = 0;
+
+errorCloseButton.onclick = function() {//エラーの記録
+  if (inningcurrentIndex < 13){
+    let errorcount2 = 0;
+    for (let i = 0; i < toggleButtons.length; i++) {
+      if (toggleButtons[i].checked) {
+        errorcount2++;
+      }
+    }
+    error2 += errorcount2;
+    var rows = document.getElementsByTagName('tr');
+    rows[2].getElementsByTagName('td')[12].innerText = error2;
+  } else {
+    let errorcount1 = 0;
+    for (let i = 0; i < toggleButtons.length; i++) {
+      if (toggleButtons[i].checked) {
+        errorcount1++;
+      }
+    }
+    error1 += errorcount1;
+    var rows = document.getElementsByTagName('tr');
+    rows[1].getElementsByTagName('td')[12].innerText = error1;
+  }
+  allModalNone()
 }

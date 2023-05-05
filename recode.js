@@ -578,6 +578,7 @@ function count(buttonId,position) {;//見逃し・空振りボタン
       } else {
         playerResult2[battercurrentIndex2] = playerResult2[battercurrentIndex2] + position + "三振" + "<br>"
         battercurrentIndex2 = (battercurrentIndex2 + 1) % playerRunner2.length
+        nextOut=outcurrentIndex+1
         resultShowing.innerHTML = position + "三振！ " + nextOut + "アウト"
         if (outcurrentIndex === 2){
           for (var i = 0; i < playerPosition2.length; i++) {
@@ -656,6 +657,7 @@ function walk(buttonId,position) {;//死球・申告敬遠
 function outcount(){
   if (outcurrentIndex === 2) {//アウトランプ消し、ランナー帰す、点数入力、次の回ハイライト、合計点入力、次に備えてscore=0、塁灯火、プルダウン変更
     outcurrentIndex=0
+    countreset()
     var rows = document.getElementsByTagName('tr');
     for (let e of outLight.children) {
         e.classList.remove("red")

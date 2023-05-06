@@ -74,6 +74,10 @@ const outRightModal = document.querySelector('#out-right-Modal');
 const nextButton = document.querySelector('#next');
 const runnerModal = document.querySelector('#runnerModal');
 const errorButton = document.querySelector('#error');
+const bunt1Button = document.querySelector('#bunt1');
+const buntModal = document.querySelector('#buntModal');
+const sac1Button = document.querySelector('#sac1');
+const sacModal = document.querySelector('#sacModal');
 const stealButton = document.querySelector('#steal');
 const wildPitchButton = document.querySelector('#wild-pitch');
 const passBallButton = document.querySelector('#pass-ball');
@@ -506,12 +510,156 @@ const linerRight1 = document.getElementById("linerRight1");
 const linerRight2 = document.getElementById("linerRight2");
 const linerRight3 = document.getElementById("linerRight3");
 var errorCloseButton = document.getElementById("error-closeModal");
-// var errored1 = document.getElementById("error1").value;
-// var errored2 = document.getElementById("error2").value;
-// var errored3 = document.getElementById("error3").value;
-// const error1 = document.getElementById("error1");
-// const error2 = document.getElementById("error2");
-// const error3 = document.getElementById("error3");
+var buntPitcherModal = document.getElementById("bunt-pitcher-Modal");
+var buntPitcherButton = document.getElementById("bunt-pitcher");
+var buntPitcherCloseButton = document.getElementById("bunt-pitcher-closeModal");
+var buntPitchered0 = document.getElementById("buntPitcher0").value;
+var buntPitchered1 = document.getElementById("buntPitcher1").value;
+var buntPitchered2 = document.getElementById("buntPitcher2").value;
+var buntPitchered3 = document.getElementById("buntPitcher3").value;
+const buntPitcher1 = document.getElementById("buntPitcher1");
+const buntPitcher2 = document.getElementById("buntPitcher2");
+const buntPitcher3 = document.getElementById("buntPitcher3");
+var buntCatcherModal = document.getElementById("bunt-catcher-Modal");
+var buntCatcherButton = document.getElementById("bunt-catcher");
+var buntCatcherCloseButton = document.getElementById("bunt-catcher-closeModal");
+var buntCatchered0 = document.getElementById("buntCatcher0").value;
+var buntCatchered1 = document.getElementById("buntCatcher1").value;
+var buntCatchered2 = document.getElementById("buntCatcher2").value;
+var buntCatchered3 = document.getElementById("buntCatcher3").value;
+const buntCatcher1 = document.getElementById("buntCatcher1");
+const buntCatcher2 = document.getElementById("buntCatcher2");
+const buntCatcher3 = document.getElementById("buntCatcher3");
+var buntFirstModal = document.getElementById("bunt-first-Modal");
+var buntFirstButton = document.getElementById("bunt-first");
+var buntFirstCloseButton = document.getElementById("bunt-first-closeModal");
+var buntFirsted0 = document.getElementById("buntFirst0").value;
+var buntFirsted1 = document.getElementById("buntFirst1").value;
+var buntFirsted2 = document.getElementById("buntFirst2").value;
+var buntFirsted3 = document.getElementById("buntFirst3").value;
+const buntFirst1 = document.getElementById("buntFirst1");
+const buntFirst2 = document.getElementById("buntFirst2");
+const buntFirst3 = document.getElementById("buntFirst3");
+var buntSecondModal = document.getElementById("bunt-second-Modal");
+var buntSecondButton = document.getElementById("bunt-second");
+var buntSecondCloseButton = document.getElementById("bunt-second-closeModal");
+var buntSeconded0 = document.getElementById("buntSecond0").value;
+var buntSeconded1 = document.getElementById("buntSecond1").value;
+var buntSeconded2 = document.getElementById("buntSecond2").value;
+var buntSeconded3 = document.getElementById("buntSecond3").value;
+const buntSecond1 = document.getElementById("buntSecond1");
+const buntSecond2 = document.getElementById("buntSecond2");
+const buntSecond3 = document.getElementById("buntSecond3");
+var buntThirdModal = document.getElementById("bunt-third-Modal");
+var buntThirdButton = document.getElementById("bunt-third");
+var buntThirdCloseButton = document.getElementById("bunt-third-closeModal");
+var buntThirded0 = document.getElementById("buntThird0").value;
+var buntThirded1 = document.getElementById("buntThird1").value;
+var buntThirded2 = document.getElementById("buntThird2").value;
+var buntThirded3 = document.getElementById("buntThird3").value;
+const buntThird1 = document.getElementById("buntThird1");
+const buntThird2 = document.getElementById("buntThird2");
+const buntThird3 = document.getElementById("buntThird3");
+var buntShortModal = document.getElementById("bunt-short-Modal");
+var buntShortButton = document.getElementById("bunt-short");
+var buntShortCloseButton = document.getElementById("bunt-short-closeModal");
+var buntShorted0 = document.getElementById("buntShort0").value;
+var buntShorted1 = document.getElementById("buntShort1").value;
+var buntShorted2 = document.getElementById("buntShort2").value;
+var buntShorted3 = document.getElementById("buntShort3").value;
+const buntShort1 = document.getElementById("buntShort1");
+const buntShort2 = document.getElementById("buntShort2");
+const buntShort3 = document.getElementById("buntShort3");
+var sacPitcherModal = document.getElementById("sac-pitcher-Modal");
+var sacPitcherButton = document.getElementById("sac-pitcher");
+var sacPitcherCloseButton = document.getElementById("sac-pitcher-closeModal");
+var sacPitchered0 = document.getElementById("sacPitcher0").value;
+var sacPitchered1 = document.getElementById("sacPitcher1").value;
+var sacPitchered2 = document.getElementById("sacPitcher2").value;
+var sacPitchered3 = document.getElementById("sacPitcher3").value;
+const sacPitcher1 = document.getElementById("sacPitcher1");
+const sacPitcher2 = document.getElementById("sacPitcher2");
+const sacPitcher3 = document.getElementById("sacPitcher3");
+var sacCatcherModal = document.getElementById("sac-catcher-Modal");
+var sacCatcherButton = document.getElementById("sac-catcher");
+var sacCatcherCloseButton = document.getElementById("sac-catcher-closeModal");
+var sacCatchered0 = document.getElementById("sacCatcher0").value;
+var sacCatchered1 = document.getElementById("sacCatcher1").value;
+var sacCatchered2 = document.getElementById("sacCatcher2").value;
+var sacCatchered3 = document.getElementById("sacCatcher3").value;
+const sacCatcher1 = document.getElementById("sacCatcher1");
+const sacCatcher2 = document.getElementById("sacCatcher2");
+const sacCatcher3 = document.getElementById("sacCatcher3");
+var sacFirstModal = document.getElementById("sac-first-Modal");
+var sacFirstButton = document.getElementById("sac-first");
+var sacFirstCloseButton = document.getElementById("sac-first-closeModal");
+var sacFirsted0 = document.getElementById("sacFirst0").value;
+var sacFirsted1 = document.getElementById("sacFirst1").value;
+var sacFirsted2 = document.getElementById("sacFirst2").value;
+var sacFirsted3 = document.getElementById("sacFirst3").value;
+const sacFirst1 = document.getElementById("sacFirst1");
+const sacFirst2 = document.getElementById("sacFirst2");
+const sacFirst3 = document.getElementById("sacFirst3");
+var sacSecondModal = document.getElementById("sac-second-Modal");
+var sacSecondButton = document.getElementById("sac-second");
+var sacSecondCloseButton = document.getElementById("sac-second-closeModal");
+var sacSeconded0 = document.getElementById("sacSecond0").value;
+var sacSeconded1 = document.getElementById("sacSecond1").value;
+var sacSeconded2 = document.getElementById("sacSecond2").value;
+var sacSeconded3 = document.getElementById("sacSecond3").value;
+const sacSecond1 = document.getElementById("sacSecond1");
+const sacSecond2 = document.getElementById("sacSecond2");
+const sacSecond3 = document.getElementById("sacSecond3");
+var sacThirdModal = document.getElementById("sac-third-Modal");
+var sacThirdButton = document.getElementById("sac-third");
+var sacThirdCloseButton = document.getElementById("sac-third-closeModal");
+var sacThirded0 = document.getElementById("sacThird0").value;
+var sacThirded1 = document.getElementById("sacThird1").value;
+var sacThirded2 = document.getElementById("sacThird2").value;
+var sacThirded3 = document.getElementById("sacThird3").value;
+const sacThird1 = document.getElementById("sacThird1");
+const sacThird2 = document.getElementById("sacThird2");
+const sacThird3 = document.getElementById("sacThird3");
+var sacShortModal = document.getElementById("sac-short-Modal");
+var sacShortButton = document.getElementById("sac-short");
+var sacShortCloseButton = document.getElementById("sac-short-closeModal");
+var sacShorted0 = document.getElementById("sacShort0").value;
+var sacShorted1 = document.getElementById("sacShort1").value;
+var sacShorted2 = document.getElementById("sacShort2").value;
+var sacShorted3 = document.getElementById("sacShort3").value;
+const sacShort1 = document.getElementById("sacShort1");
+const sacShort2 = document.getElementById("sacShort2");
+const sacShort3 = document.getElementById("sacShort3");
+var sacLeftModal = document.getElementById("sac-left-Modal");
+var sacLeftButton = document.getElementById("sac-left");
+var sacLeftCloseButton = document.getElementById("sac-left-closeModal");
+var sacLefted0 = document.getElementById("sacLeft0").value;
+var sacLefted1 = document.getElementById("sacLeft1").value;
+var sacLefted2 = document.getElementById("sacLeft2").value;
+var sacLefted3 = document.getElementById("sacLeft3").value;
+const sacLeft1 = document.getElementById("sacLeft1");
+const sacLeft2 = document.getElementById("sacLeft2");
+const sacLeft3 = document.getElementById("sacLeft3");
+var sacCenterModal = document.getElementById("sac-center-Modal");
+var sacCenterButton = document.getElementById("sac-center");
+var sacCenterCloseButton = document.getElementById("sac-center-closeModal");
+var sacCentered0 = document.getElementById("sacCenter0").value;
+var sacCentered1 = document.getElementById("sacCenter1").value;
+var sacCentered2 = document.getElementById("sacCenter2").value;
+var sacCentered3 = document.getElementById("sacCenter3").value;
+const sacCenter1 = document.getElementById("sacCenter1");
+const sacCenter2 = document.getElementById("sacCenter2");
+const sacCenter3 = document.getElementById("sacCenter3");
+var sacRightModal = document.getElementById("sac-right-Modal");
+var sacRightButton = document.getElementById("sac-right");
+var sacRightCloseButton = document.getElementById("sac-right-closeModal");
+var sacRighted0 = document.getElementById("sacRight0").value;
+var sacRighted1 = document.getElementById("sacRight1").value;
+var sacRighted2 = document.getElementById("sacRight2").value;
+var sacRighted3 = document.getElementById("sacRight3").value;
+const sacRight1 = document.getElementById("sacRight1");
+const sacRight2 = document.getElementById("sacRight2");
+const sacRight3 = document.getElementById("sacRight3");
 var stealCloseButton = document.getElementById("steal-closeModal");
 var stealed1 = document.getElementById("steal1").value;
 var stealed2 = document.getElementById("steal2").value;
@@ -750,7 +898,19 @@ function homerun(buttonId,position,positiontext) {;//ホームランボタン
 }
 
 window.addEventListener('click', (event) => {//modal外を触ったら消える
-  if (event.target == hitModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == hitLeftModal || event.target == hitCenterModal || event.target == hitRightModal || event.target == outModal || event.target == outPitcherModal || event.target == outCatcherModal || event.target == outFirstModal || event.target == outSecondModal || event.target == outThirdModal || event.target == outShortModal || event.target == outLeftModal || event.target == outCenterModal || event.target == outRightModal || event.target == onebaseLeftModal || event.target == twobaseLeftModal || event.target == threebaseLeftModal || event.target == onebaseCenterModal || event.target == twobaseCenterModal || event.target == threebaseCenterModal || event.target == onebaseRightModal || event.target == twobaseRightModal || event.target == threebaseRightModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == groundPitcherModal || event.target == flyPitcherModal || event.target == linerPitcherModal || event.target == groundCatcherModal || event.target == flyCatcherModal || event.target == linerCatcherModal || event.target == groundFirstModal || event.target == flyFirstModal || event.target == linerFirstModal || event.target == groundSecondModal || event.target == flySecondModal || event.target == linerSecondModal || event.target == groundThirdModal || event.target == flyThirdModal || event.target == linerThirdModal || event.target == groundShortModal || event.target == flyShortModal || event.target == linerShortModal || event.target == groundLeftModal || event.target == flyLeftModal || event.target == linerLeftModal || event.target == groundCenterModal || event.target == flyCenterModal || event.target == linerCenterModal || event.target == groundRightModal || event.target == flyRightModal || event.target == linerRightModal || event.target == runnerModal || event.target == stealModal || event.target == wildPitchModal || event.target == passBallModal || event.target == restraintModal || event.target == errorModal) {
+  if (event.target == hitModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal || event.target == hitLeftModal || event.target == hitCenterModal || event.target == hitRightModal) {
+    allModalNone()
+  }
+  if (event.target == outModal || event.target == outPitcherModal || event.target == outCatcherModal || event.target == outFirstModal || event.target == outSecondModal || event.target == outThirdModal || event.target == outShortModal || event.target == outLeftModal || event.target == outCenterModal || event.target == outRightModal) {
+    allModalNone()
+  }
+  if (event.target == onebaseLeftModal || event.target == twobaseLeftModal || event.target == threebaseLeftModal || event.target == onebaseCenterModal || event.target == twobaseCenterModal || event.target == threebaseCenterModal || event.target == onebaseRightModal || event.target == twobaseRightModal || event.target == threebaseRightModal || event.target == hitPitcherModal || event.target == hitCatcherModal || event.target == hitFirstModal || event.target == hitSecondModal || event.target == hitThirdModal || event.target == hitShortModal) {
+    allModalNone()
+  }
+  if (event.target == groundPitcherModal || event.target == flyPitcherModal || event.target == linerPitcherModal || event.target == groundCatcherModal || event.target == flyCatcherModal || event.target == linerCatcherModal || event.target == groundFirstModal || event.target == flyFirstModal || event.target == linerFirstModal || event.target == groundSecondModal || event.target == flySecondModal || event.target == linerSecondModal || event.target == groundThirdModal || event.target == flyThirdModal || event.target == linerThirdModal || event.target == groundShortModal || event.target == flyShortModal || event.target == linerShortModal || event.target == groundLeftModal || event.target == flyLeftModal || event.target == linerLeftModal || event.target == groundCenterModal || event.target == flyCenterModal || event.target == linerCenterModal || event.target == groundRightModal || event.target == flyRightModal || event.target == linerRightModal) {
+    allModalNone()
+  }
+  if (event.target == runnerModal || event.target == stealModal || event.target == wildPitchModal || event.target == passBallModal || event.target == restraintModal || event.target == errorModal || event.target == buntModal || event.target == buntPitcherModal || event.target == buntCatcherModal || event.target == buntFirstModal || event.target == buntSecondModal || event.target == buntThirdModal || event.target == buntShortModal || event.target == sacModal || event.target == sacPitcherModal || event.target == sacCatcherModal || event.target == sacFirstModal || event.target == sacSecondModal || event.target == sacThirdModal || event.target == sacShortModal || event.target == sacLeftModal || event.target == sacCenterModal || event.target == sacRightModal) {
     allModalNone()
   }
 });
@@ -1310,12 +1470,24 @@ function allModalNone(){//すべてのモーダルを閉じる
   outCenterModal.style.display = 'none';
   outRightModal.style.display = 'none';
 
-  hitPitcherModal.style.display = 'none';
-  hitCatcherModal.style.display = 'none';
-  hitFirstModal.style.display = 'none';
-  hitSecondModal.style.display = 'none';
-  hitThirdModal.style.display = 'none';
-  hitShortModal.style.display = 'none';
+  buntModal.style.display = 'none';
+  buntPitcherModal.style.display = 'none';
+  buntCatcherModal.style.display = 'none';
+  buntFirstModal.style.display = 'none';
+  buntSecondModal.style.display = 'none';
+  buntThirdModal.style.display = 'none';
+  buntShortModal.style.display = 'none';
+
+  sacModal.style.display = 'none';
+  sacPitcherModal.style.display = 'none';
+  sacCatcherModal.style.display = 'none';
+  sacFirstModal.style.display = 'none';
+  sacSecondModal.style.display = 'none';
+  sacThirdModal.style.display = 'none';
+  sacShortModal.style.display = 'none';
+  sacLeftModal.style.display = 'none';
+  sacCenterModal.style.display = 'none';
+  sacRightModal.style.display = 'none';
 
   onebaseLeftModal.style.display = 'none';
   twobaseLeftModal.style.display = 'none';
@@ -1671,6 +1843,23 @@ outCenterButton.addEventListener('click', () => {outCenterModal.style.display = 
 outRightButton.addEventListener('click', () => {outRightModal.style.display = 'block';});
 nextButton.addEventListener('click', () => {runnerModal.style.display = 'block';});
 errorButton.addEventListener('click', () => {errorModal.style.display = 'block';});
+bunt1Button.addEventListener('click', () => {buntModal.style.display = 'block';});
+buntPitcherButton.addEventListener('click', () => {buntPitcherModal.style.display = 'block';});
+buntCatcherButton.addEventListener('click', () => {buntCatcherModal.style.display = 'block';});
+buntFirstButton.addEventListener('click', () => {buntFirstModal.style.display = 'block';});
+buntSecondButton.addEventListener('click', () => {buntSecondModal.style.display = 'block';});
+buntThirdButton.addEventListener('click', () => {buntThirdModal.style.display = 'block';});
+buntShortButton.addEventListener('click', () => {buntShortModal.style.display = 'block';});
+sac1Button.addEventListener('click', () => {sacModal.style.display = 'block';});
+sacPitcherButton.addEventListener('click', () => {sacPitcherModal.style.display = 'block';});
+sacCatcherButton.addEventListener('click', () => {sacCatcherModal.style.display = 'block';});
+sacFirstButton.addEventListener('click', () => {sacFirstModal.style.display = 'block';});
+sacSecondButton.addEventListener('click', () => {sacSecondModal.style.display = 'block';});
+sacThirdButton.addEventListener('click', () => {sacThirdModal.style.display = 'block';});
+sacShortButton.addEventListener('click', () => {sacShortModal.style.display = 'block';});
+sacLeftButton.addEventListener('click', () => {sacLeftModal.style.display = 'block';});
+sacCenterButton.addEventListener('click', () => {sacCenterModal.style.display = 'block';});
+sacRightButton.addEventListener('click', () => {sacRightModal.style.display = 'block';});
 stealButton.addEventListener('click', () => {stealModal.style.display = 'block';});
 wildPitchButton.addEventListener('click', () => {wildPitchModal.style.display = 'block';});
 passBallButton.addEventListener('click', () => {passBallModal.style.display = 'block';});
@@ -1727,6 +1916,21 @@ runnerCheck2(linerCenterButton,linerCenterModal,linerCenterCloseButton,linerCent
 runnerCheck2(groundRightButton,groundRightModal,groundRightCloseButton,groundRighted0,groundRighted1,groundRighted2,groundRighted3,"groundRight0","groundRight1","groundRight2","groundRight3","ライトゴロ","右ゴ")
 runnerCheck2(flyRightButton,flyRightModal,flyRightCloseButton,flyRighted0,flyRighted1,flyRighted2,flyRighted3,"flyRight0","flyRight1","flyRight2","flyRight3","ライトフライ","右飛")
 runnerCheck2(linerRightButton,linerRightModal,linerRightCloseButton,linerRighted0,linerRighted1,linerRighted2,linerRighted3,"linerRight0","linerRight1","linerRight2","linerRight3","ライトライナー","右直")
+runnerCheck2(buntPitcherButton,buntPitcherModal,buntPitcherCloseButton,buntPitchered0,buntPitchered1,buntPitchered2,buntPitchered3,"buntPitcher0","buntPitcher1","buntPitcher2","buntPitcher3","ピッチャーへのバント","投犠")
+runnerCheck2(buntCatcherButton,buntCatcherModal,buntCatcherCloseButton,buntCatchered0,buntCatchered1,buntCatchered2,buntCatchered3,"buntCatcher0","buntCatcher1","buntCatcher2","buntCatcher3","キャッチャーへのバント","捕犠")
+runnerCheck2(buntFirstButton,buntFirstModal,buntFirstCloseButton,buntFirsted0,buntFirsted1,buntFirsted2,buntFirsted3,"buntFirst0","buntFirst1","buntFirst2","buntFirst3","ファーストへのバント","一犠")
+runnerCheck2(buntSecondButton,buntSecondModal,buntSecondCloseButton,buntSeconded0,buntSeconded1,buntSeconded2,buntSeconded3,"buntSecond0","buntSecond1","buntSecond2","buntSecond3","セカンドへのバント","二犠")
+runnerCheck2(buntThirdButton,buntThirdModal,buntThirdCloseButton,buntThirded0,buntThirded1,buntThirded2,buntThirded3,"buntThird0","buntThird1","buntThird2","buntThird3","サードへのバント","三犠")
+runnerCheck2(buntShortButton,buntShortModal,buntShortCloseButton,buntShorted0,buntShorted1,buntShorted2,buntShorted3,"buntShort0","buntShort1","buntShort2","buntShort3","ショートへのバント","遊犠")
+runnerCheck2(sacPitcherButton,sacPitcherModal,sacPitcherCloseButton,sacPitchered0,sacPitchered1,sacPitchered2,sacPitchered3,"sacPitcher0","sacPitcher1","sacPitcher2","sacPitcher3","ピッチャーへの犠牲フライ","投犠")
+runnerCheck2(sacCatcherButton,sacCatcherModal,sacCatcherCloseButton,sacCatchered0,sacCatchered1,sacCatchered2,sacCatchered3,"sacCatcher0","sacCatcher1","sacCatcher2","sacCatcher3","キャッチャーへの犠牲フライ","捕犠")
+runnerCheck2(sacFirstButton,sacFirstModal,sacFirstCloseButton,sacFirsted0,sacFirsted1,sacFirsted2,sacFirsted3,"sacFirst0","sacFirst1","sacFirst2","sacFirst3","ファーストへの犠牲フライ","一犠")
+runnerCheck2(sacSecondButton,sacSecondModal,sacSecondCloseButton,sacSeconded0,sacSeconded1,sacSeconded2,sacSeconded3,"sacSecond0","sacSecond1","sacSecond2","sacSecond3","セカンドへの犠牲フライ","二犠")
+runnerCheck2(sacThirdButton,sacThirdModal,sacThirdCloseButton,sacThirded0,sacThirded1,sacThirded2,sacThirded3,"sacThird0","sacThird1","sacThird2","sacThird3","サードへの犠牲フライ","三犠")
+runnerCheck2(sacShortButton,sacShortModal,sacShortCloseButton,sacShorted0,sacShorted1,sacShorted2,sacShorted3,"sacShort0","sacShort1","sacShort2","sacShort3","ショートへの犠牲フライ","遊犠")
+runnerCheck2(sacLeftButton,sacLeftModal,sacLeftCloseButton,sacLefted0,sacLefted1,sacLefted2,sacLefted3,"sacLeft0","sacLeft1","sacLeft2","sacLeft3","レフトへの犠牲フライ","左犠")
+runnerCheck2(sacCenterButton,sacCenterModal,sacCenterCloseButton,sacCentered0,sacCentered1,sacCentered2,sacCentered3,"sacCenter0","sacCenter1","sacCenter2","sacCenter3","センターへの犠牲フライ","中犠")
+runnerCheck2(sacRightButton,sacRightModal,sacRightCloseButton,sacRighted0,sacRighted1,sacRighted2,sacRighted3,"sacRight0","sacRight1","sacRight2","sacRight3","ライトへの犠牲フライ","右犠")
 runnerCheck3(stealButton,stealModal,stealCloseButton,stealed1,stealed2,stealed3,"steal1","steal2","steal3","盗塁")
 runnerCheck3(wildPitchButton,wildPitchModal,wildPitchCloseButton,wildPitched1,wildPitched2,wildPitched3,"wildPitch1","wildPitch2","wildPitch3","ワイルドピッチ")
 runnerCheck3(passBallButton,passBallModal,passBallCloseButton,passBalled1,passBalled2,passBalled3,"passBall1","passBall2","passBall3","パスボール")
@@ -1775,6 +1979,21 @@ function allPullDownChange(){
   pullDownChange(groundRight1,groundRight2,groundRight3,"groundRight1","groundRight2","groundRight3")
   pullDownChange(flyRight1,flyRight2,flyRight3,"flyRight1","flyRight2","flyRight3")
   pullDownChange(linerRight1,linerRight2,linerRight3,"linerRight1","linerRight2","linerRight3")
+  pullDownChange(buntPitcher1,buntPitcher2,buntPitcher3,"buntPitcher1","buntPitcher2","buntPitcher3")
+  pullDownChange(buntCatcher1,buntCatcher2,buntCatcher3,"buntCatcher1","buntCatcher2","buntCatcher3")
+  pullDownChange(buntFirst1,buntFirst2,buntFirst3,"buntFirst1","buntFirst2","buntFirst3")
+  pullDownChange(buntSecond1,buntSecond2,buntSecond3,"buntSecond1","buntSecond2","buntSecond3")
+  pullDownChange(buntThird1,buntThird2,buntThird3,"buntThird1","buntThird2","buntThird3")
+  pullDownChange(buntShort1,buntShort2,buntShort3,"buntShort1","buntShort2","buntShort3")
+  pullDownChange(sacPitcher1,sacPitcher2,sacPitcher3,"sacPitcher1","sacPitcher2","sacPitcher3")
+  pullDownChange(sacCatcher1,sacCatcher2,sacCatcher3,"sacCatcher1","sacCatcher2","sacCatcher3")
+  pullDownChange(sacFirst1,sacFirst2,sacFirst3,"sacFirst1","sacFirst2","sacFirst3")
+  pullDownChange(sacSecond1,sacSecond2,sacSecond3,"sacSecond1","sacSecond2","sacSecond3")
+  pullDownChange(sacThird1,sacThird2,sacThird3,"sacThird1","sacThird2","sacThird3")
+  pullDownChange(sacShort1,sacShort2,sacShort3,"sacShort1","sacShort2","sacShort3")
+  pullDownChange(sacLeft1,sacLeft2,sacLeft3,"sacLeft1","sacLeft2","sacLeft3")
+  pullDownChange(sacCenter1,sacCenter2,sacCenter3,"sacCenter1","sacCenter2","sacCenter3")
+  pullDownChange(sacRight1,sacRight2,sacRight3,"sacRight1","sacRight2","sacRight3")
   pullDownChange(steal1,steal2,steal3,"steal1","steal2","steal3")
   pullDownChange(wildPitch1,wildPitch2,wildPitch3,"wildPitch1","wildPitch2","wildPitch3")
   pullDownChange(passBall1,passBall2,passBall3,"passBall1","passBall2","passBall3")

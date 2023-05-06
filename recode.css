@@ -172,7 +172,7 @@ button {
 }
 
 .next {
-	background-color: orange;
+	background-color: blueviolet;
 }
 
 .triangle-down {
@@ -258,6 +258,24 @@ button {
 
 .out3 {
 	background-color: skyblue;
+	color: white;
+	font-size: 24px;
+	padding: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.bunt1 {
+	background-color: orange;
+	color: white;
+	font-size: 24px;
+	padding: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.sac1 {
+	background-color: orange;
 	color: white;
 	font-size: 24px;
 	padding: 10px;

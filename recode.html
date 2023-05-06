@@ -2292,7 +2292,7 @@
     <div class="modal-content">
       <div class="position-select">
         <div class="label">
-          <p>ピッチャー：</p>
+          <p>投手：</p>
         </div>
         <label class="toggle-button">
           <input type="checkbox" class="toggle-button-checkbox">
@@ -2301,7 +2301,7 @@
       </div>
       <div class="position-select">
         <div class="label">
-          <p>キャッチャー：</p>
+          <p>捕手：</p>
         </div>
         <label class="toggle-button">
           <input type="checkbox" class="toggle-button-checkbox">
@@ -2310,7 +2310,7 @@
       </div>
       <div class="position-select">
         <div class="label">
-          <p>ファースト：</p>
+          <p>一塁手：</p>
         </div>
         <label class="toggle-button">
           <input type="checkbox" class="toggle-button-checkbox">
@@ -2319,7 +2319,7 @@
       </div>      
       <div class="position-select">
         <div class="label">
-          <p>セカンド：</p>
+          <p>二塁手：</p>
         </div>
         <label class="toggle-button">
           <input type="checkbox" class="toggle-button-checkbox">
@@ -2328,7 +2328,7 @@
       </div>
       <div class="position-select">
         <div class="label">
-          <p>サード：</p>
+          <p>三塁手：</p>
         </div>
         <label class="toggle-button">
           <input type="checkbox" class="toggle-button-checkbox">
@@ -2337,7 +2337,7 @@
       </div>
       <div class="position-select">
         <div class="label">
-          <p>ショート：</p>
+          <p>遊撃手：</p>
         </div>
         <label class="toggle-button">
           <input type="checkbox" class="toggle-button-checkbox">
@@ -2346,7 +2346,7 @@
       </div>
       <div class="position-select">
         <div class="label">
-          <p>レフト：</p>
+          <p>左翼手：</p>
         </div>
         <label class="toggle-button">
           <input type="checkbox" class="toggle-button-checkbox">
@@ -2355,7 +2355,7 @@
       </div>
       <div class="position-select">
         <div class="label">
-          <p>センター：</p>
+          <p>中堅手：</p>
         </div>
         <label class="toggle-button">
           <input type="checkbox" class="toggle-button-checkbox">
@@ -2364,7 +2364,7 @@
       </div>
       <div class="position-select">
         <div class="label">
-          <p>ライト：</p>
+          <p>右翼手：</p>
         </div>
         <label class="toggle-button">
           <input type="checkbox" class="toggle-button-checkbox">
@@ -2375,6 +2375,768 @@
     </div>
   </div>
   
+  <button class="bunt1" id="bunt1" type="button">犠打</button>
+  <div id="buntModal" class="modal">
+		<div class="modal-content">
+      <button class="pitcher" id="bunt-pitcher" type="button">投手</button>
+      <div id="bunt-pitcher-Modal" class="modal">
+        <div class="modal-content">
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="buntPitcher0">
+                <option value="-1">アウト</option>
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="buntPitcher1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="buntPitcher2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="buntPitcher3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="bunt-pitcher-closeModal">OK</button>
+        </div>
+      </div>
+      <button class="catcher" id="bunt-catcher" type="button">捕手</button>
+      <div id="bunt-catcher-Modal" class="modal">
+        <div class="modal-content">
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="buntCatcher0">
+                <option value="-1">アウト</option>
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="buntCatcher1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="buntCatcher2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="buntCatcher3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="bunt-catcher-closeModal">OK</button>
+        </div>
+      </div>
+      <button class="infield" id="bunt-first" type="button">一塁手</button>
+      <div id="bunt-first-Modal" class="modal">
+        <div class="modal-content">
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="buntFirst0">
+                <option value="-1">アウト</option>
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="buntFirst1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="buntFirst2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="buntFirst3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="bunt-first-closeModal">OK</button>
+        </div>
+      </div>
+      <button class="infield" id="bunt-second" type="button">二塁手</button>
+      <div id="bunt-second-Modal" class="modal">
+        <div class="modal-content">
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="buntSecond0">
+                <option value="-1">アウト</option>
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="buntSecond1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="buntSecond2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="buntSecond3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="bunt-second-closeModal">OK</button>
+        </div>
+      </div>
+      <button class="infield" id="bunt-third" type="button">三塁手</button>
+      <div id="bunt-third-Modal" class="modal">
+        <div class="modal-content">
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="buntThird0">
+                <option value="-1">アウト</option>
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="buntThird1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="buntThird2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="buntThird3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="bunt-third-closeModal">OK</button>
+        </div>
+      </div>
+      <button class="infield" id="bunt-short" type="button">遊撃手</button>
+      <div id="bunt-short-Modal" class="modal">
+        <div class="modal-content">
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="buntShort0">
+                <option value="-1">アウト</option>
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="buntShort1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="buntShort2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="buntShort3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="bunt-short-closeModal">OK</button>
+        </div>
+      </div>
+		</div>
+	</div>
+
+  <button class="sac1" id="sac1" type="button">犠飛</button>
+  <div id="sacModal" class="modal">
+		<div class="modal-content">
+      <button class="pitcher" id="sac-pitcher" type="button">投手</button>
+      <div id="sac-pitcher-Modal" class="modal">
+        <div class="modal-content">
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="sacPitcher0">
+                <option value="-1">アウト</option>
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacPitcher1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacPitcher2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacPitcher3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="sac-pitcher-closeModal">OK</button>
+        </div>
+      </div>
+      <button class="catcher" id="sac-catcher" type="button">捕手</button>
+      <div id="sac-catcher-Modal" class="modal">
+        <div class="modal-content">
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="sacCatcher0">
+                <option value="-1">アウト</option>
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacCatcher1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacCatcher2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacCatcher3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="sac-catcher-closeModal">OK</button>
+        </div>
+      </div>
+      <button class="infield" id="sac-first" type="button">一塁手</button>
+      <div id="sac-first-Modal" class="modal">
+        <div class="modal-content">
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="sacFirst0">
+                <option value="-1">アウト</option>
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacFirst1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacFirst2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacFirst3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="sac-first-closeModal">OK</button>
+        </div>
+      </div>
+      <button class="infield" id="sac-second" type="button">二塁手</button>
+      <div id="sac-second-Modal" class="modal">
+        <div class="modal-content">
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="sacSecond0">
+                <option value="-1">アウト</option>
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacSecond1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacSecond2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacSecond3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="sac-second-closeModal">OK</button>
+        </div>
+      </div>
+      <button class="infield" id="sac-third" type="button">三塁手</button>
+      <div id="sac-third-Modal" class="modal">
+        <div class="modal-content">
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="sacThird0">
+                <option value="-1">アウト</option>
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacThird1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacThird2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacThird3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="sac-third-closeModal">OK</button>
+        </div>
+      </div>
+      <button class="infield" id="sac-short" type="button">遊撃手</button>
+      <div id="sac-short-Modal" class="modal">
+        <div class="modal-content">
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="sacShort0">
+                <option value="-1">アウト</option>
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacShort1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacShort2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacShort3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="sac-short-closeModal">OK</button>
+        </div>
+      </div>
+      <button class="outfield" id="sac-left" type="button">左翼手</button>
+      <div id="sac-left-Modal" class="modal">
+        <div class="modal-content">
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="sacLeft0">
+                <option value="-1">アウト</option>
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacLeft1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacLeft2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacLeft3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="sac-left-closeModal">OK</button>
+        </div>
+      </div>
+      <button class="outfield" id="sac-center" type="button">中堅手</button>
+      <div id="sac-center-Modal" class="modal">
+        <div class="modal-content">
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="sacCenter0">
+                <option value="-1">アウト</option>
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacCenter1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacCenter2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacCenter3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="sac-center-closeModal">OK</button>
+        </div>
+      </div>
+      <button class="outfield" id="sac-right" type="button">右翼手</button>
+      <div id="sac-right-Modal" class="modal">
+        <div class="modal-content">
+          <div class="runner-select">
+            <div>
+              <p>打者走者：</p>
+            </div>
+            <div>
+              <select class="selectRunner" id="sacRight0">
+                <option value="-1">アウト</option>
+                <option value=1>1塁</option>
+                <option value=2>2塁</option>
+                <option value=3>3塁</option>
+                <option value=4>得点</option>
+              </select>
+            </div>
+          </div>
+          <div class="runner-select">
+            <div>
+          <p>1塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacRight1">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>2塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacRight2">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <div class="runner-select">
+            <div>
+          <p>3塁走者：</p>
+        </div>
+        <div>
+          <select class="selectRunner" id="sacRight3">
+            <option value=0>-</option>
+          </select>
+        </div>
+      </div>
+          <button class="closeModal" id="sac-right-closeModal">OK</button>
+        </div>
+      </div>
+		</div>
+	</div>
+
   <button class="walk" id="deadball" type="button">死球</button>
   <button class="walk" id="fourball" type="button">申告敬遠</button>
   <button class="next" id="next" type="button">ランナー</button>

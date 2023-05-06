@@ -589,10 +589,10 @@ function count(buttonId,position,positiontext) {;//見逃し・空振りボタ�
           playerShowing1.innerHTML = playerName1[battercurrentIndex1]
           resultShowing.innerHTML = position + "三振！ " + "3アウトチェンジ"
           playerResultShowing2.innerHTML = ""
-          playerResultShowing2.innerHTML = playerResult2[battercurrentIndex2]
+          playerResultShowing1.innerHTML = playerResult1[battercurrentIndex1]
         } else {
           playerShowing2.innerHTML = playerName2[battercurrentIndex2]
-          playerResultShowing1.innerHTML = playerResult1[battercurrentIndex1]
+          playerResultShowing2.innerHTML = playerResult2[battercurrentIndex2]
         }
       }
       outcount()

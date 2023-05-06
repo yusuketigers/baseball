@@ -48,11 +48,8 @@ table {
 	display: flex;
 	justify-content: space-around;
 	text-align: center;
-  }
+	} 
   
-  
-  
-
 /* 野球カウント全体のスタイル */
 #count-display {
 	display: flex;

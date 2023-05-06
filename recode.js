@@ -2028,3 +2028,8 @@ errorCloseButton.onclick = function() {//エラーの記録
   }
   allModalNone()
 }
+
+backButton=document.querySelector('.back-to-top');
+backButton.onclick = function() {
+  window.location.href = "toppage.html"
+}

@@ -453,3 +453,16 @@ button {
   .toggle-button-checkbox:checked + .toggle-button-label:after {
 	transform: translateX(26px);
   }
+
+  .back-to-top {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background-color: gray;
+	color: white;
+	padding: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 150px;
+	font-size: 12px;
+  }

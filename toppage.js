@@ -50,3 +50,7 @@ function addRecordButton(title) {
   button.addEventListener("click", handleRecordButtonClick); // クリックイベントを設定
   recordButtonsDiv.appendChild(button);
 }
+
+function redirectToScorePage() {
+  window.location.href = "score.html";
+}

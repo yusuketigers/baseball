@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>メイクテンパズル判定アプリ</title>
+  <style>
+    .input-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .input-container input {
+      margin-right: 5px;
+    }
+    #result {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>メイクテンパズル判定アプリ</h1>
+  
+  <div class="input-container">
+    <input type="number" id="number1" min="1" max="9" required>
+    <input type="number" id="number2" min="1" max="9" required>
+    <input type="number" id="number3" min="1" max="9" required>
+    <input type="number" id="number4" min="1" max="9" required>
+    <button onclick="calculate()">判定</button>
+  </div>
+  
+  <div id="result"></div>
+
+  <script src="make-ten.js"></script>
+</body>
+</html>

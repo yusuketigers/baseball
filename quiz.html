@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px;
+        }
+
+        tr:nth-child(n+2) td:nth-child(2) {
+            color: white;
+        }
+
+        td:nth-child(3) button {
+            background-color: lightgray;
+        }
+
+        td:nth-child(3) button.clicked {
+            background-color: gray;
+        }
+
+        td:nth-child(3) button.clicked ~ td:nth-child(2) {
+            color: black;
+        }
+    </style>
+    <script>
+        function toggleColor2() {
+            var button = document.getElementById("answer-button");
+            var cell = document.getElementById("cell-2");
+
+            if (button.classList.contains("clicked")) {
+                button.classList.remove("clicked");
+                cell.style.color = "white";
+            } else {
+                button.classList.add("clicked");
+                cell.style.color = "black";
+            }
+        }
+        function toggleColor3() {
+            var button = document.getElementById("answer-button");
+            var cell = document.getElementById("cell-3");
+
+            if (button.classList.contains("clicked")) {
+                button.classList.remove("clicked");
+                cell.style.color = "white";
+            } else {
+                button.classList.add("clicked");
+                cell.style.color = "black";
+            }
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>問題</th>
+            <th>解答</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>日本一高い山は？</td>
+            <td id="cell-2">富士山</td>
+            <td><button id="answer-button" onclick="toggleColor2()">解答</button></td>
+        </tr>
+        <tr>
+            <td>世界一高い山は？</td>
+            <td id="cell-3">エベレスト</td>
+            <td><button  id="answer-button" onclick="toggleColor3()">解答</button></td>
+        </tr>
+        <tr>
+            <td>Cell 7</td>
+            <td>Cell 8</td>
+            <td><button>解答</button></td>
+        </tr>
+    </table>
+</body>
+</html>

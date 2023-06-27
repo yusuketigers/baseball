@@ -13,7 +13,7 @@
             padding: 10px;
         }
 
-        tr:nth-child(n+2) td:nth-child(2) {
+        tr:nth-child(n+2) td:nth-child(3) {
             color: white;
         }
 
@@ -21,30 +21,11 @@
             background-color: lightgray;
         }
 
-        td:nth-child(3) button.clicked {
-            background-color: gray;
-        }
-
-        td:nth-child(3) button.clicked ~ td:nth-child(2) {
-            color: black;
-        }
     </style>
     <script>
-        function toggleColor2() {
-            var button = document.getElementById("answer-button");
-            var cell = document.getElementById("cell-2");
-
-            if (button.classList.contains("clicked")) {
-                button.classList.remove("clicked");
-                cell.style.color = "white";
-            } else {
-                button.classList.add("clicked");
-                cell.style.color = "black";
-            }
-        }
-        function toggleColor3() {
-            var button = document.getElementById("answer-button");
-            var cell = document.getElementById("cell-3");
+        function toggleColor(num) {
+            var button = document.getElementById(num);
+            var cell = document.getElementById(num);
 
             if (button.classList.contains("clicked")) {
                 button.classList.remove("clicked");
@@ -59,24 +40,28 @@
 <body>
     <table>
         <tr>
+            <th></th>
             <th>問題</th>
             <th>解答</th>
-            <th></th>
+            <th>表示/非表示</th>
         </tr>
         <tr>
+            <td>1</td>
             <td>日本一高い山は？</td>
-            <td id="cell-2">富士山</td>
-            <td><button id="answer-button" onclick="toggleColor2()">解答</button></td>
+            <td id="1">富士山</td>
+            <td><button id="1" onclick="toggleColor(1)">解答</button></td>
         </tr>
         <tr>
+            <td>2</td>
             <td>世界一高い山は？</td>
-            <td id="cell-3">エベレスト</td>
-            <td><button  id="answer-button" onclick="toggleColor3()">解答</button></td>
+            <td id="2">エベレスト</td>
+            <td><button id="2" onclick="toggleColor(2)">解答</button></td>
         </tr>
         <tr>
+            <td>3</td>
             <td>Cell 7</td>
-            <td>Cell 8</td>
-            <td><button>解答</button></td>
+            <td id="3">Cell 8</td>
+            <td><button id="3" onclick="toggleColor(3)">解答</button></td>
         </tr>
     </table>
 </body>
